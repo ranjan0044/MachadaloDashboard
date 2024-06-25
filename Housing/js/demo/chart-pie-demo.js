@@ -7,7 +7,7 @@ var ctxPie = document.getElementById("myPieChart").getContext('2d');
     var myPieChart = new Chart(ctxPie, {
       type: 'pie',
       data: {
-        labels: ["Connectivity", "Maintenance", "Construction", "People Friendliness", "Amenities"],
+         labels: ["Connectivity", "Maintenance", "Construction", "People Friendliness", "Amenities"],
         datasets: [{
           // label: "Overall Ratings",
           data: [
@@ -32,7 +32,7 @@ var ctxPie = document.getElementById("myPieChart").getContext('2d');
       options: {
         responsive: true,
         legend: {
-          position: 'bottom',
+          position: 'right',
         },
         title: {
           display: true,
