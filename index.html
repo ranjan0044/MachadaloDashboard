@@ -70,7 +70,7 @@
         width: 200px;
     }
 
-    #dropdownInput {
+    #cityDropdownInput {
         width: 100%;
         padding: 10px;
         box-sizing: border-box;
@@ -86,16 +86,16 @@
         z-index: 1;
     }
 
-    .dropdown-item {
+    .dropdown-item-city {
         padding: 10px;
         cursor: pointer;
     }
 
-    .dropdown-item:hover {
+    .dropdown-item-city:hover {
         background-color: #f1f1f1;
     }
 
-    .dropdown-item.hidden {
+    .dropdown-item-city.hidden {
         display: none;
     }
 </style>
@@ -388,7 +388,7 @@
                             <option value="" disabled selected>Select City</option>
                         </select> -->
                         <div class="dropdown">
-                            <input type="text" id="dropdownInput" value="" placeholder="Search City...">
+                            <input type="text" id="cityDropdownInput" value="" placeholder="Search City...">
                             <div id="citySelector" class="dropdown-menu">
                             </div>
                         </div>
@@ -779,28 +779,29 @@
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
     <script src="js/demo/chart-bar-demo.js"></script>
+    <!-- <script src = "js/dropdown.js"></script> -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             fetchCSVData();
-            const dropdownInput = document.getElementById('dropdownInput');
+            const cityDropdownInput = document.getElementById('cityDropdownInput');
             const citySelector = document.getElementById('citySelector');
-            const dropdownItems = citySelector.getElementsByClassName('dropdown-item');
+            const dropdownItems = citySelector.getElementsByClassName('dropdown-item-city');
 
             // Show dropdown menu when input is focused
-            dropdownInput.addEventListener('focus', function () {
+            cityDropdownInput.addEventListener('focus', function () {
                 citySelector.style.display = 'block';
             });
 
             // Hide dropdown menu when clicking outside
             document.addEventListener('click', function (event) {
-                if (!dropdownInput.contains(event.target) && !citySelector.contains(event.target)) {
+                if (!cityDropdownInput.contains(event.target) && !citySelector.contains(event.target)) {
                     citySelector.style.display = 'none';
                 }
             });
 
             // Filter dropdown items based on input
-            dropdownInput.addEventListener('input', function () {
-                const filter = dropdownInput.value.toLowerCase();
+            cityDropdownInput.addEventListener('input', function () {
+                const filter = cityDropdownInput.value.toLowerCase();
                 for (let i = 0; i < dropdownItems.length; i++) {
                     const item = dropdownItems[i];
                     const text = item.textContent.toLowerCase();
@@ -813,7 +814,7 @@
             });
             for (let i = 0; i < dropdownItems.length; i++) {
                 dropdownItems[i].addEventListener('click', function () {
-                    dropdownInput.value = dropdownItems[i].textContent;
+                    cityDropdownInput.value = dropdownItems[i].textContent;
                     citySelector.style.display = 'none';
                 });
             }
@@ -821,8 +822,6 @@
 
         const citySelector = document.getElementById('citySelector');
         const societySelector = document.getElementById('societySelector');
-        const infoSection = document.getElementById('info');
-        const commentsSection = document.getElementById('comments');
         //   const commentsTable = document.getElementById('commentsTable').getElementsByTagName('tbody')[0];
 
         const csvData = [];
@@ -867,6 +866,11 @@
 
         function populateCitySelector(cities) {
             // cities = [...new Set(csvData.map(entry => entry.City))].filter(city => city);
+            // createSearchableDropdown('cityDropdown', ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix'], function (selectedItem) {
+            //     console.log('Selected city:', selectedItem);
+            //     // You can add further actions based on the selected item
+            // });
+
             cities.forEach(city => {
                 // const option = document.createElement('option');
                 // option.value = city;
@@ -874,12 +878,12 @@
                 // citySelector.appendChild(option);
                 const div = document.createElement('div');
                 div.textContent = city;
-                div.classList.add('dropdown-item'); // Add a class for styling if needed
+                div.classList.add('dropdown-item-city'); // Add a class for styling if needed
                 citySelector.appendChild(div);
                 div.addEventListener('click', function () {
-                    const dropdownInput = document.getElementById('dropdownInput');
+                    const cityDropdownInput = document.getElementById('cityDropdownInput');
                     const newValue = city || ''; // Example value to set
-                    dropdownInput.value = newValue;
+                    cityDropdownInput.value = newValue;
                     citySelector.style.display = 'none';
                     handleCityChange(city)
                 });
