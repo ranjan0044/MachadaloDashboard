@@ -28,7 +28,7 @@ Chart.plugins.register({
             var meta = chart.getDatasetMeta(i);
             if (!meta.hidden) {
                 meta.data.forEach(function (element, index) {
-                    ctx.fillStyle = 'rgb(0, 0, 0)';
+                    ctx.fillStyle = '#000000';
                     var fontSize = 16;
                     var fontStyle = 'normal';
                     var fontFamily = 'Helvetica Neue';
@@ -68,7 +68,8 @@ var commonOptions = {
                 drawBorder: false
             },
             ticks: {
-                maxTicksLimit: 3
+                maxTicksLimit: 3,
+                 fontColor: '#0000FF'
             },
             maxBarThickness: 25,
         }],
@@ -80,11 +81,11 @@ var commonOptions = {
                 padding: 10,
                 callback: function (value, index, values) {
                     return number_format(value);
-                }
+                },
             },
             gridLines: {
                 color: "rgb(234, 236, 244)",
-                zeroLineColor: "rgb(234, 236, 244)",
+                zeroLineColor: "#000000",
                 drawBorder: false,
                 borderDash: [2],
                 zeroLineBorderDash: [2]
@@ -96,11 +97,11 @@ var commonOptions = {
     },
     tooltips: {
         titleMarginBottom: 10,
-        titleFontColor: '#6e707e',
+        titleFontColor: '#000000',
         titleFontSize: 14,
         backgroundColor: "rgb(255,255,255)",
-        bodyFontColor: "#858796",
-        borderColor: '#dddfeb',
+        bodyFontColor: "#000000",
+        borderColor: '#000',
         borderWidth: 1,
         xPadding: 15,
         yPadding: 15,
