@@ -1,11 +1,76 @@
 .machadalo-select-box{
-    width: 100%;
+  width: 100%;
 }
 
 label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: bold;
-  font-size: 14px;
-  color: #333;
+display: block;
+margin-bottom: 8px;
+font-weight: bold;
+font-size: 14px;
+color: #333;
+}
+
+.chart-container {
+position: relative;
+height: 60vh; /* Responsive height, adjust as necessary */
+width: 100%;
+}
+
+
+.hover-tooltip {
+position: relative;
+cursor: pointer;
+}
+
+.tooltip-text {
+position: absolute;
+top: 100%;
+left: 50%;
+transform: translateX(-50%);
+background-color: rgba(0, 0, 0, 0.8);
+color: white;
+padding: 10px;
+border-radius: 5px;
+font-size: 14px;
+line-height: 1.5;
+white-space: normal;
+opacity: 0;
+pointer-events: none;
+transition: opacity 0.3s ease;
+z-index: 1; /* Ensure tooltip appears above other content */
+}
+
+.tooltip-text ul {
+list-style-type: none;
+padding: 0;
+margin: 0;
+}
+
+.tooltip-text ul li {
+margin-bottom: 5px;
+}
+
+.hover-tooltip:hover .tooltip-text {
+opacity: 1;
+}
+
+
+.tooltip-text {
+position: absolute;
+top: 68%;
+left: 28%; 
+transform: translateY(-50%);
+background-color: rgba(10, 10, 10, 0.8);
+color: white;
+padding: 5px 10px;
+border-radius: 5px;
+font-size: 12px;
+white-space: nowrap;
+opacity: 0;
+pointer-events: none;
+transition: opacity 0.3s ease;
+}
+
+.hover-tooltip:hover .tooltip-text {
+opacity: 1;
 }

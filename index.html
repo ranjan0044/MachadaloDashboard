@@ -13,12 +13,9 @@
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-
-    <!-- Custom styles for this template-->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 <style>
@@ -97,76 +94,26 @@
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Components</span>
                 </a>
-                <!-- <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
-                    </div>
-                </div> -->
+               
             </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <!-- <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
-                    </div>
-                </div>
-            </li> -->
-
-            <!-- Divider -->
             <hr class="sidebar-divider">
 
             <!-- Heading -->
             <div class="sidebar-heading">
                 Addons
             </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <!-- <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
+            <li class="nav-item">
+                <a class="nav-link" href="WebForm.html">
+                    <i class="fas fa-fw fa-file-alt"></i>
+                    <span>Fill Survery</span>
                 </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
-            </li> -->
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
             </li>
-
-            <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
+                <a class="nav-link" href="ReferralPage.html">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>My Referral</span>
+                </a>
+            </li>   
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -175,16 +122,6 @@
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
-
-            <!-- Sidebar Message -->
-            <!-- <div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-                <p class="text-center mb-2"><strong>Machadalo Pro</strong> is packed with premium features, components,
-                    and more!</p>
-                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to
-                    Pro!</a>
-            </div> -->
-
         </ul>
         <!-- End of Sidebar -->
 
@@ -399,9 +336,9 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <select id="citySelector" class="btn btn-outline-primary" onchange="handleCityChange(this.value)">
-                            <option value="" disabled selected>Select City</option>
-                        </select>
+                            <select id="citySelector" class="btn btn-outline-primary" onchange="handleCityChange(this.value)">
+                                <option value="" disabled selected>Select City</option>
+                            </select>
                         <select id="societySelector" class="btn btn-outline-primary" onchange="handleSocietyChange(this.value)" disabled="true">
                             <option value="" class="bg-light" selected>Select Society</option>
                         </select>
@@ -414,7 +351,7 @@
                     <div class="row">
 
                         <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-6 col-md-6 mb-4">
+                        <!-- <div class="col-xl-6 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -429,10 +366,10 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-6 col-md-6 mb-4">
+                        <!-- <div class="col-xl-6 col-md-6 mb-4">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -447,7 +384,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- Earnings (Monthly) Card Example -->
                         <!-- <div class="col-xl-3 col-md-3 mb-4">
@@ -500,49 +437,135 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Society vs City vs PAN India</h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <h4 class="text-primary text-center">Connectivity Graph</h4>
-                                            <div class="chart-bar">
-                                                <canvas id="connectivityChart"></canvas>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <h4 class="text-primary text-center">Maintainance Graph</h4>
-                                            <div class="chart-bar">
-                                                <canvas id="maintenanceChart"></canvas>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br><hr>
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <h4 class="text-primary text-center">Construction Graph</h4>
-                                            <div class="chart-bar">
-                                                <canvas id="constructionChart"></canvas>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <h4 class="text-primary text-center">Amenities Graph</h4>
-                                            <div class="chart-bar">
-                                                <canvas id="amenitiesChart"></canvas>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br><hr>
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <h4 class="text-primary text-center">PeopleFriendliness Graph</h4>
-                                            <div class="chart-bar">
-                                                <canvas id="peopleFriendlinessChart"></canvas>
-                                            </div>
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h4 class="m-0 font-weight-bold text-primary">Benchmarking Report</h4>
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                            aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-header">Chart Types:</div>
+                                            <a class="dropdown-item" href="#">Line Chart</a>
+                                            <a class="dropdown-item" href="#">Benchmarking Report</a>
+                                            <a class="dropdown-item" href="#">Overall Report</a>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <h6 class="text-primary text-center hover-tooltip">
+                                            Connectivity Graph
+                                            <span class="tooltip-text">
+                                                <ul>
+                                                    <li>Public transport: Bus Stand, Railway Station, Sharing Ricksaw</li>
+                                                    <li>Autos and Cabs easily available: Ola, Uber, Rapido</li>
+                                                    <li>Wide roads</li>
+                                                    <li>Manageable traffic</li>
+                                                    <li>Market area</li>
+                                                    <li>Enough parking space</li>
+                                                    <li>Delivery App: Blinkit, Zepto, Swiggy Instamart</li>
+                                                    <li>School</li>
+                                                    <li>Mall & Restaurant</li>
+                                                    <li>No water logging on roads</li>
+                                                </ul>
+                                            </span>
+                                        </h6>
+                                        <div class="chart-bar">
+                                            <canvas id="connectivityChart"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <h6 class="text-primary text-center hover-tooltip">
+                                            Maintenance Graph
+                                            <span class="tooltip-text">
+                                                <ul>
+                                                    <li>Water supply</li>
+                                                    <li>Power backup available ( Generators / Inverters )</li>
+                                                    <li>Power cuts</li>
+                                                    <li>Garbage collection outside the Society</li>
+                                                    <li>Good hygiene measures, Cleanliness </li>
+                                                    <li>Maintenance charges</li>
+                                                    <li>Painting and waterproofing</li>
+                                                    <li>Elevator maintenance </li>
+                                                    <li>Drainage issue</li>
+                                                    <li>Basement parking has light issues, drainage issue </li>
+                                                    <li>Pesticides sprinkle timely?</li>
+                                                </ul>
+                                            </span>
+                                        </h6>
+                                        <div class="chart-bar">
+                                            <canvas id="maintenanceChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br><hr>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <h6 class="text-primary text-center hover-tooltip">
+                                            Construction Graph
+                                            <span class="tooltip-text">
+                                                <ul>
+                                                    <li>Weak walls and pillars.</li>
+                                                    <li>Poor quality plaster and fitting</li>
+                                                    <li>Seepage issues</li>
+                                                    <li>Conjusted buildings</li>
+                                                    <li>Balcony</li>
+                                                    <li>Building strength  for Natural Disasters (Earthquakes, Floods)</li>
+                                                    <li>Safety feaures at Entrance and Exit gate</li>
+                                                    <li>Clear Emergency exits, Fire safety features</li>
+                                                </ul>
+                                            </span>
+                                        </h6>
+                                        <div class="chart-bar">
+                                            <canvas id="constructionChart"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <h6 class="text-primary text-center hover-tooltip">
+                                            Amenities Graph
+                                            <span class="tooltip-text">
+                                                <ul>
+                                                    <li>Lot of open space</li>
+                                                    <li>Nice park and kids playarea</li>
+                                                    <li>Spacious gym</li>
+                                                    <li>Big lift</li>
+                                                    <li>Clubhouse</li>
+                                                    <li>Functioning pool</li>
+                                                    <li>Well lit & safe at night</li>
+                                                    <li>Swimming pools</li>
+                                                </ul>
+                                            </span>
+                                        </h6>
+                                        <div class="chart-bar">
+                                            <canvas id="amenitiesChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br><hr>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <h6 class="text-primary text-center hover-tooltip">
+                                            People Friendliness Graph
+                                            <span class="tooltip-text">
+                                                <ul>
+                                                    <li>Good celebration of festivals</li>
+                                                    <li>Frequent cultural events</li>
+                                                    <li>Understanding and good landlords</li>
+                                                    <li>Educated & decent residents</li>
+                                                    <li>Pets friendly</li>
+                                                    <li>Residents pay maintenence on time</li>
+                                                    <li>Friendly environment</li>
+                                                </ul>
+                                            </span>
+                                        </h6>
+                                        <div class="chart-bar">
+                                            <canvas id="peopleFriendlinessChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -579,9 +602,9 @@
                         <!-- Project Card Example -->
                         <div class="card shadow mb-4" id="societyCityPanIndiaProgress">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">
+                                <h4 class="m-0 font-weight-bold text-primary">
                                     Society vs City vs PAN India
-                                </h6>
+                                </h4>
                             </div>
                             <div class="card-body">
                             </div>
@@ -604,7 +627,7 @@
                             </div>
                             <!-- Card Body -->
                             <div class="card-body">
-                                <div class="chart-area">
+                                <div class="chart-area chart-container">
                                     <canvas id="myAreaChart"></canvas>
                                 </div>
                             </div>
@@ -675,7 +698,7 @@
             </div>
         </div>
     </div>
-
+    <script src="Newscript.js"></script>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
