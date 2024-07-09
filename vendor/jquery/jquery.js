@@ -510,7 +510,7 @@ var Sizzle =
  * Released under the MIT license
  * https://js.foundation/
  *
- * Date: 2021-02-16
+ * Date: 2024-02-16
  */
 ( function( window ) {
 var i,
