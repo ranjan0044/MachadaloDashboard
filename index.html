@@ -13,7 +13,9 @@
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
@@ -22,37 +24,82 @@
     /* Center align text in table cells */
     th,
     td {
-      text-align: center;
-      color: black;
+        text-align: center;
+        color: black;
     }
+
     .table-reader {
-    overflow-x: auto; /* Enable horizontal scroll */
-    max-height: 300px; /* Adjust height as needed */
-}
+        overflow-x: auto;
+        /* Enable horizontal scroll */
+        max-height: 300px;
+        /* Adjust height as needed */
+    }
 
-.table {
-    width: 100%; /* Table takes full width of container */
-    border-collapse: collapse; /* Remove spacing between cells */
-}
+    .table {
+        width: 100%;
+        /* Table takes full width of container */
+        border-collapse: collapse;
+        /* Remove spacing between cells */
+    }
 
-.thead-fixed {
-    position: sticky;
-    top: 0;
-    z-index: 1; /* Ensure it stays above table body */
-    background-color: #fff; /* Background color for the fixed header */
-}
+    .thead-fixed {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        /* Ensure it stays above table body */
+        background-color: #fff;
+        /* Background color for the fixed header */
+    }
 
-.chart-area, .chart-pie {
+    .chart-area,
+    .chart-pie {
         position: relative;
         width: 100%;
         height: auto;
     }
+
     canvas {
         display: block;
         width: 100% !important;
         height: auto !important;
     }
-  </style>
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+        width: 200px;
+    }
+
+    #dropdownInput {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        width: 100%;
+        background-color: white;
+        border: 1px solid #ccc;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 1;
+    }
+
+    .dropdown-item {
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .dropdown-item:hover {
+        background-color: #f1f1f1;
+    }
+
+    .dropdown-item.hidden {
+        display: none;
+    }
+</style>
+
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -94,7 +141,7 @@
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Components</span>
                 </a>
-               
+
             </li>
             <hr class="sidebar-divider">
 
@@ -113,7 +160,7 @@
                     <i class="fas fa-fw fa-users"></i>
                     <span>My Referral</span>
                 </a>
-            </li>   
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -336,17 +383,26 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                            <select id="citySelector" class="btn btn-outline-primary" onchange="handleCityChange(this.value)">
-                                <option value="" disabled selected>Select City</option>
-                            </select>
-                        <select id="societySelector" class="btn btn-outline-primary" onchange="handleSocietyChange(this.value)" disabled="true">
+                        <!-- <select id="citySelector" class="btn btn-outline-primary"
+                            onchange="handleCityChange(this.value)">
+                            <option value="" disabled selected>Select City</option>
+                        </select> -->
+                        <div class="dropdown">
+                            <input type="text" id="dropdownInput" value="" placeholder="Search City...">
+                            <div id="citySelector" class="dropdown-menu">
+                            </div>
+                        </div>
+
+                        <select id="societySelector" class="btn btn-outline-primary"
+                            onchange="handleSocietyChange(this.value)" disabled="true">
                             <option value="" class="bg-light" selected>Select Society</option>
                         </select>
 
 
-                        <a href="#" id="downloadButton" class="d-none d-sm-inline-block btn btn-sm btn-outline-primary shadow-sm"><i
-                            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                </div>
+                        <a href="#" id="downloadButton"
+                            class="d-none d-sm-inline-block btn btn-sm btn-outline-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                    </div>
                     <!-- Content Row -->
                     <div class="row">
 
@@ -433,11 +489,12 @@
                             </div>
                         </div> -->
                     </div>
-                    
+
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card shadow mb-4">
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h4 class="m-0 font-weight-bold text-primary">Benchmarking Report</h4>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
@@ -459,7 +516,8 @@
                                             Connectivity Graph
                                             <span class="tooltip-text">
                                                 <ul>
-                                                    <li>Public transport: Bus Stand, Railway Station, Sharing Ricksaw</li>
+                                                    <li>Public transport: Bus Stand, Railway Station, Sharing Ricksaw
+                                                    </li>
                                                     <li>Autos and Cabs easily available: Ola, Uber, Rapido</li>
                                                     <li>Wide roads</li>
                                                     <li>Manageable traffic</li>
@@ -500,7 +558,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <br><hr>
+                                <br>
+                                <hr>
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <h6 class="text-primary text-center hover-tooltip">
@@ -512,7 +571,8 @@
                                                     <li>Seepage issues</li>
                                                     <li>Conjusted buildings</li>
                                                     <li>Balcony</li>
-                                                    <li>Building strength  for Natural Disasters (Earthquakes, Floods)</li>
+                                                    <li>Building strength for Natural Disasters (Earthquakes, Floods)
+                                                    </li>
                                                     <li>Safety feaures at Entrance and Exit gate</li>
                                                     <li>Clear Emergency exits, Fire safety features</li>
                                                 </ul>
@@ -543,7 +603,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <br><hr>
+                                <br>
+                                <hr>
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <h6 class="text-primary text-center hover-tooltip">
@@ -565,78 +626,80 @@
                                         </div>
                                     </div>
                                 </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-             
 
-            <!-- <div class="container"> -->
-                <!-- Second Row: Pie Chart -->
-                 <div class="container">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <div class="card shadow mb-4">
-                            <!-- Card Header - Dropdown -->
-                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Society Rating Comparision</h6>
-                                <div class="dropdown no-arrow">
-                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                <div class="chart-pie">
-                                    <canvas id="myPieChart"></canvas>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-4">
-                        
-                        <!-- Project Card Example -->
-                        <div class="card shadow mb-4" id="societyCityPanIndiaProgress">
-                            <div class="card-header py-3">
-                                <h4 class="m-0 font-weight-bold text-primary">
-                                    Society vs City vs PAN India
-                                </h4>
-                            </div>
-                            <div class="card-body">
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- First Row: Area Chart -->
-                <div class="row">
-                    <div class="col xl-12 lg-12">
-                        <div class="card shadow mb-8">
-                            <!-- Card Header - Dropdown -->
-                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Society vs City vs Pan India</h6>
-                                <!-- <div class="dropdown no-arrow">
+
+
+                <!-- <div class="container"> -->
+                <!-- Second Row: Pie Chart -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Society Rating Comparision</h6>
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-pie">
+                                        <canvas id="myPieChart"></canvas>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-4">
+
+                            <!-- Project Card Example -->
+                            <div class="card shadow mb-4" id="societyCityPanIndiaProgress">
+                                <div class="card-header py-3">
+                                    <h4 class="m-0 font-weight-bold text-primary">
+                                        Society vs City vs PAN India
+                                    </h4>
+                                </div>
+                                <div class="card-body">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- First Row: Area Chart -->
+                    <div class="row">
+                        <div class="col xl-12 lg-12">
+                            <div class="card shadow mb-8">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Society vs City vs Pan India</h6>
+                                    <!-- <div class="dropdown no-arrow">
                                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                                     </a>
                                 </div> -->
-                            </div>
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                <div class="chart-area chart-container">
-                                    <canvas id="myAreaChart"></canvas>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-area chart-container">
+                                        <canvas id="myAreaChart"></canvas>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- </div> -->
-            
+                <!-- </div> -->
+
                 <div class="row">
                     <div class="container mt-2">
                         <div class="table-reader">
@@ -717,8 +780,43 @@
     <script src="js/demo/chart-pie-demo.js"></script>
     <script src="js/demo/chart-bar-demo.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', function () {
             fetchCSVData();
+            const dropdownInput = document.getElementById('dropdownInput');
+            const citySelector = document.getElementById('citySelector');
+            const dropdownItems = citySelector.getElementsByClassName('dropdown-item');
+
+            // Show dropdown menu when input is focused
+            dropdownInput.addEventListener('focus', function () {
+                citySelector.style.display = 'block';
+            });
+
+            // Hide dropdown menu when clicking outside
+            document.addEventListener('click', function (event) {
+                if (!dropdownInput.contains(event.target) && !citySelector.contains(event.target)) {
+                    citySelector.style.display = 'none';
+                }
+            });
+
+            // Filter dropdown items based on input
+            dropdownInput.addEventListener('input', function () {
+                const filter = dropdownInput.value.toLowerCase();
+                for (let i = 0; i < dropdownItems.length; i++) {
+                    const item = dropdownItems[i];
+                    const text = item.textContent.toLowerCase();
+                    if (text.includes(filter)) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                }
+            });
+            for (let i = 0; i < dropdownItems.length; i++) {
+                dropdownItems[i].addEventListener('click', function () {
+                    dropdownInput.value = dropdownItems[i].textContent;
+                    citySelector.style.display = 'none';
+                });
+            }
         });
 
         const citySelector = document.getElementById('citySelector');
@@ -770,10 +868,21 @@
         function populateCitySelector(cities) {
             // cities = [...new Set(csvData.map(entry => entry.City))].filter(city => city);
             cities.forEach(city => {
-                const option = document.createElement('option');
-                option.value = city;
-                option.text = city;
-                citySelector.appendChild(option);
+                // const option = document.createElement('option');
+                // option.value = city;
+                // option.text = city;
+                // citySelector.appendChild(option);
+                const div = document.createElement('div');
+                div.textContent = city;
+                div.classList.add('dropdown-item'); // Add a class for styling if needed
+                citySelector.appendChild(div);
+                div.addEventListener('click', function () {
+                    const dropdownInput = document.getElementById('dropdownInput');
+                    const newValue = city || ''; // Example value to set
+                    dropdownInput.value = newValue;
+                    citySelector.style.display = 'none';
+                    handleCityChange(city)
+                });
             });
         }
         const filterUniqueSocietiesByCity = () => {
@@ -819,10 +928,10 @@
         }
 
         function updateCounts(type, count) {
-            if (type === 'total')
-                document.getElementById('totalSurvay').innerText = count;
-            else if (type === 'society')
-                document.getElementById('socieyCount').innerText = count;
+            // if (type === 'total')
+            //     document.getElementById('totalSurvay').innerText = count;
+            // else if (type === 'society')
+            //     document.getElementById('socieyCount').innerText = count;
         }
 
         const stringToInteger = (rating) => {
@@ -891,22 +1000,22 @@
             totalConstruction = totalConstruction / csvData.length;
             totalAmenities = totalAmenities / csvData.length;
             totalPeopleFriendliness = totalPeopleFriendliness / csvData.length;
-          //  totalRatingPercentage = (totalRatingPercentage / (csvData.length * 25)) * 100;
+            //  totalRatingPercentage = (totalRatingPercentage / (csvData.length * 25)) * 100;
 
             cityConnectivity = cityConnectivity / cityCounts
             cityMaintenanceRating = cityMaintenanceRating / cityCounts;
             cityConstruction = cityConstruction / cityCounts;
             cityAmenities = cityAmenities / cityCounts;
             cityPeopleFriendliness = cityPeopleFriendliness / cityCounts;
-          //  totalCityPercentage = (totalCityPercentage / (cityCounts * 25)) * 100;
+            //  totalCityPercentage = (totalCityPercentage / (cityCounts * 25)) * 100;
 
             societyConnectivity = societyConnectivity / societyCounts
             societyMaintenanceRating = societyMaintenanceRating / societyCounts;
             societyConstruction = societyConstruction / societyCounts;
             societyAmenities = societyAmenities / societyCounts;
             societyPeopleFriendliness = societyPeopleFriendliness / societyCounts;
-           // totalSocietyPercentage = (totalSocietyPercentage / (societyCounts * 25)) * 100;
-            
+            // totalSocietyPercentage = (totalSocietyPercentage / (societyCounts * 25)) * 100;
+
 
             meanRatings = {
                 "Connectivity": { city: cityConnectivity, society: societyConnectivity, panIndia: totalConnectivity },
@@ -915,9 +1024,9 @@
                 'Amenities': { city: cityAmenities, society: societyAmenities, panIndia: totalAmenities },
                 'PeopleFriendliness': { city: cityPeopleFriendliness, society: societyPeopleFriendliness, panIndia: totalPeopleFriendliness }
             };
-            totalSocietyPercentage=(((societyConnectivity+societyMaintenanceRating+societyConstruction+societyAmenities+societyPeopleFriendliness))/25)*100;
-            totalCityPercentage=(((cityConnectivity+cityMaintenanceRating+cityConstruction+cityAmenities+cityPeopleFriendliness))/25)*100;
-            totalRatingPercentage=(((totalConnectivity+totalMaintenanceRating+totalConstruction+totalAmenities+totalPeopleFriendliness))/25)*100;
+            totalSocietyPercentage = (((societyConnectivity + societyMaintenanceRating + societyConstruction + societyAmenities + societyPeopleFriendliness)) / 25) * 100;
+            totalCityPercentage = (((cityConnectivity + cityMaintenanceRating + cityConstruction + cityAmenities + cityPeopleFriendliness)) / 25) * 100;
+            totalRatingPercentage = (((totalConnectivity + totalMaintenanceRating + totalConstruction + totalAmenities + totalPeopleFriendliness)) / 25) * 100;
 
 
             progressPercentage['society'] = totalSocietyPercentage.toFixed(2);
@@ -975,15 +1084,15 @@
     </script>
     <script>
         document.getElementById('downloadButton').addEventListener('click', function () {
-       html2canvas(document.body).then(function (canvas) {
-           var link = document.createElement('a');
-           link.href = canvas.toDataURL('image/png');
-           link.download = [`${selectedSociety}_${selectedCity}_Pan India_report`];
-           link.click();
-       });
-   });
-   </script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>  
+            html2canvas(document.body).then(function (canvas) {
+                var link = document.createElement('a');
+                link.href = canvas.toDataURL('image/png');
+                link.download = [`${selectedSociety}_${selectedCity}_Pan India_report`];
+                link.click();
+            });
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </body>
 
 </html>
