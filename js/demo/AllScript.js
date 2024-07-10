@@ -29,6 +29,7 @@ async function fetchCSVData() {
     parseCSV(data);
 }
 
+
 function parseCSV(data) {
     const rows = data.split(/\r?\n/);
     const headers = rows[0].split('\t');
@@ -41,6 +42,17 @@ function parseCSV(data) {
         csvData.push(rowData);
     }
     filterUniqueSocietiesByCity()
+}
+
+const updateQueryParam=(key, value)=> {
+    let currentUrl = new URL(window.location.href);
+    if (currentUrl.searchParams.has(key)) {
+        currentUrl.searchParams.set(key, value);
+    } else {
+        currentUrl.searchParams.append(key, value);
+    }
+    window.history.replaceState({}, '', currentUrl);
+    console.log(currentUrl.href);
 }
 
 function populateCitySelector(cities) {
@@ -85,6 +97,7 @@ const filterUniqueSocietiesByCity = () => {
 }
 
 function handleCityChange(city) {
+    updateQueryParam('city', city);
     selectedCity = city
     societies = uniqueSocietiesByCity[city];
     let parentElement = document.getElementById("societySelector");
@@ -108,6 +121,7 @@ function handleCityChange(city) {
 
 function handleSocietyChange(society) {
     // document.getElementById('selectedSociety').innerText = society;
+    updateQueryParam('society', society);
     selectedSociety = society
     // const selectedComments = csvData.filter(entry => entry["Society Name"] === society);
     calculateMeanRatings()
