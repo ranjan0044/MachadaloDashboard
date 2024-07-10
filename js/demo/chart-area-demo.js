@@ -28,80 +28,174 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 
 // Area Chart Example
 
-const renderAreaChar = (meanRatings) => {
-  var ctxLine = document.getElementById("myAreaChart")
-  new Chart(ctxLine, {
-    type: 'line',
-    data: {
-      labels: ["Connectivity", "Maintenance", "Construction", "People Friendliness", "Amenities"],
-      datasets: [
-        {
-          label: "Society",
-          borderColor: "rgba(78, 115, 223, 1)",
-          data: [
-            meanRatings?.Connectivity?.society?.toFixed(1),
-            meanRatings?.Maintenance?.society?.toFixed(1),
-            meanRatings?.Construction?.society?.toFixed(1),
-            meanRatings?.Amenities?.society?.toFixed(1),
-            meanRatings?.PeopleFriendliness?.society?.toFixed(1)
-          ],
-          fill: false
-        },
-        {
-          label: "City",
-          borderColor: "rgba(28, 200, 138, 1)",
-          data: [
-            meanRatings?.Connectivity?.city?.toFixed(1),
-            meanRatings?.Maintenance?.city?.toFixed(1),
-            meanRatings?.Construction?.city?.toFixed(1),
-            meanRatings?.Amenities?.city?.toFixed(1),
-            meanRatings?.PeopleFriendliness?.city?.toFixed(1)
-          ],
-          fill: false
-        },
-        {
-          label: "PAN India",
-          borderColor: "rgba(255, 193, 7, 1)",
-          data: [
-            meanRatings?.Connectivity?.panIndia?.toFixed(1),
-            meanRatings?.Maintenance?.panIndia?.toFixed(1),
-            meanRatings?.Construction?.panIndia?.toFixed(1),
-            meanRatings?.Amenities?.panIndia?.toFixed(1),
-            meanRatings?.PeopleFriendliness?.panIndia?.toFixed(1)
-          ],
-          fill: false
-        }
-      ]
-    },
-    options: {
-      responsive: true,
-      title: {
-        display: true,
-        text: 'Comparison across Categories'
-      },
-      tooltips: {
-        mode: 'index',
-        intersect: false,
-      },
-      hover: {
-        mode: 'nearest',
-        intersect: true
-      },
-      scales: {
-        xAxes: [{
-          display: true,
-          scaleLabel: {
-            display: true
-          }
-        }],
-        yAxes: [{
-          display: true,
-          scaleLabel: {
-            display: true
-          }
-        }]
-      }
-    }
-  });
+let areaChart; // Store the area chart instance
 
+const renderAreaChar = (meanRatings) => {
+    const ctxLine = document.getElementById("myAreaChart").getContext('2d');
+    const labels = ["Connectivity", "Maintenance", "Construction", "People Friendliness", "Amenities"];
+    const societyData = [
+        meanRatings?.Connectivity?.society?.toFixed(1),
+        meanRatings?.Maintenance?.society?.toFixed(1),
+        meanRatings?.Construction?.society?.toFixed(1),
+        meanRatings?.Amenities?.society?.toFixed(1),
+        meanRatings?.PeopleFriendliness?.society?.toFixed(1)
+    ];
+    const cityData = [
+        meanRatings?.Connectivity?.city?.toFixed(1),
+        meanRatings?.Maintenance?.city?.toFixed(1),
+        meanRatings?.Construction?.city?.toFixed(1),
+        meanRatings?.Amenities?.city?.toFixed(1),
+        meanRatings?.PeopleFriendliness?.city?.toFixed(1)
+    ];
+    const panIndiaData = [
+        meanRatings?.Connectivity?.panIndia?.toFixed(1),
+        meanRatings?.Maintenance?.panIndia?.toFixed(1),
+        meanRatings?.Construction?.panIndia?.toFixed(1),
+        meanRatings?.Amenities?.panIndia?.toFixed(1),
+        meanRatings?.PeopleFriendliness?.panIndia?.toFixed(1)
+    ];
+
+    if (areaChart) {
+        // Update existing area chart data
+        areaChart.data.datasets[0].data = societyData;
+        areaChart.data.datasets[1].data = cityData;
+        areaChart.data.datasets[2].data = panIndiaData;
+        areaChart.update();
+    } else {
+        // Create new area chart instance
+        areaChart = new Chart(ctxLine, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: "Society",
+                        borderColor: "rgba(78, 115, 223, 1)",
+                        data: societyData,
+                        fill: false
+                    },
+                    {
+                        label: "City",
+                        borderColor: "rgba(28, 200, 138, 1)",
+                        data: cityData,
+                        fill: false
+                    },
+                    {
+                        label: "PAN India",
+                        borderColor: "rgba(255, 193, 7, 1)",
+                        data: panIndiaData,
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                title: {
+                    display: true,
+                    text: 'Comparison across Categories'
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                hover: {
+                    mode: 'nearest',
+                    intersect: true
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true
+                        }
+                    }]
+                }
+            }
+        });
+    }
 }
+
+
+// const renderAreaChar = (meanRatings) => {
+//   var ctxLine = document.getElementById("myAreaChart")
+//   new Chart(ctxLine, {
+//     type: 'line',
+//     data: {
+//       labels: ["Connectivity", "Maintenance", "Construction", "People Friendliness", "Amenities"],
+//       datasets: [
+//         {
+//           label: "Society",
+//           borderColor: "rgba(78, 115, 223, 1)",
+//           data: [
+//             meanRatings?.Connectivity?.society?.toFixed(1),
+//             meanRatings?.Maintenance?.society?.toFixed(1),
+//             meanRatings?.Construction?.society?.toFixed(1),
+//             meanRatings?.Amenities?.society?.toFixed(1),
+//             meanRatings?.PeopleFriendliness?.society?.toFixed(1)
+//           ],
+//           fill: false
+//         },
+//         {
+//           label: "City",
+//           borderColor: "rgba(28, 200, 138, 1)",
+//           data: [
+//             meanRatings?.Connectivity?.city?.toFixed(1),
+//             meanRatings?.Maintenance?.city?.toFixed(1),
+//             meanRatings?.Construction?.city?.toFixed(1),
+//             meanRatings?.Amenities?.city?.toFixed(1),
+//             meanRatings?.PeopleFriendliness?.city?.toFixed(1)
+//           ],
+//           fill: false
+//         },
+//         {
+//           label: "PAN India",
+//           borderColor: "rgba(255, 193, 7, 1)",
+//           data: [
+//             meanRatings?.Connectivity?.panIndia?.toFixed(1),
+//             meanRatings?.Maintenance?.panIndia?.toFixed(1),
+//             meanRatings?.Construction?.panIndia?.toFixed(1),
+//             meanRatings?.Amenities?.panIndia?.toFixed(1),
+//             meanRatings?.PeopleFriendliness?.panIndia?.toFixed(1)
+//           ],
+//           fill: false
+//         }
+//       ]
+//     },
+//     options: {
+//       responsive: true,
+//       title: {
+//         display: true,
+//         text: 'Comparison across Categories'
+//       },
+//       tooltips: {
+//         mode: 'index',
+//         intersect: false,
+//       },
+//       hover: {
+//         mode: 'nearest',
+//         intersect: true
+//       },
+//       scales: {
+//         xAxes: [{
+//           display: true,
+//           scaleLabel: {
+//             display: true
+//           }
+//         }],
+//         yAxes: [{
+//           display: true,
+//           scaleLabel: {
+//             display: true
+//           }
+//         }]
+//       }
+//     }
+//   });
+
+// }
