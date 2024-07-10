@@ -1,16 +1,18 @@
-
-// Function to create a searchable dropdown
-function createSearchableDropdown(containerId, items, onSelect) {
+function createSearchableDropdown(containerId,placeholder, items, onSelect) {
     const container = document.getElementById(containerId);
 
     // Create input for search
     const input = document.createElement('input');
     input.setAttribute('type', 'text');
-    input.setAttribute('placeholder', 'Search...');
+    input.setAttribute('placeholder', placeholder);
 
     // Create dropdown menu
     const dropdownMenu = document.createElement('div');
     dropdownMenu.classList.add('dropdown-menu');
+
+    // Apply CSS style for max-height and overflow-y
+    dropdownMenu.style.maxHeight = '200px'; 
+    dropdownMenu.style.overflowY = 'auto';
 
     // Add input and dropdown menu to container
     container.appendChild(input);
@@ -20,7 +22,7 @@ function createSearchableDropdown(containerId, items, onSelect) {
     items.forEach(item => {
         const div = document.createElement('div');
         div.textContent = item;
-        div.classList.add('dropdown-item-city'); // Add a class for styling if needed
+        div.classList.add('dropdown-item-city'); 
         dropdownMenu.appendChild(div);
 
         // Handle item selection
@@ -60,6 +62,7 @@ function createSearchableDropdown(containerId, items, onSelect) {
         }
     });
 }
+
 
 // Example usage:
 // createSearchableDropdown('cityDropdown', ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix'], function(selectedItem) {
