@@ -56,7 +56,7 @@ const updateQueryParam = (key, value) => {
 }
 
 function populateCitySelector(cities) {
-    createSearchableDropdown('citySelector','City', cities, function (selectedItem) {
+    createSearchableDropdown('citySelector', 'City', cities, function (selectedItem) {
         handleCityChange(selectedItem)
     });
 
@@ -104,7 +104,7 @@ function handleCityChange(city) {
     while (parentElement.firstChild) {
         parentElement.removeChild(parentElement.firstChild);
     }
-    createSearchableDropdown('societySelector','Society' ,societies, function (selectedItem) {
+    createSearchableDropdown('societySelector', 'Society', societies, function (selectedItem) {
         handleSocietyChange(selectedItem)
     });
 
@@ -281,16 +281,20 @@ const renderTable = (data) => {
         tableBody.appendChild(row);
     });
 }
-const charTypes = [{ id: 'line-chart', label: 'Line Chart' }, { id: 'benchmarking-report', label: 'Benchmarking Report' }, { id: 'overall-report', label: 'Overall Report' }];
+const charTypes = [{ id: 'all-chart', label: 'All Chart' }, { id: 'line-chart', label: 'Line Chart' }, { id: 'benchmarking-report', label: 'Benchmarking Report' }, { id: 'overall-report', label: 'Overall Report' }];
 const handleDropdownItemClick = (event) => {
     event.preventDefault();
     const target = event.target.getAttribute('data-target');
     charTypes.forEach(type => {
         const chartContainer = document.getElementById(type.id);
-        if (chartContainer && type.id!==target) {
+        if (target === 'all-chart') {
+            if (chartContainer)
+                chartContainer.style.display = 'block';
+        } else if (chartContainer && type.id !== target) {
             chartContainer.style.display = 'none';
         } else {
-            chartContainer.style.display = 'block';
+            if (chartContainer)
+                chartContainer.style.display = 'block';
             let header = document.getElementById('chat-type-header');
             header.innerText = type.label
         }
@@ -298,7 +302,7 @@ const handleDropdownItemClick = (event) => {
 }
 charTypes.forEach(type => {
     const chartContainer = document.getElementById(type.id);
-    if (chartContainer && type.id!=='benchmarking-report') {
+    if (chartContainer && type.id !== 'benchmarking-report') {
         chartContainer.style.display = 'none';
     }
 });
