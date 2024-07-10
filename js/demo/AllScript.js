@@ -44,7 +44,7 @@ function parseCSV(data) {
     filterUniqueSocietiesByCity()
 }
 
-const updateQueryParam=(key, value)=> {
+const updateQueryParam = (key, value) => {
     let currentUrl = new URL(window.location.href);
     if (currentUrl.searchParams.has(key)) {
         currentUrl.searchParams.set(key, value);
@@ -281,3 +281,28 @@ const renderTable = (data) => {
         tableBody.appendChild(row);
     });
 }
+const charTypes = [{ id: 'line-chart', label: 'Line Chart' }, { id: 'benchmarking-report', label: 'Benchmarking Report' }, { id: 'overall-report', label: 'Overall Report' }];
+const handleDropdownItemClick = (event) => {
+    event.preventDefault();
+    const target = event.target.getAttribute('data-target');
+    charTypes.forEach(type => {
+        const chartContainer = document.getElementById(type.id);
+        if (chartContainer && type.id!==target) {
+            chartContainer.style.display = 'none';
+        } else {
+            chartContainer.style.display = 'block';
+            let header = document.getElementById('chat-type-header');
+            header.innerText = type.label
+        }
+    });
+}
+charTypes.forEach(type => {
+    const chartContainer = document.getElementById(type.id);
+    if (chartContainer && type.id!=='benchmarking-report') {
+        chartContainer.style.display = 'none';
+    }
+});
+const dropdownItems = document.getElementById('chart-type-dropdown').querySelectorAll('.dropdown-item');
+dropdownItems.forEach(item => {
+    item.addEventListener('click', handleDropdownItemClick);
+});
