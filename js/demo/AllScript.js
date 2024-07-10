@@ -287,6 +287,12 @@ const handleDropdownItemClick = (event) => {
     const target = event.target.getAttribute('data-target');
     charTypes.forEach(type => {
         const chartContainer = document.getElementById(type.id);
+        // if(target==='all-report'){
+        //     if(chartContainer){
+        //         chartContainer.style.display = 'block';
+        //     }
+           
+        // }
         if (chartContainer && type.id!==target) {
             chartContainer.style.display = 'none';
         } else {
