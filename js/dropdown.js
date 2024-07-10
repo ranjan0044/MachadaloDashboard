@@ -1,4 +1,3 @@
-// dropdown.js
 
 // Function to create a searchable dropdown
 function createSearchableDropdown(containerId, items, onSelect) {
