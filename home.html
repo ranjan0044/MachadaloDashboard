@@ -405,157 +405,151 @@
                             <div class="card shadow mb-4">
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h4 class="m-0 font-weight-bold text-primary">Benchmarking Report</h4>
+                                    <h4 class="m-0 font-weight-bold text-primary" id="chat-type-header">Benchmarking Report</h4>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
+                                            aria-labelledby="dropdownMenuLink" id="chart-type-dropdown">
                                             <div class="dropdown-header">Chart Types:</div>
-                                            <a class="dropdown-item" href="#">Line Chart</a>
-                                            <a class="dropdown-item" href="#">Benchmarking Report</a>
-                                            <a class="dropdown-item" href="#">Overall Report</a>
+                                            <a class="dropdown-item" href="#" data-target="line-chart">Line Chart</a>
+                                            <a class="dropdown-item" href="#" data-target="benchmarking-report">Benchmarking Report</a>
+                                            <a class="dropdown-item" href="#" data-target="overall-report">Overall Report</a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <h6 class="text-primary text-center hover-tooltip">
-                                            Connectivity Graph
-                                            <span class="tooltip-text">
-                                                <ul>
-                                                    <li>Public transport: Bus Stand, Railway Station, Sharing Ricksaw
-                                                    </li>
-                                                    <li>Autos and Cabs easily available: Ola, Uber, Rapido</li>
-                                                    <li>Wide roads</li>
-                                                    <li>Manageable traffic</li>
-                                                    <li>Market area</li>
-                                                    <li>Enough parking space</li>
-                                                    <li>Delivery App: Blinkit, Zepto, Swiggy Instamart</li>
-                                                    <li>School</li>
-                                                    <li>Mall & Restaurant</li>
-                                                    <li>No water logging on roads</li>
-                                                </ul>
-                                            </span>
-                                        </h6>
-                                        <div class="chart-bar">
-                                            <canvas id="connectivityChart"></canvas>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <h6 class="text-primary text-center hover-tooltip">
-                                            Maintenance Graph
-                                            <span class="tooltip-text">
-                                                <ul>
-                                                    <li>Water supply</li>
-                                                    <li>Power backup available ( Generators / Inverters )</li>
-                                                    <li>Power cuts</li>
-                                                    <li>Garbage collection outside the Society</li>
-                                                    <li>Good hygiene measures, Cleanliness </li>
-                                                    <li>Maintenance charges</li>
-                                                    <li>Painting and waterproofing</li>
-                                                    <li>Elevator maintenance </li>
-                                                    <li>Drainage issue</li>
-                                                    <li>Basement parking has light issues, drainage issue </li>
-                                                    <li>Pesticides sprinkle timely?</li>
-                                                </ul>
-                                            </span>
-                                        </h6>
-                                        <div class="chart-bar">
-                                            <canvas id="maintenanceChart"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <h6 class="text-primary text-center hover-tooltip">
-                                            Construction Graph
-                                            <span class="tooltip-text">
-                                                <ul>
-                                                    <li>Weak walls and pillars.</li>
-                                                    <li>Poor quality plaster and fitting</li>
-                                                    <li>Seepage issues</li>
-                                                    <li>Conjusted buildings</li>
-                                                    <li>Balcony</li>
-                                                    <li>Building strength for Natural Disasters (Earthquakes, Floods)
-                                                    </li>
-                                                    <li>Safety feaures at Entrance and Exit gate</li>
-                                                    <li>Clear Emergency exits, Fire safety features</li>
-                                                </ul>
-                                            </span>
-                                        </h6>
-                                        <div class="chart-bar">
-                                            <canvas id="constructionChart"></canvas>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <h6 class="text-primary text-center hover-tooltip">
-                                            Amenities Graph
-                                            <span class="tooltip-text">
-                                                <ul>
-                                                    <li>Lot of open space</li>
-                                                    <li>Nice park and kids playarea</li>
-                                                    <li>Spacious gym</li>
-                                                    <li>Big lift</li>
-                                                    <li>Clubhouse</li>
-                                                    <li>Functioning pool</li>
-                                                    <li>Well lit & safe at night</li>
-                                                    <li>Swimming pools</li>
-                                                </ul>
-                                            </span>
-                                        </h6>
-                                        <div class="chart-bar">
-                                            <canvas id="amenitiesChart"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <h6 class="text-primary text-center hover-tooltip">
-                                            People Friendliness Graph
-                                            <span class="tooltip-text">
-                                                <ul>
-                                                    <li>Good celebration of festivals</li>
-                                                    <li>Frequent cultural events</li>
-                                                    <li>Understanding and good landlords</li>
-                                                    <li>Educated & decent residents</li>
-                                                    <li>Pets friendly</li>
-                                                    <li>Residents pay maintenence on time</li>
-                                                    <li>Friendly environment</li>
-                                                </ul>
-                                            </span>
-                                        </h6>
-                                        <div class="chart-bar">
-                                            <canvas id="peopleFriendlinessChart"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-
                                 <!-- <div class="container"> -->
                                 <!-- Second Row: Pie Chart -->
                                 <div class="container">
-                                    <div class="row">
+                                    <div id="benchmarking-report">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <h6 class="text-primary text-center hover-tooltip">
+                                                    Connectivity Graph
+                                                    <span class="tooltip-text">
+                                                        <ul>
+                                                            <li>Public transport: Bus Stand, Railway Station, Sharing
+                                                                Ricksaw
+                                                            </li>
+                                                            <li>Autos and Cabs easily available: Ola, Uber, Rapido</li>
+                                                            <li>Wide roads</li>
+                                                            <li>Manageable traffic</li>
+                                                            <li>Market area</li>
+                                                            <li>Enough parking space</li>
+                                                            <li>Delivery App: Blinkit, Zepto, Swiggy Instamart</li>
+                                                            <li>School</li>
+                                                            <li>Mall & Restaurant</li>
+                                                            <li>No water logging on roads</li>
+                                                        </ul>
+                                                    </span>
+                                                </h6>
+                                                <div class="chart-bar">
+                                                    <canvas id="connectivityChart"></canvas>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <h6 class="text-primary text-center hover-tooltip">
+                                                    Maintenance Graph
+                                                    <span class="tooltip-text">
+                                                        <ul>
+                                                            <li>Water supply</li>
+                                                            <li>Power backup available ( Generators / Inverters )</li>
+                                                            <li>Power cuts</li>
+                                                            <li>Garbage collection outside the Society</li>
+                                                            <li>Good hygiene measures, Cleanliness </li>
+                                                            <li>Maintenance charges</li>
+                                                            <li>Painting and waterproofing</li>
+                                                            <li>Elevator maintenance </li>
+                                                            <li>Drainage issue</li>
+                                                            <li>Basement parking has light issues, drainage issue </li>
+                                                            <li>Pesticides sprinkle timely?</li>
+                                                        </ul>
+                                                    </span>
+                                                </h6>
+                                                <div class="chart-bar">
+                                                    <canvas id="maintenanceChart"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <h6 class="text-primary text-center hover-tooltip">
+                                                    Construction Graph
+                                                    <span class="tooltip-text">
+                                                        <ul>
+                                                            <li>Weak walls and pillars.</li>
+                                                            <li>Poor quality plaster and fitting</li>
+                                                            <li>Seepage issues</li>
+                                                            <li>Conjusted buildings</li>
+                                                            <li>Balcony</li>
+                                                            <li>Building strength for Natural Disasters (Earthquakes,
+                                                                Floods)
+                                                            </li>
+                                                            <li>Safety feaures at Entrance and Exit gate</li>
+                                                            <li>Clear Emergency exits, Fire safety features</li>
+                                                        </ul>
+                                                    </span>
+                                                </h6>
+                                                <div class="chart-bar">
+                                                    <canvas id="constructionChart"></canvas>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <h6 class="text-primary text-center hover-tooltip">
+                                                    Amenities Graph
+                                                    <span class="tooltip-text">
+                                                        <ul>
+                                                            <li>Lot of open space</li>
+                                                            <li>Nice park and kids playarea</li>
+                                                            <li>Spacious gym</li>
+                                                            <li>Big lift</li>
+                                                            <li>Clubhouse</li>
+                                                            <li>Functioning pool</li>
+                                                            <li>Well lit & safe at night</li>
+                                                            <li>Swimming pools</li>
+                                                        </ul>
+                                                    </span>
+                                                </h6>
+                                                <div class="chart-bar">
+                                                    <canvas id="amenitiesChart"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <h6 class="text-primary text-center hover-tooltip">
+                                                    People Friendliness Graph
+                                                    <span class="tooltip-text">
+                                                        <ul>
+                                                            <li>Good celebration of festivals</li>
+                                                            <li>Frequent cultural events</li>
+                                                            <li>Understanding and good landlords</li>
+                                                            <li>Educated & decent residents</li>
+                                                            <li>Pets friendly</li>
+                                                            <li>Residents pay maintenence on time</li>
+                                                            <li>Friendly environment</li>
+                                                        </ul>
+                                                    </span>
+                                                </h6>
+                                                <div class="chart-bar">
+                                                    <canvas id="peopleFriendlinessChart"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="overall-report">
                                         <div class="col-lg-8">
                                             <div class="card shadow mb-4">
-                                                <!-- Card Header - Dropdown -->
-                                                <div
+                                                <!-- <div
                                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                                     <h4 class="m-0 font-weight-bold text-primary">Overall Rating</h4>
-                                                    <div class="dropdown no-arrow">
-                                                        <a class="dropdown-toggle" href="#" role="button"
-                                                            id="dropdownMenuLink" data-toggle="dropdown"
-                                                            aria-haspopup="true" aria-expanded="false">
-                                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <!-- Card Body -->
+                                                </div> -->
                                                 <div class="card-body">
                                                     <div class="chart-pie">
                                                         <canvas id="myPieChart"></canvas>
@@ -565,8 +559,6 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-4 mb-4">
-
-                                            <!-- Project Card Example -->
                                             <div class="card shadow mb-4" id="societyCityPanIndiaProgress">
                                                 <div class="card-header py-3">
                                                     <h4 class="m-0 font-weight-bold text-primary">
@@ -579,15 +571,13 @@
                                         </div>
                                     </div>
                                     <!-- First Row: Area Chart -->
-                                    <div class="row">
+                                    <div class="row" id="line-chart">
                                         <div class="col xl-12 lg-12">
                                             <div class="card shadow mb-8">
-                                                <!-- Card Header - Dropdown -->
-                                                <div
+                                                <!-- <div
                                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                                     <h4 class="m-0 font-weight-bold text-primary">Line Chart</h4>
-                                                </div>
-                                                <!-- Card Body -->
+                                                </div> -->
                                                 <div class="card-body">
                                                     <div class="chart-area chart-container">
                                                         <canvas id="myAreaChart"></canvas>
