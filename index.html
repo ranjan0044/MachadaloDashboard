@@ -64,40 +64,6 @@
         height: auto !important;
     }
 
-    .dropdown {
-        position: relative;
-        display: inline-block;
-        width: 200px;
-    }
-
-    #cityDropdownInput {
-        width: 100%;
-        padding: 10px;
-        box-sizing: border-box;
-    }
-
-    .dropdown-menu {
-        display: none;
-        position: absolute;
-        width: 100%;
-        background-color: white;
-        border: 1px solid #ccc;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        z-index: 1;
-    }
-
-    .dropdown-item-city {
-        padding: 10px;
-        cursor: pointer;
-    }
-
-    .dropdown-item-city:hover {
-        background-color: #f1f1f1;
-    }
-
-    .dropdown-item-city.hidden {
-        display: none;
-    }
 </style>
 
 <body id="page-top">
@@ -383,22 +349,12 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <!-- <select id="citySelector" class="btn btn-outline-primary"
-                            onchange="handleCityChange(this.value)">
-                            <option value="" disabled selected>Select City</option>
-                        </select> -->
-                        <div class="dropdown">
-                            <input type="text" id="cityDropdownInput" value="" placeholder="Search City...">
-                            <div id="citySelector" class="dropdown-menu">
-                            </div>
+                        <div class="search-dropdown">
+                            <div id="citySelector"></div>
                         </div>
-
-                        <select id="societySelector" class="btn btn-outline-primary"
-                            onchange="handleSocietyChange(this.value)" disabled="true">
-                            <option value="" class="bg-light" selected>Select Society</option>
-                        </select>
-
-
+                        <div class="search-dropdown">
+                            <div id="societySelector"></div>
+                        </div>
                         <a href="#" id="downloadButton"
                             class="d-none d-sm-inline-block btn btn-sm btn-outline-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
@@ -627,468 +583,440 @@
                                     </div>
                                 </div>
 
-            <!-- <div class="container"> -->
-                <!-- Second Row: Pie Chart -->
-                 <div class="container">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <div class="card shadow mb-4">
-                            <!-- Card Header - Dropdown -->
-                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h4 class="m-0 font-weight-bold text-primary">Overall Rating</h4>
-                                <div class="dropdown no-arrow">
-                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                <div class="chart-pie">
-                                    <canvas id="myPieChart"></canvas>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-4">
-                        
-                        <!-- Project Card Example -->
-                        <div class="card shadow mb-4" id="societyCityPanIndiaProgress">
-                            <div class="card-header py-3">
-                                <h4 class="m-0 font-weight-bold text-primary">
-                                    Progress report
-                                </h4>
-                            </div>
-                            <div class="card-body">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- First Row: Area Chart -->
-                <div class="row">
-                    <div class="col xl-12 lg-12">
-                        <div class="card shadow mb-8">
-                            <!-- Card Header - Dropdown -->
-                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h4 class="m-0 font-weight-bold text-primary">Line Chart</h4>
-                                <!-- <div class="dropdown no-arrow">
+                                <!-- <div class="container"> -->
+                                <!-- Second Row: Pie Chart -->
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            <div class="card shadow mb-4">
+                                                <!-- Card Header - Dropdown -->
+                                                <div
+                                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                                    <h4 class="m-0 font-weight-bold text-primary">Overall Rating</h4>
+                                                    <div class="dropdown no-arrow">
+                                                        <a class="dropdown-toggle" href="#" role="button"
+                                                            id="dropdownMenuLink" data-toggle="dropdown"
+                                                            aria-haspopup="true" aria-expanded="false">
+                                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <!-- Card Body -->
+                                                <div class="card-body">
+                                                    <div class="chart-pie">
+                                                        <canvas id="myPieChart"></canvas>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 mb-4">
+
+                                            <!-- Project Card Example -->
+                                            <div class="card shadow mb-4" id="societyCityPanIndiaProgress">
+                                                <div class="card-header py-3">
+                                                    <h4 class="m-0 font-weight-bold text-primary">
+                                                        Progress report
+                                                    </h4>
+                                                </div>
+                                                <div class="card-body">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- First Row: Area Chart -->
+                                    <div class="row">
+                                        <div class="col xl-12 lg-12">
+                                            <div class="card shadow mb-8">
+                                                <!-- Card Header - Dropdown -->
+                                                <div
+                                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                                    <h4 class="m-0 font-weight-bold text-primary">Line Chart</h4>
+                                                    <!-- <div class="dropdown no-arrow">
                                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                                     </a>
                                 </div> -->
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-area chart-container">
-                                        <canvas id="myAreaChart"></canvas>
+                                                </div>
+                                                <!-- Card Body -->
+                                                <div class="card-body">
+                                                    <div class="chart-area chart-container">
+                                                        <canvas id="myAreaChart"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
+                                </div>
+                                <!-- </div> -->
+
+                                <div class="row">
+                                    <div class="container mt-2">
+                                        <div class="table-reader">
+                                            <table class="table table-striped">
+                                                <thead class="thead-fixed bg-primary">
+                                                    <tr>
+                                                        <th scope="col">Like</th>
+                                                        <th scope="col">Dislike</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="dynamic-table-body">
+                                                    <!-- Dynamic content will be inserted here -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- End of Main Content -->
+
+                            <!-- Footer -->
+                            <footer class="sticky-footer bg-white">
+                                <div class="container my-auto">
+                                    <div class="copyright text-center my-auto">
+                                        <span>Copyright &copy; Your Website 2024</span>
+                                    </div>
+                                </div>
+                            </footer>
+                            <!-- End of Footer -->
+
+                        </div>
+                        <!-- End of Content Wrapper -->
+
+                    </div>
+                    <!-- End of Page Wrapper -->
+
+                    <!-- Scroll to Top Button-->
+                    <a class="scroll-to-top rounded" href="#page-top">
+                        <i class="fas fa-angle-up"></i>
+                    </a>
+
+                    <!-- Logout Modal-->
+                    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">Select "Logout" below if you are ready to end your current
+                                    session.</div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                    <a class="btn btn-primary" href="login.html">Logout</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- </div> -->
+                    <script src="Newscript.js"></script>
+                    <!-- Bootstrap core JavaScript-->
+                    <script src="vendor/jquery/jquery.min.js"></script>
+                    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-                <div class="row">
-                    <div class="container mt-2">
-                        <div class="table-reader">
-                            <table class="table table-striped">
-                                <thead class="thead-fixed bg-primary">
-                                    <tr>
-                                        <th scope="col">Like</th>
-                                        <th scope="col">Dislike</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="dynamic-table-body">
-                                    <!-- Dynamic content will be inserted here -->
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+                    <!-- Core plugin JavaScript-->
+                    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-            </div>
-            <!-- End of Main Content -->
+                    <!-- Custom scripts for all pages-->
+                    <script src="js/sb-admin-2.min.js"></script>
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2024</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
+                    <!-- Page level plugins -->
+                    <script src="vendor/chart.js/Chart.min.js"></script>
 
-        </div>
-        <!-- End of Content Wrapper -->
+                    <!-- Page level custom scripts -->
+                    <script src="js/demo/chart-area-demo.js"></script>
+                    <script src="js/demo/chart-pie-demo.js"></script>
+                    <script src="js/demo/chart-bar-demo.js"></script>
+                    <script src="js/dropdown.js"></script>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            fetchCSVData();
+                        });
 
-    </div>
-    <!-- End of Page Wrapper -->
+                        const citySelector = document.getElementById('citySelector');
+                        const societySelector = document.getElementById('societySelector');
+                        //   const commentsTable = document.getElementById('commentsTable').getElementsByTagName('tbody')[0];
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
+                        const csvData = [];
+                        let cities = [];
+                        let societies = [];
+                        let selectedCity = '';
+                        let selectedSociety = '';
+                        let meanRatings = {
+                            // "Connectivity": { city: 2, society: 2, panIndia: 3 },
+                            // "Maintenance": { city: 5, society: 4.5, panIndia: 4.6 },
+                            // 'Construction': { city: 5, society: 4, panIndia: 2.4 },
+                            // 'Amenities': { city: 1.4, society: 4.5, panIndia: 4.7 },
+                            // 'PeopleFriendliness': { city: 2, society: 2.8, panIndia: 3.5 }
+                        };
+                        let tableData = [];
+                        let progressPercentage = { society: 0, city: 0, panIndia: 0 };
+                        const uniqueSocietiesByCity = {};
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="Newscript.js"></script>
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                        async function fetchCSVData() {
+                            const response = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRHkzhb1ysdS3Pon1iEYdeDvAmFFVmaifuJG8LqYvfINO66OxSf-8vaM8Prsrj5Nhhdz2mxd0kdH3vB/pub?gid=173566181&single=true&output=tsv');
+                            const data = await response.text();
+                            parseCSV(data);
+                            // renderCharts(meanRatings);
+                            // rederProgressBar();
+                            // renderAreaChar(meanRatings);
+                            // rederPieChart(meanRatings)
+                        }
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+                        function parseCSV(data) {
+                            const rows = data.split(/\r?\n/);
+                            const headers = rows[0].split('\t');
+                            for (let i = 1; i < rows.length; i++) {
+                                const row = rows[i].split('\t');
+                                const rowData = {};
+                                headers.forEach((header, index) => {
+                                    rowData[header] = row[index]?.trim();
+                                });
+                                csvData.push(rowData);
+                            }
+                            filterUniqueSocietiesByCity()
+                        }
 
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+                        function populateCitySelector(cities) {
+                            createSearchableDropdown('citySelector', cities, function (selectedItem) {
+                                handleCityChange(selectedItem)
+                            });
 
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+                            // cities = [...new Set(csvData.map(entry => entry.City))].filter(city => city);
+                            // cities.forEach(city => {
+                            //     const div = document.createElement('div');
+                            //     div.textContent = city;
+                            //     div.classList.add('dropdown-item-city'); // Add a class for styling if needed
+                            //     citySelector.appendChild(div);
+                            //     div.addEventListener('click', function () {
+                            //         const cityDropdownInput = document.getElementById('cityDropdownInput');
+                            //         const newValue = city || ''; // Example value to set
+                            //         cityDropdownInput.value = newValue;
+                            //         citySelector.style.display = 'none';
+                            //         handleCityChange(city)
+                            //     });
+                            // });
+                        }
+                        const filterUniqueSocietiesByCity = () => {
+                            csvData.forEach(item => {
+                                const city = item.City;
+                                const society = item["Society Name"];
+                                if (!uniqueSocietiesByCity[city]) {
+                                    uniqueSocietiesByCity[city] = new Set();
+                                }
+                                uniqueSocietiesByCity[city].add(society);
+                            });
+                            const cityList = Object.keys(uniqueSocietiesByCity);
 
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
-    <script src="js/demo/chart-bar-demo.js"></script>
-    <!-- <script src = "js/dropdown.js"></script> -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            fetchCSVData();
-            const cityDropdownInput = document.getElementById('cityDropdownInput');
-            const citySelector = document.getElementById('citySelector');
-            const dropdownItems = citySelector.getElementsByClassName('dropdown-item-city');
+                            populateCitySelector(cityList)
+                            let totalSociety = 0;
+                            for (const city in uniqueSocietiesByCity) {
+                                totalSociety += uniqueSocietiesByCity[city].size;
+                            }
+                            updateCounts('total', csvData?.length);
+                            updateCounts('society', totalSociety);
 
-            // Show dropdown menu when input is focused
-            cityDropdownInput.addEventListener('focus', function () {
-                citySelector.style.display = 'block';
-            });
+                        }
 
-            // Hide dropdown menu when clicking outside
-            document.addEventListener('click', function (event) {
-                if (!cityDropdownInput.contains(event.target) && !citySelector.contains(event.target)) {
-                    citySelector.style.display = 'none';
-                }
-            });
+                        function handleCityChange(city) {
+                            selectedCity = city
+                            societies = uniqueSocietiesByCity[city];
+                            let parentElement = document.getElementById("societySelector");
+                            while (parentElement.firstChild) {
+                                parentElement.removeChild(parentElement.firstChild);
+                            }
+                            createSearchableDropdown('societySelector', societies, function (selectedItem) {
+                                handleSocietyChange(selectedItem)
+                            });
 
-            // Filter dropdown items based on input
-            cityDropdownInput.addEventListener('input', function () {
-                const filter = cityDropdownInput.value.toLowerCase();
-                for (let i = 0; i < dropdownItems.length; i++) {
-                    const item = dropdownItems[i];
-                    const text = item.textContent.toLowerCase();
-                    if (text.includes(filter)) {
-                        item.classList.remove('hidden');
-                    } else {
-                        item.classList.add('hidden');
-                    }
-                }
-            });
-            for (let i = 0; i < dropdownItems.length; i++) {
-                dropdownItems[i].addEventListener('click', function () {
-                    cityDropdownInput.value = dropdownItems[i].textContent;
-                    citySelector.style.display = 'none';
-                });
-            }
-        });
+                            // societySelector.innerHTML = '<option value="" disabled selected>Select Society</option>';
+                            // societies.forEach(society => {
+                            //     const option = document.createElement('option');
+                            //     option.value = society;
+                            //     option.text = society;
+                            //     societySelector.appendChild(option);
+                            // });
+                            // societySelector.disabled = false;
+                            // updateCounts('city', societies.length);
+                        }
 
-        const citySelector = document.getElementById('citySelector');
-        const societySelector = document.getElementById('societySelector');
-        //   const commentsTable = document.getElementById('commentsTable').getElementsByTagName('tbody')[0];
+                        function handleSocietyChange(society) {
+                            // document.getElementById('selectedSociety').innerText = society;
+                            selectedSociety = society
+                            // const selectedComments = csvData.filter(entry => entry["Society Name"] === society);
+                            calculateMeanRatings()
+                        }
 
-        const csvData = [];
-        let cities = [];
-        let societies = [];
-        let selectedCity = '';
-        let selectedSociety = '';
-        let meanRatings = {
-            // "Connectivity": { city: 2, society: 2, panIndia: 3 },
-            // "Maintenance": { city: 5, society: 4.5, panIndia: 4.6 },
-            // 'Construction': { city: 5, society: 4, panIndia: 2.4 },
-            // 'Amenities': { city: 1.4, society: 4.5, panIndia: 4.7 },
-            // 'PeopleFriendliness': { city: 2, society: 2.8, panIndia: 3.5 }
-        };
-        let tableData = [];
-        let progressPercentage = { society: 0, city: 0, panIndia: 0 };
-        const uniqueSocietiesByCity = {};
+                        function updateCounts(type, count) {
+                            // if (type === 'total')
+                            //     document.getElementById('totalSurvay').innerText = count;
+                            // else if (type === 'society')
+                            //     document.getElementById('socieyCount').innerText = count;
+                        }
 
-        async function fetchCSVData() {
-            const response = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRHkzhb1ysdS3Pon1iEYdeDvAmFFVmaifuJG8LqYvfINO66OxSf-8vaM8Prsrj5Nhhdz2mxd0kdH3vB/pub?gid=173566181&single=true&output=tsv');
-            const data = await response.text();
-            parseCSV(data);
-            // renderCharts(meanRatings);
-            // rederProgressBar();
-            // renderAreaChar(meanRatings);
-            // rederPieChart(meanRatings)
-        }
+                        const stringToInteger = (rating) => {
+                            if (rating && parseFloat(rating))
+                                return parseFloat(rating);
+                            else return 0
+                        }
 
-        function parseCSV(data) {
-            const rows = data.split(/\r?\n/);
-            const headers = rows[0].split('\t');
-            for (let i = 1; i < rows.length; i++) {
-                const row = rows[i].split('\t');
-                const rowData = {};
-                headers.forEach((header, index) => {
-                    rowData[header] = row[index]?.trim();
-                });
-                csvData.push(rowData);
-            }
-            filterUniqueSocietiesByCity()
-        }
+                        function calculateMeanRatings() {
+                            let totalConnectivity = 0;
+                            let totalMaintenanceRating = 0;
+                            let totalConstruction = 0;
+                            let totalAmenities = 0;
+                            let totalPeopleFriendliness = 0;
+                            let totalRatingPercentage = 0
 
-        function populateCitySelector(cities) {
-            // cities = [...new Set(csvData.map(entry => entry.City))].filter(city => city);
-            // createSearchableDropdown('cityDropdown', ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix'], function (selectedItem) {
-            //     console.log('Selected city:', selectedItem);
-            //     // You can add further actions based on the selected item
-            // });
+                            let cityConnectivity = 0;
+                            let cityMaintenanceRating = 0;
+                            let cityConstruction = 0;
+                            let cityAmenities = 0;
+                            let cityPeopleFriendliness = 0;
+                            let totalCityPercentage = 0;
 
-            cities.forEach(city => {
-                // const option = document.createElement('option');
-                // option.value = city;
-                // option.text = city;
-                // citySelector.appendChild(option);
-                const div = document.createElement('div');
-                div.textContent = city;
-                div.classList.add('dropdown-item-city'); // Add a class for styling if needed
-                citySelector.appendChild(div);
-                div.addEventListener('click', function () {
-                    const cityDropdownInput = document.getElementById('cityDropdownInput');
-                    const newValue = city || ''; // Example value to set
-                    cityDropdownInput.value = newValue;
-                    citySelector.style.display = 'none';
-                    handleCityChange(city)
-                });
-            });
-        }
-        const filterUniqueSocietiesByCity = () => {
-            csvData.forEach(item => {
-                const city = item.City;
-                const society = item["Society Name"];
-                if (!uniqueSocietiesByCity[city]) {
-                    uniqueSocietiesByCity[city] = new Set();
-                }
-                uniqueSocietiesByCity[city].add(society);
-            });
-            const cityList = Object.keys(uniqueSocietiesByCity);
-
-            populateCitySelector(cityList)
-            let totalSociety = 0;
-            for (const city in uniqueSocietiesByCity) {
-                totalSociety += uniqueSocietiesByCity[city].size;
-            }
-            updateCounts('total', csvData?.length);
-            updateCounts('society', totalSociety);
-
-        }
-
-        function handleCityChange(city) {
-            selectedCity = city
-            societies = uniqueSocietiesByCity[city];
-            societySelector.innerHTML = '<option value="" disabled selected>Select Society</option>';
-            societies.forEach(society => {
-                const option = document.createElement('option');
-                option.value = society;
-                option.text = society;
-                societySelector.appendChild(option);
-            });
-            societySelector.disabled = false;
-            // updateCounts('city', societies.length);
-        }
-
-        function handleSocietyChange(society) {
-            // document.getElementById('selectedSociety').innerText = society;
-            selectedSociety = society
-            // const selectedComments = csvData.filter(entry => entry["Society Name"] === society);
-            calculateMeanRatings()
-        }
-
-        function updateCounts(type, count) {
-            // if (type === 'total')
-            //     document.getElementById('totalSurvay').innerText = count;
-            // else if (type === 'society')
-            //     document.getElementById('socieyCount').innerText = count;
-        }
-
-        const stringToInteger = (rating) => {
-            if (rating && parseFloat(rating))
-                return parseFloat(rating);
-            else return 0
-        }
-
-        function calculateMeanRatings() {
-            let totalConnectivity = 0;
-            let totalMaintenanceRating = 0;
-            let totalConstruction = 0;
-            let totalAmenities = 0;
-            let totalPeopleFriendliness = 0;
-            let totalRatingPercentage = 0
-
-            let cityConnectivity = 0;
-            let cityMaintenanceRating = 0;
-            let cityConstruction = 0;
-            let cityAmenities = 0;
-            let cityPeopleFriendliness = 0;
-            let totalCityPercentage = 0;
-
-            let societyConnectivity = 0;
-            let societyMaintenanceRating = 0;
-            let societyConstruction = 0;
-            let societyAmenities = 0
-            let societyPeopleFriendliness = 0;
-            let totalSocietyPercentage = 0;
+                            let societyConnectivity = 0;
+                            let societyMaintenanceRating = 0;
+                            let societyConstruction = 0;
+                            let societyAmenities = 0
+                            let societyPeopleFriendliness = 0;
+                            let totalSocietyPercentage = 0;
 
 
-            let cityCounts = 1
-            let societyCounts = 1;
-            console.log(csvData)
-            csvData.forEach(item => {
-                if (item?.City?.toLowerCase() === selectedCity.toLowerCase()) {
-                    cityConnectivity += stringToInteger(item['Connectivity Ratings']);
-                    cityMaintenanceRating += stringToInteger(item["Maintenance Rating"]);
-                    cityConstruction += stringToInteger(item["Construction Rating"]);
-                    cityAmenities += stringToInteger(item["Amenities & Livability Rating"]);
-                    cityPeopleFriendliness += stringToInteger(item["People Friendliness Rating"]);
-                    totalCityPercentage += stringToInteger(item["Total Rating"]);
-                    cityCounts = cityCounts + 1;
-                }
-                if (item['Society Name']?.toLowerCase() === selectedSociety?.toLowerCase()) {
-                    societyConnectivity += stringToInteger(item['Connectivity Ratings']);
-                    societyMaintenanceRating += stringToInteger(item["Maintenance Rating"]);
-                    societyConstruction += stringToInteger(item["Construction Rating"]);
-                    societyAmenities += stringToInteger(item["Amenities & Livability Rating"]);
-                    societyPeopleFriendliness += stringToInteger(item["People Friendliness Rating"]);
-                    totalSocietyPercentage += stringToInteger(item["Total Rating"]);
-                    console.log(totalSocietyPercentage);
-                    societyCounts = societyCounts + 1;
-                    tableData.push(item)
-                }
-                totalConnectivity += stringToInteger(item['Connectivity Ratings']);
-                totalMaintenanceRating += stringToInteger(item["Maintenance Rating"]);
-                totalConstruction += stringToInteger(item["Construction Rating"]);
-                totalAmenities += stringToInteger(item["Amenities & Livability Rating"]);
-                totalPeopleFriendliness += stringToInteger(item["People Friendliness Rating"]);
-                totalRatingPercentage += stringToInteger(item["Total Rating"]);
+                            let cityCounts = 1
+                            let societyCounts = 1;
+                            console.log(csvData)
+                            csvData.forEach(item => {
+                                if (item?.City?.toLowerCase() === selectedCity.toLowerCase()) {
+                                    cityConnectivity += stringToInteger(item['Connectivity Ratings']);
+                                    cityMaintenanceRating += stringToInteger(item["Maintenance Rating"]);
+                                    cityConstruction += stringToInteger(item["Construction Rating"]);
+                                    cityAmenities += stringToInteger(item["Amenities & Livability Rating"]);
+                                    cityPeopleFriendliness += stringToInteger(item["People Friendliness Rating"]);
+                                    totalCityPercentage += stringToInteger(item["Total Rating"]);
+                                    cityCounts = cityCounts + 1;
+                                }
+                                if (item['Society Name']?.toLowerCase() === selectedSociety?.toLowerCase()) {
+                                    societyConnectivity += stringToInteger(item['Connectivity Ratings']);
+                                    societyMaintenanceRating += stringToInteger(item["Maintenance Rating"]);
+                                    societyConstruction += stringToInteger(item["Construction Rating"]);
+                                    societyAmenities += stringToInteger(item["Amenities & Livability Rating"]);
+                                    societyPeopleFriendliness += stringToInteger(item["People Friendliness Rating"]);
+                                    totalSocietyPercentage += stringToInteger(item["Total Rating"]);
+                                    console.log(totalSocietyPercentage);
+                                    societyCounts = societyCounts + 1;
+                                    tableData.push(item)
+                                }
+                                totalConnectivity += stringToInteger(item['Connectivity Ratings']);
+                                totalMaintenanceRating += stringToInteger(item["Maintenance Rating"]);
+                                totalConstruction += stringToInteger(item["Construction Rating"]);
+                                totalAmenities += stringToInteger(item["Amenities & Livability Rating"]);
+                                totalPeopleFriendliness += stringToInteger(item["People Friendliness Rating"]);
+                                totalRatingPercentage += stringToInteger(item["Total Rating"]);
 
-            });
-            totalConnectivity = totalConnectivity / csvData.length
-            totalMaintenanceRating = totalMaintenanceRating / csvData.length;
-            totalConstruction = totalConstruction / csvData.length;
-            totalAmenities = totalAmenities / csvData.length;
-            totalPeopleFriendliness = totalPeopleFriendliness / csvData.length;
-            //  totalRatingPercentage = (totalRatingPercentage / (csvData.length * 25)) * 100;
+                            });
+                            totalConnectivity = totalConnectivity / csvData.length
+                            totalMaintenanceRating = totalMaintenanceRating / csvData.length;
+                            totalConstruction = totalConstruction / csvData.length;
+                            totalAmenities = totalAmenities / csvData.length;
+                            totalPeopleFriendliness = totalPeopleFriendliness / csvData.length;
+                            //  totalRatingPercentage = (totalRatingPercentage / (csvData.length * 25)) * 100;
 
-            cityConnectivity = cityConnectivity / cityCounts
-            cityMaintenanceRating = cityMaintenanceRating / cityCounts;
-            cityConstruction = cityConstruction / cityCounts;
-            cityAmenities = cityAmenities / cityCounts;
-            cityPeopleFriendliness = cityPeopleFriendliness / cityCounts;
-            //  totalCityPercentage = (totalCityPercentage / (cityCounts * 25)) * 100;
+                            cityConnectivity = cityConnectivity / cityCounts
+                            cityMaintenanceRating = cityMaintenanceRating / cityCounts;
+                            cityConstruction = cityConstruction / cityCounts;
+                            cityAmenities = cityAmenities / cityCounts;
+                            cityPeopleFriendliness = cityPeopleFriendliness / cityCounts;
+                            //  totalCityPercentage = (totalCityPercentage / (cityCounts * 25)) * 100;
 
-            societyConnectivity = societyConnectivity / societyCounts
-            societyMaintenanceRating = societyMaintenanceRating / societyCounts;
-            societyConstruction = societyConstruction / societyCounts;
-            societyAmenities = societyAmenities / societyCounts;
-            societyPeopleFriendliness = societyPeopleFriendliness / societyCounts;
-            // totalSocietyPercentage = (totalSocietyPercentage / (societyCounts * 25)) * 100;
-
-
-            meanRatings = {
-                "Connectivity": { city: cityConnectivity, society: societyConnectivity, panIndia: totalConnectivity },
-                "Maintenance": { city: cityMaintenanceRating, society: societyMaintenanceRating, panIndia: totalMaintenanceRating },
-                'Construction': { city: cityConstruction, society: societyConstruction, panIndia: totalConstruction },
-                'Amenities': { city: cityAmenities, society: societyAmenities, panIndia: totalAmenities },
-                'PeopleFriendliness': { city: cityPeopleFriendliness, society: societyPeopleFriendliness, panIndia: totalPeopleFriendliness }
-            };
-            totalSocietyPercentage = (((societyConnectivity + societyMaintenanceRating + societyConstruction + societyAmenities + societyPeopleFriendliness)) / 25) * 100;
-            totalCityPercentage = (((cityConnectivity + cityMaintenanceRating + cityConstruction + cityAmenities + cityPeopleFriendliness)) / 25) * 100;
-            totalRatingPercentage = (((totalConnectivity + totalMaintenanceRating + totalConstruction + totalAmenities + totalPeopleFriendliness)) / 25) * 100;
+                            societyConnectivity = societyConnectivity / societyCounts
+                            societyMaintenanceRating = societyMaintenanceRating / societyCounts;
+                            societyConstruction = societyConstruction / societyCounts;
+                            societyAmenities = societyAmenities / societyCounts;
+                            societyPeopleFriendliness = societyPeopleFriendliness / societyCounts;
+                            // totalSocietyPercentage = (totalSocietyPercentage / (societyCounts * 25)) * 100;
 
 
-            progressPercentage['society'] = totalSocietyPercentage.toFixed(2);
-            progressPercentage['city'] = totalCityPercentage.toFixed(2);
-            progressPercentage['panIndia'] = totalRatingPercentage.toFixed(2);
+                            meanRatings = {
+                                "Connectivity": { city: cityConnectivity, society: societyConnectivity, panIndia: totalConnectivity },
+                                "Maintenance": { city: cityMaintenanceRating, society: societyMaintenanceRating, panIndia: totalMaintenanceRating },
+                                'Construction': { city: cityConstruction, society: societyConstruction, panIndia: totalConstruction },
+                                'Amenities': { city: cityAmenities, society: societyAmenities, panIndia: totalAmenities },
+                                'PeopleFriendliness': { city: cityPeopleFriendliness, society: societyPeopleFriendliness, panIndia: totalPeopleFriendliness }
+                            };
+                            totalSocietyPercentage = (((societyConnectivity + societyMaintenanceRating + societyConstruction + societyAmenities + societyPeopleFriendliness)) / 25) * 100;
+                            totalCityPercentage = (((cityConnectivity + cityMaintenanceRating + cityConstruction + cityAmenities + cityPeopleFriendliness)) / 25) * 100;
+                            totalRatingPercentage = (((totalConnectivity + totalMaintenanceRating + totalConstruction + totalAmenities + totalPeopleFriendliness)) / 25) * 100;
 
-            renderCharts(meanRatings);
-            rederProgressBar();
-            renderAreaChar(meanRatings);
-            rederPieChart(meanRatings);
-            renderTable(tableData);
-        }
 
-        const rederProgressBar = () => {
-            let cardBody = document.querySelector("#societyCityPanIndiaProgress .card-body");
-            cardBody.innerHTML = "";
+                            progressPercentage['society'] = totalSocietyPercentage.toFixed(2);
+                            progressPercentage['city'] = totalCityPercentage.toFixed(2);
+                            progressPercentage['panIndia'] = totalRatingPercentage.toFixed(2);
 
-            [{ label: 'Society', color: 'bg-warning', percent: progressPercentage['society'] },
-            { label: 'City', color: 'bg-success', percent: progressPercentage['city'] },
-            { label: 'Pan India', color: 'bg-primary', percent: progressPercentage['panIndia'] }].forEach((item) => {
-                var newProgressHeader = document.createElement("h4");
-                newProgressHeader.classList.add("small", "font-weight-bold");
-                newProgressHeader.innerHTML = `${item?.label} Progress<span class='float-right'>${item?.percent}%</span>`;
+                            renderCharts(meanRatings);
+                            rederProgressBar();
+                            renderAreaChar(meanRatings);
+                            rederPieChart(meanRatings);
+                            renderTable(tableData);
+                        }
 
-                var newProgressDiv = document.createElement("div");
-                newProgressDiv.classList.add("progress", "mb-4");
+                        const rederProgressBar = () => {
+                            let cardBody = document.querySelector("#societyCityPanIndiaProgress .card-body");
+                            cardBody.innerHTML = "";
 
-                var newProgressBar = document.createElement("div");
-                newProgressBar.classList.add("progress-bar", `${item?.color}`);
-                newProgressBar.setAttribute("role", "progressbar");
-                newProgressBar.setAttribute("style", `width: ${item?.percent}%`);
-                newProgressBar.setAttribute("aria-valuenow", `${item?.percent}`);
-                newProgressBar.setAttribute("aria-valuemin", "0");
-                newProgressBar.setAttribute("aria-valuemax", "100");
-                newProgressDiv.appendChild(newProgressBar);
-                cardBody.appendChild(newProgressHeader);
-                cardBody.appendChild(newProgressDiv);
-            })
-        }
+                            [{ label: 'Society', color: 'bg-warning', percent: progressPercentage['society'] },
+                            { label: 'City', color: 'bg-success', percent: progressPercentage['city'] },
+                            { label: 'Pan India', color: 'bg-primary', percent: progressPercentage['panIndia'] }].forEach((item) => {
+                                var newProgressHeader = document.createElement("h4");
+                                newProgressHeader.classList.add("small", "font-weight-bold");
+                                newProgressHeader.innerHTML = `${item?.label} Progress<span class='float-right'>${item?.percent}%</span>`;
 
-        const renderTable = (data) => {
-            const tableBody = document.getElementById('dynamic-table-body');
-            tableBody.innerHTML = '';
-            data?.forEach(item => {
-                const row = document.createElement('tr');
-                const likeCell = document.createElement('td');
-                likeCell.textContent = item['Like Detailed Comments'] || '';
-                row.appendChild(likeCell);
-                const dislikeCell = document.createElement('td');
-                dislikeCell.textContent = item['Dislike Detailed Comments'] || '';
-                row.appendChild(dislikeCell);
-                tableBody.appendChild(row);
-            });
-        }
-    </script>
-    <script>
-        document.getElementById('downloadButton').addEventListener('click', function () {
-            html2canvas(document.body).then(function (canvas) {
-                var link = document.createElement('a');
-                link.href = canvas.toDataURL('image/png');
-                link.download = [`${selectedSociety}_${selectedCity}_Pan India_report`];
-                link.click();
-            });
-        });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+                                var newProgressDiv = document.createElement("div");
+                                newProgressDiv.classList.add("progress", "mb-4");
+
+                                var newProgressBar = document.createElement("div");
+                                newProgressBar.classList.add("progress-bar", `${item?.color}`);
+                                newProgressBar.setAttribute("role", "progressbar");
+                                newProgressBar.setAttribute("style", `width: ${item?.percent}%`);
+                                newProgressBar.setAttribute("aria-valuenow", `${item?.percent}`);
+                                newProgressBar.setAttribute("aria-valuemin", "0");
+                                newProgressBar.setAttribute("aria-valuemax", "100");
+                                newProgressDiv.appendChild(newProgressBar);
+                                cardBody.appendChild(newProgressHeader);
+                                cardBody.appendChild(newProgressDiv);
+                            })
+                        }
+
+                        const renderTable = (data) => {
+                            const tableBody = document.getElementById('dynamic-table-body');
+                            tableBody.innerHTML = '';
+                            data?.forEach(item => {
+                                const row = document.createElement('tr');
+                                const likeCell = document.createElement('td');
+                                likeCell.textContent = item['Like Detailed Comments'] || '';
+                                row.appendChild(likeCell);
+                                const dislikeCell = document.createElement('td');
+                                dislikeCell.textContent = item['Dislike Detailed Comments'] || '';
+                                row.appendChild(dislikeCell);
+                                tableBody.appendChild(row);
+                            });
+                        }
+                    </script>
+                    <script>
+                        document.getElementById('downloadButton').addEventListener('click', function () {
+                            html2canvas(document.body).then(function (canvas) {
+                                var link = document.createElement('a');
+                                link.href = canvas.toDataURL('image/png');
+                                link.download = [`${selectedSociety}_${selectedCity}_Pan India_report`];
+                                link.click();
+                            });
+                        });
+                    </script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </body>
 
 </html>

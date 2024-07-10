@@ -1,77 +1,116 @@
-.machadalo-select-box{
+.machadalo-select-box {
   width: 100%;
 }
 
 label {
-display: block;
-margin-bottom: 8px;
-font-weight: bold;
-font-size: 14px;
-color: #333;
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
 }
 
 .chart-container {
-position: relative;
-height: 60vh; /* Responsive height, adjust as necessary */
-width: 100%;
+  position: relative;
+  height: 60vh;
+  /* Responsive height, adjust as necessary */
+  width: 100%;
 }
 
 
 .hover-tooltip {
-position: relative;
-cursor: pointer;
+  position: relative;
+  cursor: pointer;
 }
 
 .tooltip-text {
-position: absolute;
-top: 100%;
-left: 50%;
-transform: translateX(-50%);
-background-color: rgba(0, 0, 0, 0.8);
-color: white;
-padding: 10px;
-border-radius: 5px;
-font-size: 14px;
-line-height: 1.5;
-white-space: normal;
-opacity: 0;
-pointer-events: none;
-transition: opacity 0.3s ease;
-z-index: 1; /* Ensure tooltip appears above other content */
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: normal;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+  /* Ensure tooltip appears above other content */
 }
 
 .tooltip-text ul {
-list-style-type: none;
-padding: 0;
-margin: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .tooltip-text ul li {
-margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .hover-tooltip:hover .tooltip-text {
-opacity: 1;
+  opacity: 1;
 }
 
 
 .tooltip-text {
-position: absolute;
-top: 68%;
-left: 28%; 
-transform: translateY(-50%);
-background-color: rgba(75, 95, 209, 0.8);
-color: rgb(12, 12, 12,1);
-padding: 5px 10px;
-border-radius: 5px;
-font-size: 12px;
-white-space: nowrap;
-opacity: 0;
-pointer-events: none;
-transition: opacity 0.3s ease;
+  position: absolute;
+  top: 68%;
+  left: 28%;
+  transform: translateY(-50%);
+  background-color: rgba(75, 95, 209, 0.8);
+  color: rgb(12, 12, 12, 1);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
 .hover-tooltip:hover .tooltip-text {
-opacity: 1;
+  opacity: 1;
 }
 
+/* Search Dropdown  start*/
+.search-dropdown {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+}
+
+#cityDropdownInput {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.dropdown-menu-city {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  background-color: white;
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item-city {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-item-city:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown-item-city.hidden {
+  display: none;
+}
+/* Search Dropdown  End*/
