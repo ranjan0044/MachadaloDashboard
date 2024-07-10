@@ -114,3 +114,44 @@ label {
   display: none;
 }
 /* Search Dropdown  End*/
+th,
+    td {
+        text-align: center;
+        color: black;
+    }
+
+    .table-reader {
+        overflow-x: auto;
+        /* Enable horizontal scroll */
+        max-height: 300px;
+        /* Adjust height as needed */
+    }
+
+    .table {
+        width: 100%;
+        /* Table takes full width of container */
+        border-collapse: collapse;
+        /* Remove spacing between cells */
+    }
+
+    .thead-fixed {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        /* Ensure it stays above table body */
+        background-color: #fff;
+        /* Background color for the fixed header */
+    }
+
+    .chart-area,
+    .chart-pie {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    canvas {
+        display: block;
+        width: 100% !important;
+        height: auto !important;
+    }

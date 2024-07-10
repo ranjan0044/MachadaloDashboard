@@ -11,7 +11,7 @@ function createSearchableDropdown(containerId, items, onSelect) {
 
     // Create dropdown menu
     const dropdownMenu = document.createElement('div');
-    dropdownMenu.classList.add('dropdown-menu-city');
+    dropdownMenu.classList.add('dropdown-menu');
 
     // Add input and dropdown menu to container
     container.appendChild(input);
