@@ -281,13 +281,15 @@ const renderTable = (data) => {
         tableBody.appendChild(row);
     });
 }
-const charTypes = [{ id: 'all-chart', label: 'All Chart' }, { id: 'line-chart', label: 'Line Chart' }, { id: 'benchmarking-report', label: 'Benchmarking Report' }, { id: 'overall-report', label: 'Overall Report' }];
+const charTypes = [{ id: 'all-report', label: 'All Chart' }, { id: 'line-chart', label: 'Line Chart' }, { id: 'benchmarking-report', label: 'Benchmarking Report' }, { id: 'overall-report', label: 'Overall Report' }];
 const handleDropdownItemClick = (event) => {
     event.preventDefault();
     const target = event.target.getAttribute('data-target');
     charTypes.forEach(type => {
         const chartContainer = document.getElementById(type.id);
-        if (target === 'all-chart') {
+        if (target === 'all-report') {
+            let header = document.getElementById('chat-type-header');
+            header.innerText = 'All Chart';
             if (chartContainer)
                 chartContainer.style.display = 'block';
         } else if (chartContainer && type.id !== target) {
