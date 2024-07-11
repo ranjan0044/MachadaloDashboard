@@ -7,13 +7,12 @@ label {
   margin-bottom: 8px;
   font-weight: bold;
   font-size: 14px;
-  color: #333;
+  color: #000000;
 }
 
 .chart-container {
   position: relative;
   height: 60vh;
-  /* Responsive height, adjust as necessary */
   width: 100%;
 }
 
@@ -59,8 +58,8 @@ label {
 
 .tooltip-text {
   position: absolute;
-  top: 68%;
-  left: 28%;
+  top: 0%;
+  left: 0%;
   transform: translateY(-50%);
   background-color: rgba(75, 95, 209, 0.8);
   color: rgb(12, 12, 12, 1);
@@ -93,7 +92,7 @@ label {
 .dropdown-menu-city {
   max-height: 200px;
   overflow-y: auto;
-  border: 1px solid #ccc;
+  border: 1px solid #080808;
   background-color: white;
   position: absolute;
   z-index: 1000;
@@ -102,12 +101,13 @@ label {
 }
 
 .dropdown-item-city {
+  text-align: center;
   padding: 10px;
   cursor: pointer;
 }
 
 .dropdown-item-city:hover {
-  background-color: #f1f1f1;
+  background-color: #d4cccc;
 }
 
 .dropdown-item-city.hidden {
@@ -122,25 +122,19 @@ th,
 
     .table-reader {
         overflow-x: auto;
-        /* Enable horizontal scroll */
         max-height: 300px;
-        /* Adjust height as needed */
     }
 
     .table {
         width: 100%;
-        /* Table takes full width of container */
         border-collapse: collapse;
-        /* Remove spacing between cells */
     }
 
     .thead-fixed {
         position: sticky;
         top: 0;
         z-index: 1;
-        /* Ensure it stays above table body */
         background-color: #fff;
-        /* Background color for the fixed header */
     }
 
     .chart-area,
