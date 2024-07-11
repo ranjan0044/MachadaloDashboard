@@ -148,44 +148,6 @@ th,
         width: 100% !important;
         height: auto !important;
     }
-/* 
-    .connectivity-card {
-      cursor: pointer;
-      display: none;
-      
-  }
-  @keyframes waveOut {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(-100%);
-    }
-}
-.hide-card {
-  animation: waveOut 0.5s forwards; 
-}
-
-  .hover-target:hover{
-    position: relative;
-    cursor: pointer;
-  }
-  
-  .hover-target:hover + .connectivity-card {
-    cursor: pointer;
-      display: block;
-  }
-  
-  #pointsForm {
-      margin-top: 10px;
-  }
-  
- 
-
-
-.hover-target:hover  {
-  opacity: 1;
-}  */
 
 .connectivity-card {
   display: none;
