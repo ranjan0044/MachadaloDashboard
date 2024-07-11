@@ -158,33 +158,3 @@ const renderCharts = (meanRatings) => {
         }
     });
 };
-
-// const renderCharts = (meanRatings) => {
-//     const category1ChartCtx = document.getElementById('connectivityChart').getContext('2d');
-//     const category2ChartCtx = document.getElementById('maintenanceChart').getContext('2d');
-//     const category3ChartCtx = document.getElementById('constructionChart').getContext('2d');
-//     const category4ChartCtx = document.getElementById('amenitiesChart').getContext('2d');
-//     const category5ChartCtx = document.getElementById('peopleFriendlinessChart').getContext('2d');
-//     const categories = ["Connectivity", "Maintenance", 'Construction', 'Amenities', 'PeopleFriendliness'];
-//     const chartCtxs = [category1ChartCtx, category2ChartCtx, category3ChartCtx, category4ChartCtx, category5ChartCtx];
-
-//     categories.forEach((category, index) => {
-//         // const categoryData = csvData.map(row => row.ratings[category]);
-//         // const cityMeanRatings = calculateMeanRatings();
-
-//         new Chart(chartCtxs[index], {
-//             type: 'bar',
-//             data: {
-//                 labels: [`${selectedSociety}`, `${selectedCity}`, `Pan India`],
-//                 datasets: [{
-//                     label: `${category} Ratings`,
-//                     data: [meanRatings[category]?.society.toFixed(1), meanRatings[category]?.city?.toFixed(1), meanRatings[category]?.panIndia.toFixed(1)],
-//                     backgroundColor: ["#4e73df", "#1cc88a", "#e74a3b"],
-//                     borderColor: ["#36b9cc", "#36b9cc", "#36b9cc"],
-//                     borderWidth: 1
-//                 }]
-//             },
-//             options: commonOptions
-//         });
-//     })
-// }
