@@ -56,7 +56,7 @@ const updateQueryParam = (key, value) => {
 }
 
 function populateCitySelector(cities) {
-    createSearchableDropdown('citySelector', 'City', cities, function (selectedItem) {
+    createSearchableDropdown('citySelector', 'Search city', cities, function (selectedItem) {
         handleCityChange(selectedItem)
     });
 
@@ -104,7 +104,7 @@ function handleCityChange(city) {
     while (parentElement.firstChild) {
         parentElement.removeChild(parentElement.firstChild);
     }
-    createSearchableDropdown('societySelector', 'Society', societies, function (selectedItem) {
+    createSearchableDropdown('societySelector', 'Search society', societies, function (selectedItem) {
         handleSocietyChange(selectedItem)
     });
 
