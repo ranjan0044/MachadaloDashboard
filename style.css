@@ -58,9 +58,6 @@ label {
 
 .tooltip-text {
   position: absolute;
-  top: 0%;
-  left: 0%;
-  transform: translateY(-50%);
   background-color: rgba(75, 95, 209, 0.8);
   color: rgb(12, 12, 12, 1);
   padding: 5px 10px;
@@ -128,6 +125,8 @@ th,
     .table {
         width: 100%;
         border-collapse: collapse;
+        border: 2px solid black;
+        box-shadow: 4px solid black
     }
 
     .thead-fixed {
@@ -149,3 +148,66 @@ th,
         width: 100% !important;
         height: auto !important;
     }
+/* 
+    .connectivity-card {
+      cursor: pointer;
+      display: none;
+      
+  }
+  @keyframes waveOut {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+.hide-card {
+  animation: waveOut 0.5s forwards; 
+}
+
+  .hover-target:hover{
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .hover-target:hover + .connectivity-card {
+    cursor: pointer;
+      display: block;
+  }
+  
+  #pointsForm {
+      margin-top: 10px;
+  }
+  
+ 
+
+
+.hover-target:hover  {
+  opacity: 1;
+}  */
+
+.connectivity-card {
+  display: none;
+  padding: 10px;
+      color: #080808;
+      border: 1px solid #ddd;
+      background-color: #f9f9f9;
+      box-shadow: 0 4px 8px #5567ceea;
+}
+#pointsForm {
+  display: none;
+}
+.hover-target:hover{
+  position: relative;
+  cursor: pointer;
+}
+.connectivity-card ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.connectivity-card ul li {
+  margin-bottom: 5px;
+}
