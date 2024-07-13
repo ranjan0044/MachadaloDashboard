@@ -16,48 +16,12 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/Machadalo.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 
 </head>
-<style>
-    /* Center align text in table cells */
-    th,
-    td {
-      text-align: center;
-      color: black;
-    }
-    .table-reader {
-    overflow-x: auto; /* Enable horizontal scroll */
-    max-height: 300px; /* Adjust height as needed */
-}
 
-.table {
-    width: 100%; /* Table takes full width of container */
-    border-collapse: collapse; /* Remove spacing between cells */
-}
-
-.thead-fixed {
-    position: sticky;
-    top: 0;
-    z-index: 1; /* Ensure it stays above table body */
-    background-color: #fff; /* Background color for the fixed header */
-}
-
-.chart-area, .chart-pie {
-        position: relative;
-        width: 100%;
-        height: auto;
-    }
-    canvas {
-        display: block;
-        width: 100% !important;
-        height: auto !important;
-    }
-  </style>
 <body id="page-top">
-
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -97,75 +61,25 @@
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Components</span>
                 </a>
-                <!-- <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
-                    </div>
-                </div> -->
+
             </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <!-- <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
-                    </div>
-                </div>
-            </li> -->
-
-            <!-- Divider -->
             <hr class="sidebar-divider">
 
             <!-- Heading -->
             <div class="sidebar-heading">
                 Addons
             </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <!-- <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
+            <li class="nav-item">
+                <a class="nav-link" href="WebForm.html">
+                    <i class="fas fa-fw fa-file-alt"></i>
+                    <span>Fill Survery</span>
                 </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
-            </li> -->
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
             </li>
-
-            <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                <a class="nav-link" href="ReferralPage.html">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>My Referral</span>
+                </a>
             </li>
 
             <!-- Divider -->
@@ -175,16 +89,6 @@
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
-
-            <!-- Sidebar Message -->
-            <!-- <div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-                <p class="text-center mb-2"><strong>Machadalo Pro</strong> is packed with premium features, components,
-                    and more!</p>
-                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to
-                    Pro!</a>
-            </div> -->
-
         </ul>
         <!-- End of Sidebar -->
 
@@ -366,7 +270,7 @@
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in "
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -399,22 +303,21 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <select id="citySelector" class="btn btn-outline-primary" onchange="handleCityChange(this.value)">
-                            <option value="" disabled selected>Select City</option>
-                        </select>
-                        <select id="societySelector" class="btn btn-outline-primary" onchange="handleSocietyChange(this.value)" disabled="true">
-                            <option value="" class="bg-light" selected>Select Society</option>
-                        </select>
-
-
-                        <a href="#" id="downloadButton" class="d-none d-sm-inline-block btn btn-sm btn-outline-primary shadow-sm"><i
-                            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                </div>
+                        <div class="search-dropdown">
+                            <div id="citySelector"></div>
+                        </div>
+                        <div class="search-dropdown">
+                            <div id="societySelector"></div>
+                        </div>
+                        <a href="#" id="downloadButton"
+                            class="d-none d-sm-inline-block btn btn-sm btn-outline-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                    </div>
                     <!-- Content Row -->
                     <div class="row">
 
                         <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-6 col-md-6 mb-4">
+                        <!-- <div class="col-xl-6 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -429,10 +332,10 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-6 col-md-6 mb-4">
+                        <!-- <div class="col-xl-6 col-md-6 mb-4">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -447,7 +350,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- Earnings (Monthly) Card Example -->
                         <!-- <div class="col-xl-3 col-md-3 mb-4">
@@ -496,471 +399,300 @@
                             </div>
                         </div> -->
                     </div>
-                    
+
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Society vs City vs PAN India</h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <h4 class="text-primary text-center">Connectivity Graph</h4>
-                                            <div class="chart-bar">
-                                                <canvas id="connectivityChart"></canvas>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <h4 class="text-primary text-center">Maintainance Graph</h4>
-                                            <div class="chart-bar">
-                                                <canvas id="maintenanceChart"></canvas>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br><hr>
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <h4 class="text-primary text-center">Construction Graph</h4>
-                                            <div class="chart-bar">
-                                                <canvas id="constructionChart"></canvas>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <h4 class="text-primary text-center">Amenities Graph</h4>
-                                            <div class="chart-bar">
-                                                <canvas id="amenitiesChart"></canvas>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br><hr>
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <h4 class="text-primary text-center">PeopleFriendliness Graph</h4>
-                                            <div class="chart-bar">
-                                                <canvas id="peopleFriendlinessChart"></canvas>
-                                            </div>
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h4 class="m-0 font-weight-bold text-primary">Benchmarking Report</h4>
+                                    <div class="dropdown no-arrow">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                            aria-labelledby="dropdownMenuLink">
+                                            <div class="dropdown-header">Chart Types:</div>
+                                            <a class="dropdown-item" href="#">Line Chart</a>
+                                            <a class="dropdown-item" href="#">Benchmarking Report</a>
+                                            <a class="dropdown-item" href="#">Overall Report</a>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-             
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <h6 class="text-primary text-center hover-tooltip">
+                                            Connectivity Graph
+                                            <span class="tooltip-text">
+                                                <ul>
+                                                    <li>Public transport: Bus Stand, Railway Station, Sharing Ricksaw
+                                                    </li>
+                                                    <li>Autos and Cabs easily available: Ola, Uber, Rapido</li>
+                                                    <li>Wide roads</li>
+                                                    <li>Manageable traffic</li>
+                                                    <li>Market area</li>
+                                                    <li>Enough parking space</li>
+                                                    <li>Delivery App: Blinkit, Zepto, Swiggy Instamart</li>
+                                                    <li>School</li>
+                                                    <li>Mall & Restaurant</li>
+                                                    <li>No water logging on roads</li>
+                                                </ul>
+                                            </span>
+                                        </h6>
+                                        <div class="chart-bar">
+                                            <canvas id="connectivityChart"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <h6 class="text-primary text-center hover-tooltip">
+                                            Maintenance Graph
+                                            <span class="tooltip-text">
+                                                <ul>
+                                                    <li>Water supply</li>
+                                                    <li>Power backup available ( Generators / Inverters )</li>
+                                                    <li>Power cuts</li>
+                                                    <li>Garbage collection outside the Society</li>
+                                                    <li>Good hygiene measures, Cleanliness </li>
+                                                    <li>Maintenance charges</li>
+                                                    <li>Painting and waterproofing</li>
+                                                    <li>Elevator maintenance </li>
+                                                    <li>Drainage issue</li>
+                                                    <li>Basement parking has light issues, drainage issue </li>
+                                                    <li>Pesticides sprinkle timely?</li>
+                                                </ul>
+                                            </span>
+                                        </h6>
+                                        <div class="chart-bar">
+                                            <canvas id="maintenanceChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <h6 class="text-primary text-center hover-tooltip">
+                                            Construction Graph
+                                            <span class="tooltip-text">
+                                                <ul>
+                                                    <li>Weak walls and pillars.</li>
+                                                    <li>Poor quality plaster and fitting</li>
+                                                    <li>Seepage issues</li>
+                                                    <li>Conjusted buildings</li>
+                                                    <li>Balcony</li>
+                                                    <li>Building strength for Natural Disasters (Earthquakes, Floods)
+                                                    </li>
+                                                    <li>Safety feaures at Entrance and Exit gate</li>
+                                                    <li>Clear Emergency exits, Fire safety features</li>
+                                                </ul>
+                                            </span>
+                                        </h6>
+                                        <div class="chart-bar">
+                                            <canvas id="constructionChart"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <h6 class="text-primary text-center hover-tooltip">
+                                            Amenities Graph
+                                            <span class="tooltip-text">
+                                                <ul>
+                                                    <li>Lot of open space</li>
+                                                    <li>Nice park and kids playarea</li>
+                                                    <li>Spacious gym</li>
+                                                    <li>Big lift</li>
+                                                    <li>Clubhouse</li>
+                                                    <li>Functioning pool</li>
+                                                    <li>Well lit & safe at night</li>
+                                                    <li>Swimming pools</li>
+                                                </ul>
+                                            </span>
+                                        </h6>
+                                        <div class="chart-bar">
+                                            <canvas id="amenitiesChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <h6 class="text-primary text-center hover-tooltip">
+                                            People Friendliness Graph
+                                            <span class="tooltip-text">
+                                                <ul>
+                                                    <li>Good celebration of festivals</li>
+                                                    <li>Frequent cultural events</li>
+                                                    <li>Understanding and good landlords</li>
+                                                    <li>Educated & decent residents</li>
+                                                    <li>Pets friendly</li>
+                                                    <li>Residents pay maintenence on time</li>
+                                                    <li>Friendly environment</li>
+                                                </ul>
+                                            </span>
+                                        </h6>
+                                        <div class="chart-bar">
+                                            <canvas id="peopleFriendlinessChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
 
-            <!-- <div class="container"> -->
-                <!-- Second Row: Pie Chart -->
-                 <div class="container">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <div class="card shadow mb-4">
-                            <!-- Card Header - Dropdown -->
-                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Society Rating Comparision</h6>
-                                <div class="dropdown no-arrow">
-                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                    </a>
+                                <!-- <div class="container"> -->
+                                <!-- Second Row: Pie Chart -->
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            <div class="card shadow mb-4">
+                                                <!-- Card Header - Dropdown -->
+                                                <div
+                                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                                    <h4 class="m-0 font-weight-bold text-primary">Overall Rating</h4>
+                                                    <div class="dropdown no-arrow">
+                                                        <a class="dropdown-toggle" href="#" role="button"
+                                                            id="dropdownMenuLink" data-toggle="dropdown"
+                                                            aria-haspopup="true" aria-expanded="false">
+                                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <!-- Card Body -->
+                                                <div class="card-body">
+                                                    <div class="chart-pie">
+                                                        <canvas id="myPieChart"></canvas>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 mb-4">
+
+                                            <!-- Project Card Example -->
+                                            <div class="card shadow mb-4" id="societyCityPanIndiaProgress">
+                                                <div class="card-header py-3">
+                                                    <h4 class="m-0 font-weight-bold text-primary">
+                                                        Progress report
+                                                    </h4>
+                                                </div>
+                                                <div class="card-body">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- First Row: Area Chart -->
+                                    <div class="row">
+                                        <div class="col xl-12 lg-12">
+                                            <div class="card shadow mb-8">
+                                                <!-- Card Header - Dropdown -->
+                                                <div
+                                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                                    <h4 class="m-0 font-weight-bold text-primary">Line Chart</h4>
+                                                </div>
+                                                <!-- Card Body -->
+                                                <div class="card-body">
+                                                    <div class="chart-area chart-container">
+                                                        <canvas id="myAreaChart"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- </div> -->
+
+                                <div class="row">
+                                    <div class="container mt-2">
+                                        <div class="table-reader">
+                                            <table class="table table-striped">
+                                                <thead class="thead-fixed bg-primary">
+                                                    <tr>
+                                                        <th scope="col">Like</th>
+                                                        <th scope="col">Dislike</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="dynamic-table-body">
+                                                    <!-- Dynamic content will be inserted here -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- End of Main Content -->
+
+                            <!-- Footer -->
+                            <footer class="sticky-footer bg-white">
+                                <div class="container my-auto">
+                                    <div class="copyright text-center my-auto">
+                                        <span>Copyright &copy; Your Website 2024</span>
+                                    </div>
+                                </div>
+                            </footer>
+                            <!-- End of Footer -->
+
+                        </div>
+                        <!-- End of Content Wrapper -->
+
+                    </div>
+                    <!-- End of Page Wrapper -->
+
+                    <!-- Scroll to Top Button-->
+                    <a class="scroll-to-top rounded" href="#page-top">
+                        <i class="fas fa-angle-up"></i>
+                    </a>
+
+                    <!-- Logout Modal-->
+                    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">Select "Logout" below if you are ready to end your current
+                                    session.</div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                    <a class="btn btn-primary" href="login.html">Logout</a>
                                 </div>
                             </div>
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                <div class="chart-pie">
-                                    <canvas id="myPieChart"></canvas>
-                                </div>
-                                
-                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 mb-4">
-                        
-                        <!-- Project Card Example -->
-                        <div class="card shadow mb-4" id="societyCityPanIndiaProgress">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">
-                                    Society vs City vs PAN India
-                                </h6>
-                            </div>
-                            <div class="card-body">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- First Row: Area Chart -->
-                <div class="row">
-                    <div class="col xl-12 lg-12">
-                        <div class="card shadow mb-8">
-                            <!-- Card Header - Dropdown -->
-                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Society vs City vs Pan India</h6>
-                                <!-- <div class="dropdown no-arrow">
-                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                    </a>
-                                </div> -->
-                            </div>
-                            <!-- Card Body -->
-                            <div class="card-body">
-                                <div class="chart-area">
-                                    <canvas id="myAreaChart"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- </div> -->
-            
-                <div class="row">
-                    <div class="container mt-2">
-                        <div class="table-reader">
-                            <table class="table table-striped">
-                                <thead class="thead-fixed bg-primary">
-                                    <tr>
-                                        <th scope="col">Like</th>
-                                        <th scope="col">Dislike</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="dynamic-table-body">
-                                    <!-- Dynamic content will be inserted here -->
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+                    <script src="Newscript.js"></script>
+                    <!-- Bootstrap core JavaScript-->
+                    <script src="vendor/jquery/jquery.min.js"></script>
+                    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-            </div>
-            <!-- End of Main Content -->
+                    <!-- Core plugin JavaScript-->
+                    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
+                    <!-- Custom scripts for all pages-->
+                    <script src="js/Machadalo.min.js"></script>
 
-        </div>
-        <!-- End of Content Wrapper -->
+                    <!-- Page level plugins -->
+                    <script src="vendor/chart.js/Chart.min.js"></script>
 
-    </div>
-    <!-- End of Page Wrapper -->
+                    <!-- Page level custom scripts -->
+                    <script src="js/demo/chart-area-demo.js"></script>
+                    <script src="js/demo/chart-pie-demo.js"></script>
+                    <script src="js/demo/chart-bar-demo.js"></script>
+                    <script src="js/dropdown.js"></script>
+                    <script src="js/demo/AllScript.js"></script>
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
-    <script src="js/demo/chart-bar-demo.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            fetchCSVData();
-        });
-
-        const citySelector = document.getElementById('citySelector');
-        const societySelector = document.getElementById('societySelector');
-        const infoSection = document.getElementById('info');
-        const commentsSection = document.getElementById('comments');
-        //   const commentsTable = document.getElementById('commentsTable').getElementsByTagName('tbody')[0];
-
-        const csvData = [];
-        let cities = [];
-        let societies = [];
-        let selectedCity = '';
-        let selectedSociety = '';
-        let meanRatings = {
-            // "Connectivity": { city: 2, society: 2, panIndia: 3 },
-            // "Maintenance": { city: 5, society: 4.5, panIndia: 4.6 },
-            // 'Construction': { city: 5, society: 4, panIndia: 2.4 },
-            // 'Amenities': { city: 1.4, society: 4.5, panIndia: 4.7 },
-            // 'PeopleFriendliness': { city: 2, society: 2.8, panIndia: 3.5 }
-        };
-        let tableData = [];
-        let progressPercentage = { society: 0, city: 0, panIndia: 0 };
-        const uniqueSocietiesByCity = {};
-
-        async function fetchCSVData() {
-            const response = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRHkzhb1ysdS3Pon1iEYdeDvAmFFVmaifuJG8LqYvfINO66OxSf-8vaM8Prsrj5Nhhdz2mxd0kdH3vB/pub?gid=173566181&single=true&output=tsv');
-            const data = await response.text();
-            parseCSV(data);
-            // renderCharts(meanRatings);
-            // rederProgressBar();
-            // renderAreaChar(meanRatings);
-            // rederPieChart(meanRatings)
-        }
-
-        function parseCSV(data) {
-            const rows = data.split(/\r?\n/);
-            const headers = rows[0].split('\t');
-            for (let i = 1; i < rows.length; i++) {
-                const row = rows[i].split('\t');
-                const rowData = {};
-                headers.forEach((header, index) => {
-                    rowData[header] = row[index]?.trim();
-                });
-                csvData.push(rowData);
-            }
-            filterUniqueSocietiesByCity()
-        }
-
-        function populateCitySelector(cities) {
-            // cities = [...new Set(csvData.map(entry => entry.City))].filter(city => city);
-            cities.forEach(city => {
-                const option = document.createElement('option');
-                option.value = city;
-                option.text = city;
-                citySelector.appendChild(option);
-            });
-        }
-        const filterUniqueSocietiesByCity = () => {
-            csvData.forEach(item => {
-                const city = item.City;
-                const society = item["Society Name"];
-                if (!uniqueSocietiesByCity[city]) {
-                    uniqueSocietiesByCity[city] = new Set();
-                }
-                uniqueSocietiesByCity[city].add(society);
-            });
-            const cityList = Object.keys(uniqueSocietiesByCity);
-
-            populateCitySelector(cityList)
-            let totalSociety = 0;
-            for (const city in uniqueSocietiesByCity) {
-                totalSociety += uniqueSocietiesByCity[city].size;
-            }
-            updateCounts('total', csvData?.length);
-            updateCounts('society', totalSociety);
-
-        }
-
-        function handleCityChange(city) {
-            selectedCity = city
-            societies = uniqueSocietiesByCity[city];
-            societySelector.innerHTML = '<option value="" disabled selected>Select Society</option>';
-            societies.forEach(society => {
-                const option = document.createElement('option');
-                option.value = society;
-                option.text = society;
-                societySelector.appendChild(option);
-            });
-            societySelector.disabled = false;
-            // updateCounts('city', societies.length);
-        }
-
-        function handleSocietyChange(society) {
-            // document.getElementById('selectedSociety').innerText = society;
-            selectedSociety = society
-            // const selectedComments = csvData.filter(entry => entry["Society Name"] === society);
-            calculateMeanRatings()
-        }
-
-        function updateCounts(type, count) {
-            if (type === 'total')
-                document.getElementById('totalSurvay').innerText = count;
-            else if (type === 'society')
-                document.getElementById('socieyCount').innerText = count;
-        }
-
-        const stringToInteger = (rating) => {
-            if (rating && parseFloat(rating))
-                return parseFloat(rating);
-            else return 0
-        }
-
-        function calculateMeanRatings() {
-            let totalConnectivity = 0;
-            let totalMaintenanceRating = 0;
-            let totalConstruction = 0;
-            let totalAmenities = 0;
-            let totalPeopleFriendliness = 0;
-            let totalRatingPercentage = 0
-
-            let cityConnectivity = 0;
-            let cityMaintenanceRating = 0;
-            let cityConstruction = 0;
-            let cityAmenities = 0;
-            let cityPeopleFriendliness = 0;
-            let totalCityPercentage = 0;
-
-            let societyConnectivity = 0;
-            let societyMaintenanceRating = 0;
-            let societyConstruction = 0;
-            let societyAmenities = 0
-            let societyPeopleFriendliness = 0;
-            let totalSocietyPercentage = 0;
-
-
-            let cityCounts = 1
-            let societyCounts = 1;
-            console.log(csvData)
-            csvData.forEach(item => {
-                if (item?.City?.toLowerCase() === selectedCity.toLowerCase()) {
-                    cityConnectivity += stringToInteger(item['Connectivity Ratings']);
-                    cityMaintenanceRating += stringToInteger(item["Maintenance Rating"]);
-                    cityConstruction += stringToInteger(item["Construction Rating"]);
-                    cityAmenities += stringToInteger(item["Amenities & Livability Rating"]);
-                    cityPeopleFriendliness += stringToInteger(item["People Friendliness Rating"]);
-                    totalCityPercentage += stringToInteger(item["Total Rating"]);
-                    cityCounts = cityCounts + 1;
-                }
-                if (item['Society Name']?.toLowerCase() === selectedSociety?.toLowerCase()) {
-                    societyConnectivity += stringToInteger(item['Connectivity Ratings']);
-                    societyMaintenanceRating += stringToInteger(item["Maintenance Rating"]);
-                    societyConstruction += stringToInteger(item["Construction Rating"]);
-                    societyAmenities += stringToInteger(item["Amenities & Livability Rating"]);
-                    societyPeopleFriendliness += stringToInteger(item["People Friendliness Rating"]);
-                    totalSocietyPercentage += stringToInteger(item["Total Rating"]);
-                    console.log(totalSocietyPercentage);
-                    societyCounts = societyCounts + 1;
-                    tableData.push(item)
-                }
-                totalConnectivity += stringToInteger(item['Connectivity Ratings']);
-                totalMaintenanceRating += stringToInteger(item["Maintenance Rating"]);
-                totalConstruction += stringToInteger(item["Construction Rating"]);
-                totalAmenities += stringToInteger(item["Amenities & Livability Rating"]);
-                totalPeopleFriendliness += stringToInteger(item["People Friendliness Rating"]);
-                totalRatingPercentage += stringToInteger(item["Total Rating"]);
-
-            });
-            totalConnectivity = totalConnectivity / csvData.length
-            totalMaintenanceRating = totalMaintenanceRating / csvData.length;
-            totalConstruction = totalConstruction / csvData.length;
-            totalAmenities = totalAmenities / csvData.length;
-            totalPeopleFriendliness = totalPeopleFriendliness / csvData.length;
-          //  totalRatingPercentage = (totalRatingPercentage / (csvData.length * 25)) * 100;
-
-            cityConnectivity = cityConnectivity / cityCounts
-            cityMaintenanceRating = cityMaintenanceRating / cityCounts;
-            cityConstruction = cityConstruction / cityCounts;
-            cityAmenities = cityAmenities / cityCounts;
-            cityPeopleFriendliness = cityPeopleFriendliness / cityCounts;
-          //  totalCityPercentage = (totalCityPercentage / (cityCounts * 25)) * 100;
-
-            societyConnectivity = societyConnectivity / societyCounts
-            societyMaintenanceRating = societyMaintenanceRating / societyCounts;
-            societyConstruction = societyConstruction / societyCounts;
-            societyAmenities = societyAmenities / societyCounts;
-            societyPeopleFriendliness = societyPeopleFriendliness / societyCounts;
-           // totalSocietyPercentage = (totalSocietyPercentage / (societyCounts * 25)) * 100;
-            
-
-            meanRatings = {
-                "Connectivity": { city: cityConnectivity, society: societyConnectivity, panIndia: totalConnectivity },
-                "Maintenance": { city: cityMaintenanceRating, society: societyMaintenanceRating, panIndia: totalMaintenanceRating },
-                'Construction': { city: cityConstruction, society: societyConstruction, panIndia: totalConstruction },
-                'Amenities': { city: cityAmenities, society: societyAmenities, panIndia: totalAmenities },
-                'PeopleFriendliness': { city: cityPeopleFriendliness, society: societyPeopleFriendliness, panIndia: totalPeopleFriendliness }
-            };
-            totalSocietyPercentage=(((societyConnectivity+societyMaintenanceRating+societyConstruction+societyAmenities+societyPeopleFriendliness))/25)*100;
-            totalCityPercentage=(((cityConnectivity+cityMaintenanceRating+cityConstruction+cityAmenities+cityPeopleFriendliness))/25)*100;
-            totalRatingPercentage=(((totalConnectivity+totalMaintenanceRating+totalConstruction+totalAmenities+totalPeopleFriendliness))/25)*100;
-
-
-            progressPercentage['society'] = totalSocietyPercentage.toFixed(2);
-            progressPercentage['city'] = totalCityPercentage.toFixed(2);
-            progressPercentage['panIndia'] = totalRatingPercentage.toFixed(2);
-
-            renderCharts(meanRatings);
-            rederProgressBar();
-            renderAreaChar(meanRatings);
-            rederPieChart(meanRatings);
-            renderTable(tableData);
-        }
-
-        const rederProgressBar = () => {
-            let cardBody = document.querySelector("#societyCityPanIndiaProgress .card-body");
-            cardBody.innerHTML = "";
-
-            [{ label: 'Society', color: 'bg-warning', percent: progressPercentage['society'] },
-            { label: 'City', color: 'bg-success', percent: progressPercentage['city'] },
-            { label: 'Pan India', color: 'bg-primary', percent: progressPercentage['panIndia'] }].forEach((item) => {
-                var newProgressHeader = document.createElement("h4");
-                newProgressHeader.classList.add("small", "font-weight-bold");
-                newProgressHeader.innerHTML = `${item?.label} Progress<span class='float-right'>${item?.percent}%</span>`;
-
-                var newProgressDiv = document.createElement("div");
-                newProgressDiv.classList.add("progress", "mb-4");
-
-                var newProgressBar = document.createElement("div");
-                newProgressBar.classList.add("progress-bar", `${item?.color}`);
-                newProgressBar.setAttribute("role", "progressbar");
-                newProgressBar.setAttribute("style", `width: ${item?.percent}%`);
-                newProgressBar.setAttribute("aria-valuenow", `${item?.percent}`);
-                newProgressBar.setAttribute("aria-valuemin", "0");
-                newProgressBar.setAttribute("aria-valuemax", "100");
-                newProgressDiv.appendChild(newProgressBar);
-                cardBody.appendChild(newProgressHeader);
-                cardBody.appendChild(newProgressDiv);
-            })
-        }
-
-        const renderTable = (data) => {
-            const tableBody = document.getElementById('dynamic-table-body');
-            tableBody.innerHTML = '';
-            data?.forEach(item => {
-                const row = document.createElement('tr');
-                const likeCell = document.createElement('td');
-                likeCell.textContent = item['Like Detailed Comments'] || '';
-                row.appendChild(likeCell);
-                const dislikeCell = document.createElement('td');
-                dislikeCell.textContent = item['Dislike Detailed Comments'] || '';
-                row.appendChild(dislikeCell);
-                tableBody.appendChild(row);
-            });
-        }
-    </script>
-    <script>
-        document.getElementById('downloadButton').addEventListener('click', function () {
-       html2canvas(document.body).then(function (canvas) {
-           var link = document.createElement('a');
-           link.href = canvas.toDataURL('image/png');
-           link.download = [`${selectedSociety}_${selectedCity}_Pan India_report`];
-           link.click();
-       });
-   });
-   </script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>  
+                    <script>
+                        document.getElementById('downloadButton').addEventListener('click', function () {
+                            html2canvas(document.body).then(function (canvas) {
+                                var link = document.createElement('a');
+                                link.href = canvas.toDataURL('image/png');
+                                link.download = [`${selectedSociety}_${selectedCity}_Pan India_report`];
+                                link.click();
+                            });
+                        });
+                    </script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </body>
 
 </html>

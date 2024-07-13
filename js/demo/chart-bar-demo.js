@@ -28,7 +28,7 @@ Chart.plugins.register({
             var meta = chart.getDatasetMeta(i);
             if (!meta.hidden) {
                 meta.data.forEach(function (element, index) {
-                    ctx.fillStyle = 'rgb(0, 0, 0)';
+                    ctx.fillStyle = '#000000';
                     var fontSize = 16;
                     var fontStyle = 'normal';
                     var fontFamily = 'Helvetica Neue';
@@ -61,14 +61,15 @@ var commonOptions = {
     scales: {
         xAxes: [{
             time: {
-                unit: 'month'
+                unit: 'overall'
             },
             gridLines: {
                 display: false,
                 drawBorder: false
             },
             ticks: {
-                maxTicksLimit: 3
+                maxTicksLimit: 3,
+                 fontColor: '#0000FF'
             },
             maxBarThickness: 25,
         }],
@@ -80,11 +81,11 @@ var commonOptions = {
                 padding: 10,
                 callback: function (value, index, values) {
                     return number_format(value);
-                }
+                },
             },
             gridLines: {
                 color: "rgb(234, 236, 244)",
-                zeroLineColor: "rgb(234, 236, 244)",
+                zeroLineColor: "#000000",
                 drawBorder: false,
                 borderDash: [2],
                 zeroLineBorderDash: [2]
@@ -96,11 +97,11 @@ var commonOptions = {
     },
     tooltips: {
         titleMarginBottom: 10,
-        titleFontColor: '#6e707e',
+        titleFontColor: '#000000',
         titleFontSize: 14,
         backgroundColor: "rgb(255,255,255)",
-        bodyFontColor: "#858796",
-        borderColor: '#dddfeb',
+        bodyFontColor: "#000000",
+        borderColor: '#000',
         borderWidth: 1,
         xPadding: 15,
         yPadding: 15,
@@ -114,6 +115,9 @@ var commonOptions = {
         }
     },
 };
+
+let charts = [];
+
 const renderCharts = (meanRatings) => {
     const category1ChartCtx = document.getElementById('connectivityChart').getContext('2d');
     const category2ChartCtx = document.getElementById('maintenanceChart').getContext('2d');
@@ -124,22 +128,33 @@ const renderCharts = (meanRatings) => {
     const chartCtxs = [category1ChartCtx, category2ChartCtx, category3ChartCtx, category4ChartCtx, category5ChartCtx];
 
     categories.forEach((category, index) => {
-        // const categoryData = csvData.map(row => row.ratings[category]);
-        // const cityMeanRatings = calculateMeanRatings();
+        const data = [
+            meanRatings[category]?.society.toFixed(1),
+            meanRatings[category]?.city?.toFixed(1),
+            meanRatings[category]?.panIndia.toFixed(1)
+        ];
 
-        new Chart(chartCtxs[index], {
-            type: 'bar',
-            data: {
-                labels: [`${selectedSociety}`, `${selectedCity}`, `Pan India`],
-                datasets: [{
-                    label: `${category} Ratings`,
-                    data: [meanRatings[category]?.society.toFixed(1), meanRatings[category]?.city?.toFixed(1), meanRatings[category]?.panIndia.toFixed(1)],
-                    backgroundColor: ["#4e73df", "#1cc88a", "#e74a3b"],
-                    borderColor: ["#36b9cc", "#36b9cc", "#36b9cc"],
-                    borderWidth: 1
-                }]
-            },
-            options: commonOptions
-        });
-    })
-}
+        if (charts[index]) {
+            // Update existing chart data
+            charts[index].data.datasets[0].data = data;
+            charts[index].update();
+        } else {
+            // Create new chart instance
+            const chart = new Chart(chartCtxs[index], {
+                type: 'bar',
+                data: {
+                    labels: [`${selectedSociety}`, `${selectedCity}`, `Pan India`],
+                    datasets: [{
+                        label: `${category} Ratings`,
+                        data: data,
+                        backgroundColor: ["#4e73df", "#1cc88a", "#e74a3b"],
+                        borderColor: ["#36b9cc", "#36b9cc", "#36b9cc"],
+                        borderWidth: 1
+                    }]
+                },
+                options: commonOptions
+            });
+            charts[index] = chart;
+        }
+    });
+};
