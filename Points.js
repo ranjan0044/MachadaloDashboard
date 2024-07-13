@@ -108,4 +108,7 @@ function savePoints() {
     const unfavorablePoints = document.getElementById('unfavorablePoints').value;
     alert('Favorable Points: ' + favorablePoints + '\nUnfavorable Points: ' + unfavorablePoints);
     // You can add further logic to save these points, e.g., send them to a server
+
+    const pointsForm = document.getElementById('pointsForm');
+    pointsForm.style.display = 'none';
 }

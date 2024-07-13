@@ -61,7 +61,7 @@ var commonOptions = {
     scales: {
         xAxes: [{
             time: {
-                unit: 'month'
+                unit: 'overall'
             },
             gridLines: {
                 display: false,

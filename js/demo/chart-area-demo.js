@@ -106,15 +106,18 @@ const renderAreaChar = (meanRatings) => {
                     xAxes: [{
                         display: true,
                         scaleLabel: {
-                            display: true
+                            display: true,
+                            labelString: 'Categories' // Label for the X-axis
                         }
                     }],
                     yAxes: [{
                         display: true,
                         scaleLabel: {
-                            display: true
+                            display: true,
+                            labelString: 'Rating' // Label for the Y-axis
                         }
                     }]
+
                 }
             }
         });
