@@ -299,7 +299,7 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <div class="d-sm-flex flex-column flex-sm-row align-items-center justify-content-between mb-4">
+                    <div class="d-sm-flex flex-column flex-sm-row align-items-center justify-content-between mb-5">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
                         <div class="mt-3 mt-sm-0 ml-0 ml-sm-3 search-dropdown">
                             <div id="citySelector"></div>
@@ -426,30 +426,7 @@
                                 <div class="container">
                                     <div id="benchmarking-report">
                                         <div class="row">
-                                            <!-- <div class="col-lg-6 col-md-6 col-sm-12">
-                                                <h6 class="text-primary text-center hover-tooltip">
-                                                    Connectivity Graph
-                                                    <span class="tooltip-text">
-                                                        <ul>
-                                                            <li>Public transport: Bus Stand, Railway Station, Sharing
-                                                                Ricksaw
-                                                            </li>
-                                                            <li>Autos and Cabs easily available: Ola, Uber, Rapido</li>
-                                                            <li>Wide roads</li>
-                                                            <li>Manageable traffic</li>
-                                                            <li>Market area</li>
-                                                            <li>Enough parking space</li>
-                                                            <li>Delivery App: Blinkit, Zepto, Swiggy Instamart</li>
-                                                            <li>School</li>
-                                                            <li>Mall & Restaurant</li>
-                                                            <li>No water logging on roads</li>
-                                                        </ul>
-                                                    </span>
-                                                </h6>
-                                                <div class="chart-bar">
-                                                    <canvas id="connectivityChart"></canvas>
-                                                </div>
-                                            </div> -->
+
                                             <div class="col-lg-6 col-md-6 col-sm-12">
                                                 <h6 class="text-primary text-center hover-target  hover-tooltip">
                                                     Connectivity Graph
@@ -591,7 +568,7 @@
                                                     <h4 class="m-0 font-weight-bold text-primary">Overall Rating</h4>
                                                 </div> -->
                                                 <div class="card-body">
-                                                    <div class="chart-pie">
+                                                    <div class="chart-pie" id="pie-chart-container">
                                                         <canvas id="myPieChart"></canvas>
                                                     </div>
 
@@ -620,7 +597,7 @@
                                                     <h4 class="m-0 font-weight-bold text-primary">Line Chart</h4>
                                                 </div> -->
                                                 <div class="card-body">
-                                                    <div class="chart-area chart-container">
+                                                    <div class="chart-area chart-container" id="line-chart-container">
                                                         <canvas id="myAreaChart"></canvas>
                                                     </div>
                                                 </div>

@@ -90,13 +90,17 @@ const renderAreaChar = (meanRatings) => {
             },
             options: {
                 responsive: true,
+                maintainAspectRatio: false, // Ensure the chart adjusts to the container size
                 title: {
-                    // display: true,
-                    // text: 'Comparison across Categories'
+                  //  display: true,
+                   // text: 'Comparison across Categories',
+                   // fontSize: 16 // Adjust this value as needed
                 },
                 tooltips: {
                     mode: 'index',
                     intersect: false,
+                    bodyFontSize: 12, // Adjust this value as needed
+                    titleFontSize: 14 // Adjust this value as needed
                 },
                 hover: {
                     mode: 'nearest',
@@ -107,19 +111,34 @@ const renderAreaChar = (meanRatings) => {
                         display: true,
                         scaleLabel: {
                             display: true,
-                            labelString: 'Categories' // Label for the X-axis
+                            labelString: 'Categories',
+                            fontSize: 12 // Adjust this value as needed
+                        },
+                        ticks: {
+                            fontSize: 10 // Adjust this value as needed
                         }
                     }],
                     yAxes: [{
                         display: true,
                         scaleLabel: {
                             display: true,
-                            labelString: 'Rating' // Label for the Y-axis
+                            labelString: 'Values',
+                            fontSize: 12 // Adjust this value as needed
+                        },
+                        ticks: {
+                            fontSize: 10 // Adjust this value as needed
                         }
                     }]
-
+                },
+                legend: {
+                    display: true,
+                    position: 'top',
+                    labels: {
+                        fontSize: 10 // Adjust this value as needed
+                    }
                 }
             }
         });
+        
     }
 }

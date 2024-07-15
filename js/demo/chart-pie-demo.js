@@ -24,9 +24,9 @@ const rederPieChart = (meanRatings) => {
         pieChart = new Chart(ctxPie, {
             type: 'pie',
             data: {
-                labels: ["Connectivity", "Maintenance", "Construction", "People Friendliness", "Amenities"],
+ labels: ["Connectivity", "Maintenance", "Construction", "People Friendliness", "Amenities"],
                 datasets: [{
-                    // label: "Overall Ratings",
+                    //   label: "Overall Ratings",
                     data: data,
                     backgroundColor: [
                         'rgba(78, 115, 223, 0.5)',
@@ -44,8 +44,9 @@ const rederPieChart = (meanRatings) => {
             },
             options: {
                 responsive: true,
+                maintainAspectRatio: false, // Ensures the chart can resize based on the container size
                 legend: {
-                    position: 'right',
+                    position: 'bottom',
                 },
                 title: {
                     display: true,
