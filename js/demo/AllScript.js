@@ -233,7 +233,7 @@ function calculateMeanRatings() {
     progressPercentage['city'] = totalCityPercentage.toFixed(2);
     progressPercentage['panIndia'] = totalRatingPercentage.toFixed(2);
 
-    renderCharts(meanRatings);
+    renderCharts(meanRatings,selectedCity,selectedSociety);
     rederProgressBar();
     renderAreaChar(meanRatings);
     rederPieChart(meanRatings);

@@ -137,6 +137,7 @@ const renderCharts = (meanRatings) => {
         if (charts[index]) {
             // Update existing chart data
             charts[index].data.datasets[0].data = data;
+            charts[index].data.labels = [selectedSociety, selectedCity, "Pan India"];
             charts[index].update();
         } else {
             // Create new chart instance
