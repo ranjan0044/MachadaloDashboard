@@ -138,7 +138,7 @@ td {
 }
 
 .chart-area,
-.chart-pie {
+.chart-pie,.chart-bar {
   position: relative;
   width: 100%;
   height: auto;
