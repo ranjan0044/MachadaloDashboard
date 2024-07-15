@@ -299,20 +299,19 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <div class="d-sm-flex flex-column flex-sm-row align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <div class="search-dropdown">
+                        <div class="mt-3 mt-sm-0 ml-0 ml-sm-3 search-dropdown">
                             <div id="citySelector"></div>
                         </div>
-                        <div class="search-dropdown">
+                        <div class="mt-3 mt-sm-0 ml-0 ml-sm-3 search-dropdown">
                             <div id="societySelector"></div>
                         </div>
-                        <a href="#" id="downloadButton"
-                            class="d-none d-sm-inline-block btn btn-sm btn-outline-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        <a href="#" id="downloadButton" class="mt-3 mt-sm-0 btn btn-sm btn-outline-primary shadow-sm">
+                            <i class="fas fa-download fa-sm text-white-50"></i> Generate Report
+                        </a>
                     </div>
+                    
                     <!-- Content Row -->
                     <div class="row">
 
@@ -409,7 +408,7 @@
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-dark-400"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                             aria-labelledby="dropdownMenuLink" id="chart-type-dropdown">
@@ -427,7 +426,7 @@
                                 <div class="container">
                                     <div id="benchmarking-report">
                                         <div class="row">
-                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <!-- <div class="col-lg-6 col-md-6 col-sm-12">
                                                 <h6 class="text-primary text-center hover-tooltip">
                                                     Connectivity Graph
                                                     <span class="tooltip-text">
@@ -450,7 +449,45 @@
                                                 <div class="chart-bar">
                                                     <canvas id="connectivityChart"></canvas>
                                                 </div>
+                                            </div> -->
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <h6 class="text-primary text-center hover-target  hover-tooltip">
+                                                    Connectivity Graph
+                                                    <span class="tooltip-text">
+                                                        <ul>
+                                                            <li>Click Me</li>
+                                                        </ul>
+                                                    </span>
+                                                </h6>
+                                                
+                                                <div class="connectivity-card" id="connectivityCard">
+                                                    <ul>
+                                                        <li>Public transport: Bus Stand, Railway Station, Sharing Rickshaw</li>
+                                                        <li>Autos and Cabs easily available: Ola, Uber, Rapido</li>
+                                                        <li>Wide roads</li>
+                                                        <li>Manageable traffic</li>
+                                                        <li>Market area</li>
+                                                        <li>Enough parking space</li>
+                                                        <li>Delivery App: Blinkit, Zepto, Swiggy Instamart</li>
+                                                        <li>School</li>
+                                                        <li>Mall & Restaurant</li>
+                                                        <li>No water logging on roads</li>
+                                                    </ul>
+                                                    <button id="toggleButton" class="btn btn-outline-primary">Add your Fav/UnFav Points</button>
+                                                    <div id="pointsForm">
+                                                        <h5>Favorable Points</h5>
+                                                        <textarea id="favorablePoints" rows="4" cols="25" placeholder="Enter favorable points"></textarea>
+                                                        <h5>Unfavorable Points</h5>
+                                                        <textarea id="unfavorablePoints" rows="4" cols="25" placeholder="Enter unfavorable points"></textarea><hr>
+                                                        <button onclick="savePoints()" class="btn btn-outline-primary">Save Points</button>
+                                                    </div>
+                                                </div>
+                                                <div class="chart-bar">
+                                                    <canvas id="connectivityChart"></canvas>
+                                                </div>
                                             </div>
+                                            
+                                            
                                             <div class="col-lg-6 col-md-6 col-sm-12">
                                                 <h6 class="text-primary text-center hover-tooltip">
                                                     Maintenance Graph
@@ -675,6 +712,7 @@
                     <script src="js/demo/chart-bar-demo.js"></script>
                     <script src="js/dropdown.js"></script>
                     <script src="js/demo/AllScript.js"></script>
+                    <script src="Points.js"></script>
 
                     <script>
                         document.getElementById('downloadButton').addEventListener('click', function () {
