@@ -92,9 +92,9 @@ const renderAreaChar = (meanRatings) => {
                 responsive: true,
                 maintainAspectRatio: false, // Ensure the chart adjusts to the container size
                 title: {
-                    display: true,
-                    text: 'Comparison across Categories',
-                    fontSize: 16 // Adjust this value as needed
+                  //  display: true,
+                   // text: 'Comparison across Categories',
+                   // fontSize: 16 // Adjust this value as needed
                 },
                 tooltips: {
                     mode: 'index',
