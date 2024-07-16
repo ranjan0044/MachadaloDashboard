@@ -150,7 +150,7 @@ canvas {
   height: auto !important;
 }
 
-.connectivity-card {
+.rating-card {
   display: none;
   padding: 10px;
   color: #080808;
@@ -168,13 +168,13 @@ canvas {
   cursor: pointer;
 }
 
-.connectivity-card ul {
+.rating-card ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-.connectivity-card ul li {
+.rating-card ul li {
   margin-bottom: 5px;
 }
 

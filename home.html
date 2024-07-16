@@ -311,7 +311,7 @@
                             <i class="fas fa-download fa-sm text-white-50"></i> Generate Report
                         </a>
                     </div>
-                    
+
                     <!-- Content Row -->
                     <div class="row">
 
@@ -404,7 +404,8 @@
                             <div class="card shadow mb-4">
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h4 class="m-0 font-weight-bold text-primary" id="chat-type-header">Benchmarking Report</h4>
+                                    <h4 class="m-0 font-weight-bold text-primary" id="chat-type-header">Benchmarking
+                                        Report</h4>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -415,9 +416,11 @@
                                             <div class="dropdown-header">Chart Types:</div>
                                             <a class="dropdown-item" href="#" data-target="all-report">All Chart</a>
                                             <a class="dropdown-item" href="#" data-target="line-chart">Line Chart</a>
-                                            <a class="dropdown-item" href="#" data-target="benchmarking-report">Benchmarking Report</a>
-                                            <a class="dropdown-item" href="#" data-target="overall-report">Overall Report</a>
-                                            
+                                            <a class="dropdown-item" href="#"
+                                                data-target="benchmarking-report">Benchmarking Report</a>
+                                            <a class="dropdown-item" href="#" data-target="overall-report">Overall
+                                                Report</a>
+
                                         </div>
                                     </div>
                                 </div>
@@ -428,18 +431,18 @@
                                         <div class="row">
 
                                             <div class="col-lg-6 col-md-6 col-sm-12">
-                                                <h6 class="text-primary text-center hover-target  hover-tooltip" onclick="OpenCard('connectivityCard')">
+                                                <h6 class="text-primary text-center hover-target  hover-tooltip"
+                                                    onclick="openCardById('connectivityCard')">
                                                     Connectivity Graph
                                                     <span class="tooltip-text">
-                                                        <ul>
-                                                            <li>Click Me</li>
-                                                        </ul>
+                                                        Click Me
                                                     </span>
                                                 </h6>
-                                        
-                                                <div class="connectivity-card" id="connectivityCard">
+
+                                                <div class="rating-card" id="connectivityCard">
                                                     <ul>
-                                                        <li>Public transport: Bus Stand, Railway Station, Sharing Rickshaw</li>
+                                                        <li>Public transport: Bus Stand, Railway Station, Sharing
+                                                            Rickshaw</li>
                                                         <li>Autos and Cabs easily available: Ola, Uber, Rapido</li>
                                                         <li>Wide roads</li>
                                                         <li>Manageable traffic</li>
@@ -450,40 +453,60 @@
                                                         <li>Mall & Restaurant</li>
                                                         <li>No water logging on roads</li>
                                                     </ul>
-                                                    <button id="toggleButton" class="btn btn-outline-primary">Add your Fav/UnFav Points</button>
+                                                    <button class="btn btn-outline-primary" onclick="openBoxInCard()">Add your
+                                                        Fav/UnFav Points</button>
                                                     <div id="pointsForm">
                                                         <h5>Favorable Points</h5>
-                                                        <textarea id="favorablePoints" rows="4" cols="25" placeholder="Enter favorable points"></textarea>
+                                                        <textarea id="favorablePoints" rows="4" cols="25"
+                                                            placeholder="Enter favorable points"></textarea>
                                                         <h5>Unfavorable Points</h5>
-                                                        <textarea id="unfavorablePoints" rows="4" cols="25" placeholder="Enter unfavorable points"></textarea><hr>
-                                                        <button onclick="savePoints()" class="btn btn-outline-primary">Save Points</button>
+                                                        <textarea id="unfavorablePoints" rows="4" cols="25"
+                                                            placeholder="Enter unfavorable points"></textarea>
+                                                        <hr>
+                                                        <button onclick="savePoints()"
+                                                            class="btn btn-outline-primary">Save Points</button>
                                                     </div>
                                                 </div>
                                                 <div class="chart-bar">
                                                     <canvas id="connectivityChart"></canvas>
                                                 </div>
                                             </div>
-                                            
-                                            
+
+
                                             <div class="col-lg-6 col-md-6 col-sm-12">
-                                                <h6 class="text-primary text-center hover-tooltip">
+                                                <h6 class="text-primary text-center hover-target hover-tooltip"
+                                                    onclick="openCardById('maintenanceCard')">
                                                     Maintenance Graph
-                                                    <span class="tooltip-text">
-                                                        <ul>
-                                                            <li>Water supply</li>
-                                                            <li>Power backup available ( Generators / Inverters )</li>
-                                                            <li>Power cuts</li>
-                                                            <li>Garbage collection outside the Society</li>
-                                                            <li>Good hygiene measures, Cleanliness </li>
-                                                            <li>Maintenance charges</li>
-                                                            <li>Painting and waterproofing</li>
-                                                            <li>Elevator maintenance </li>
-                                                            <li>Drainage issue</li>
-                                                            <li>Basement parking has light issues, drainage issue </li>
-                                                            <li>Pesticides sprinkle timely?</li>
-                                                        </ul>
-                                                    </span>
+                                                    <span class="tooltip-text">Click Me</span>
                                                 </h6>
+                                                <div class="rating-card" id="maintenanceCard">
+                                                    <ul>
+                                                        <li>Water supply</li>
+                                                        <li>Power backup available ( Generators / Inverters )</li>
+                                                        <li>Power cuts</li>
+                                                        <li>Garbage collection outside the Society</li>
+                                                        <li>Good hygiene measures, Cleanliness </li>
+                                                        <li>Maintenance charges</li>
+                                                        <li>Painting and waterproofing</li>
+                                                        <li>Elevator maintenance </li>
+                                                        <li>Drainage issue</li>
+                                                        <li>Basement parking has light issues, drainage issue </li>
+                                                        <li>Pesticides sprinkle timely?</li>
+                                                    </ul>
+                                                    <button class="btn btn-outline-primary" onclick="openBoxInCard()">Add your
+                                                        Fav/UnFav Points</button>
+                                                    <div id="pointsForm">
+                                                        <h5>Favorable Points</h5>
+                                                        <textarea id="favorablePoints" rows="4" cols="25"
+                                                            placeholder="Enter favorable points"></textarea>
+                                                        <h5>Unfavorable Points</h5>
+                                                        <textarea id="unfavorablePoints" rows="4" cols="25"
+                                                            placeholder="Enter unfavorable points"></textarea>
+                                                        <hr>
+                                                        <button onclick="savePoints()"
+                                                            class="btn btn-outline-primary">Save Points</button>
+                                                    </div>
+                                                </div>
                                                 <div class="chart-bar">
                                                     <canvas id="maintenanceChart"></canvas>
                                                 </div>
@@ -493,43 +516,73 @@
                                         <hr>
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6 col-sm-12">
-                                                <h6 class="text-primary text-center hover-tooltip">
+                                                <h6 class="text-primary text-center hover-tooltip"
+                                                    onclick="openCardById('constructionCard')">
                                                     Construction Graph
-                                                    <span class="tooltip-text">
-                                                        <ul>
-                                                            <li>Weak walls and pillars.</li>
-                                                            <li>Poor quality plaster and fitting</li>
-                                                            <li>Seepage issues</li>
-                                                            <li>Conjusted buildings</li>
-                                                            <li>Balcony</li>
-                                                            <li>Building strength for Natural Disasters (Earthquakes,
-                                                                Floods)
-                                                            </li>
-                                                            <li>Safety feaures at Entrance and Exit gate</li>
-                                                            <li>Clear Emergency exits, Fire safety features</li>
-                                                        </ul>
-                                                    </span>
+                                                    <span class="tooltip-text">Click Me</span>
                                                 </h6>
+                                                <div class="rating-card" id="constructionCard">
+                                                    <ul>
+                                                        <li>Weak walls and pillars.</li>
+                                                        <li>Poor quality plaster and fitting</li>
+                                                        <li>Seepage issues</li>
+                                                        <li>Conjusted buildings</li>
+                                                        <li>Balcony</li>
+                                                        <li>Building strength for Natural Disasters (Earthquakes,
+                                                            Floods)
+                                                        </li>
+                                                        <li>Safety feaures at Entrance and Exit gate</li>
+                                                        <li>Clear Emergency exits, Fire safety features</li>
+                                                    </ul>
+                                                    <button class="btn btn-outline-primary" onclick="openBoxInCard()">Add your
+                                                        Fav/UnFav Points</button>
+                                                    <div id="pointsForm">
+                                                        <h5>Favorable Points</h5>
+                                                        <textarea id="favorablePoints" rows="4" cols="25"
+                                                            placeholder="Enter favorable points"></textarea>
+                                                        <h5>Unfavorable Points</h5>
+                                                        <textarea id="unfavorablePoints" rows="4" cols="25"
+                                                            placeholder="Enter unfavorable points"></textarea>
+                                                        <hr>
+                                                        <button onclick="savePoints()"
+                                                            class="btn btn-outline-primary">Save Points</button>
+                                                    </div>
+                                                </div>
                                                 <div class="chart-bar">
                                                     <canvas id="constructionChart"></canvas>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-sm-12">
-                                                <h6 class="text-primary text-center hover-tooltip">
+                                                <h6 class="text-primary text-center hover-tooltip"
+                                                    onclick="openCardById('amenitiesCard')">
                                                     Amenities Graph
-                                                    <span class="tooltip-text">
-                                                        <ul>
-                                                            <li>Lot of open space</li>
-                                                            <li>Nice park and kids playarea</li>
-                                                            <li>Spacious gym</li>
-                                                            <li>Big lift</li>
-                                                            <li>Clubhouse</li>
-                                                            <li>Functioning pool</li>
-                                                            <li>Well lit & safe at night</li>
-                                                            <li>Swimming pools</li>
-                                                        </ul>
-                                                    </span>
+                                                    <span class="tooltip-text"> Click Me</span>
                                                 </h6>
+                                                <div class="rating-card" id="amenitiesCard">
+                                                    <ul>
+                                                        <li>Lot of open space</li>
+                                                        <li>Nice park and kids playarea</li>
+                                                        <li>Spacious gym</li>
+                                                        <li>Big lift</li>
+                                                        <li>Clubhouse</li>
+                                                        <li>Functioning pool</li>
+                                                        <li>Well lit & safe at night</li>
+                                                        <li>Swimming pools</li>
+                                                    </ul>
+                                                    <button class="btn btn-outline-primary" onclick="openBoxInCard()">Add your
+                                                        Fav/UnFav Points</button>
+                                                    <div id="pointsForm">
+                                                        <h5>Favorable Points</h5>
+                                                        <textarea id="favorablePoints" rows="4" cols="25"
+                                                            placeholder="Enter favorable points"></textarea>
+                                                        <h5>Unfavorable Points</h5>
+                                                        <textarea id="unfavorablePoints" rows="4" cols="25"
+                                                            placeholder="Enter unfavorable points"></textarea>
+                                                        <hr>
+                                                        <button onclick="savePoints()"
+                                                            class="btn btn-outline-primary">Save Points</button>
+                                                    </div>
+                                                </div>
                                                 <div class="chart-bar">
                                                     <canvas id="amenitiesChart"></canvas>
                                                 </div>
@@ -539,20 +592,35 @@
                                         <hr>
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6 col-sm-12">
-                                                <h6 class="text-primary text-center hover-tooltip">
+                                                <h6 class="text-primary text-center hover-tooltip"
+                                                    onclick="openCardById('peopleFriendlinessCard')">
                                                     People Friendliness Graph
-                                                    <span class="tooltip-text">
-                                                        <ul>
-                                                            <li>Good celebration of festivals</li>
-                                                            <li>Frequent cultural events</li>
-                                                            <li>Understanding and good landlords</li>
-                                                            <li>Educated & decent residents</li>
-                                                            <li>Pets friendly</li>
-                                                            <li>Residents pay maintenence on time</li>
-                                                            <li>Friendly environment</li>
-                                                        </ul>
-                                                    </span>
+                                                    <span class="tooltip-text">Click Me</span>
                                                 </h6>
+                                                <div class="rating-card" id="peopleFriendlinessCard">
+                                                    <ul>
+                                                        <li>Good celebration of festivals</li>
+                                                        <li>Frequent cultural events</li>
+                                                        <li>Understanding and good landlords</li>
+                                                        <li>Educated & decent residents</li>
+                                                        <li>Pets friendly</li>
+                                                        <li>Residents pay maintenence on time</li>
+                                                        <li>Friendly environment</li>
+                                                    </ul>
+                                                    <button class="btn btn-outline-primary" onclick="openBoxInCard()">Add your
+                                                        Fav/UnFav Points</button>
+                                                    <div id="pointsForm">
+                                                        <h5>Favorable Points</h5>
+                                                        <textarea id="favorablePoints" rows="4" cols="25"
+                                                            placeholder="Enter favorable points"></textarea>
+                                                        <h5>Unfavorable Points</h5>
+                                                        <textarea id="unfavorablePoints" rows="4" cols="25"
+                                                            placeholder="Enter unfavorable points"></textarea>
+                                                        <hr>
+                                                        <button onclick="savePoints()"
+                                                            class="btn btn-outline-primary">Save Points</button>
+                                                    </div>
+                                                </div>
                                                 <div class="chart-bar">
                                                     <canvas id="peopleFriendlinessChart"></canvas>
                                                 </div>
@@ -561,31 +629,31 @@
                                     </div>
                                     <div class="row" id="overall-report">
                                         <div class="col d-lg-inline-flex">
-                                        <div class="col-lg-8">
-                                            <div class="card shadow mb-4">
-                                                <!-- <div
+                                            <div class="col-lg-8">
+                                                <div class="card shadow mb-4">
+                                                    <!-- <div
                                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                                     <h4 class="m-0 font-weight-bold text-primary">Overall Rating</h4>
                                                 </div> -->
-                                                <div class="card-body">
-                                                    <div class="chart-pie" id="pie-chart-container">
-                                                        <canvas id="myPieChart"></canvas>
-                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="chart-pie" id="pie-chart-container">
+                                                            <canvas id="myPieChart"></canvas>
+                                                        </div>
 
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <div class="card shadow mb-4" id="societyCityPanIndiaProgress">
-                                                <div class="card-header py-3">
-                                                    <h4 class="m-0 font-weight-bold text-primary">
-                                                        Progress report
-                                                    </h4>
-                                                </div>
-                                                <div class="card-body">
+                                            <div class="col-lg-4">
+                                                <div class="card shadow mb-4" id="societyCityPanIndiaProgress">
+                                                    <div class="card-header py-3">
+                                                        <h4 class="m-0 font-weight-bold text-primary">
+                                                            Progress report
+                                                        </h4>
+                                                    </div>
+                                                    <div class="card-body">
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
                                         </div>
                                     </div>
                                     <!-- First Row: Area Chart -->
