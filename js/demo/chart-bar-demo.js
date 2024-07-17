@@ -50,6 +50,7 @@ Chart.plugins.register({
 
 var commonOptions = {
     maintainAspectRatio: false,
+    responsive: true, 
     layout: {
         padding: {
             left: 10,
@@ -69,7 +70,10 @@ var commonOptions = {
             },
             ticks: {
                 maxTicksLimit: 3,
-                 fontColor: '#0000FF'
+                fontColor: '#0000FF',
+                callback: function (value) {
+                    return value.length > 10 ? value.substr(0, 10) + '...' : value;
+                }
             },
             maxBarThickness: 25,
         }],
