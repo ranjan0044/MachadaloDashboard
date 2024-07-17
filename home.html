@@ -430,7 +430,7 @@
                                     <div id="benchmarking-report">
                                         <div class="row">
 
-                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <!-- <div class="col-lg-6 col-md-6 col-sm-12">
                                                 <h6 class="text-primary text-center hover-target  hover-tooltip"
                                                     onclick="openCardById('connectivityCard')">
                                                     Connectivity Graph
@@ -470,8 +470,45 @@
                                                 <div class="chart-bar">
                                                     <canvas id="connectivityChart"></canvas>
                                                 </div>
+                                            </div> -->
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <h6 class="text-primary text-center hover-target  hover-tooltip">
+                                                    Connectivity Graph
+                                                    <button class="btn btn-outline-primary btn-sm" onclick="toggleConnectivityCard()">
+                                                        +
+                                                    </button>
+                                                </h6>
+                                                <div class="rating-card" id="connectivityCard" style="display: none;">
+                                                    <ul>
+                                                        <li>Public transport: Bus Stand, Railway Station, Sharing Rickshaw</li>
+                                                        <li>Autos and Cabs easily available: Ola, Uber, Rapido</li>
+                                                        <li>Wide roads</li>
+                                                        <li>Manageable traffic</li>
+                                                        <li>Market area</li>
+                                                        <li>Enough parking space</li>
+                                                        <li>Delivery App: Blinkit, Zepto, Swiggy Instamart</li>
+                                                        <li>School</li>
+                                                        <li>Mall & Restaurant</li>
+                                                        <li>No water logging on roads</li>
+                                                    </ul>
+                                                    <button class="btn btn-outline-primary" onclick="openBoxInCard()">Add your Fav/UnFav Points</button>
+                                                    <div id="pointsForm">
+                                                        <h5>Favorable Points</h5>
+                                                        <textarea id="favorablePoints" rows="4" cols="25" placeholder="Enter favorable points"></textarea>
+                                                        <h5>Unfavorable Points</h5>
+                                                        <textarea id="unfavorablePoints" rows="4" cols="25" placeholder="Enter unfavorable points"></textarea>
+                                                        <hr>
+                                                        <button onclick="savePoints()" class="btn btn-outline-primary">Save Points</button>
+                                                    </div>
+                                                </div>
+                                            
+                                                <div class="chart-bar">
+                                                    <canvas id="connectivityChart"></canvas>
+                                                </div>
                                             </div>
+                                            
 
+                                            
 
                                             <div class="col-lg-6 col-md-6 col-sm-12">
                                                 <h6 class="text-primary text-center hover-target hover-tooltip"

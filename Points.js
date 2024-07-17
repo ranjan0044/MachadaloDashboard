@@ -34,3 +34,12 @@ const openBoxInCard = () => {
         pointsForm.style.display = 'block';
     }
 }
+
+function toggleConnectivityCard() {
+    var card = document.getElementById('connectivityCard');
+    if (card.style.display === 'none') {
+        card.style.display = 'block';
+    } else {
+        card.style.display = 'none';
+    }
+}
