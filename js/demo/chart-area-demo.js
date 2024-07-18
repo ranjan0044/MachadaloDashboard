@@ -134,7 +134,12 @@ const renderAreaChar = (meanRatings) => {
                     display: true,
                     position: 'top',
                     labels: {
-                        fontSize: 10 // Adjust this value as needed
+                        fontSize: 10 ,// Adjust this value as needed
+                        fontColor: '#333', // Adjust label font color
+                        padding: 10, // Adjust padding between labels and other elements
+                        boxWidth: 15, // Adjust the width of the colored box next to the labels
+                        usePointStyle: true // Use point style shapes in legend
+            
                     }
                 }
             }
