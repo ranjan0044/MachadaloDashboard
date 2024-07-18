@@ -78,29 +78,32 @@ label {
   position: relative;
   display: inline-block;
   width: 200px;
+  color:#4609ee;
 }
 
 #cityDropdownInput {
   width: 100%;
   padding: 10px;
   box-sizing: border-box;
+  border-color: #4609ee;
 }
 
 .dropdown-menu-city {
   max-height: 200px;
   overflow-y: auto;
-  border: 1px solid #080808;
+  border: 1px solid #4609ee;
   background-color: white;
   position: absolute;
   z-index: 1000;
   width: 100%;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 6px rgba(130, 17, 235, 0.808);
 }
 
 .dropdown-item-city {
   text-align: center;
   padding: 10px;
   cursor: pointer;
+  color: blue;
 }
 
 .dropdown-item-city:hover {
@@ -234,12 +237,3 @@ canvas {
   }
 }
 
-        .search-dropdown {
-            margin-top: 1rem;
-        }
-        @media (min-width: 576px) {
-            .search-dropdown {
-                margin-top: 0;
-                margin-left: 1rem;
-            }
-        }
