@@ -183,7 +183,6 @@ function calculateMeanRatings() {
             societyAmenities += stringToInteger(item["Amenities & Livability Rating"]);
             societyPeopleFriendliness += stringToInteger(item["People Friendliness Rating"]);
             totalSocietyPercentage += stringToInteger(item["Total Rating"]);
-            console.log(totalSocietyPercentage);
             societyCounts = societyCounts + 1;
             tableData.push(item)
         }
@@ -233,7 +232,7 @@ function calculateMeanRatings() {
     progressPercentage['city'] = totalCityPercentage.toFixed(2);
     progressPercentage['panIndia'] = totalRatingPercentage.toFixed(2);
 
-    renderCharts(meanRatings,selectedCity,selectedSociety);
+    renderCharts(meanRatings);
     rederProgressBar();
     renderAreaChar(meanRatings);
     rederPieChart(meanRatings);
@@ -243,18 +242,32 @@ function calculateMeanRatings() {
 const rederProgressBar = () => {
     let cardBody = document.querySelector("#societyCityPanIndiaProgress .card-body");
     cardBody.innerHTML = "";
+    let difference = (parseFloat(progressPercentage['society']) - parseFloat(progressPercentage['city'])).toFixed(2);
+    let differenceHeader = document.createElement("h4");
+    differenceHeader.classList.add("small", "font-weight-bold");
+    let differenceColor = difference > 0 ? 'text-success' : 'text-danger';
+    differenceHeader.innerHTML = `Difference <span class='${differenceColor} float-right'>${difference}%</span>`;
+    cardBody.appendChild(differenceHeader);
 
-    [{ label: 'Society', color: 'bg-warning', percent: progressPercentage['society'] },
-    { label: 'City', color: 'bg-success', percent: progressPercentage['city'] },
-    { label: 'Pan India', color: 'bg-primary', percent: progressPercentage['panIndia'] }].forEach((item) => {
-        var newProgressHeader = document.createElement("h4");
+    // Create a divider for better UI separation
+    let divider = document.createElement("hr");
+    cardBody.appendChild(divider);
+
+
+    let dataArr = [
+        { label: 'Society', color: 'bg-warning', percent: progressPercentage['society'] },
+        { label: 'City', color: 'bg-success', percent: progressPercentage['city'] },
+        { label: 'Pan India', color: 'bg-primary', percent: progressPercentage['panIndia'] }
+    ];
+    dataArr.forEach((item) => {
+        let newProgressHeader = document.createElement("h4");
         newProgressHeader.classList.add("small", "font-weight-bold");
         newProgressHeader.innerHTML = `${item?.label} Progress<span class='float-right'>${item?.percent}%</span>`;
 
-        var newProgressDiv = document.createElement("div");
+        let newProgressDiv = document.createElement("div");
         newProgressDiv.classList.add("progress", "mb-4");
 
-        var newProgressBar = document.createElement("div");
+        let newProgressBar = document.createElement("div");
         newProgressBar.classList.add("progress-bar", `${item?.color}`);
         newProgressBar.setAttribute("role", "progressbar");
         newProgressBar.setAttribute("style", `width: ${item?.percent}%`);
