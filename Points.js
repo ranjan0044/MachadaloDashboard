@@ -44,7 +44,7 @@ function toggleConnectivityCard() {
     }
 }
 const openBoxInCard = () => {
-    var pointsForm = document.getElementById('#pointsForm');
+    var pointsForm = document.getElementById('pointsForm');
     if (pointsForm.style.display === 'none') {
         pointsForm.style.display = 'block';
     } else {
