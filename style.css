@@ -237,3 +237,8 @@ canvas {
   }
 }
 
+.plus-button{
+  height: 20px;
+  width: 20px;
+  justify-content: space-around;
+}

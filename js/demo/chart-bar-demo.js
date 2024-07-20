@@ -72,7 +72,7 @@ var commonOptions = {
                 maxTicksLimit: 3,
                 fontColor: '#0000FF',
                 callback: function (value) {
-                    return value.length > 10 ? value.substr(0, 10) + '...' : value;
+                    return value.length > 10 ? value.substr(0, 8) + '...' : value;
                 }
             },
             maxBarThickness: 25,

@@ -12,8 +12,9 @@ const rederPieChart = (meanRatings) => {
         convertToPercentage(meanRatings?.Connectivity?.society,5)?.toFixed(2),
         convertToPercentage(meanRatings?.Maintenance?.society,5)?.toFixed(2),
         convertToPercentage(meanRatings?.Construction?.society,5)?.toFixed(2),
-        convertToPercentage(meanRatings?.Amenities?.society,5)?.toFixed(2),
-        convertToPercentage(meanRatings?.PeopleFriendliness?.society,5)?.toFixed(2),
+       convertToPercentage(meanRatings?.PeopleFriendliness?.society,5)?.toFixed(2),
+       convertToPercentage(meanRatings?.Amenities?.society,5)?.toFixed(2),
+        
     ];
 
     if (pieChart) {
@@ -56,6 +57,16 @@ const rederPieChart = (meanRatings) => {
                 animation: {
                     animateScale: true,
                     animateRotate: true
+                },
+                legend: {
+                    labels: {
+                        fontSize: 10 ,// Adjust this value as needed
+                        fontColor: '#000', // Adjust label font color
+                        padding: 10, // Adjust padding between labels and other elements
+                        boxWidth: 15, // Adjust the width of the colored box next to the labels
+                        usePointStyle: true // Use point style shapes in legend
+            
+                    }
                 }
             }
         });

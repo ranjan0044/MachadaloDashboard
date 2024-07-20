@@ -303,14 +303,14 @@
                     <div class="col-9">
                         <div class="d-sm-flex flex-column flex-sm-row align-items-center justify-content-between mb-5">
                             <h1 class="h3 mb-0 text-primary">Dashboard</h1>
-                            <div class="col-12 text-center d-flex d-inline">
-                            <div class="mt-4 mt-sm-0 ml-0 ml-sm-3 search-dropdown">
-                                <label for="citySelector" class="text-left text-primary">Select City</label>
+                            <div class="col-12 text-center d-flex d-inline pt-4">
+                            <div class="mt-4 mt-sm-0 ml-0 ml-sm-3  search-dropdown">
                                 <div id="citySelector"></div>
+                                <label for="citySelector" class="text-left text-primary">Select City</label>
                             </div>
                             <div class="mt-4 mt-sm-0 ml-0 ml-sm-3 search-dropdown">
-                                <label for="citySelector"  class="text-left text-primary">Select Society</label>
                                 <div id="societySelector"></div>
+                                <label for="citySelector"  class="text-left text-primary">Select Society</label>
                             </div>
                         </div>
                             <!-- <div class="col-3 text-center">
@@ -323,7 +323,8 @@
                             <i class="fas fa-download fa-sm text-primary-50"></i>
                             <span class="tooltip-text text-primary">Download report</span>
                         </a>
-                    </div></div>
+                    </div>
+                </div>
 
                     <!-- Content Row -->
                     <div class="row">
@@ -490,6 +491,18 @@
                                                     <button class="btn btn-outline-primary btn-sm" onclick="toggleConnectivityCard()">
                                                         +
                                                     </button>
+                                                    <button class="btn btn-outline-primary btn-sm" onclick="openBoxInCard()">Add</button>
+                                                    <div id="pointsForm">
+                                                        <h5>Favorable Points</h5>
+                                                        <textarea id="favorablePoints" rows="4" cols="25"
+                                                            placeholder="Enter favorable points"></textarea>
+                                                        <h5>Unfavorable Points</h5>
+                                                        <textarea id="unfavorablePoints" rows="4" cols="25"
+                                                            placeholder="Enter unfavorable points"></textarea>
+                                                        <hr>
+                                                        <button onclick="savePoints()"
+                                                            class="btn btn-outline-primary">Save Points</button>
+                                                    </div>
                                                 </h6>
                                                 <div class="rating-card" id="connectivityCard" style="display: none;">
                                                     <ul>
@@ -504,19 +517,6 @@
                                                         <li>Mall & Restaurant</li>
                                                         <li>No water logging on roads</li>
                                                     </ul>
-                                                    <button class="btn btn-outline-primary" onclick="openBoxInCard()">Add your
-                                                        Fav/UnFav Points</button>
-                                                    <div id="pointsForm">
-                                                        <h5>Favorable Points</h5>
-                                                        <textarea id="favorablePoints" rows="4" cols="25"
-                                                            placeholder="Enter favorable points"></textarea>
-                                                        <h5>Unfavorable Points</h5>
-                                                        <textarea id="unfavorablePoints" rows="4" cols="25"
-                                                            placeholder="Enter unfavorable points"></textarea>
-                                                        <hr>
-                                                        <button onclick="savePoints()"
-                                                            class="btn btn-outline-primary">Save Points</button>
-                                                    </div>
                                                 </div>
                                             
                                                 <div class="chart-bar">
