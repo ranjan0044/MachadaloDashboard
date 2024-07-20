@@ -2,17 +2,19 @@
 Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#858796';
 
-
 let pieChart; // Store the pie chart instance
+
+const convertToPercentage = (value, total) => (value / total) * 100;
 
 const rederPieChart = (meanRatings) => {
     const ctxPie = document.getElementById("myPieChart").getContext('2d');
     const data = [
-        meanRatings?.Connectivity?.society?.toFixed(1), 
-        meanRatings?.Maintenance?.society?.toFixed(1), 
-        meanRatings?.Construction?.society?.toFixed(1), 
-        meanRatings?.Amenities?.society?.toFixed(1), 
-        meanRatings?.PeopleFriendliness?.society?.toFixed(1)
+        convertToPercentage(meanRatings?.Connectivity?.society,5)?.toFixed(2),
+        convertToPercentage(meanRatings?.Maintenance?.society,5)?.toFixed(2),
+        convertToPercentage(meanRatings?.Construction?.society,5)?.toFixed(2),
+       convertToPercentage(meanRatings?.PeopleFriendliness?.society,5)?.toFixed(2),
+       convertToPercentage(meanRatings?.Amenities?.society,5)?.toFixed(2),
+        
     ];
 
     if (pieChart) {
@@ -24,7 +26,7 @@ const rederPieChart = (meanRatings) => {
         pieChart = new Chart(ctxPie, {
             type: 'pie',
             data: {
- labels: ["Connectivity", "Maintenance", "Construction", "People Friendliness", "Amenities"],
+                labels: ["Connectivity", "Maintenance", "Construction", "People Friendliness", "Amenities"],
                 datasets: [{
                     //   label: "Overall Ratings",
                     data: data,
@@ -50,11 +52,21 @@ const rederPieChart = (meanRatings) => {
                 },
                 title: {
                     display: true,
-                    // text: 'Overall Ratings'
+                    text: 'Overall Ratings %'
                 },
                 animation: {
                     animateScale: true,
                     animateRotate: true
+                },
+                legend: {
+                    labels: {
+                        fontSize: 10 ,// Adjust this value as needed
+                        fontColor: '#000', // Adjust label font color
+                        padding: 10, // Adjust padding between labels and other elements
+                        boxWidth: 15, // Adjust the width of the colored box next to the labels
+                        usePointStyle: true // Use point style shapes in legend
+            
+                    }
                 }
             }
         });
