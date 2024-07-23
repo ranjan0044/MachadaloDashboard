@@ -51,3 +51,64 @@ const openBoxInCard = () => {
         pointsForm.style.display = 'none';
     }
 }
+
+
+function toggleConnectivityCard() {
+    var connectivityCard = document.getElementById('connectivityCard');
+    if (connectivityCard.style.display === 'none') {
+        connectivityCard.style.display = 'block';
+    } else {
+        connectivityCard.style.display = 'none';
+    }
+}
+
+
+function showPositive() {
+    var rankList = document.getElementById('rankList');
+    
+    // Toggle visibility of rankList
+    if (rankList.style.display === 'none') {
+        rankList.style.display = 'block';
+        // Clear previous content
+        rankList.innerHTML = '';
+        // Add positive ratings
+        for (var i = 5; i >= 1; i--) {
+            var listItem = document.createElement('li');
+            listItem.textContent = '+' + i;
+            // Calculate hue for green (120 corresponds to green in hsl)
+            var hue = 120;
+            // Calculate brightness based on rating (5 is darkest, 1 is lightest)
+            var brightness = 30 + (5 - i) * 15; // Adjust values for gradient effect
+            // Set background color using hsl format
+            listItem.style.backgroundColor = 'hsl(' + hue + ', 100%, ' + brightness + '%)';
+            rankList.appendChild(listItem);
+        }
+    } else {
+        rankList.style.display = 'none'; // Hide rankList
+    }
+}
+
+function showNegative() {
+    var rankList = document.getElementById('rankList');
+    
+    // Toggle visibility of rankList
+    if (rankList.style.display === 'none') {
+        rankList.style.display = 'block';
+        // Clear previous content
+        rankList.innerHTML = '';
+        // Add negative ratings
+        for (var i = -5; i <= -1; i++) {
+            var listItem = document.createElement('li');
+            listItem.textContent = i;
+            // Calculate hue for red (0 corresponds to red in hsl)
+            var hue = 0;
+            // Calculate brightness based on rating (-5 is darkest, -1 is lightest)
+            var brightness = 50 + (i + 5) * 10; // Adjust values for gradient effect
+            // Set background color using hsl format
+            listItem.style.backgroundColor = 'hsl(' + hue + ', 100%, ' + brightness + '%)';
+            rankList.appendChild(listItem);
+        }
+    } else {
+        rankList.style.display = 'none'; // Hide rankList
+    }
+}
