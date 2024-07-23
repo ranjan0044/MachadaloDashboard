@@ -1,70 +1,43 @@
-// let selectedCard;
+let selectedCard;
 
-// const savePoints = () => {
-//     const favorablePoints = document.getElementById('favorablePoints').value;
-//     const unfavorablePoints = document.getElementById('unfavorablePoints').value;
-//     alert('Favorable Points: ' + favorablePoints + '\nUnfavorable Points: ' + unfavorablePoints);
-//     // You can add further logic to save these points, e.g., send them to a server
+const savePoints = () => {
+    const favorablePoints = document.getElementById('favorablePoints').value;
+    const unfavorablePoints = document.getElementById('unfavorablePoints').value;
+    alert('Favorable Points: ' + favorablePoints + '\nUnfavorable Points: ' + unfavorablePoints);
+    // You can add further logic to save these points, e.g., send them to a server
 
-//     const pointsForm = selectedCard.querySelector('#pointsForm');
-//     pointsForm.style.display = 'none';
-// }
+    const pointsForm = selectedCard.querySelector('#pointsForm');
+    pointsForm.style.display = 'none';
+}
 
-// const openCardById = (id) => {
-//     selectedCard = document.getElementById(id);
-//     const pointsForm = selectedCard.querySelector('#pointsForm');
-//     pointsForm.style.display = 'none';
-//     let elements = document.querySelectorAll('.rating-card');
-//     elements?.forEach((item) => {
-//         if (item?.id === id) {
-//             if (selectedCard.style.display === 'block') {
-//                 selectedCard.style.display = 'none';
-//             } else {
-//                 selectedCard.style.display = 'block';
-//             }
-//         } else
-//             item.style.display = 'none';
-//     })
-// }
-// const openBoxInCard = () => {
-//     const pointsForm = selectedCard.querySelector('#pointsForm');
-//     if (pointsForm.style.display === 'block') {
-//         pointsForm.style.display = 'none';
-//     } else {
-//         pointsForm.style.display = 'block';
-//     }
-// }
-
-function toggleConnectivityCard() {
-    var card = document.getElementById('connectivityCard');
-    if (card.style.display === 'none') {
-        card.style.display = 'block';
-    } else {
-        card.style.display = 'none';
-    }
+const openCardById = (id) => {
+    selectedCard = document.getElementById(id);
+    const pointsForm = selectedCard.querySelector('#pointsForm');
+    // pointsForm.style.display = 'none';
+    let elements = document.querySelectorAll('.rating-card');
+    elements?.forEach((item) => {
+        if (item?.id === id) {
+            if (selectedCard.style.display === 'block') {
+                selectedCard.style.display = 'none';
+            } else {
+                selectedCard.style.display = 'block';
+            }
+        } else
+            item.style.display = 'none';
+    })
 }
 const openBoxInCard = () => {
-    var pointsForm = document.getElementById('pointsForm');
-    if (pointsForm.style.display === 'none') {
-        pointsForm.style.display = 'block';
-    } else {
+    const pointsForm = selectedCard.querySelector('#pointsForm');
+    if (pointsForm.style.display === 'block') {
         pointsForm.style.display = 'none';
-    }
-}
-
-
-function toggleConnectivityCard() {
-    var connectivityCard = document.getElementById('connectivityCard');
-    if (connectivityCard.style.display === 'none') {
-        connectivityCard.style.display = 'block';
     } else {
-        connectivityCard.style.display = 'none';
+        pointsForm.style.display = 'block';
     }
 }
 
-
-function showPositive() {
-    var rankList = document.getElementById('rankList');
+function showPositive(id) {
+    let cardData = document.getElementById(id)
+    let rankList = cardData.querySelector('#rankList');
     
     // Toggle visibility of rankList
     if (rankList.style.display === 'none') {

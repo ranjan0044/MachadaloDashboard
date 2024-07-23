@@ -356,9 +356,9 @@
                                             <div class="col-lg-6 col-md-6 col-sm-12">
                                                 <h6 class="text-primary text-center hover-target  hover-tooltip">
                                                     Connectivity
-                                                    <button class="btn btn-outline-primary btn-sm" onclick="toggleConnectivityCard()">
+                                                    <button class="btn btn-outline-primary btn-sm" onclick="openCardById('connectivityCard')">
                                                         Rate
-                                                    </button>
+                                                    </button>    
                                                     <!-- <button class="btn btn-outline-primary btn-sm" onclick="openBoxInCard()">Add</button>
                                                     <div id="pointsForm">
                                                         <h5>Favorable Points</h5>
@@ -372,10 +372,10 @@
                                                             class="btn btn-outline-primary">Save Points</button>
                                                     </div> -->
                                                 </h6>
-                                                <div class="rating-card" id="connectivityCard" style="display: none;">
+                                                <div class="rating-card" id="connectivityCard">
                                                     <div class="rank-buttons text-right">
-                                                        <button class="btn btn-outline-primary btn-sm" onclick="showPositive()">+</button>
-                                                        <button class="btn btn-outline-primary btn-sm" onclick="showNegative()">-</button>
+                                                        <button class="btn btn-outline-primary btn-sm" onclick="showPositive('connectivityCard')">+</button>
+                                                        <button class="btn btn-outline-primary btn-sm" onclick="showNegative('connectivityCard')">-</button>
                                                     </div>
                                                     <div class="rank-list" id="rankList">
                                                         <!-- Content will be dynamically added here -->
@@ -398,10 +398,6 @@
                                                     <canvas id="connectivityChart"></canvas>
                                                 </div>
                                             </div>
-                                            
-
-                                            
-
                                             <div class="col-lg-6 col-md-6 col-sm-12">
                                                 <h6 class="text-primary text-center hover-target hover-tooltip"
                                                     onclick="openCardById('maintenanceCard')">
@@ -409,6 +405,13 @@
                                                     <span class="tooltip-text">Click Me</span>
                                                 </h6>
                                                 <div class="rating-card" id="maintenanceCard">
+                                                    <div class="rank-buttons text-right">
+                                                        <button class="btn btn-outline-primary btn-sm" onclick="showPositive('maintenanceCard')">+</button>
+                                                        <button class="btn btn-outline-primary btn-sm" onclick="showNegative('maintenanceCard')">-</button>
+                                                    </div>
+                                                    <div class="rank-list" id="rankList">
+                                                        <!-- Content will be dynamically added here -->
+                                                    </div>
                                                     <ul>
                                                         <li>Water supply</li>
                                                         <li>Power backup available ( Generators / Inverters )</li>
@@ -422,7 +425,7 @@
                                                         <li>Basement parking has light issues, drainage issue </li>
                                                         <li>Pesticides sprinkle timely?</li>
                                                     </ul>
-                                                    <button class="btn btn-outline-primary" onclick="openBoxInCard()">Add your
+                                                    <!-- <button class="btn btn-outline-primary" onclick="openBoxInCard()">Add your
                                                         Fav/UnFav Points</button>
                                                     <div id="pointsForm">
                                                         <h5>Favorable Points</h5>
@@ -434,7 +437,7 @@
                                                         <hr>
                                                         <button onclick="savePoints()"
                                                             class="btn btn-outline-primary">Save Points</button>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                                 <div class="chart-bar">
                                                     <canvas id="maintenanceChart"></canvas>
@@ -451,6 +454,13 @@
                                                     <span class="tooltip-text">Click Me</span>
                                                 </h6>
                                                 <div class="rating-card" id="constructionCard">
+                                                    <div class="rank-buttons text-right">
+                                                        <button class="btn btn-outline-primary btn-sm" onclick="showPositive('constructionCard')">+</button>
+                                                        <button class="btn btn-outline-primary btn-sm" onclick="showNegative('constructionCard')">-</button>
+                                                    </div>
+                                                    <div class="rank-list" id="rankList">
+                                                        <!-- Content will be dynamically added here -->
+                                                    </div>
                                                     <ul>
                                                         <li>Weak walls and pillars.</li>
                                                         <li>Poor quality plaster and fitting</li>
@@ -463,7 +473,7 @@
                                                         <li>Safety feaures at Entrance and Exit gate</li>
                                                         <li>Clear Emergency exits, Fire safety features</li>
                                                     </ul>
-                                                    <button class="btn btn-outline-primary" onclick="openBoxInCard()">Add your
+                                                    <!-- <button class="btn btn-outline-primary" onclick="openBoxInCard()">Add your
                                                         Fav/UnFav Points</button>
                                                     <div id="pointsForm">
                                                         <h5>Favorable Points</h5>
@@ -475,7 +485,7 @@
                                                         <hr>
                                                         <button onclick="savePoints()"
                                                             class="btn btn-outline-primary">Save Points</button>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                                 <div class="chart-bar">
                                                     <canvas id="constructionChart"></canvas>
@@ -488,6 +498,13 @@
                                                     <span class="tooltip-text"> Click Me</span>
                                                 </h6>
                                                 <div class="rating-card" id="amenitiesCard">
+                                                    <div class="rank-buttons text-right">
+                                                        <button class="btn btn-outline-primary btn-sm" onclick="showPositive('amenitiesCard')">+</button>
+                                                        <button class="btn btn-outline-primary btn-sm" onclick="showNegative('amenitiesCard')">-</button>
+                                                    </div>
+                                                    <div class="rank-list" id="rankList">
+                                                        <!-- Content will be dynamically added here -->
+                                                    </div>
                                                     <ul>
                                                         <li>Lot of open space</li>
                                                         <li>Nice park and kids playarea</li>
@@ -498,7 +515,7 @@
                                                         <li>Well lit & safe at night</li>
                                                         <li>Swimming pools</li>
                                                     </ul>
-                                                    <button class="btn btn-outline-primary" onclick="openBoxInCard()">Add your
+                                                    <!-- <button class="btn btn-outline-primary" onclick="openBoxInCard()">Add your
                                                         Fav/UnFav Points</button>
                                                     <div id="pointsForm">
                                                         <h5>Favorable Points</h5>
@@ -510,7 +527,7 @@
                                                         <hr>
                                                         <button onclick="savePoints()"
                                                             class="btn btn-outline-primary">Save Points</button>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                                 <div class="chart-bar">
                                                     <canvas id="amenitiesChart"></canvas>
@@ -527,6 +544,13 @@
                                                     <span class="tooltip-text">Click Me</span>
                                                 </h6>
                                                 <div class="rating-card" id="peopleFriendlinessCard">
+                                                    <div class="rank-buttons text-right">
+                                                        <button class="btn btn-outline-primary btn-sm" onclick="showPositive('peopleFriendlinessCard')">+</button>
+                                                        <button class="btn btn-outline-primary btn-sm" onclick="showNegative('peopleFriendlinessCard')">-</button>
+                                                    </div>
+                                                    <div class="rank-list" id="rankList">
+                                                        <!-- Content will be dynamically added here -->
+                                                    </div>
                                                     <ul>
                                                         <li>Good celebration of festivals</li>
                                                         <li>Frequent cultural events</li>
@@ -536,7 +560,7 @@
                                                         <li>Residents pay maintenence on time</li>
                                                         <li>Friendly environment</li>
                                                     </ul>
-                                                    <button class="btn btn-outline-primary" onclick="openBoxInCard()">Add your
+                                                    <!-- <button class="btn btn-outline-primary" onclick="openBoxInCard()">Add your
                                                         Fav/UnFav Points</button>
                                                     <div id="pointsForm">
                                                         <h5>Favorable Points</h5>
@@ -548,7 +572,7 @@
                                                         <hr>
                                                         <button onclick="savePoints()"
                                                             class="btn btn-outline-primary">Save Points</button>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                                 <div class="chart-bar">
                                                     <canvas id="peopleFriendlinessChart"></canvas>
