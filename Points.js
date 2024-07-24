@@ -38,7 +38,6 @@ const openBoxInCard = () => {
 function showPositive(id) {
     let cardData = document.getElementById(id)
     let rankList = cardData.querySelector('#rankList');
-    
     // Toggle visibility of rankList
     if (rankList.style.display === 'none') {
         rankList.style.display = 'block';
@@ -61,9 +60,9 @@ function showPositive(id) {
     }
 }
 
-function showNegative() {
-    var rankList = document.getElementById('rankList');
-    
+function showNegative(id) {
+    let cardData = document.getElementById(id)
+    let rankList = cardData.querySelector('#rankList');    
     // Toggle visibility of rankList
     if (rankList.style.display === 'none') {
         rankList.style.display = 'block';
