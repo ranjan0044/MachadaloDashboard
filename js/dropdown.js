@@ -19,7 +19,7 @@ function createSearchableDropdown(containerId,placeholder, items, onSelect) {
     container.appendChild(dropdownMenu);
 
     // Populate dropdown items
-    items.forEach(item => {
+    items?.forEach(item => {
         const div = document.createElement('div');
         div.textContent = item;
         div.classList.add('dropdown-item-city'); 
