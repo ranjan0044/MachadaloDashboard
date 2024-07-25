@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', function () {
     fetchCSVData();
 });
 
-const citySelector = document.getElementById('citySelector');
-const societySelector = document.getElementById('societySelector');
+// const citySelector = document.getElementById('citySelector');
+// const societySelector = document.getElementById('societySelector');
 //   const commentsTable = document.getElementById('commentsTable').getElementsByTagName('tbody')[0];
 
 const csvData = [];
@@ -52,7 +52,6 @@ const updateQueryParam = (key, value) => {
         currentUrl.searchParams.append(key, value);
     }
     window.history.replaceState({}, '', currentUrl);
-    console.log(currentUrl.href);
 }
 
 function populateCitySelector(cities) {
@@ -75,6 +74,26 @@ function populateCitySelector(cities) {
     //     });
     // });
 }
+const getDataUsingQueryParams = () => {
+    let urls = new URL(window.location.href);
+    let params = new URLSearchParams(urls.search);
+    let city = params.get('city');
+    let society = params.get('society');
+    if (city) {
+        let citySelector = document.getElementById('citySelector');
+        let input = citySelector.querySelector('input[type="text"]');
+        input.value = city;
+        handleCityChange(city);
+    }
+    if (society) {
+        let societySelector = document.getElementById('societySelector');
+        let input = societySelector.querySelector('input[type="text"]');
+        input.value = society;
+        handleSocietyChange(society);
+    }
+
+    console.log(city, society);
+}
 const filterUniqueSocietiesByCity = () => {
     csvData.forEach(item => {
         const city = item.City;
@@ -93,7 +112,7 @@ const filterUniqueSocietiesByCity = () => {
     }
     updateCounts('total', csvData?.length);
     updateCounts('society', totalSociety);
-
+    getDataUsingQueryParams();
 }
 
 function handleCityChange(city) {
@@ -107,23 +126,11 @@ function handleCityChange(city) {
     createSearchableDropdown('societySelector', 'Search society', societies, function (selectedItem) {
         handleSocietyChange(selectedItem)
     });
-
-    // societySelector.innerHTML = '<option value="" disabled selected>Select Society</option>';
-    // societies.forEach(society => {
-    //     const option = document.createElement('option');
-    //     option.value = society;
-    //     option.text = society;
-    //     societySelector.appendChild(option);
-    // });
-    // societySelector.disabled = false;
-    // updateCounts('city', societies.length);
 }
 
 function handleSocietyChange(society) {
-    // document.getElementById('selectedSociety').innerText = society;
     updateQueryParam('society', society);
     selectedSociety = society
-    // const selectedComments = csvData.filter(entry => entry["Society Name"] === society);
     calculateMeanRatings()
 }
 
