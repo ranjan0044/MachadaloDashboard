@@ -13,7 +13,7 @@ const savePoints = () => {
 const openCardById = (id) => {
     selectedCard = document.getElementById(id);
     const pointsForm = selectedCard.querySelector('#pointsForm');
-    // pointsForm.style.display = 'none';
+   
     let elements = document.querySelectorAll('.rating-card');
     elements?.forEach((item) => {
         if (item?.id === id) {
