@@ -271,14 +271,20 @@ const rederProgressBar = () => {
     })
 }
 
-let nlpDataForLikeDislike = { connectivityLikes: {}, connectivityDislikes: {}, constructionLikes: {}, constructionDislikes: {} };
+let nlpDataForLikeDislike = { connectivityLikes: {}, connectivityDislikes: {},
+constructionLikes: {}, constructionDislikes: {},
+amenitiesLikes:{},amenitiesDislikes:{}
+
+ };
 
 const renderTable = (data) => {
     const tableBody = document.getElementById('dynamic-table-body');
     tableBody.innerHTML = '';
     data?.forEach(item => {
         const { 'Connectivity Likes': connectivityLike, 'Connectivity Dislikes': connectivityDislikes,
-            "Construction Likes": constructionLikes, "Construction Dislikes": constructionDislikes } = item;
+            "Construction Likes": constructionLikes, "Construction Dislikes": constructionDislikes,
+            "Amenities Likes":amenitiesLikes,"Amenities Dislikes":amenitiesDislikes, 
+        } = item;
         if (connectivityLike) {
             connectivityLike.split(',')?.map(like => like?.trim())?.forEach(like => {
                 nlpDataForLikeDislike.connectivityLikes[like] = (nlpDataForLikeDislike.connectivityLikes[like] || 0) + 1;
@@ -297,6 +303,16 @@ const renderTable = (data) => {
         if (constructionDislikes) {
             constructionDislikes.split(',').map(dislike => dislike.trim()).forEach(dislike => {
                 nlpDataForLikeDislike.constructionDislikes[dislike] = (nlpDataForLikeDislike.constructionDislikes[dislike] || 0) + 1;
+            });
+        }
+        if (amenitiesLikes) {
+            amenitiesLikes.split(',')?.map(like => like?.trim())?.forEach(like => {
+                nlpDataForLikeDislike.amenitiesLikes[like] = (nlpDataForLikeDislike.amenitiesLikes[like] || 0) + 1;
+            });
+        }
+        if (amenitiesDislikes) {
+            amenitiesDislikes.split(',').map(dislike => dislike.trim()).forEach(dislike => {
+                nlpDataForLikeDislike.amenitiesDislikes[dislike] = (nlpDataForLikeDislike.amenitiesDislikes[dislike] || 0) + 1;
             });
         }
 
