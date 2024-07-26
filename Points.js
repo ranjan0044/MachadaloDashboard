@@ -36,6 +36,10 @@ const openBoxInCard = () => {
 }
 
 function showPositive(id) {
+    console.log(id)
+    let cardKey = id === 'connectivityCard' ? 'connectivityLikes' : id === 'constructionCard' ? 'constructionDislikes' : ''
+    let sortedLikes = Object.keys(nlpDataForLikeDislike[cardKey])?.sort()?.reverse()?.map(key => ({ [key]: nlpDataForLikeDislike[cardKey][key] }));
+    console.log(sortedLikes);
     let cardData = document.getElementById(id)
     let rankList = cardData.querySelector('#rankList');
     // Toggle visibility of rankList
@@ -44,9 +48,9 @@ function showPositive(id) {
         // Clear previous content
         rankList.innerHTML = '';
         // Add positive ratings
-        for (var i = 5; i >= 1; i--) {
+        for (var i = sortedLikes.length - 1; i >= 0; i--) {
             var listItem = document.createElement('li');
-            listItem.textContent = '+' + i;
+            listItem.textContent = '+' + Object.keys(sortedLikes[i])[0] + ' ' + Object.values(sortedLikes[i])[0];
             // Calculate hue for green (120 corresponds to green in hsl)
             var hue = 120;
             // Calculate brightness based on rating (5 is darkest, 1 is lightest)
@@ -62,7 +66,7 @@ function showPositive(id) {
 
 function showNegative(id) {
     let cardData = document.getElementById(id)
-    let rankList = cardData.querySelector('#rankList');    
+    let rankList = cardData.querySelector('#rankList');
     // Toggle visibility of rankList
     if (rankList.style.display === 'none') {
         rankList.style.display = 'block';
