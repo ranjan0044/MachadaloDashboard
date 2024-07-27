@@ -242,3 +242,56 @@ canvas {
   width: 20px;
   justify-content: space-around;
 }
+
+
+.footer {
+  background-color: #3828d1;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+.footer a {
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  text-align: center;
+}
+.footer p{
+  font-size: 12px;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+.footer .contact-info, .footer .useful-links {
+  margin-bottom: 0px;
+  text-align: center;
+}
+.social-icons {
+  display: flex;
+  align-items: center;
+ 
+}
+.social-icons a {
+  margin-right: 10px;
+  color: #f5f2f2; /* Adjust the color as needed */
+  text-decoration: none;
+  font-size: 24 px; 
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .line_hr {
+    border-top: 1px solid #4e4949;
+    border-bottom: 1px solid #4e4949; 
+  }
+  .hover-tooltip{
+    padding-top: 15px;
+  }
+}
+
+
+.partner-item img {
+  width: 100px;
+  height: auto;
+  border-radius: 50%;
+}
