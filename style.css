@@ -242,3 +242,8 @@ canvas {
   width: 20px;
   justify-content: space-around;
 }
+
+.hr__line{
+  padding-top: 10px;
+  border-bottom: 1px solid #c2bcbce8;
+}
