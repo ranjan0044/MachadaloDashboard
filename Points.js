@@ -36,10 +36,6 @@ const openBoxInCard = () => {
 }
 
 function showPositive(id) {
-    console.log(id)
-    let cardKey = id === 'connectivityCard' ? 'connectivityLikes' : id === 'constructionCard' ? 'constructionLikes' : id === 'amenitiesCard' ? 'amenitiesLikes' : ''
-    let sortedLikes = Object.keys(nlpDataForLikeDislike[cardKey])?.sort()?.reverse()?.map(key => ({ [key]: nlpDataForLikeDislike[cardKey][key] }));
-    console.log(sortedLikes);
     let cardData = document.getElementById(id)
     let rankList = cardData.querySelector('#rankList');
     // Toggle visibility of rankList
@@ -48,9 +44,9 @@ function showPositive(id) {
         // Clear previous content
         rankList.innerHTML = '';
         // Add positive ratings
-        for (var i = sortedLikes.length - 1; i >= 0; i--) {
+        for (var i = 5; i >= 1; i--) {
             var listItem = document.createElement('li');
-            listItem.textContent = '+' + Object.keys(sortedLikes[i])[0] + ' ' + Object.values(sortedLikes[i])[0];
+            listItem.textContent = '+' + i;
             // Calculate hue for green (120 corresponds to green in hsl)
             var hue = 120;
             // Calculate brightness based on rating (5 is darkest, 1 is lightest)
@@ -65,24 +61,21 @@ function showPositive(id) {
 }
 
 function showNegative(id) {
-    let cardKey = id === 'connectivityCard' ? 'connectivityDislikes' : id === 'constructionCard' ? 'constructionDislikes' : id === 'amenitiesCard' ? 'amenitiesDislikes' : ''
-    let sortedLikes = Object.keys(nlpDataForLikeDislike[cardKey])?.sort()?.map(key => ({ [key]: nlpDataForLikeDislike[cardKey][key] }));
-
     let cardData = document.getElementById(id)
-    let rankList = cardData.querySelector('#rankList');
+    let rankList = cardData.querySelector('#rankList');    
     // Toggle visibility of rankList
     if (rankList.style.display === 'none') {
         rankList.style.display = 'block';
         // Clear previous content
         rankList.innerHTML = '';
         // Add negative ratings
-        for (var i = sortedLikes.length - 1; i >= 1; i--) {
+        for (var i = -5; i <= -1; i++) {
             var listItem = document.createElement('li');
-            listItem.textContent = '-' + Object.keys(sortedLikes[i])[0] + ' ' + Object.values(sortedLikes[i])[0];
+            listItem.textContent = i;
             // Calculate hue for red (0 corresponds to red in hsl)
             var hue = 0;
             // Calculate brightness based on rating (-5 is darkest, -1 is lightest)
-            var brightness = 50 + (-i + 5) * 10; // Adjust values for gradient effect
+            var brightness = 50 + (i + 5) * 10; // Adjust values for gradient effect
             // Set background color using hsl format
             listItem.style.backgroundColor = 'hsl(' + hue + ', 100%, ' + brightness + '%)';
             rankList.appendChild(listItem);
