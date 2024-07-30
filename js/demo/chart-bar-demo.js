@@ -54,7 +54,7 @@ var commonOptions = {
     layout: {
         padding: {
             left: 10,
-            right: 25,
+            right: 100,
             top: 25,
             bottom: 0
         }
