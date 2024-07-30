@@ -271,19 +271,24 @@ const rederProgressBar = () => {
     })
 }
 
-let nlpDataForLikeDislike = { connectivityLikes: {}, connectivityDislikes: {},
-constructionLikes: {}, constructionDislikes: {},
-amenitiesLikes:{},amenitiesDislikes:{}
-
- };
+let nlpDataForLikeDislike = {
+    connectivityLikes: {}, connectivityDislikes: {},
+    constructionLikes: {}, constructionDislikes: {},
+    amenitiesLikes: {}, amenitiesDislikes: {},
+    maintenanceLikes: {}, maintenanceDislikes: {},
+    peopleFriendlinessLikes: {}, peopleFriendlinessDislikes: {},
+};
 
 const renderTable = (data) => {
     const tableBody = document.getElementById('dynamic-table-body');
     tableBody.innerHTML = '';
     data?.forEach(item => {
-        const { 'Connectivity Likes': connectivityLike, 'Connectivity Dislikes': connectivityDislikes,
+        const {
+            'Connectivity Likes': connectivityLike, 'Connectivity Dislikes': connectivityDislikes,
+            "Maintenance Likes": maintenanceLikes, "Maintenance Dislikes": maintenanceDislikes,
             "Construction Likes": constructionLikes, "Construction Dislikes": constructionDislikes,
-            "Amenities Likes":amenitiesLikes,"Amenities Dislikes":amenitiesDislikes, 
+            "Amenities Likes": amenitiesLikes, "Amenities Dislikes": amenitiesDislikes,
+            "People Friendliness Likes": peopleFriendlinessLikes, "People Friendliness Dislikes": peopleFriendlinessDislikes,
         } = item;
         if (connectivityLike) {
             connectivityLike.split(',')?.map(like => like?.trim())?.forEach(like => {
@@ -295,6 +300,19 @@ const renderTable = (data) => {
                 nlpDataForLikeDislike.connectivityDislikes[dislike] = (nlpDataForLikeDislike.connectivityDislikes[dislike] || 0) + 1;
             });
         }
+
+
+        if (maintenanceLikes) {
+            connectivityLike.split(',')?.map(like => like?.trim())?.forEach(like => {
+                nlpDataForLikeDislike.maintenanceLikes[like] = (nlpDataForLikeDislike.maintenanceLikes[like] || 0) + 1;
+            });
+        }
+        if (maintenanceDislikes) {
+            maintenanceDislikes.split(',').map(dislike => dislike.trim()).forEach(dislike => {
+                nlpDataForLikeDislike.maintenanceDislikes[dislike] = (nlpDataForLikeDislike.maintenanceDislikes[dislike] || 0) + 1;
+            });
+        }
+
         if (constructionLikes) {
             constructionLikes.split(',')?.map(like => like?.trim())?.forEach(like => {
                 nlpDataForLikeDislike.constructionLikes[like] = (nlpDataForLikeDislike.constructionLikes[like] || 0) + 1;
@@ -313,6 +331,17 @@ const renderTable = (data) => {
         if (amenitiesDislikes) {
             amenitiesDislikes.split(',').map(dislike => dislike.trim()).forEach(dislike => {
                 nlpDataForLikeDislike.amenitiesDislikes[dislike] = (nlpDataForLikeDislike.amenitiesDislikes[dislike] || 0) + 1;
+            });
+        }
+
+        if (peopleFriendlinessLikes) {
+            peopleFriendlinessLikes.split(',')?.map(like => like?.trim())?.forEach(like => {
+                nlpDataForLikeDislike.peopleFriendlinessLikes[like] = (nlpDataForLikeDislike.peopleFriendlinessLikes[like] || 0) + 1;
+            });
+        }
+        if (peopleFriendlinessDislikes) {
+            peopleFriendlinessDislikes.split(',').map(dislike => dislike.trim()).forEach(dislike => {
+                nlpDataForLikeDislike.peopleFriendlinessDislikes[dislike] = (nlpDataForLikeDislike.peopleFriendlinessDislikes[dislike] || 0) + 1;
             });
         }
 

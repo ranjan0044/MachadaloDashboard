@@ -36,10 +36,13 @@ const openBoxInCard = () => {
 }
 
 function showPositive(id) {
-    console.log(id)
-    let cardKey = id === 'connectivityCard' ? 'connectivityLikes' : id === 'constructionCard' ? 'constructionLikes' : id === 'amenitiesCard' ? 'amenitiesLikes' : ''
-    let sortedLikes = Object.keys(nlpDataForLikeDislike[cardKey])?.sort()?.reverse()?.map(key => ({ [key]: nlpDataForLikeDislike[cardKey][key] }));
-    console.log(sortedLikes);
+    let cardKey = id === 'connectivityCard' ? 'connectivityLikes' : id === 'constructionCard' ? 'constructionLikes' : id === 'amenitiesCard' ? 'amenitiesLikes' : id === 'maintenanceCard' ? 'maintenanceLikes' : id === 'peopleFriendlinessCard' ? 'peopleFriendlinessLikes' : '';
+    const sortedLikes = Object.entries(nlpDataForLikeDislike[cardKey])
+        .sort(([, a], [, b]) => a - b)
+        .reduce((acc, [key, value]) => {
+            acc[key] = value;
+            return acc;
+        }, {});
     let cardData = document.getElementById(id)
     let rankList = cardData.querySelector('#rankList');
     // Toggle visibility of rankList
@@ -48,9 +51,11 @@ function showPositive(id) {
         // Clear previous content
         rankList.innerHTML = '';
         // Add positive ratings
-        for (var i = sortedLikes.length - 1; i >= 0; i--) {
+        for (var i = Object.keys(sortedLikes).length - 1; i >= 0; i--) {
             var listItem = document.createElement('li');
-            listItem.textContent = '+' + Object.keys(sortedLikes[i])[0] + ' ' + Object.values(sortedLikes[i])[0];
+            console.log(Object.keys(sortedLikes))
+
+            listItem.textContent = '+' + Object.keys(sortedLikes)[i] + ' ' + Object.values(sortedLikes)[i];
             // Calculate hue for green (120 corresponds to green in hsl)
             var hue = 120;
             // Calculate brightness based on rating (5 is darkest, 1 is lightest)
@@ -65,9 +70,15 @@ function showPositive(id) {
 }
 
 function showNegative(id) {
-    let cardKey = id === 'connectivityCard' ? 'connectivityDislikes' : id === 'constructionCard' ? 'constructionDislikes' : id === 'amenitiesCard' ? 'amenitiesDislikes' : ''
-    let sortedLikes = Object.keys(nlpDataForLikeDislike[cardKey])?.sort()?.map(key => ({ [key]: nlpDataForLikeDislike[cardKey][key] }));
-
+    console.log(nlpDataForLikeDislike);
+    let cardKey = id === 'connectivityCard' ? 'connectivityDislikes' : id === 'constructionCard' ? 'constructionDislikes' : id === 'amenitiesCard' ? 'amenitiesDislikes' : id === 'maintenanceCard' ? 'maintenanceDislikes' : id === 'peopleFriendlinessCard' ? 'peopleFriendlinessDislikes' : ''
+    const sortedDislikes = Object.entries(nlpDataForLikeDislike[cardKey])
+        .sort(([, a], [, b]) => a - b)
+        .reduce((acc, [key, value]) => {
+            acc[key] = value;
+            return acc;
+        }, {});
+    console.log(Object.keys(sortedDislikes).length)
     let cardData = document.getElementById(id)
     let rankList = cardData.querySelector('#rankList');
     // Toggle visibility of rankList
@@ -76,9 +87,9 @@ function showNegative(id) {
         // Clear previous content
         rankList.innerHTML = '';
         // Add negative ratings
-        for (var i = sortedLikes.length - 1; i >= 1; i--) {
+        for (var i = Object.keys(sortedDislikes).length - 1; i >= 0; i--) {
             var listItem = document.createElement('li');
-            listItem.textContent = '-' + Object.keys(sortedLikes[i])[0] + ' ' + Object.values(sortedLikes[i])[0];
+            listItem.textContent = '-' + Object.keys(sortedDislikes)[i] + ' ' + Object.values(sortedDislikes)[i];
             // Calculate hue for red (0 corresponds to red in hsl)
             var hue = 0;
             // Calculate brightness based on rating (-5 is darkest, -1 is lightest)
