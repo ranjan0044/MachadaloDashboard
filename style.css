@@ -247,3 +247,19 @@ canvas {
   padding-top: 10px;
   border-bottom: 1px solid #c2bcbce8;
 }
+.masked-image-container {
+  display: inline-block;
+  width: 300px; /* Adjust as needed */
+  height: 200px; /* Adjust as needed */
+  overflow: hidden;
+}
+
+.masked-image {
+  width: 100%;
+  height: auto;
+  -webkit-mask-image: url('path-to-mask-image.png'); /* Mask image with transparent areas */
+  mask-image: url('path-to-mask-image.png');
+  -webkit-mask-size: cover;
+  mask-size: cover;
+}
+
