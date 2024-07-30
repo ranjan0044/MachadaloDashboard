@@ -75,7 +75,7 @@ var commonOptions = {
                     return value.length > 10 ? value.substr(0, 8) + '...' : value;
                 }
             },
-            maxBarThickness: 25,
+            maxBarThickness: 15,
         }],
         yAxes: [{
             ticks: {

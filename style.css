@@ -141,10 +141,16 @@ td {
 }
 
 .chart-area,
-.chart-pie,.chart-bar {
+.chart-pie {
   position: relative;
   width: 100%;
   height: auto;
+}
+.chart-bar{
+  position: relative;
+  width: 200px;
+  height: 300px;
+
 }
 
 canvas {
