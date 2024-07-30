@@ -46,7 +46,7 @@ function showPositive(id) {
     // let cardData = document.getElementById(id)
     let rankList = document.getElementById(`rankList-${id}`);
     // Toggle visibility of rankList
-    if (rankList.style.display === 'none' || !rankList.style.display) {
+    // if (rankList.style.display === 'none' || !rankList.style.display) {
         rankList.style.display = 'block';
         // Clear previous content
         rankList.innerHTML = '';
@@ -54,7 +54,7 @@ function showPositive(id) {
         for (let i = Object.keys(sortedLikes).length - 1; i >= 0; i--) {
             let listItem = document.createElement('li');
 
-            listItem.textContent = '+' + Object.keys(sortedLikes)[i] + ' ' + Object.values(sortedLikes)[i];
+            listItem.textContent = '+ ' + Object.keys(sortedLikes)[i] + ' ' + Object.values(sortedLikes)[i];
             let hue = 120;
             // Calculate brightness based on rating (5 is darkest, 1 is lightest)
             let brightness = 30 + (5 - i) * 15; // Adjust values for gradient effect
@@ -64,9 +64,9 @@ function showPositive(id) {
             listItem.style.color = perceivedBrightness > 80 ? 'black' : 'white';
             rankList.appendChild(listItem);
         }
-    } else {
-        rankList.style.display = 'none'; // Hide rankList
-    }
+    // } else {
+    //     rankList.style.display = 'none'; // Hide rankList
+    // }
 }
 
 function showNegative(id) {
@@ -78,16 +78,15 @@ function showNegative(id) {
             return acc;
         }, {});
     let rankList = document.getElementById(`rankList-${id}`);
-    // let rankList = cardData.querySelector('#rankList');
     // Toggle visibility of rankList
-    if (rankList.style.display === 'none' || !rankList.style.display) {
+    // if (rankList.style.display === 'none' || !rankList.style.display) {
         rankList.style.display = 'block';
         // Clear previous content
         rankList.innerHTML = '';
         // Add negative ratings
         for (var i = Object.keys(sortedDislikes).length - 1; i >= 0; i--) {
             var listItem = document.createElement('li');
-            listItem.textContent = '-' + Object.keys(sortedDislikes)[i] + ' ' + Object.values(sortedDislikes)[i];
+            listItem.textContent = '- ' + Object.keys(sortedDislikes)[i] + ' ' + Object.values(sortedDislikes)[i];
             // Calculate hue for red (0 corresponds to red in hsl)
             var hue = 0;
             // Calculate brightness based on rating (-5 is darkest, -1 is lightest)
@@ -98,7 +97,8 @@ function showNegative(id) {
             listItem.style.color = perceivedBrightness > 160 ? 'black' : 'white';
             rankList.appendChild(listItem);
         }
-    } else {
-        rankList.style.display = 'none'; // Hide rankList
-    }
+    // }
+    //  else {
+    //     rankList.style.display = 'none'; // Hide rankList
+    // }
 }
