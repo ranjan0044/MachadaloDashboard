@@ -28,8 +28,8 @@ Chart.plugins.register({
             var meta = chart.getDatasetMeta(i);
             if (!meta.hidden) {
                 meta.data.forEach(function (element, index) {
-                    ctx.fillStyle = '#0000FF';
-                    var fontSize = 12;
+                    ctx.fillStyle = '#000000';
+                    var fontSize = 16;
                     var fontStyle = 'normal';
                     var fontFamily = 'Helvetica Neue';
                     ctx.font = Chart.helpers.fontString(fontSize, fontStyle, fontFamily);
@@ -54,7 +54,7 @@ var commonOptions = {
     layout: {
         padding: {
             left: 10,
-            right: 100,
+            right: 25,
             top: 25,
             bottom: 0
         }
@@ -102,7 +102,7 @@ var commonOptions = {
     tooltips: {
         titleMarginBottom: 10,
         titleFontColor: '#000000',
-        titleFontSize: 12,
+        titleFontSize: 14,
         backgroundColor: "rgb(255,255,255)",
         bodyFontColor: "#000000",
         borderColor: '#000',
