@@ -22,7 +22,8 @@ let meanRatings = {
 let tableData = [];
 let progressPercentage = { society: 0, city: 0, panIndia: 0 };
 const uniqueSocietiesByCity = {};
-
+const charTypes = [{ id: 'all-report', label: 'All Chart' }, { id: 'line-chart', label: 'Line Chart' }, { id: 'benchmarking-report', label: 'Benchmarking Report' }, { id: 'overall-report', label: 'Overall Report' }];
+const cardIdsOfCharts = ['connectivityCard', 'maintenanceCard', 'constructionCard', 'amenitiesCard', 'peopleFriendlinessCard'];
 async function fetchCSVData() {
     const response = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRHkzhb1ysdS3Pon1iEYdeDvAmFFVmaifuJG8LqYvfINO66OxSf-8vaM8Prsrj5Nhhdz2mxd0kdH3vB/pub?gid=173566181&single=true&output=tsv');
     const data = await response.text();
@@ -354,8 +355,11 @@ const renderTable = (data) => {
         row.appendChild(dislikeCell);
         tableBody.appendChild(row);
     });
+
+    cardIdsOfCharts.map((item) => {
+        showPositive(item);
+    })
 }
-const charTypes = [{ id: 'all-report', label: 'All Chart' }, { id: 'line-chart', label: 'Line Chart' }, { id: 'benchmarking-report', label: 'Benchmarking Report' }, { id: 'overall-report', label: 'Overall Report' }];
 const handleDropdownItemClick = (event) => {
     event.preventDefault();
     const target = event.target.getAttribute('data-target');
