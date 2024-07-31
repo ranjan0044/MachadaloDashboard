@@ -253,3 +253,8 @@ canvas {
   padding-top: 10px;
   border-bottom: 1px solid #c2bcbce8;
 }
+
+.bottom-div {
+  background-color: #f8f9fa;
+  padding: 20px;
+}

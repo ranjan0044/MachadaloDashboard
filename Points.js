@@ -60,7 +60,7 @@ function showPositive(id) {
             let listItem = document.createElement('li');
             listItem.textContent = Object.keys(sortedLikes)[i];
             // listItem.textContent = '+ ' + Object.keys(sortedLikes)[i] + ' ' + Object.values(sortedLikes)[i];
-            let hue = 120;
+            let hue = 115;
             // Calculate brightness based on rating (5 is darkest, 1 is lightest)
             let brightness = 30 + (5 - i) * 15; // Adjust values for gradient effect
             // Set background color using hsl format
