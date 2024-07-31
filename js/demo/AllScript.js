@@ -370,7 +370,6 @@ const handleDropdownItemClick = (event) => {
             chartContainer.style.display = 'none';
         } else {
             if (chartContainer){
-                console.log(chartContainer,"sfgfsg")
                 chartContainer.style.display = 'block';
             }
             let header = document.getElementById('chat-type-header');
