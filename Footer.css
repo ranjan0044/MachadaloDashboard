@@ -3,8 +3,8 @@
 {
     text-align: center;
     width: 100%;
-    background-color: #1a1919ee;
-    color: #fff;
+    background-color: #4f4fd1;
+    color: white;
     letter-spacing: 1px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -15,7 +15,7 @@
 }
 #containerFooter h5:hover, #containerFooter p:hover
 {
-    color:  #4f4fd1;
+    color:  #000000;
     cursor: pointer;
 }
 #webFooter
@@ -29,7 +29,7 @@
     margin: auto;
     padding: 10px 0;
     text-align: center;
-    background-color: #1a1919ee;
+    background-color: #4f4fd1;
     color: white;
     font-size: 11px;
     letter-spacing: 0.6px;
