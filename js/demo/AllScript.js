@@ -230,7 +230,7 @@ function calculateMeanRatings() {
 
     renderCharts(meanRatings);
     rederProgressBar();
-    renderAreaChar(meanRatings);
+    renderAreaChart(meanRatings);
     rederPieChart(meanRatings);
     renderTable(tableData);
 }
@@ -369,8 +369,10 @@ const handleDropdownItemClick = (event) => {
         } else if (chartContainer && type.id !== target) {
             chartContainer.style.display = 'none';
         } else {
-            if (chartContainer)
+            if (chartContainer){
+                console.log(chartContainer,"sfgfsg")
                 chartContainer.style.display = 'block';
+            }
             let header = document.getElementById('chat-type-header');
             header.innerText = type.label
         }

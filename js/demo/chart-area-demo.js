@@ -30,7 +30,7 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 
 let areaChart; // Store the area chart instance
 
-const renderAreaChar = (meanRatings) => {
+const renderAreaChart = (meanRatings) => {
     const ctxLine = document.getElementById("myAreaChart").getContext('2d');
     const labels = ["Connectivity", "Maintenance", "Construction", "People Friendliness", "Amenities"];
     const societyData = [

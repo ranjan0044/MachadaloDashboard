@@ -13,7 +13,7 @@ const savePoints = () => {
 const openCardById = (id) => {
     selectedCard = document.getElementById(id);
     const pointsForm = selectedCard.querySelector('#pointsForm');
-   
+
     let elements = document.querySelectorAll('.rating-card');
     elements?.forEach((item) => {
         if (item?.id === id) {
@@ -38,7 +38,7 @@ const openBoxInCard = () => {
 function showPositive(id) {
     let cardData = document.getElementById(id)
     let rankList = cardData.querySelector('#rankList');
-    
+
     // Toggle visibility of rankList
     if (rankList.style.display === 'none') {
         rankList.style.display = 'block';
@@ -64,7 +64,7 @@ function showPositive(id) {
 function showNegative(id) {
     let cardData = document.getElementById(id)
     let rankList = cardData.querySelector('#rankList');
-    
+
     // Toggle visibility of rankList
     if (rankList.style.display === 'none') {
         rankList.style.display = 'block';
@@ -86,3 +86,9 @@ function showNegative(id) {
         rankList.style.display = 'none'; // Hide rankList
     }
 }
+
+// const hideRankList = () => {
+//     console.log(cardIdsOfCharts)
+// }
+
+// export {hideRankList};

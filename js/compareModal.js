@@ -63,7 +63,8 @@ const onSubmitCompareSociety = () => {
         currentSocietyValues[key] = meanRatings[key].society.toFixed(1) || '';
     }
     compareSocietyValues[selectedSociety] = currentSocietyValues;
-    compareSocietyCharts(compareSocietyValues)
+    compareSocietyCharts(compareSocietyValues);
+    // hideRankList()
 }
 const addSocietyToDOM = (societyName) => {
     const container = document.getElementById('selectedSocietyForCompare');
