@@ -3,10 +3,6 @@ document.addEventListener('DOMContentLoaded', function () {
     fetchCSVData();
 });
 
-// const citySelector = document.getElementById('citySelector');
-// const societySelector = document.getElementById('societySelector');
-//   const commentsTable = document.getElementById('commentsTable').getElementsByTagName('tbody')[0];
-
 const csvData = [];
 let cities = [];
 let societies = [];
@@ -24,6 +20,14 @@ let progressPercentage = { society: 0, city: 0, panIndia: 0 };
 const uniqueSocietiesByCity = {};
 const charTypes = [{ id: 'all-report', label: 'All Chart' }, { id: 'line-chart', label: 'Line Chart' }, { id: 'benchmarking-report', label: 'Benchmarking Report' }, { id: 'overall-report', label: 'Overall Report' }];
 const cardIdsOfCharts = ['connectivityCard', 'maintenanceCard', 'constructionCard', 'amenitiesCard', 'peopleFriendlinessCard'];
+let nlpDataForLikeDislike = {
+    connectivityLikes: {}, connectivityDislikes: {},
+    constructionLikes: {}, constructionDislikes: {},
+    amenitiesLikes: {}, amenitiesDislikes: {},
+    maintenanceLikes: {}, maintenanceDislikes: {},
+    peopleFriendlinessLikes: {}, peopleFriendlinessDislikes: {},
+};
+
 async function fetchCSVData() {
     const response = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRHkzhb1ysdS3Pon1iEYdeDvAmFFVmaifuJG8LqYvfINO66OxSf-8vaM8Prsrj5Nhhdz2mxd0kdH3vB/pub?gid=173566181&single=true&output=tsv');
     const data = await response.text();
@@ -271,14 +275,6 @@ const rederProgressBar = () => {
         cardBody.appendChild(newProgressDiv);
     })
 }
-
-let nlpDataForLikeDislike = {
-    connectivityLikes: {}, connectivityDislikes: {},
-    constructionLikes: {}, constructionDislikes: {},
-    amenitiesLikes: {}, amenitiesDislikes: {},
-    maintenanceLikes: {}, maintenanceDislikes: {},
-    peopleFriendlinessLikes: {}, peopleFriendlinessDislikes: {},
-};
 
 const renderTable = (data) => {
     const tableBody = document.getElementById('dynamic-table-body');

@@ -21,7 +21,6 @@
         rel="stylesheet">
     <link href="css/Machadalo.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body id="page-top">
@@ -316,6 +315,9 @@
                                     <div class="mt-sm-0 ml-0 ml-sm-3 mr-2 search-dropdown">
                                         <div id="societySelector"></div>
                                         <label for="citySelector" class="text-right text-primary">Select Society</label>
+                                    </div>
+                                    <div class="mt-sm-0 ml-0 ml-sm-3 mr-2" >
+                                        <button class="btn-primary" onclick="openCampareModal()">Compare Society</button>
                                     </div>
                                 </div>
                             </div>
@@ -710,6 +712,30 @@
                             </div>
                         </div>
                     </div>
+                    <div class="modal fade" id="compareModal" tabindex="-1" aria-labelledby="compareModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="compareModalLabel">Compare Society</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- Modal content goes here -->
+                                    <div class="mt-sm-0 ml-0 ml-sm-3 mr-2 search-dropdown">
+                                        <div id="compareSocietySelector"></div>
+                                        <label class="text-right text-primary">Select Society</label>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="onSubmitCompareSociety()">Submit</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <script src="vendor/jquery/jquery.min.js"></script>
                     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -729,6 +755,7 @@
                     <script src="js/dropdown.js"></script>
                     <script src="js/demo/AllScript.js"></script>
                     <script src="Points.js"></script>
+                    <script src="./js/compareModal.js"></script>
 
                     <script>
                         document.getElementById('downloadButton').addEventListener('click', function () {
