@@ -48,13 +48,18 @@ function showPositive(id) {
     // Toggle visibility of rankList
     // if (rankList.style.display === 'none' || !rankList.style.display) {
         rankList.style.display = 'block';
+        rankList.style.listStyle = 'none';
+        rankList.style.textTransform = 'uppercase';
+        rankList.style.marginTop= '60px';
+        rankList.style.fontSize = '10px';
+        rankList.style.textAlign = 'center';
         // Clear previous content
         rankList.innerHTML = '';
         // Add positive ratings
         for (let i = Object.keys(sortedLikes).length - 1; i >= 0; i--) {
             let listItem = document.createElement('li');
-
-            listItem.textContent = '+ ' + Object.keys(sortedLikes)[i] + ' ' + Object.values(sortedLikes)[i];
+            listItem.textContent = Object.keys(sortedLikes)[i];
+            // listItem.textContent = '+ ' + Object.keys(sortedLikes)[i] + ' ' + Object.values(sortedLikes)[i];
             let hue = 120;
             // Calculate brightness based on rating (5 is darkest, 1 is lightest)
             let brightness = 30 + (5 - i) * 15; // Adjust values for gradient effect
