@@ -22,7 +22,8 @@ let meanRatings = {
 let tableData = [];
 let progressPercentage = { society: 0, city: 0, panIndia: 0 };
 const uniqueSocietiesByCity = {};
-
+const charTypes = [{ id: 'all-report', label: 'All Chart' }, { id: 'line-chart', label: 'Line Chart' }, { id: 'benchmarking-report', label: 'Benchmarking Report' }, { id: 'overall-report', label: 'Overall Report' }];
+const cardIdsOfCharts = ['connectivityCard', 'maintenanceCard', 'constructionCard', 'amenitiesCard', 'peopleFriendlinessCard'];
 async function fetchCSVData() {
     const response = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRHkzhb1ysdS3Pon1iEYdeDvAmFFVmaifuJG8LqYvfINO66OxSf-8vaM8Prsrj5Nhhdz2mxd0kdH3vB/pub?gid=173566181&single=true&output=tsv');
     const data = await response.text();
@@ -58,21 +59,6 @@ function populateCitySelector(cities) {
     createSearchableDropdown('citySelector', 'Search city', cities, function (selectedItem) {
         handleCityChange(selectedItem)
     });
-
-    // cities = [...new Set(csvData.map(entry => entry.City))].filter(city => city);
-    // cities.forEach(city => {
-    //     const div = document.createElement('div');
-    //     div.textContent = city;
-    //     div.classList.add('dropdown-item-city'); // Add a class for styling if needed
-    //     citySelector.appendChild(div);
-    //     div.addEventListener('click', function () {
-    //         const cityDropdownInput = document.getElementById('cityDropdownInput');
-    //         const newValue = city || ''; // Example value to set
-    //         cityDropdownInput.value = newValue;
-    //         citySelector.style.display = 'none';
-    //         handleCityChange(city)
-    //     });
-    // });
 }
 const getDataUsingQueryParams = () => {
     let urls = new URL(window.location.href);
@@ -91,8 +77,6 @@ const getDataUsingQueryParams = () => {
         input.value = society;
         handleSocietyChange(society);
     }
-
-    console.log(city, society);
 }
 const filterUniqueSocietiesByCity = () => {
     csvData.forEach(item => {
@@ -182,6 +166,7 @@ function calculateMeanRatings() {
             cityPeopleFriendliness += stringToInteger(item["People Friendliness Rating"]);
             totalCityPercentage += stringToInteger(item["Total Rating"]);
             cityCounts = cityCounts + 1;
+            console.log()
         }
         if (item['Society Name']?.toLowerCase() === selectedSociety?.toLowerCase()) {
             societyConnectivity += stringToInteger(item['Connectivity Ratings']);
@@ -287,10 +272,80 @@ const rederProgressBar = () => {
     })
 }
 
+let nlpDataForLikeDislike = {
+    connectivityLikes: {}, connectivityDislikes: {},
+    constructionLikes: {}, constructionDislikes: {},
+    amenitiesLikes: {}, amenitiesDislikes: {},
+    maintenanceLikes: {}, maintenanceDislikes: {},
+    peopleFriendlinessLikes: {}, peopleFriendlinessDislikes: {},
+};
+
 const renderTable = (data) => {
     const tableBody = document.getElementById('dynamic-table-body');
     tableBody.innerHTML = '';
     data?.forEach(item => {
+        const {
+            'Connectivity Likes': connectivityLike, 'Connectivity Dislikes': connectivityDislikes,
+            "Maintenance Likes": maintenanceLikes, "Maintenance Dislikes": maintenanceDislikes,
+            "Construction Likes": constructionLikes, "Construction Dislikes": constructionDislikes,
+            "Amenities Likes": amenitiesLikes, "Amenities Dislikes": amenitiesDislikes,
+            "People Friendliness Likes": peopleFriendlinessLikes, "People Friendliness Dislikes": peopleFriendlinessDislikes,
+        } = item;
+        if (connectivityLike) {
+            connectivityLike.split(',')?.map(like => like?.trim())?.forEach(like => {
+                nlpDataForLikeDislike.connectivityLikes[like] = (nlpDataForLikeDislike.connectivityLikes[like] || 0) + 1;
+            });
+        }
+        if (connectivityDislikes) {
+            connectivityDislikes.split(',').map(dislike => dislike.trim()).forEach(dislike => {
+                nlpDataForLikeDislike.connectivityDislikes[dislike] = (nlpDataForLikeDislike.connectivityDislikes[dislike] || 0) + 1;
+            });
+        }
+
+
+        if (maintenanceLikes) {
+            connectivityLike.split(',')?.map(like => like?.trim())?.forEach(like => {
+                nlpDataForLikeDislike.maintenanceLikes[like] = (nlpDataForLikeDislike.maintenanceLikes[like] || 0) + 1;
+            });
+        }
+        if (maintenanceDislikes) {
+            maintenanceDislikes.split(',').map(dislike => dislike.trim()).forEach(dislike => {
+                nlpDataForLikeDislike.maintenanceDislikes[dislike] = (nlpDataForLikeDislike.maintenanceDislikes[dislike] || 0) + 1;
+            });
+        }
+
+        if (constructionLikes) {
+            constructionLikes.split(',')?.map(like => like?.trim())?.forEach(like => {
+                nlpDataForLikeDislike.constructionLikes[like] = (nlpDataForLikeDislike.constructionLikes[like] || 0) + 1;
+            });
+        }
+        if (constructionDislikes) {
+            constructionDislikes.split(',').map(dislike => dislike.trim()).forEach(dislike => {
+                nlpDataForLikeDislike.constructionDislikes[dislike] = (nlpDataForLikeDislike.constructionDislikes[dislike] || 0) + 1;
+            });
+        }
+        if (amenitiesLikes) {
+            amenitiesLikes.split(',')?.map(like => like?.trim())?.forEach(like => {
+                nlpDataForLikeDislike.amenitiesLikes[like] = (nlpDataForLikeDislike.amenitiesLikes[like] || 0) + 1;
+            });
+        }
+        if (amenitiesDislikes) {
+            amenitiesDislikes.split(',').map(dislike => dislike.trim()).forEach(dislike => {
+                nlpDataForLikeDislike.amenitiesDislikes[dislike] = (nlpDataForLikeDislike.amenitiesDislikes[dislike] || 0) + 1;
+            });
+        }
+
+        if (peopleFriendlinessLikes) {
+            peopleFriendlinessLikes.split(',')?.map(like => like?.trim())?.forEach(like => {
+                nlpDataForLikeDislike.peopleFriendlinessLikes[like] = (nlpDataForLikeDislike.peopleFriendlinessLikes[like] || 0) + 1;
+            });
+        }
+        if (peopleFriendlinessDislikes) {
+            peopleFriendlinessDislikes.split(',').map(dislike => dislike.trim()).forEach(dislike => {
+                nlpDataForLikeDislike.peopleFriendlinessDislikes[dislike] = (nlpDataForLikeDislike.peopleFriendlinessDislikes[dislike] || 0) + 1;
+            });
+        }
+
         const row = document.createElement('tr');
         const likeCell = document.createElement('td');
         likeCell.textContent = item['Like Detailed Comments'] || '';
@@ -300,8 +355,11 @@ const renderTable = (data) => {
         row.appendChild(dislikeCell);
         tableBody.appendChild(row);
     });
+
+    cardIdsOfCharts.map((item) => {
+        showPositive(item);
+    })
 }
-const charTypes = [{ id: 'all-report', label: 'All Chart' }, { id: 'line-chart', label: 'Line Chart' }, { id: 'benchmarking-report', label: 'Benchmarking Report' }, { id: 'overall-report', label: 'Overall Report' }];
 const handleDropdownItemClick = (event) => {
     event.preventDefault();
     const target = event.target.getAttribute('data-target');
