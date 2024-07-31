@@ -164,38 +164,31 @@ const renderCharts = (meanRatings) => {
     });
 };
 
-const compareSocietyCharts = (meanRatings) => {
-    const category1ChartCtx = document.getElementById('connectivityChart').getContext('2d');
-    const category2ChartCtx = document.getElementById('maintenanceChart').getContext('2d');
-    const category3ChartCtx = document.getElementById('constructionChart').getContext('2d');
-    const category4ChartCtx = document.getElementById('amenitiesChart').getContext('2d');
-    const category5ChartCtx = document.getElementById('peopleFriendlinessChart').getContext('2d');
-    const categories = ["Connectivity", "Maintenance", 'Construction', 'Amenities', 'PeopleFriendliness'];
-    const chartCtxs = [category1ChartCtx, category2ChartCtx, category3ChartCtx, category4ChartCtx, category5ChartCtx];
+const compareSocietyCharts = (compareData) => {
+    const categories = ["Connectivity", "Maintenance", "Construction", "Amenities", "PeopleFriendliness"];
+    const chartIds = ['connectivityChart', 'maintenanceChart', 'constructionChart', 'amenitiesChart', 'peopleFriendlinessChart'];
+    const chartCtxs = chartIds.map(id => document.getElementById(id).getContext('2d'));
+    const societies = Object.keys(compareData);
 
     categories.forEach((category, index) => {
-        const data = [
-            meanRatings[category]?.society.toFixed(1),
-            meanRatings[category]?.city?.toFixed(1),
-            meanRatings[category]?.panIndia.toFixed(1)
-        ];
+        const data = societies.map(society => compareData[society][category]);
 
         if (charts[index]) {
             // Update existing chart data
             charts[index].data.datasets[0].data = data;
-            charts[index].data.labels = [selectedSociety, selectedCity, "Pan India"];
+            charts[index].data.labels = societies;
             charts[index].update();
         } else {
             // Create new chart instance
             const chart = new Chart(chartCtxs[index], {
                 type: 'bar',
                 data: {
-                    labels: [`${selectedSociety}`, `${selectedCity}`, `Pan India`],
+                    labels: societies,
                     datasets: [{
                         label: `${category} Ratings`,
                         data: data,
-                        backgroundColor: ["#4e73df", "#1cc88a", "#e74a3b"],
-                        borderColor: ["#36b9cc", "#36b9cc", "#36b9cc"],
+                        backgroundColor: societies.map(() => "#4e73df"),
+                        borderColor: societies.map(() => "#36b9cc"),
                         borderWidth: 1
                     }]
                 },
@@ -204,4 +197,4 @@ const compareSocietyCharts = (meanRatings) => {
             charts[index] = chart;
         }
     });
-};
+}

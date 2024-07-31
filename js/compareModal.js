@@ -39,27 +39,55 @@ const calculateRatingBySociety = (society) => {
     societyAmenities = societyAmenities / societyCounts;
     societyPeopleFriendliness = societyPeopleFriendliness / societyCounts;
     let meanRatings = {
-        "Connectivity": societyConnectivity,
-        "Maintenance": societyMaintenanceRating,
-        'Construction': societyConstruction,
-        'Amenities': societyAmenities,
-        'PeopleFriendliness': societyPeopleFriendliness
+        "Connectivity": societyConnectivity.toFixed(1),
+        "Maintenance": societyMaintenanceRating.toFixed(1),
+        'Construction': societyConstruction.toFixed(1),
+        'Amenities': societyAmenities.toFixed(1),
+        'PeopleFriendliness': societyPeopleFriendliness.toFixed(1)
     };
     return meanRatings
 }
 
 
 const handleSelectCompareSociety = (selectedItem, index) => {
-    let ratings = calculateRatingBySociety(selectedItem);
-    compareSocietyValues[selectedItem] = ratings;
+    if (Object.keys(compareSocietyValues).length < 2 &&  !compareSocietyValues[selectedItem] ) {
+        let ratings = calculateRatingBySociety(selectedItem);
+        compareSocietyValues[selectedItem] = ratings;
+        addSocietyToDOM(selectedItem);
+    }
 }
 
 const onSubmitCompareSociety = () => {
     let currentSocietyValues = {}
     for (const key in meanRatings) {
-        currentSocietyValues[key] = meanRatings[key].society || '';
+        currentSocietyValues[key] = meanRatings[key].society.toFixed(1) || '';
     }
     compareSocietyValues[selectedSociety] = currentSocietyValues;
-    console.log(compareSocietyValues,"afsdfsrte")
-    
+    compareSocietyCharts(compareSocietyValues)
 }
+const addSocietyToDOM = (societyName) => {
+    const container = document.getElementById('selectedSocietyForCompare');
+    const societyDiv = document.createElement('div');
+    societyDiv.className = 'alert alert-info alert-dismissible fade show d-flex align-items-center';
+    societyDiv.id = `society-${societyName}`;
+
+    const societyText = document.createElement('span');
+    societyText.className = 'mr-auto';
+    societyText.textContent = societyName;
+
+    const removeIcon = document.createElement('button');
+    removeIcon.type = 'button';
+    removeIcon.className = 'close';
+    removeIcon.innerHTML = '&times;';
+    removeIcon.onclick = () => removeSociety(societyName);
+
+    societyDiv.appendChild(societyText);
+    societyDiv.appendChild(removeIcon);
+    container.appendChild(societyDiv);
+};
+
+const removeSociety = (societyName) => {
+    delete compareSocietyValues[societyName];
+    const societyDiv = document.getElementById(`society-${societyName}`);
+    societyDiv.remove();
+};
