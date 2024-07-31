@@ -3,8 +3,8 @@
 {
     text-align: center;
     width: 100%;
-    background-color: #4f4fd1;
-    color: white;
+    background-color: #1a1919ee;
+    color: #fff;
     letter-spacing: 1px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -29,7 +29,7 @@
     margin: auto;
     padding: 10px 0;
     text-align: center;
-    background-color: #4f4fd1;
+    background-color: #1a1919ee;
     color: white;
     font-size: 11px;
     letter-spacing: 0.6px;
