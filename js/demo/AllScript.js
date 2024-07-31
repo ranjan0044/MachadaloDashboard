@@ -369,8 +369,9 @@ const handleDropdownItemClick = (event) => {
         } else if (chartContainer && type.id !== target) {
             chartContainer.style.display = 'none';
         } else {
-            if (chartContainer)
+            if (chartContainer){
                 chartContainer.style.display = 'block';
+            }
             let header = document.getElementById('chat-type-header');
             header.innerText = type.label
         }
