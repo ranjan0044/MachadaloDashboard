@@ -11,7 +11,7 @@ function createSearchableDropdown(containerId,placeholder, items, onSelect) {
     dropdownMenu.classList.add('dropdown-menu');
 
     // Apply CSS style for max-height and overflow-y
-    dropdownMenu.style.maxHeight = '200px'; 
+    dropdownMenu.style.maxHeight = '250px'; 
     dropdownMenu.style.overflowY = 'auto';
 
     // Add input and dropdown menu to container
