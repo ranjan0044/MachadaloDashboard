@@ -50,7 +50,7 @@ function showPositive(id) {
         rankList.style.display = 'block';
         rankList.style.listStyle = 'none';
         rankList.style.textTransform = 'uppercase';
-        rankList.style.marginTop= '60px';
+        rankList.style.marginTop= '20px';
         rankList.style.fontSize = '10px';
         rankList.style.textAlign = 'center';
         // Clear previous content
@@ -91,7 +91,8 @@ function showNegative(id) {
         // Add negative ratings
         for (var i = Object.keys(sortedDislikes).length - 1; i >= 0; i--) {
             var listItem = document.createElement('li');
-            listItem.textContent = '- ' + Object.keys(sortedDislikes)[i] + ' ' + Object.values(sortedDislikes)[i];
+            listItem.textContent = Object.keys(sortedDislikes)[i] ;
+            // listItem.textContent = '- ' + Object.keys(sortedDislikes)[i] + ' ' + Object.values(sortedDislikes)[i];
             // Calculate hue for red (0 corresponds to red in hsl)
             var hue = 0;
             // Calculate brightness based on rating (-5 is darkest, -1 is lightest)
