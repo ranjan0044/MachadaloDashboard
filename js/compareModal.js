@@ -50,7 +50,7 @@ const calculateRatingBySociety = (society) => {
 
 
 const handleSelectCompareSociety = (selectedItem, index) => {
-    if (Object.keys(compareSocietyValues).length < 2 &&  !compareSocietyValues[selectedItem] ) {
+    if (Object.keys(compareSocietyValues).length < 3 &&  !compareSocietyValues[selectedItem] ) {
         let ratings = calculateRatingBySociety(selectedItem);
         compareSocietyValues[selectedItem] = ratings;
         addSocietyToDOM(selectedItem);
