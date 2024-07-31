@@ -13,9 +13,6 @@
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/footer.css"><link rel="stylesheet" href="Footer.css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
@@ -269,10 +266,8 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-dark small">User</span>
-                                <!-- <img class="img-profile rounded-circle" src="img/undraw_profile.svg"> -->
-                                <img class="img-profile rounded-circle" src="img/undraw_profile_1.svg">
-                                
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Aayush Singh</span>
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in "
@@ -359,18 +354,14 @@
                                 <div class="container">
                                     <div id="benchmarking-report">
                                         <div class="row">
-                                            <div class="col-lg-6 col-md-6 col-sm-12 hr__line pt-4">
-                                                <div class="d-flex justify-content-center">
-                                                    <button class="btn btn-outline-primary btn-sm mx-2"
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <h6 class="text-primary text-center hover-target  hover-tooltip">
+                                                    Connectivity
+                                                    <button class="btn btn-outline-primary btn-sm"
                                                         onclick="openCardById('connectivityCard')">
-                                                        Connectivity
+                                                        Rate
                                                     </button>
-                                                    <button class="btn btn-outline-primary btn-sm mx-2"
-                                                        onclick="showPositive('connectivityCard')">+</button>
-                                                    <button class="btn btn-outline-primary btn-sm mx-2"
-                                                        onclick="showNegative('connectivityCard')">-</button>
-                                                </div>
-                                                <!-- <button class="btn btn-outline-primary btn-sm" onclick="openBoxInCard()">Add</button>
+                                                    <!-- <button class="btn btn-outline-primary btn-sm" onclick="openBoxInCard()">Add</button>
                                                     <div id="pointsForm">
                                                         <h5>Favorable Points</h5>
                                                         <textarea id="favorablePoints" rows="4" cols="25"
@@ -382,16 +373,17 @@
                                                         <button onclick="savePoints()"
                                                             class="btn btn-outline-primary">Save Points</button>
                                                     </div> -->
-                                                <!-- </h6> -->
+                                                </h6>
                                                 <div class="rating-card" id="connectivityCard">
-                                                    <!-- <div class="rank-buttons text-right">
+                                                    <div class="rank-buttons text-right">
                                                         <button class="btn btn-outline-primary btn-sm"
                                                             onclick="showPositive('connectivityCard')">+</button>
                                                         <button class="btn btn-outline-primary btn-sm"
                                                             onclick="showNegative('connectivityCard')">-</button>
                                                     </div>
                                                     <div class="rank-list" id="rankList">
-                                                    </div> -->
+                                                        <!-- Content will be dynamically added here -->
+                                                    </div>
                                                     <ul>
                                                         <li>Public transport: Bus Stand, Railway Station, Sharing
                                                             Rickshaw</li>
@@ -406,35 +398,29 @@
                                                         <li>No water logging on roads</li>
                                                     </ul>
                                                 </div>
-                                                <div class="d-flex justify-content-between">
-                                                    <div class="chart-bar sm-2">
-                                                        <canvas id="connectivityChart"></canvas>
-                                                    </div>
-                                                    <div class="rank-list pt-4" id="rankList-connectivityCard">
-                                                        <!-- Content will be dynamically added here -->
-                                                    </div>
+
+                                                <div class="chart-bar">
+                                                    <canvas id="connectivityChart"></canvas>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-12 hr__line pt-4">
-                                                <div class="d-flex justify-content-center">
-                                                    <button class="btn btn-outline-primary btn-sm mx-2"
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <h6 class="text-primary text-center hover-target hover-tooltip">
+                                                    Maintenance
+                                                    <button class="btn btn-outline-primary btn-sm"
                                                         onclick="openCardById('maintenanceCard')">
-                                                        Maintenance
+                                                        Rate
                                                     </button>
-                                                    <button class="btn btn-outline-primary btn-sm mx-2"
-                                                        onclick="showPositive('maintenanceCard')">+</button>
-                                                    <button class="btn btn-outline-primary btn-sm mx-2"
-                                                        onclick="showNegative('maintenanceCard')">-</button>
-                                                </div>
+                                                </h6>
                                                 <div class="rating-card" id="maintenanceCard">
-                                                    <!-- <div class="rank-buttons text-right">
+                                                    <div class="rank-buttons text-right">
                                                         <button class="btn btn-outline-primary btn-sm"
                                                             onclick="showPositive('maintenanceCard')">+</button>
                                                         <button class="btn btn-outline-primary btn-sm"
                                                             onclick="showNegative('maintenanceCard')">-</button>
                                                     </div>
                                                     <div class="rank-list" id="rankList">
-                                                    </div> -->
+                                                        <!-- Content will be dynamically added here -->
+                                                    </div>
                                                     <ul>
                                                         <li>Water supply</li>
                                                         <li>Power backup available ( Generators / Inverters )</li>
@@ -448,34 +434,34 @@
                                                         <li>Basement parking has light issues, drainage issue </li>
                                                         <li>Pesticides sprinkle timely?</li>
                                                     </ul>
-
+                                                   
                                                 </div>
-                                                <div class="d-flex justify-content-between">
-                                                    <div class="chart-bar">
-                                                        <canvas id="maintenanceChart"></canvas>
-                                                    </div>
-                                                    <div class="rank-list pt-4" id="rankList-maintenanceCard">
-                                                        <!-- Content will be dynamically added here -->
-                                                    </div>
+                                                <div class="chart-bar">
+                                                    <canvas id="maintenanceChart"></canvas>
                                                 </div>
                                             </div>
                                         </div>
+                                        <br>
+                                        <hr>
                                         <div class="row">
-                                            <div class="col-lg-6 col-md-6 col-sm-12 hr__line pt-4">
-                                                <div class="d-flex justify-content-center">
-                                                    <button class="btn btn-outline-primary btn-sm mx-2"
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <h6 class="text-primary text-center hover-tooltip">
+                                                    Construction
+                                                    <button class="btn btn-outline-primary btn-sm"
                                                         onclick="openCardById('constructionCard')">
-                                                        Construction
+                                                        Rate
                                                     </button>
+                                                </h6>
+                                                <div class="rating-card" id="constructionCard">
                                                     <div class="rank-buttons text-right">
-                                                        <button class="btn btn-outline-primary btn-sm mx-2"
+                                                        <button class="btn btn-outline-primary btn-sm"
                                                             onclick="showPositive('constructionCard')">+</button>
-                                                        <button class="btn btn-outline-primary btn-sm mx-2"
+                                                        <button class="btn btn-outline-primary btn-sm"
                                                             onclick="showNegative('constructionCard')">-</button>
                                                     </div>
-
-                                                </div>
-                                                <div class="rating-card" id="constructionCard">
+                                                    <div class="rank-list" id="rankList">
+                                                        <!-- Content will be dynamically added here -->
+                                                    </div>
                                                     <ul>
                                                         <li>Weak walls and pillars.</li>
                                                         <li>Poor quality plaster and fitting</li>
@@ -488,30 +474,30 @@
                                                         <li>Safety feaures at Entrance and Exit gate</li>
                                                         <li>Clear Emergency exits, Fire safety features</li>
                                                     </ul>
-
+                                                   
                                                 </div>
-                                                <div class="d-flex justify-content-between">
-                                                    <div class="chart-bar">
-                                                        <canvas id="constructionChart"></canvas>
-                                                    </div>
-                                                    <div class="rank-list pt-4" id="rankList-constructionCard">
-                                                        <!-- Content will be dynamically added here -->
-                                                    </div>
+                                                <div class="chart-bar">
+                                                    <canvas id="constructionChart"></canvas>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-12 hr__line pt-4">
-                                                <div class="d-flex justify-content-center">
-                                                    <button class="btn btn-outline-primary btn-sm mx-2"
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <h6 class="text-primary text-center hover-tooltip">
+                                                    Amenities
+                                                    <button class="btn btn-outline-primary btn-sm"
                                                         onclick="openCardById('amenitiesCard')">
-                                                        Amenities
+                                                        Rate
                                                     </button>
-                                                    <button class="btn btn-outline-primary btn-sm mx-2"
-                                                        onclick="showPositive('amenitiesCard')">+</button>
-                                                    <button class="btn btn-outline-primary btn-sm mx-2"
-                                                        onclick="showNegative('amenitiesCard')">-</button>
-
-                                                </div>
+                                                </h6>
                                                 <div class="rating-card" id="amenitiesCard">
+                                                    <div class="rank-buttons text-right">
+                                                        <button class="btn btn-outline-primary btn-sm"
+                                                            onclick="showPositive('amenitiesCard')">+</button>
+                                                        <button class="btn btn-outline-primary btn-sm"
+                                                            onclick="showNegative('amenitiesCard')">-</button>
+                                                    </div>
+                                                    <div class="rank-list" id="rankList">
+                                                        <!-- Content will be dynamically added here -->
+                                                    </div>
                                                     <ul>
                                                         <li>Lot of open space</li>
                                                         <li>Nice park and kids playarea</li>
@@ -522,30 +508,34 @@
                                                         <li>Well lit & safe at night</li>
                                                         <li>Swimming pools</li>
                                                     </ul>
-
+                                                    
                                                 </div>
-                                                <div class="d-flex justify-content-between">
-                                                    <div class="chart-bar">
-                                                        <canvas id="amenitiesChart"></canvas>
-                                                    </div>
-                                                    <div class="rank-list pt-4" id="rankList-amenitiesCard">
-                                                    </div>
+                                                <div class="chart-bar">
+                                                    <canvas id="amenitiesChart"></canvas>
                                                 </div>
                                             </div>
                                         </div>
+                                        <br>
+                                        <hr>
                                         <div class="row">
-                                            <div class="col-lg-6 col-md-6 col-sm-12 hr__line pt-4">
-                                                <div class="d-flex justify-content-center">
-                                                    <button class="btn btn-outline-primary btn-sm mx-2"
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <h6 class="text-primary text-center hover-tooltip">
+                                                    People Friendliness
+                                                    <button class="btn btn-outline-primary btn-sm"
                                                         onclick="openCardById('peopleFriendlinessCard')">
-                                                        People Friendliness
+                                                        Rate
                                                     </button>
-                                                    <button class="btn btn-outline-primary btn-sm mx-2"
-                                                        onclick="showPositive('peopleFriendlinessCard')">+</button>
-                                                    <button class="btn btn-outline-primary btn-sm mx-2"
-                                                        onclick="showNegative('peopleFriendlinessCard')">-</button>
-                                                </div>
+                                                </h6>
                                                 <div class="rating-card" id="peopleFriendlinessCard">
+                                                    <div class="rank-buttons text-right">
+                                                        <button class="btn btn-outline-primary btn-sm"
+                                                            onclick="showPositive('peopleFriendlinessCard')">+</button>
+                                                        <button class="btn btn-outline-primary btn-sm"
+                                                            onclick="showNegative('peopleFriendlinessCard')">-</button>
+                                                    </div>
+                                                    <div class="rank-list" id="rankList">
+                                                        <!-- Content will be dynamically added here -->
+                                                    </div>
                                                     <ul>
                                                         <li>Good celebration of festivals</li>
                                                         <li>Frequent cultural events</li>
@@ -555,13 +545,10 @@
                                                         <li>Residents pay maintenence on time</li>
                                                         <li>Friendly environment</li>
                                                     </ul>
+                                                    
                                                 </div>
-                                                <div class="d-flex justify-content-between">
-                                                    <div class="chart-bar">
-                                                        <canvas id="peopleFriendlinessChart"></canvas>
-                                                    </div>
-                                                    <div class="rank-list pt-4" id="rankList-peopleFriendlinessCard">
-                                                    </div>
+                                                <div class="chart-bar">
+                                                    <canvas id="peopleFriendlinessChart"></canvas>
                                                 </div>
                                             </div>
                                         </div>
@@ -606,14 +593,14 @@
                                 </div>
                                 <!-- </div> -->
 
-                                <div class="row" style="display: none;">
+                                <div class="row">
                                     <div class="container mt-2">
                                         <div class="table-reader">
                                             <table class="table table-striped">
                                                 <thead class="thead-fixed bg-primary">
                                                     <tr>
-                                                        <th scope="col">Positive(+)</th>
-                                                        <th scope="col">Negative(-)</th>
+                                                        <th scope="col">Favourable(+)</th>
+                                                        <th scope="col">Unfavourable(-)</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody id="dynamic-table-body">
@@ -625,40 +612,12 @@
 
                             </div>
 
-                            <footer>
-                                <section>    
-                                    <div id="containerFooter">
-                                        <div id="webFooter">
-                                            <h5>Contact</h5>
-                                            <p>Vaibhav Ahlawat</p>
-                                            <p>sales@machadalo.com</p>
-                                            <p>9910027018</p>
-                                        </div>
-                                        <div id="webFooter">
-                                            <h5>partners </h5>
-                                            <p>Burger</p>
-                                            <p>Shindler</p>
-                                            <p>Asianpaints</p>
-                                            <p>Dulux</p>
-                                        </div>
-                                        <div id="webFooter">
-                                            <h5>Services</h5>
-                                            <p>Painting</p>
-                                            <p>EV</p>
-                                            <p>Elevator</p>
-                                            <p>Solar</p>
-                                        </div>
-                                        <div id="webFooter">
-                                            <h5>Follow_Us</h5>
-                                            <p><i class="fab fa-facebook"></i> Facebook</p>
-                                            <p><i class="fab fa-instagram"></i> Instagram</p>
-                                            <p><i class="fab fa-linkedin"></i> LinkedIn</p>
-                                        </div>
+                            <footer class="sticky-footer bg-white">
+                                <div class="container my-auto">
+                                    <div class="copyright text-center my-auto">
+                                        <span>Copyright &copy; Your Website 2024</span>
                                     </div>
-                                    <div id="credit"><p>Vijaikirti Technologies Pvt Ltd, 91 Springboard, 1st Floor, Plot No. D,107, Vyapar Marg, D block, Sector-2, Noida, Uttar Pradesh 201301</p></div>
-                                    <div id="credit"> © VijayKirti Technology </a> &nbsp&nbsp&nbsp | &nbsp&nbsp&nbsp <a href="https://www.Machadalo.com/" target="_blank"> Machadalo </a></div>
-                                    
-                                </section>
+                                </div>
                             </footer>
                             <!-- End of Footer -->
 
