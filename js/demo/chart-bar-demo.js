@@ -29,7 +29,7 @@ Chart.plugins.register({
             var meta = chart.getDatasetMeta(i);
             if (!meta.hidden) {
                 meta.data.forEach(function (element, index) {
-                    ctx.fillStyle = '#0000FF';
+                    ctx.fillStyle = '#000';
                     var fontSize = 12;
                     var fontStyle = 'normal';
                     var fontFamily = 'Helvetica Neue';
