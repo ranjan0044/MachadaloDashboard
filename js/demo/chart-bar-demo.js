@@ -121,6 +121,7 @@ var commonOptions = {
 };
 
 let charts = [];
+const categories = ["Connectivity", "Maintenance", "Construction", "Amenities", "PeopleFriendliness"];
 
 const renderCharts = (meanRatings) => {
     const category1ChartCtx = document.getElementById('connectivityChart').getContext('2d');
@@ -128,7 +129,6 @@ const renderCharts = (meanRatings) => {
     const category3ChartCtx = document.getElementById('constructionChart').getContext('2d');
     const category4ChartCtx = document.getElementById('amenitiesChart').getContext('2d');
     const category5ChartCtx = document.getElementById('peopleFriendlinessChart').getContext('2d');
-    const categories = ["Connectivity", "Maintenance", 'Construction', 'Amenities', 'PeopleFriendliness'];
     const chartCtxs = [category1ChartCtx, category2ChartCtx, category3ChartCtx, category4ChartCtx, category5ChartCtx];
 
     categories.forEach((category, index) => {
@@ -165,7 +165,6 @@ const renderCharts = (meanRatings) => {
 };
 
 const compareSocietyCharts = (compareData) => {
-    const categories = ["Connectivity", "Maintenance", "Construction", "Amenities", "PeopleFriendliness"];
     const chartIds = ['connectivityChart', 'maintenanceChart', 'constructionChart', 'amenitiesChart', 'peopleFriendlinessChart'];
     const chartCtxs = chartIds.map(id => document.getElementById(id).getContext('2d'));
     const societies = Object.keys(compareData);

@@ -69,6 +69,7 @@ const onSubmitCompareSociety = () => {
     }
     compareSocietyValues[selectedSociety] = currentSocietyValues;
     compareSocietyCharts(compareSocietyValues);
+    comparePieChartSocieties(compareSocietyValues)
     cardIdsOfCharts?.forEach(id=>{
         hideRankList(id)
     })
