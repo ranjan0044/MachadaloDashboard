@@ -109,22 +109,22 @@ const renderAreaChart = (meanRatings) => {
                 scales: {
                     xAxes: [{
                         display: true,
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Categories',
-                            fontSize: 12 // Adjust this value as needed
-                        },
+                        // scaleLabel: {
+                        //     display: true,
+                        //     labelString: 'Categories',
+                        //     fontSize: 12 // Adjust this value as needed
+                        // },
                         ticks: {
                             fontSize: 10 // Adjust this value as needed
                         }
                     }],
                     yAxes: [{
                         display: true,
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Values',
-                            fontSize: 12 // Adjust this value as needed
-                        },
+                        // scaleLabel: {
+                        //     display: true,
+                        //     labelString: 'Values',
+                        //     fontSize: 12 // Adjust this value as needed
+                        // },
                         ticks: {
                             fontSize: 10 // Adjust this value as needed
                         }

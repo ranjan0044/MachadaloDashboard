@@ -1,3 +1,4 @@
+
 function number_format(number, decimals, dec_point, thousands_sep) {
     number = (number + '').replace(',', '').replace(' ', '');
     var n = !isFinite(+number) ? 0 : +number,
@@ -19,6 +20,7 @@ function number_format(number, decimals, dec_point, thousands_sep) {
     }
     return s.join(dec);
 }
+
 Chart.plugins.register({
     afterDatasetsDraw: function (chart) {
         var ctx = chart.ctx;
@@ -27,42 +29,20 @@ Chart.plugins.register({
             var meta = chart.getDatasetMeta(i);
             if (!meta.hidden) {
                 meta.data.forEach(function (element, index) {
-                    ctx.save(); // Save the current context state
-
-                    var fontSize = 12; // Adjust font size to fit inside bar
+                    ctx.fillStyle = '#0000FF';
+                    var fontSize = 12;
                     var fontStyle = 'normal';
                     var fontFamily = 'Helvetica Neue';
-
-                    // Draw the category label inside the bar
-                    ctx.fillStyle = '#FFF'; // Category label color
                     ctx.font = Chart.helpers.fontString(fontSize, fontStyle, fontFamily);
-                    var labelString = chart.data.labels[index];
-                    // Truncate label if longer than 12 characters
-                    if (labelString.length > 12) {
-                        labelString = labelString.substring(0, 12) + '...';
-                    }
+
+                    var dataString = dataset.data[index]?.toString();
+
                     ctx.textAlign = 'center';
-                    ctx.textBaseline = 'bottom'; // Align the text to the bottom
+                    ctx.textBaseline = 'middle';
+
+                    var padding = 5;
                     var position = element.tooltipPosition();
-                    var labelPositionY = position.y + element.height() / 2 - 5; 
-                    var labelPositionX = position.x + 5;
-                    ctx.translate(labelPositionX, labelPositionY);
-                    ctx.rotate(-Math.PI / 2);
-                    ctx.fillText(labelString, 0, 0);
-
-                    // Draw the number rating on top of the bar
-                    ctx.restore(); // Restore the context state
-                    ctx.save(); // Save the context state again
-
-                    ctx.fillStyle = '#0000FF'; // Number rating color
-                    ctx.font = Chart.helpers.fontString(fontSize + 2, fontStyle, fontFamily); // Slightly larger font for ratings
-                    ctx.textAlign = 'center';
-                    ctx.textBaseline = 'middle'; // Align the text to the middle
-                    var ratingString = dataset.data[index]?.toString(); // Format number rating
-                    var ratingPositionY = position.y - (fontSize / 2) - 5;
-                    ctx.fillText(ratingString, position.x, ratingPositionY);
-                    
-                    ctx.restore(); // Restore the context state
+                    ctx.fillText(dataString, position.x, position.y - (fontSize / 2) - padding);
                 });
             }
         });
@@ -82,14 +62,21 @@ var commonOptions = {
     },
     scales: {
         xAxes: [{
+            time: {
+                unit: 'overall'
+            },
             gridLines: {
                 display: false,
                 drawBorder: false
             },
             ticks: {
-                display: false // Hide the outside labels on the x-axis
+                maxTicksLimit: 3,
+                fontColor: '#0000FF',
+                callback: function (value) {
+                    return value.length > 10 ? value.substr(0, 8) + '...' : value;
+                }
             },
-            maxBarThickness: 25,
+            maxBarThickness: 15,
         }],
         yAxes: [{
             ticks: {
