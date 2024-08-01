@@ -1,3 +1,4 @@
+
 function number_format(number, decimals, dec_point, thousands_sep) {
     number = (number + '').replace(',', '').replace(' ', '');
     var n = !isFinite(+number) ? 0 : +number,
@@ -28,8 +29,8 @@ Chart.plugins.register({
             var meta = chart.getDatasetMeta(i);
             if (!meta.hidden) {
                 meta.data.forEach(function (element, index) {
-                    ctx.fillStyle = '#000000';
-                    var fontSize = 16;
+                    ctx.fillStyle = '#000';
+                    var fontSize = 12;
                     var fontStyle = 'normal';
                     var fontFamily = 'Helvetica Neue';
                     ctx.font = Chart.helpers.fontString(fontSize, fontStyle, fontFamily);
@@ -75,7 +76,7 @@ var commonOptions = {
                     return value.length > 10 ? value.substr(0, 8) + '...' : value;
                 }
             },
-            maxBarThickness: 25,
+            maxBarThickness: 15,
         }],
         yAxes: [{
             ticks: {
