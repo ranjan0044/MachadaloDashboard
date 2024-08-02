@@ -1,3 +1,4 @@
+
 function number_format(number, decimals, dec_point, thousands_sep) {
     number = (number + '').replace(',', '').replace(' ', '');
     var n = !isFinite(+number) ? 0 : +number,
@@ -28,8 +29,8 @@ Chart.plugins.register({
             var meta = chart.getDatasetMeta(i);
             if (!meta.hidden) {
                 meta.data.forEach(function (element, index) {
-                    ctx.fillStyle = '#000000';
-                    var fontSize = 16;
+                    ctx.fillStyle = '#000';
+                    var fontSize = 12;
                     var fontStyle = 'normal';
                     var fontFamily = 'Helvetica Neue';
                     ctx.font = Chart.helpers.fontString(fontSize, fontStyle, fontFamily);
@@ -75,7 +76,7 @@ var commonOptions = {
                     return value.length > 10 ? value.substr(0, 8) + '...' : value;
                 }
             },
-            maxBarThickness: 25,
+            maxBarThickness: 15,
         }],
         yAxes: [{
             ticks: {
@@ -121,6 +122,7 @@ var commonOptions = {
 };
 
 let charts = [];
+const categories = ["Connectivity", "Maintenance", "Construction", "Amenities", "PeopleFriendliness"];
 
 const renderCharts = (meanRatings) => {
     const category1ChartCtx = document.getElementById('connectivityChart').getContext('2d');
@@ -128,7 +130,6 @@ const renderCharts = (meanRatings) => {
     const category3ChartCtx = document.getElementById('constructionChart').getContext('2d');
     const category4ChartCtx = document.getElementById('amenitiesChart').getContext('2d');
     const category5ChartCtx = document.getElementById('peopleFriendlinessChart').getContext('2d');
-    const categories = ["Connectivity", "Maintenance", 'Construction', 'Amenities', 'PeopleFriendliness'];
     const chartCtxs = [category1ChartCtx, category2ChartCtx, category3ChartCtx, category4ChartCtx, category5ChartCtx];
 
     categories.forEach((category, index) => {
@@ -152,8 +153,8 @@ const renderCharts = (meanRatings) => {
                     datasets: [{
                         label: `${category} Ratings`,
                         data: data,
-                        backgroundColor: ["#4e73df", "#1cc88a", "#e74a3b"],
-                        borderColor: ["#36b9cc", "#36b9cc", "#36b9cc"],
+                        backgroundColor: ["#4e73df", "#1cc88a", "#e74a3b","#ffff00"],
+                        borderColor: ["#36b9cc", "#36b9cc", "#36b9cc", "#36b9cc"],
                         borderWidth: 1
                     }]
                 },
@@ -165,7 +166,6 @@ const renderCharts = (meanRatings) => {
 };
 
 const compareSocietyCharts = (compareData) => {
-    const categories = ["Connectivity", "Maintenance", "Construction", "Amenities", "PeopleFriendliness"];
     const chartIds = ['connectivityChart', 'maintenanceChart', 'constructionChart', 'amenitiesChart', 'peopleFriendlinessChart'];
     const chartCtxs = chartIds.map(id => document.getElementById(id).getContext('2d'));
     const societies = Object.keys(compareData);

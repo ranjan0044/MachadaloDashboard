@@ -242,7 +242,7 @@ const rederProgressBar = () => {
     let differenceHeader = document.createElement("h4");
     differenceHeader.classList.add("small", "font-weight-bold");
     let differenceColor = difference > 0 ? 'text-success' : 'text-danger';
-    differenceHeader.innerHTML = `Difference <span class='${differenceColor} float-right'>${difference}%</span>`;
+    differenceHeader.innerHTML = `Society's Progress from City  is  <span class='${differenceColor} float-right'>${difference}%</span>`;
     cardBody.appendChild(differenceHeader);
 
     // Create a divider for better UI separation
