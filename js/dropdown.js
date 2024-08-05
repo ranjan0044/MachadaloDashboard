@@ -14,6 +14,8 @@ function createSearchableDropdown(containerId,placeholder, items, onSelect) {
     dropdownMenu.style.maxHeight = '200px'; 
     dropdownMenu.style.overflowY = 'auto';
 
+    dropdownMenu.style.width = 'auto';
+
     // Add input and dropdown menu to container
     container.appendChild(input);
     container.appendChild(dropdownMenu);
