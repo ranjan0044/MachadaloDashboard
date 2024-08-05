@@ -62,13 +62,3 @@ function createSearchableDropdown(containerId,placeholder, items, onSelect) {
         }
     });
 }
-
-
-// Example usage:
-// createSearchableDropdown('cityDropdown', ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix'], function(selectedItem) {
-//     console.log('Selected city:', selectedItem);
-// });
-
-// createSearchableDropdown('societyDropdown', ['Society A', 'Society B', 'Society C'], function(selectedItem) {
-//     console.log('Selected society:', selectedItem);
-// });
