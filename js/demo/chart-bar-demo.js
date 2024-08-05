@@ -158,7 +158,7 @@ const renderCharts = (meanRatings) => {
                         borderWidth: 1
                     }]
                 },
-                options: commonOptions
+                options: commonOptions  
             });
             charts[index] = chart;
         }

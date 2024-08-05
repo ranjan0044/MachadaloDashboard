@@ -14,6 +14,8 @@ function createSearchableDropdown(containerId,placeholder, items, onSelect) {
     dropdownMenu.style.maxHeight = '200px'; 
     dropdownMenu.style.overflowY = 'auto';
 
+    dropdownMenu.style.width = 'auto';
+
     // Add input and dropdown menu to container
     container.appendChild(input);
     container.appendChild(dropdownMenu);
@@ -62,13 +64,3 @@ function createSearchableDropdown(containerId,placeholder, items, onSelect) {
         }
     });
 }
-
-
-// Example usage:
-// createSearchableDropdown('cityDropdown', ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix'], function(selectedItem) {
-//     console.log('Selected city:', selectedItem);
-// });
-
-// createSearchableDropdown('societyDropdown', ['Society A', 'Society B', 'Society C'], function(selectedItem) {
-//     console.log('Selected society:', selectedItem);
-// });
