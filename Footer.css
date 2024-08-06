@@ -116,3 +116,100 @@ transition: all .3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
 .copyright{
     background: #fff;
 }
+.custom-btn {
+    padding: 1px 4px;
+    font-size: 10px;
+    line-height: 1;
+    border-width: 1px;
+}
+
+.rating-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.rating-card li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distributes space between text and buttons */
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd; /* Optional: add a border for better visual separation */
+}
+
+.toggle-btn {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #0000ff;
+    color: rgb(7, 1, 1);
+    cursor: pointer;
+}
+
+.rating-card li.green {
+    background-color: green;
+    color: white; /* Optional: change text color for better contrast */
+}
+
+.rating-card li.red {
+    background-color: red;
+    color: white; /* Optional: change text color for better contrast */
+}
+
+
+.comment-btn {
+    display: block;
+    margin: 20px auto; /* Center the button horizontally */
+    padding: 10px 20px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+}
+
+.comment-section {
+    display: none; /* Initially hidden */
+    position: relative;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    z-index: 10; /* Ensures the comment section appears above other content */
+}
+
+.comment-textarea {
+    width: 100%;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.save-comment-btn {
+    padding: 5px 10px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+}
+
+.rating {
+    margin-bottom: 10px;
+}
+
+.rating-option {
+    font-size: 20px;
+    color: #ccc; /* Default color for unselected stars */
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.rating-option.selected {
+    color: #FFD700; /* Color for selected stars */
+}
+.rating label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+

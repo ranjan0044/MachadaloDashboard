@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machadalo Chatbot</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .chatbot-container {
+            max-width: 500px;
+            margin: auto;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        .chatbot-header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 15px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            text-align: center;
+        }
+
+        .chatbot-body {
+            padding: 20px;
+            height: 300px;
+            overflow-y: auto;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            position: relative;
+            max-width: 80%;
+            word-wrap: break-word;
+            padding-bottom: 20px; /* Extra padding for timestamp */
+        }
+
+        .message.bot {
+            background-color: #e9f5ff;
+            text-align: left;
+            margin-right: auto;
+            color: #007bff;
+        }
+
+        .message.user {
+            background-color: #d4edda;
+            text-align: right;
+            margin-left: auto;
+            color: #28a745;
+        }
+
+        .message .timestamp {
+            font-size: 0.75em;
+            color: #666;
+            position: absolute;
+            bottom: 5px;
+            right: 10px;
+        }
+
+        .input-group {
+            margin-top: 10px;
+        }
+
+        @media (max-width: 576px) {
+            .chatbot-container {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="chatbot-container">
+        <!-- Chatbot Header -->
+        <div class="chatbot-header">
+            <h4>Machadalo Chatbot</h4>
+        </div>
+        
+        <!-- Chatbot Body -->
+        <div class="chatbot-body" id="chat">
+            <!-- Chat messages will appear here -->
+        </div>
+
+        <!-- Chatbot Input -->
+        <div class="input-group p-3">
+            <input type="text" id="userInput" class="form-control" placeholder="Type a message">
+            <div class="input-group-append">
+                <button class="btn btn-primary" onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+// Chatbot Logic
+function sendMessage() {
+    var userMessage = document.getElementById("userInput").value;
+    if (userMessage.trim() === "") return;
+
+    // Add user message to chat
+    addMessage(userMessage, "user");
+
+    // Handle bot response
+    setTimeout(function() {
+        var botMessage = getBotResponse(userMessage);
+        addMessage(botMessage, "bot");
+    }, 500);
+
+    // Clear input
+    document.getElementById("userInput").value = "";
+}
+
+function addMessage(message, sender) {
+    var chat = document.getElementById("chat");
+    var messageElement = document.createElement("div");
+    messageElement.classList.add("message", sender);
+    messageElement.textContent = message;
+
+    // Add timestamp
+    var timestamp = document.createElement("div");
+    timestamp.classList.add("timestamp");
+    timestamp.textContent = new Date().toLocaleTimeString();
+    messageElement.appendChild(timestamp);
+
+    chat.appendChild(messageElement);
+    chat.scrollTop = chat.scrollHeight;
+}
+
+function getBotResponse(input) {
+    input = input.toLowerCase();
+    
+    if (input.includes("hi") || input.includes("hello")) {
+        return "Hello! How can I assist you today?";
+    } else if (input.includes("survey")) {
+        return "Sure! Please answer the following questions:";
+        // Expand this with survey logic
+    } else if (input.includes("how are you")) {
+        return "I'm just a bot, but I'm here to help you!";
+    } else if (input.includes("your name")) {
+        return "I'm your friendly help chatbot.";
+    } else if (input.includes("help")) {
+        return "I can assist with surveys, provide information, and answer basic queries. What do you need help with?";
+    } else {
+        return "I'm not sure how to respond to that. Can you please clarify?";
+    }
+}
+</script>
+
+</body>
+</html>

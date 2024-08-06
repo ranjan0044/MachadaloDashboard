@@ -405,10 +405,6 @@
                                                     onclick="openCardById('connectivityCard')">
                                                     Connectivity
                                                 </button>
-                                                <button class="btn btn-outline-primary btn-sm mx-2"
-                                                    onclick="showPositive('connectivityCard')">+</button>
-                                                <button class="btn btn-outline-primary btn-sm mx-2"
-                                                    onclick="showNegative('connectivityCard')">-</button>
                                             </div>
                                             <!-- <button class="btn btn-outline-primary btn-sm" onclick="openBoxInCard()">Add</button>
                                                     <div id="pointsForm">
@@ -425,34 +421,106 @@
                                             <!-- </h6> -->
                                             <div class="rating-card" id="connectivityCard">
                                                 <ul>
-                                                    <li>Public transport: Bus Stand, Railway Station, Sharing
-                                                        Rickshaw</li>
-                                                    <li>Autos and Cabs easily available: Ola, Uber, Rapido</li>
-                                                    <li>Wide roads</li>
-                                                    <li>Manageable traffic</li>
-                                                    <li>Market area</li>
-                                                    <li>Enough parking space</li>
-                                                    <li>Delivery App: Blinkit, Zepto, Swiggy Instamart</li>
-                                                    <li>School</li>
-                                                    <li>Mall & Restaurant</li>
-                                                    <li>No water logging on roads</li>
+                                                    <li>
+                                                        Public transport
+                                                        <div class="button-group">
+                                                            <button class="toggle-btn" onclick="toggleColor(this, 'green')">+</button>
+                                                            <button class="toggle-btn" onclick="toggleColor(this, 'red')">-</button>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        Autos and Cabs available
+                                                        <div class="button-group">
+                                                            <button class="toggle-btn" onclick="toggleColor(this, 'green')">+</button>
+                                                            <button class="toggle-btn" onclick="toggleColor(this, 'red')">-</button>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        Wide roads
+                                                        <div class="button-group">
+                                                            <button class="toggle-btn" onclick="toggleColor(this, 'green')">+</button>
+                                                            <button class="toggle-btn" onclick="toggleColor(this, 'red')">-</button>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        Manageable traffic
+                                                        <div class="button-group">
+                                                            <button class="toggle-btn" onclick="toggleColor(this, 'green')">+</button>
+                                                            <button class="toggle-btn" onclick="toggleColor(this, 'red')">-</button>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        Market area
+                                                        <div class="button-group">
+                                                            <button class="toggle-btn" onclick="toggleColor(this, 'green')">+</button>
+                                                            <button class="toggle-btn" onclick="toggleColor(this, 'red')">-</button>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        Enough parking space
+                                                        <div class="button-group">
+                                                            <button class="toggle-btn" onclick="toggleColor(this, 'green')">+</button>
+                                                            <button class="toggle-btn" onclick="toggleColor(this, 'red')">-</button>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        Delivery App
+                                                        <div class="button-group">
+                                                            <button class="toggle-btn" onclick="toggleColor(this, 'green')">+</button>
+                                                            <button class="toggle-btn" onclick="toggleColor(this, 'red')">-</button>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        School
+                                                        <div class="button-group">
+                                                            <button class="toggle-btn" onclick="toggleColor(this, 'green')">+</button>
+                                                            <button class="toggle-btn" onclick="toggleColor(this, 'red')">-</button>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        Mall & Restaurant
+                                                        <div class="button-group">
+                                                            <button class="toggle-btn" onclick="toggleColor(this, 'green')">+</button>
+                                                            <button class="toggle-btn" onclick="toggleColor(this, 'red')">-</button>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        No water logging on roads
+                                                        <div class="button-group">
+                                                            <button class="toggle-btn" onclick="toggleColor(this, 'green')">+</button>
+                                                            <button class="toggle-btn" onclick="toggleColor(this, 'red')">-</button>
+                                                        </div>
+                                                    </li>
                                                 </ul>
+                                                <button class="comment-btn" onclick="toggleCommentSection()">Add Comment</button>
+                                                <div class="comment-section">
+                                                    <label for="rating">Connectivity Rating:</label>
+                                                    <div class="rating text-center">
+                                                        <span class="rating-option" onclick="selectRating(1)">&#9733;</span>
+                                                        <span class="rating-option" onclick="selectRating(2)">&#9733;</span>
+                                                        <span class="rating-option" onclick="selectRating(3)">&#9733;</span>
+                                                        <span class="rating-option" onclick="selectRating(4)">&#9733;</span>
+                                                        <span class="rating-option" onclick="selectRating(5)">&#9733;</span>
+                                                    </div>
+            <textarea class="comment-textarea" placeholder="Enter your comment..."></textarea>
+            <button class="save-comment-btn text-center" onclick="saveComment()">Save Comment</button>
+        </div>
                                             </div>
+                                            
+                                            
                                             <div class="d-flex justify-content-between">
                                                 <div class="chart-bar" style="width: auto;">
                                                     <canvas id="connectivityChart"></canvas>
                                                 </div>
-                                                <div class="d-flex flex-column">
-                                                    <div class="rank-list mb-3" id="rankList-connectivityCard">
+                                                 <div class="d-flex flex-column">
+                                                            <div class="d-flex justify-content-end align-items-center">
+                                                                <button class="custom-btn btn-primary mx-1" onclick="showPositive('connectivityCard')">+</button>
+                                                                <span>/</span>
+                                                                <button class="custom-btn btn-primary mx-1" onclick="showNegative('connectivityCard')">-</button>
+                                                            </div>
+                                                            <div class="rank-list m t-2" id="rankList-connectivityCard">
+                                                            </div>
                                                     </div>
-                                                    <!-- <button class="btn btn-outline-primary btn-sm" type="button"
-                                                        data-toggle="collapse"
-                                                        data-target="#rankList-peopleFriendlinessCard"
-                                                        aria-expanded="false"
-                                                        aria-controls="rankList-peopleFriendlinessCard">
-                                                        Rating
-                                                    </button> -->
-                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-12 hr__line pt-4">
@@ -461,10 +529,6 @@
                                                     onclick="openCardById('maintenanceCard')">
                                                     Maintenance
                                                 </button>
-                                                <button class="btn btn-outline-primary btn-sm mx-2"
-                                                    onclick="showPositive('maintenanceCard')">+</button>
-                                                <button class="btn btn-outline-primary btn-sm mx-2"
-                                                    onclick="showNegative('maintenanceCard')">-</button>
                                             </div>
                                             <div class="rating-card" id="maintenanceCard">
                                                 <ul>
@@ -487,16 +551,14 @@
                                                     <canvas id="maintenanceChart"></canvas>
                                                 </div>
                                                 <div class="d-flex flex-column">
-                                                    <div class="rank-list mb-3" id="rankList-maintenanceCard">
+                                                            <div class="d-flex justify-content-end align-items-center">
+                                                                <button class="custom-btn btn-primary mx-1" onclick="showPositive('maintenanceCard')">+</button>
+                                                                <span>/</span>
+                                                                <button class="custom-btn btn-primary mx-1" onclick="showNegative('maintenanceCard')">-</button>
+                                                            </div>
+                                                            <div class="rank-list mt-2" id="rankList-maintenanceCard">
+                                                            </div>
                                                     </div>
-                                                    <!-- <button class="btn btn-outline-primary btn-sm" type="button"
-                                                        data-toggle="collapse"
-                                                        data-target="#rankList-peopleFriendlinessCard"
-                                                        aria-expanded="false"
-                                                        aria-controls="rankList-peopleFriendlinessCard">
-                                                        Rating
-                                                    </button> -->
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -507,13 +569,6 @@
                                                     onclick="openCardById('constructionCard')">
                                                     Construction
                                                 </button>
-                                                <div class="rank-buttons text-right">
-                                                    <button class="btn btn-outline-primary btn-sm mx-2"
-                                                        onclick="showPositive('constructionCard')">+</button>
-                                                    <button class="btn btn-outline-primary btn-sm mx-2"
-                                                        onclick="showNegative('constructionCard')">-</button>
-                                                </div>
-
                                             </div>
                                             <div class="rating-card" id="constructionCard">
                                                 <ul>
@@ -535,15 +590,13 @@
                                                     <canvas id="constructionChart"></canvas>
                                                 </div>
                                                 <div class="d-flex flex-column">
-                                                    <div class="rank-list mb-3" id="rankList-constructionCard">
+                                                    <div class="d-flex justify-content-end align-items-center">
+                                                        <button class="custom-btn btn-primary mx-1" onclick="showPositive('constructionCard')">+</button>
+                                                        <span>/</span>
+                                                        <button class="custom-btn btn-primary mx-1" onclick="showNegative('constructionCard')">-</button>
                                                     </div>
-                                                    <!-- <button class="btn btn-outline-primary btn-sm" type="button"
-                                                        data-toggle="collapse"
-                                                        data-target="#rankList-peopleFriendlinessCard"
-                                                        aria-expanded="false"
-                                                        aria-controls="rankList-peopleFriendlinessCard">
-                                                        Rating
-                                                    </button> -->
+                                                    <div class="rank-list mt-2" id="rankList-constructionCard">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -553,11 +606,6 @@
                                                     onclick="openCardById('amenitiesCard')">
                                                     Amenities
                                                 </button>
-                                                <button class="btn btn-outline-primary btn-sm mx-2"
-                                                    onclick="showPositive('amenitiesCard')">+</button>
-                                                <button class="btn btn-outline-primary btn-sm mx-2"
-                                                    onclick="showNegative('amenitiesCard')">-</button>
-
                                             </div>
                                             <div class="rating-card" id="amenitiesCard">
                                                 <ul>
@@ -577,15 +625,13 @@
                                                     <canvas id="amenitiesChart"></canvas>
                                                 </div>
                                                 <div class="d-flex flex-column">
-                                                    <div class="rank-list mb-3" id="rankList-amenitiesCard">
+                                                    <div class="d-flex justify-content-end align-items-center">
+                                                        <button class="custom-btn btn-primary mx-1" onclick="showPositive('amenitiesCard')">+</button>
+                                                        <span>/</span>
+                                                        <button class="custom-btn btn-primary mx-1" onclick="showNegative('amenitiesCard')">-</button>
                                                     </div>
-                                                    <!-- <button class="btn btn-outline-primary btn-sm" type="button"
-                                                        data-toggle="collapse"
-                                                        data-target="#rankList-peopleFriendlinessCard"
-                                                        aria-expanded="false"
-                                                        aria-controls="rankList-peopleFriendlinessCard">
-                                                        Rating
-                                                    </button> -->
+                                                    <div class="rank-list mt-2" id="rankList-amenitiesCard">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -597,10 +643,6 @@
                                                     onclick="openCardById('peopleFriendlinessCard')">
                                                     People Friendliness
                                                 </button>
-                                                <button class="btn btn-outline-primary btn-sm mx-2"
-                                                    onclick="showPositive('peopleFriendlinessCard')">+</button>
-                                                <button class="btn btn-outline-primary btn-sm mx-2"
-                                                    onclick="showNegative('peopleFriendlinessCard')">-</button>
                                             </div>
                                             <div class="rating-card" id="peopleFriendlinessCard">
                                                 <ul>
@@ -618,15 +660,13 @@
                                                     <canvas id="peopleFriendlinessChart"></canvas>
                                                 </div>
                                                 <div class="d-flex flex-column">
-                                                    <div class="rank-list mb-3" id="rankList-peopleFriendlinessCard">
+                                                    <div class="d-flex justify-content-end align-items-center">
+                                                        <button class="custom-btn btn-primary mx-1" onclick="showPositive('peopleFriendlinessCard')">+</button>
+                                                        <span>/</span>
+                                                        <button class="custom-btn btn-primary mx-1" onclick="showNegative('peopleFriendlinessCard')">-</button>
                                                     </div>
-                                                    <!-- <button class="btn btn-outline-primary btn-sm" type="button"
-                                                        data-toggle="collapse"
-                                                        data-target="#rankList-peopleFriendlinessCard"
-                                                        aria-expanded="false"
-                                                        aria-controls="rankList-peopleFriendlinessCard">
-                                                        Rating
-                                                    </button> -->
+                                                    <div class="rank-list mt-2" id="rankList-peopleFriendlinessCard">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

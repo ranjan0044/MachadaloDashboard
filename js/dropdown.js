@@ -64,3 +64,48 @@ function createSearchableDropdown(containerId,placeholder, items, onSelect) {
         }
     });
 }
+
+
+function toggleColor(button, color) {
+    const listItem = button.closest('li');
+    listItem.classList.remove('green', 'red');
+    
+    if (color === 'green') {
+        listItem.classList.add('green');
+    } else if (color === 'red') {
+        listItem.classList.add('red');
+    }
+}
+
+function toggleCommentSection() {
+    const commentSection = document.querySelector('.comment-section');
+    const isVisible = commentSection.style.display === 'block';
+    commentSection.style.display = isVisible ? 'none' : 'block';
+}
+
+function selectRating(rating) {
+    const ratingOptions = document.querySelectorAll('.rating-option');
+    ratingOptions.forEach(option => option.classList.remove('selected'));
+    
+    for (let i = 0; i < rating; i++) {
+        ratingOptions[i].classList.add('selected');
+    }
+    document.querySelector('.comment-section').dataset.rating = rating;
+}
+
+function saveComment() {
+    const textarea = document.querySelector('.comment-textarea');
+    const comment = textarea.value.trim();
+    const rating = document.querySelector('.comment-section').dataset.rating || 0;
+    
+    if (comment) {
+        alert(`Comment saved: ${comment}\nRating: ${rating}`);
+    } else {
+        alert('Please enter a comment before saving.');
+    }
+    document.querySelector('.comment-section').style.display = 'none';
+    textarea.value = ''; // Clear the textarea
+    document.querySelector('.comment-section').dataset.rating = ''; // Clear the rating
+}
+
+
