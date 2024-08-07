@@ -109,3 +109,31 @@ function saveComment() {
 }
 
 
+let selectedRating = 0;
+
+function toggleRatingCard() {
+    const popup = document.getElementById('ratingPopup');
+    popup.style.display = (popup.style.display === 'none' || popup.style.display === '') ? 'block' : 'none';
+}
+
+function rate(rating) {
+    selectedRating = rating;
+    // Update button styling to indicate the selected rating
+    const buttons = document.querySelectorAll('.rating-btn');
+    buttons.forEach(button => {
+        button.style.backgroundColor = button.textContent == rating ? '#007bff' : '#f0f0f0';
+        button.style.color = button.textContent == rating ? '#fff' : '#000';
+    });
+}
+
+function saveRating() {
+    const comment = document.getElementById('commentBox').value;
+    
+    if (selectedRating && comment) {
+        console.log('Saving rating:', selectedRating, 'Comment:', comment);
+        // Add your save logic here (e.g., sending data to the server)
+        toggleRatingCard(); // Close the popup after saving
+    } else {
+        alert('Please provide a rating and comment.');
+    }
+}
