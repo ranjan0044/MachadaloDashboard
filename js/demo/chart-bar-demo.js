@@ -158,7 +158,15 @@ const renderCharts = (meanRatings) => {
                         borderWidth: 1
                     }]
                 },
-                options: commonOptions  
+                options: {
+                    ...commonOptions,
+                    title: {
+                        display: true,
+                        text: `${category} of ${selectedSociety}`,
+                        fontSize: 14,
+                        fontColor: '#0000FF',
+                    }
+                }
             });
             charts[index] = chart;
         }
