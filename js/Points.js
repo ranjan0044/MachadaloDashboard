@@ -1,93 +1,3 @@
-// let selectedCard;
-
-// const savePoints = () => {
-//     const favorablePoints = document.getElementById('favorablePoints').value;
-//     const unfavorablePoints = document.getElementById('unfavorablePoints').value;
-//     alert('Favorable Points: ' + favorablePoints + '\nUnfavorable Points: ' + unfavorablePoints);
-  
-
-//     const pointsForm = selectedCard.querySelector('#pointsForm');
-//     pointsForm.style.display = 'none';
-// }
-
-// const openCardById = (id) => {
-//     selectedCard = document.getElementById(id);
-//     const pointsForm = selectedCard.querySelector('#pointsForm');
-
-//     let elements = document.querySelectorAll('.rating-card');
-//     elements?.forEach((item) => {
-//         if (item?.id === id) {
-//             if (selectedCard.style.display === 'block') {
-//                 selectedCard.style.display = 'none';
-//             } else {
-//                 selectedCard.style.display = 'block';
-//             }
-//         } else
-//             item.style.display = 'none';
-//     })
-// }
-// const openBoxInCard = () => {
-//     const pointsForm = selectedCard.querySelector('#pointsForm');
-//     if (pointsForm.style.display === 'block') {
-//         pointsForm.style.display = 'none';
-//     } else {
-//         pointsForm.style.display = 'block';
-//     }
-// }
-
-// function showPositive(id) {
-//     let cardData = document.getElementById(id)
-//     let rankList = cardData.querySelector('#rankList');
-
-//     if (rankList.style.display === 'none') {
-//         rankList.style.display = 'block';
-       
-//         rankList.innerHTML = '';
-      
-//         for (var i = 5; i >= 1; i--) {
-//             var listItem = document.createElement('li');
-//             listItem.textContent = '+' + i;
-          
-//             var hue = 120;
-          
-//             var brightness = 30 + (5 - i) * 15; 
-           
-//             listItem.style.backgroundColor = 'hsl(' + hue + ', 100%, ' + brightness + '%)';
-//             rankList.appendChild(listItem);
-//         }
-//     } else {
-//         rankList.style.display = 'none'; 
-//     }
-// }
-
-// function showNegative(id) {
-//     let cardData = document.getElementById(id)
-//     let rankList = cardData.querySelector('#rankList');
-
-//     if (rankList.style.display === 'none') {
-//         rankList.style.display = 'block';
-      
-//         rankList.innerHTML = '';
-       
-//         for (var i = -5; i <= -1; i++) {
-//             var listItem = document.createElement('li');
-//             listItem.textContent = i;
-            
-//             var hue = 0;
-            
-//             var brightness = 50 + (i + 5) * 10; 
-           
-//             listItem.style.backgroundColor = 'hsl(' + hue + ', 100%, ' + brightness + '%)';
-//             rankList.appendChild(listItem);
-//         }
-//     } else {
-//         rankList.style.display = 'none'; 
-//     }
-// }
-
-
-
-
 let selectedCard;
 
 const savePoints = () => {
@@ -197,4 +107,12 @@ function showNegative(id) {
     //  else {
     //     rankList.style.display = 'none'; // Hide rankList
     // }
+}
+function toggleContent() {
+    const content = document.getElementById('hidden-content');
+    if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+    } else {
+        content.classList.add('hidden');
+    }
 }

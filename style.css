@@ -263,7 +263,7 @@ canvas {
   border: 1px solid #ccc;
   padding: 10px;
   border-radius: 5px;
-  max-width: 300px;
+  max-width: 200px;
   margin-bottom: 20px;
 }
 
@@ -323,17 +323,18 @@ canvas {
 /* Style for the input field */
 input[type="text"] {
   width: 100%;
-  /* padding: 10px; */
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-  font-size: 16px;
+  font-size: 13px;
+  text-align: center;
 }
 
 /* Style for container */
 .dropdown-container {
   position: relative;
-  width: 200px; /
+  width: 200px; 
+  
 }
 
 /* Hide dropdown menu by default */
@@ -343,6 +344,7 @@ input[type="text"] {
 .search-dropdown div {
   text-align: center;
   background-color: #fff;
+  
 }
 
 .rounded {
@@ -363,4 +365,8 @@ input[type="text"] {
 
 .___border{
   border: 1px solid #9f9fad;
+}
+
+.label_text{
+  font-size: 12px;
 }
