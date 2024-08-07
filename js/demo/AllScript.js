@@ -107,6 +107,10 @@ function handleCityChange(city) {
     updateQueryParam('city', city);
     selectedCity = city
     societies = uniqueSocietiesByCity[city];
+    let citySelectorContainer = document.getElementById('citySelectorContainer');
+    if (citySelectorContainer) {
+        citySelectorContainer.textContent = `Selected City: ${city}`;
+    }
     let parentElement = document.getElementById("societySelector");
     while (parentElement.firstChild) {
         parentElement.removeChild(parentElement.firstChild);
@@ -119,6 +123,21 @@ function handleCityChange(city) {
 function handleSocietyChange(society) {
     updateQueryParam('society', society);
     selectedSociety = society
+
+    updateQueryParam('society', society);
+    selectedSociety = society;
+    
+    // Update header with selected society
+    let headerElement = document.getElementById('chat-type-header');
+    if (headerElement) {
+        headerElement.textContent = `Neighbourhood Living Index(NLI) Report of ${society}`;
+    }
+    let societySelectorContainer = document.getElementById('societySelectorContainer');
+    if (societySelectorContainer) {
+        societySelectorContainer.textContent = `Selected Society: ${society}`;
+    }
+
+
     calculateMeanRatings()
 }
 

@@ -109,3 +109,46 @@ function saveComment() {
 }
 
 
+// let selectedRating = 0;
+
+// function toggleRatingCard() {
+//     const popup = document.getElementById('ratingPopup');
+//     popup.style.display = (popup.style.display === 'none' || popup.style.display === '') ? 'block' : 'none';
+// }
+
+// function rate(rating) {
+//     selectedRating = rating;
+//     const buttons = document.querySelectorAll('.rating-btn');
+//     buttons.forEach(button => {
+//         button.style.backgroundColor = button.textContent == rating ? '#007bff' : '#f0f0f0';
+//         button.style.color = button.textContent == rating ? '#fff' : '#000';
+//     });
+// }
+
+// function saveRating() {
+//     const comment = document.getElementById('commentBox').value;
+//     if (selectedRating && comment) {
+//         console.log('Saving rating:', selectedRating, 'Comment:', comment);
+       
+//         toggleRatingCard(); 
+//     } else {
+//         alert('Please provide a rating and comment.');
+//     }
+// }
+
+function toggleRatingCard(cardId) {
+    const popup = document.getElementById(cardId);
+    popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+}
+
+function rate(category, score) {
+    console.log(`Rated ${category} with ${score}`);
+    // Add your rating logic here
+}
+
+function saveRating(category) {
+    const commentBox = document.getElementById(`commentBox-${category}`);
+    console.log(`Saved rating for ${category}: ${commentBox.value}`);
+    // Add your save logic here
+    toggleRatingCard(`${category}RatingPopup`);
+}

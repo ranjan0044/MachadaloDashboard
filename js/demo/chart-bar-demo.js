@@ -29,7 +29,7 @@ Chart.plugins.register({
             var meta = chart.getDatasetMeta(i);
             if (!meta.hidden) {
                 meta.data.forEach(function (element, index) {
-                    ctx.fillStyle = '#000';
+                    ctx.fillStyle = '#4e73df';
                     var fontSize = 12;
                     var fontStyle = 'normal';
                     var fontFamily = 'Helvetica Neue';
@@ -153,12 +153,20 @@ const renderCharts = (meanRatings) => {
                     datasets: [{
                         label: `${category} Ratings`,
                         data: data,
-                        backgroundColor: ["#4e73df", "#1cc88a", "#e74a3b","#ffff00"],
+                        backgroundColor: ["#0000FF", "#0000FF", "#0000FF","#0000FF"],
                         borderColor: ["#36b9cc", "#36b9cc", "#36b9cc", "#36b9cc"],
                         borderWidth: 1
                     }]
                 },
-                options: commonOptions  
+                options: {
+                    ...commonOptions,
+                    title: {
+                        display: true,
+                        text: `${category} of ${selectedSociety}`,
+                        fontSize: 14,
+                        fontColor: '#0000FF',
+                    }
+                }
             });
             charts[index] = chart;
         }
