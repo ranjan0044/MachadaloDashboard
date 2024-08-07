@@ -416,6 +416,13 @@
                                                     onclick="toggleRatingCard('maintenanceRatingPopup')">Rate Maintenance</button>
                                             </div>
                                             <div class="rating-card" id="maintenanceCard">
+                                                <div class="d-flex justify-content-end align-items-center">
+                                                    <button class="custom-btn btn-success mx-1"
+                                                        onclick="showRatingInsideCard('maintenanceCard','positive')">+</button>
+                                                    <span>/</span>
+                                                    <button class="custom-btn btn-danger mx-1"
+                                                        onclick="showRatingInsideCard('maintenanceCard','negative')">-</button>
+                                                </div>
                                                 <ul></ul>
                                             </div>
                                             <div class="d-flex justify-content-between">
@@ -446,7 +453,7 @@
                                                         <button class="rating-btn" onclick="rate('maintenance', 3)">3</button>
                                                         <button class="rating-btn" onclick="rate('maintenance', 4)">4</button>
                                                         <button class="rating-btn" onclick="rate('maintenance', 5)">5</button>
-                                                    </div>
+                                                        </div>
                                                     <textarea id="commentBox-maintenance" placeholder="Add your comment here..."></textarea>
                                                     <button class="btn btn-primary" onclick="saveRating('maintenance')">Save</button>
                                                 </div>
@@ -465,8 +472,14 @@
                                                     onclick="toggleRatingCard('constructionRatingPopup')">Rate Construction</button>
                                             </div>
                                             <div class="rating-card" id="constructionCard">
-                                                <ul>
-                                                </ul>
+                                                <div class="d-flex justify-content-end align-items-center">
+                                                    <button class="custom-btn btn-success mx-1"
+                                                        onclick="showRatingInsideCard('constructionCard','positive')">+</button>
+                                                    <span>/</span>
+                                                    <button class="custom-btn btn-danger mx-1"
+                                                        onclick="showRatingInsideCard('constructionCard','negative')">-</button>
+                                                </div>
+                                                <ul></ul>
                                             </div>
                                             <div class="d-flex justify-content-between">
                                                 <div class="chart-bar" style="width: auto;">
@@ -514,8 +527,14 @@
                                                     onclick="toggleRatingCard('amenitiesRatingPopup')">Rate Amenities</button>
                                             </div>
                                             <div class="rating-card" id="amenitiesCard">
-                                                <ul>
-                                                </ul>
+                                                <div class="d-flex justify-content-end align-items-center">
+                                                    <button class="custom-btn btn-success mx-1"
+                                                        onclick="showRatingInsideCard('amenitiesCard','positive')">+</button>
+                                                    <span>/</span>
+                                                    <button class="custom-btn btn-danger mx-1"
+                                                        onclick="showRatingInsideCard('amenitiesCard','negative')">-</button>
+                                                </div>
+                                                <ul></ul>
                                             </div>
                                             <div class="d-flex justify-content-between">
                                                 <div class="chart-bar" style="width: auto;">
@@ -565,8 +584,14 @@
                                                     onclick="toggleRatingCard('peopleFriendlinessRatingPopup')">Rate People Friendliness</button>
                                             </div>
                                             <div class="rating-card" id="peopleFriendlinessCard">
-                                                <ul>
-                                                </ul>
+                                                <div class="d-flex justify-content-end align-items-center">
+                                                    <button class="custom-btn btn-success mx-1"
+                                                        onclick="showRatingInsideCard('peopleFriendlinessCard','positive')">+</button>
+                                                    <span>/</span>
+                                                    <button class="custom-btn btn-danger mx-1"
+                                                        onclick="showRatingInsideCard('peopleFriendlinessCard','negative')">-</button>
+                                                </div>
+                                                <ul></ul>
                                             </div>
                                             <div class="d-flex justify-content-between">
                                                 <div class="chart-bar" style="width: auto;">
