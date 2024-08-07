@@ -433,3 +433,8 @@ textarea {
   height: 80px;
   margin: 10px 0;
 }
+
+.ok__, .ok__2 {
+  background-color: lightgray;
+  cursor: pointer;
+}

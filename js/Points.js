@@ -108,12 +108,12 @@ const showRatingInsideCard = (id, type = "positive") => {
 
         const greenButton = document.createElement('button');
         greenButton.classList.add('toggle-btn');
-        greenButton.textContent = '+';
+        greenButton.innerHTML = '<i class="fas fa-thumbs-up ok__"></i>'; // Font Awesome thumbs up icon
         greenButton.onclick = () => toggleColor(greenButton, 'green');
 
         const redButton = document.createElement('button');
         redButton.classList.add('toggle-btn');
-        redButton.textContent = '-';
+        redButton.innerHTML = '<i class="fas fa-thumbs-down ok__2"></i>'; // Font Awesome thumbs down icon
         redButton.onclick = () => toggleColor(redButton, 'red');
 
         buttonGroup.appendChild(greenButton);
@@ -122,4 +122,4 @@ const showRatingInsideCard = (id, type = "positive") => {
 
         ulElement.appendChild(liElement);
     }
-}
+};
