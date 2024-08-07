@@ -153,7 +153,7 @@ const renderCharts = (meanRatings) => {
                     datasets: [{
                         label: `${category} Ratings`,
                         data: data,
-                        backgroundColor: ["#4e73df", "#4e73df", "#4e73df","#4e73df"],
+                        backgroundColor: ["#0000FF", "#0000FF", "#0000FF","#0000FF"],
                         borderColor: ["#36b9cc", "#36b9cc", "#36b9cc", "#36b9cc"],
                         borderWidth: 1
                     }]
