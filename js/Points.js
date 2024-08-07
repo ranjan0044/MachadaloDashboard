@@ -10,15 +10,14 @@ const savePoints = () => {
     pointsForm.style.display = 'none';
 }
 
-const openCardById = (id) => {
-    let cardKey = id === 'connectivityCard' ? ['connectivityLikes','connectivityDislikes']
-        : id === 'constructionCard' ? ['constructionLikes','constructionDisLikes']
-            : id === 'amenitiesCard' ? ['amenitiesLikes','amenitiesDisLikes']
-                : id === 'maintenanceCard' ? ['maintenanceLikes','maintenanceDisLikes']
-                    : id === 'peopleFriendlinessCard' ? ['peopleFriendlinessLikes','peopleFriendlinessDisLikes'] : '';
+const openCardById = (id, type = "positive") => {
+    let cardKey = id === 'connectivityCard' ? ['connectivityLikes', 'connectivityDislikes']
+        : id === 'constructionCard' ? ['constructionLikes', 'constructionDisLikes']
+            : id === 'amenitiesCard' ? ['amenitiesLikes', 'amenitiesDisLikes']
+                : id === 'maintenanceCard' ? ['maintenanceLikes', 'maintenanceDisLikes']
+                    : id === 'peopleFriendlinessCard' ? ['peopleFriendlinessLikes', 'peopleFriendlinessDisLikes'] : '';
     selectedCard = document.getElementById(id);
-    
-    const pointsForm = selectedCard.querySelector('#pointsForm');
+
     let elements = document.querySelectorAll('.rating-card');
     elements?.forEach((item) => {
         if (item?.id === id) {
@@ -32,9 +31,10 @@ const openCardById = (id) => {
     })
     if (!cardKey) return;
     const ulElement = selectedCard.querySelector('ul');
-    ulElement.innerHTML = ''; 
-    const data = nlpDataForLikeDislike[cardKey[0]];
-    for (const [key, value] of Object.entries(data)) {
+    ulElement.innerHTML = '';
+    let indexNo = type === 'positive' ? 0 : 1;
+    const likeDisLikePoints = nlpDataForLikeDislike[cardKey[indexNo]];
+    for (const [key, value] of Object.entries(likeDisLikePoints)) {
         const liElement = document.createElement('li');
         liElement.textContent = `${key}: ${value}`;
 
