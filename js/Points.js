@@ -87,11 +87,12 @@ function showNegative(id) {
 
 
 const showRatingInsideCard = (id, type = "positive") => {
+    // Determine the keys based on the card ID
     const cardKey = id === 'connectivityCard' ? ['connectivityLikes', 'connectivityDislikes']
-        : id === 'constructionCard' ? ['constructionLikes', 'constructionDisLikes']
-            : id === 'amenitiesCard' ? ['amenitiesLikes', 'amenitiesDisLikes']
-                : id === 'maintenanceCard' ? ['maintenanceLikes', 'maintenanceDisLikes']
-                    : id === 'peopleFriendlinessCard' ? ['peopleFriendlinessLikes', 'peopleFriendlinessDisLikes'] : '';
+        : id === 'constructionCard' ? ['constructionLikes', 'constructionDislikes']
+            : id === 'amenitiesCard' ? ['amenitiesLikes', 'amenitiesDislikes']
+                : id === 'maintenanceCard' ? ['maintenanceLikes', 'maintenanceDislikes']
+                    : id === 'peopleFriendlinessCard' ? ['peopleFriendlinessLikes', 'peopleFriendlinessDislikes'] : '';
 
     if (!cardKey) return;
 
@@ -99,8 +100,11 @@ const showRatingInsideCard = (id, type = "positive") => {
     const ulElement = selectedCard.querySelector('ul');
     ulElement.innerHTML = '';
 
+    // Determine which array to use based on the type (positive or negative)
     const indexNo = type === 'positive' ? 0 : 1;
     const likeDisLikePoints = nlpDataForLikeDislike[cardKey[indexNo]];
+
+    if (!likeDisLikePoints) return;
 
     // Convert object to array and sort by value
     const sortedEntries = Object.entries(likeDisLikePoints).sort(([, a], [, b]) => b - a);
@@ -112,21 +116,34 @@ const showRatingInsideCard = (id, type = "positive") => {
         const buttonGroup = document.createElement('div');
         buttonGroup.classList.add('button-group');
 
-        const greenButton = document.createElement('button');
-        greenButton.classList.add('toggle-btn');
-        greenButton.innerHTML = '<i class="fas fa-thumbs-up ok__"></i>'; // Font Awesome thumbs up icon
-        greenButton.onclick = () => toggleColor(greenButton, 'green');
+        // Determine icon and color based on type
+        const thumbsUpIcon = type === 'positive' ? 'fas fa-thumbs-up' : 'fas fa-thumbs-up';
+        const thumbsDownIcon = type === 'positive' ? 'fas fa-thumbs-down' : 'fas fa-thumbs-down';
+        
+        const thumbsUpColor = type === 'positive' ? 'green' : 'green';
+        const thumbsDownColor = type === 'positive' ? 'red' : 'red';
 
-        const redButton = document.createElement('button');
-        redButton.classList.add('toggle-btn');
-        redButton.innerHTML = '<i class="fas fa-thumbs-down ok__2"></i>'; // Font Awesome thumbs down icon
-        redButton.onclick = () => toggleColor(redButton, 'red');
+        // Create the thumbs-up button
+        const thumbsUpButton = document.createElement('button');
+        thumbsUpButton.classList.add('toggle-btn');
+        thumbsUpButton.innerHTML = `<i class="${thumbsUpIcon}"></i>`;
+        thumbsUpButton.style.color = thumbsUpColor;
+        thumbsUpButton.onclick = () => toggleColor(thumbsUpButton, thumbsUpColor);
 
-        buttonGroup.appendChild(greenButton);
-        buttonGroup.appendChild(redButton);
+        // Create the thumbs-down button
+        const thumbsDownButton = document.createElement('button');
+        thumbsDownButton.classList.add('toggle-btn');
+        thumbsDownButton.innerHTML = `<i class="${thumbsDownIcon}"></i>`;
+        thumbsDownButton.style.color = thumbsDownColor;
+        thumbsDownButton.onclick = () => toggleColor(thumbsDownButton, thumbsDownColor);
+
+        buttonGroup.appendChild(thumbsUpButton);
+        buttonGroup.appendChild(thumbsDownButton);
         liElement.appendChild(buttonGroup);
 
         ulElement.appendChild(liElement);
     });
 };
+
+
 
