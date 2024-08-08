@@ -319,7 +319,7 @@ const renderTable = (data) => {
 
 
         if (maintenanceLikes) {
-            connectivityLike.split(',')?.map(like => like?.trim())?.forEach(like => {
+            maintenanceLikes.split(',')?.map(like => like?.trim())?.forEach(like => {
                 nlpDataForLikeDislike.maintenanceLikes[like] = (nlpDataForLikeDislike.maintenanceLikes[like] || 0) + 1;
             });
         }
