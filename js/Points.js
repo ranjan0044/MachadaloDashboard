@@ -87,19 +87,25 @@ function showNegative(id) {
 
 
 const showRatingInsideCard = (id, type = "positive") => {
-    let cardKey = id === 'connectivityCard' ? ['connectivityLikes', 'connectivityDislikes']
+    const cardKey = id === 'connectivityCard' ? ['connectivityLikes', 'connectivityDislikes']
         : id === 'constructionCard' ? ['constructionLikes', 'constructionDisLikes']
             : id === 'amenitiesCard' ? ['amenitiesLikes', 'amenitiesDisLikes']
                 : id === 'maintenanceCard' ? ['maintenanceLikes', 'maintenanceDisLikes']
                     : id === 'peopleFriendlinessCard' ? ['peopleFriendlinessLikes', 'peopleFriendlinessDisLikes'] : '';
 
     if (!cardKey) return;
-    selectedCard = document.getElementById(id);
+
+    const selectedCard = document.getElementById(id);
     const ulElement = selectedCard.querySelector('ul');
     ulElement.innerHTML = '';
-    let indexNo = type === 'positive' ? 0 : 1;
+
+    const indexNo = type === 'positive' ? 0 : 1;
     const likeDisLikePoints = nlpDataForLikeDislike[cardKey[indexNo]];
-    for (const [key, value] of Object.entries(likeDisLikePoints)) {
+
+    // Convert object to array and sort by value
+    const sortedEntries = Object.entries(likeDisLikePoints).sort(([, a], [, b]) => b - a);
+
+    sortedEntries.forEach(([key, value]) => {
         const liElement = document.createElement('li');
         liElement.textContent = `${key}: ${value}`;
 
@@ -121,5 +127,6 @@ const showRatingInsideCard = (id, type = "positive") => {
         liElement.appendChild(buttonGroup);
 
         ulElement.appendChild(liElement);
-    }
+    });
 };
+
