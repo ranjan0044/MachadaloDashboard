@@ -116,21 +116,26 @@ const showRatingInsideCard = (id, type = "positive") => {
         const buttonGroup = document.createElement('div');
         buttonGroup.classList.add('button-group');
 
-        // Create the appropriate button based on type
-        const thumbsUpIcon = type === 'positive' ? 'fas fa-thumbs-up ok__' : 'fas fa-thumbs-down ok__';
-        const thumbsDownIcon = type === 'positive' ? 'fas fa-thumbs-down ok__2' : 'fas fa-thumbs-up ok__2';
+        // Determine icon and color based on type
+        const thumbsUpIcon = type === 'positive' ? 'fas fa-thumbs-up' : 'fas fa-thumbs-up';
+        const thumbsDownIcon = type === 'positive' ? 'fas fa-thumbs-down' : 'fas fa-thumbs-down';
+        
+        const thumbsUpColor = type === 'positive' ? 'green' : 'green';
+        const thumbsDownColor = type === 'positive' ? 'red' : 'red';
 
-        const colorForType = type === 'positive' ? 'green' : 'red';
-
+        // Create the thumbs-up button
         const thumbsUpButton = document.createElement('button');
         thumbsUpButton.classList.add('toggle-btn');
-        thumbsUpButton.innerHTML = `<i class="${thumbsUpIcon}"></i>`; // Font Awesome icon
-        thumbsUpButton.onclick = () => toggleColor(thumbsUpButton, colorForType);
+        thumbsUpButton.innerHTML = `<i class="${thumbsUpIcon}"></i>`;
+        thumbsUpButton.style.color = thumbsUpColor;
+        thumbsUpButton.onclick = () => toggleColor(thumbsUpButton, thumbsUpColor);
 
+        // Create the thumbs-down button
         const thumbsDownButton = document.createElement('button');
         thumbsDownButton.classList.add('toggle-btn');
-        thumbsDownButton.innerHTML = `<i class="${thumbsDownIcon}"></i>`; // Font Awesome icon
-        thumbsDownButton.onclick = () => toggleColor(thumbsDownButton, colorForType);
+        thumbsDownButton.innerHTML = `<i class="${thumbsDownIcon}"></i>`;
+        thumbsDownButton.style.color = thumbsDownColor;
+        thumbsDownButton.onclick = () => toggleColor(thumbsDownButton, thumbsDownColor);
 
         buttonGroup.appendChild(thumbsUpButton);
         buttonGroup.appendChild(thumbsDownButton);
@@ -139,5 +144,6 @@ const showRatingInsideCard = (id, type = "positive") => {
         ulElement.appendChild(liElement);
     });
 };
+
 
 
