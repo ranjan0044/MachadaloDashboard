@@ -438,3 +438,9 @@ textarea {
   background-color: lightgray;
   cursor: pointer;
 }
+.chatbot-button {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  z-index: 9999;
+}

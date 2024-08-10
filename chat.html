@@ -3,159 +3,242 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Machadalo Chatbot</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Chat</title>
     <style>
-        .chatbot-container {
-            max-width: 500px;
-            margin: auto;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e5ddd5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
-
-        .chatbot-header {
+        #chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 80vh;
+            width: 360px;
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        #header {
             background-color: #007bff;
             color: #fff;
-            padding: 15px;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-            text-align: center;
-        }
-
-        .chatbot-body {
-            padding: 20px;
-            height: 300px;
-            overflow-y: auto;
-        }
-
-        .message {
-            margin-bottom: 10px;
             padding: 10px;
-            border-radius: 8px;
+            font-weight: bold;
+            text-align: center;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
             position: relative;
-            max-width: 80%;
-            word-wrap: break-word;
-            padding-bottom: 20px; /* Extra padding for timestamp */
         }
-
-        .message.bot {
-            background-color: #e9f5ff;
-            text-align: left;
-            margin-right: auto;
-            color: #007bff;
-        }
-
-        .message.user {
-            background-color: #d4edda;
-            text-align: right;
-            margin-left: auto;
-            color: #28a745;
-        }
-
-        .message .timestamp {
-            font-size: 0.75em;
-            color: #666;
+        #header #close-button {
             position: absolute;
-            bottom: 5px;
+            top: 10px;
             right: 10px;
+            background: #ff4d4d;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 14px;
+            line-height: 1;
+        }
+        #chat-box {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* Added gap between messages */
+        }
+        .message {
+            max-width: 80%;
+            padding: 10px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            word-break: break-word;
+        }
+        .message.bot {
+            background-color: #f1f0f0;
+            margin-left: 10px;
+            align-self: flex-start;
+            border-radius: 20px 20px 20px 0;
+        }
+        .message.user {
+            background-color: #007bff;
+            color: #fff;
+            margin-right: 10px;
+            align-self: flex-end;
+            border-radius: 20px 20px 0 20px;
+            text-align: right;
+        }
+        .timestamp {
+            font-size: 0.75em;
+            color: #888;
+            align-self: flex-end;
+            margin-top: 5px;
+        }
+        #input-box {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            background-color: #ffffff;
+            align-items: center;
+        }
+        #message-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            margin-right: 10px;
+            font-size: 1em;
+        }
+        #send-button {
+            padding: 10px;
+            border: none;
+            background: #007bff;
+            color: #fff;
+            border-radius: 20px;
+            cursor: pointer;
         }
 
-        .input-group {
-            margin-top: 10px;
-        }
-
-        @media (max-width: 576px) {
-            .chatbot-container {
+        /* Responsive adjustments */
+        @media (max-width: 400px) {
+            #chat-container {
                 width: 100%;
+                height: 90vh; /* Adjusted for smaller screens */
             }
         }
     </style>
 </head>
 <body>
-
-<div class="container mt-5">
-    <div class="chatbot-container">
-        <!-- Chatbot Header -->
-        <div class="chatbot-header">
-            <h4>Machadalo Chatbot</h4>
+    <div id="chat-container">
+        <div id="header">
+            Machadalo Chatbot
+            <button id="close-button">&times;</button>
         </div>
-        
-        <!-- Chatbot Body -->
-        <div class="chatbot-body" id="chat">
-            <!-- Chat messages will appear here -->
-        </div>
-
-        <!-- Chatbot Input -->
-        <div class="input-group p-3">
-            <input type="text" id="userInput" class="form-control" placeholder="Type a message">
-            <div class="input-group-append">
-                <button class="btn btn-primary" onclick="sendMessage()">Send</button>
-            </div>
+        <div id="chat-box"></div>
+        <div id="input-box">
+            <input type="text" id="message-input" placeholder="Type a message...">
+            <button id="send-button">Send</button>
         </div>
     </div>
-</div>
 
-<!-- Bootstrap JS and jQuery -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        const chatBox = document.getElementById('chat-box');
+        const messageInput = document.getElementById('message-input');
+        const sendButton = document.getElementById('send-button');
+        const closeButton = document.getElementById('close-button');
 
-<script>
-// Chatbot Logic
-function sendMessage() {
-    var userMessage = document.getElementById("userInput").value;
-    if (userMessage.trim() === "") return;
+        const responses = {
+    'hi': 'Hello! How can I assist you today?',
+    'hello': 'Hi there! How can I help you?',
+    'how are you': 'I\'m just a chatbot, but I\'m here to help!',
+    'who are you': 'I\'m an advanced chatbot created to assist you.',
+    'bye': 'Goodbye! Have a great day!',
+    'what can you do': 'I can answer your basic questions and assist with various inquiries.',
+    'thank you': 'You\'re welcome! If you have more questions, feel free to ask.',
+    'what time is it': 'I don\'t have the ability to check the time, but you can see the timestamp of our conversation.',
+    'tell me a joke': 'Why did the scarecrow win an award? Because he was outstanding in his field!',
+    'how is the weather': 'I don\'t have access to weather information, but you can check a weather website or app for updates.',
+    'where are you located': 'I exist online, so I\'m everywhere and nowhere at the same time!',
+    'can you help with math': 'Sure, I can help with basic math problems. What do you need help with?',
+    'what is your name': 'I\'m a chatbot without a specific name, but you can call me Assistant!',
+    'how old are you': 'I don\'t have an age like humans do, but I\'ve been programmed to assist you as best as I can.',
+    'what is your favorite color': 'I don\'t have personal preferences, but I can help you with questions about colors or anything else!',
+    'how do you work': 'I work based on pre-programmed responses and logic to assist with various inquiries.',
+    'can you play music': 'I can\'t play music, but I can help you find some great music streaming services.',
+    'how can I contact support': 'If you need further assistance, please contact our support team via email or phone.',
+    'what are your hours': 'I\'m available 24/7, so feel free to ask questions anytime!',
+    'can you tell me a fun fact': 'Did you know honey never spoils? Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3,000 years old and still edible!',
+    'what is the capital of France': 'The capital of France is Paris.',
+    'how can I reset my password': 'To reset your password, please follow the instructions on the "Forgot Password" link on the login page.',
+    'where can I find your privacy policy': 'You can find our privacy policy on our website under the "Privacy Policy" section.',
+    'how do I subscribe to your newsletter': 'To subscribe to our newsletter, please enter your email address in the subscription form on our website.',
+    'what is the meaning of life': 'The meaning of life is a philosophical question that has been debated for centuries. What do you think it is?',
+    'can you help me with directions': 'I can\'t provide directions, but I can suggest using a map application or GPS for navigation.',
+    'what is your favorite movie': 'I don\'t watch movies, but I can recommend some popular ones if you’re interested!',
+    'can you recommend a book': 'Sure! One of the most highly recommended books is "To Kill a Mockingbird" by Harper Lee.',
+    'how do I make a reservation': 'To make a reservation, please visit our reservations page on the website or contact our customer service.',
+    'what is your favorite food': 'I don\'t eat food, but I can provide information on different types of cuisine if you’re interested!',
+    'can you translate this': 'I can help with some basic translations. What do you need translated?',
+    'what is the stock market': 'The stock market is a collection of markets where stocks (shares of ownership in businesses) are bought and sold.',
+    'how do I use your app': 'To use the app, please follow the instructions in the user guide available on our website.',
+    'can you provide tech support': 'I can help with basic tech support. What issue are you experiencing?',
+    'what is artificial intelligence': 'Artificial intelligence (AI) is the simulation of human intelligence in machines that are programmed to think and learn.',
+    'how can I improve my productivity': 'You can improve productivity by setting clear goals, managing time effectively, and minimizing distractions.',
+    'what are the latest news': 'I don\'t have access to current news, but you can check news websites or apps for the latest updates.',
+    'how do I cook pasta': 'To cook pasta, bring a pot of salted water to a boil, add the pasta, and cook according to the package instructions. Drain and enjoy!',
+    'how can I get a refund': 'To request a refund, please contact our customer service team with your order details and reason for the refund.',
+    'default': 'Sorry, I didn\'t understand that. Can you please rephrase?'
+};
 
-    // Add user message to chat
-    addMessage(userMessage, "user");
 
-    // Handle bot response
-    setTimeout(function() {
-        var botMessage = getBotResponse(userMessage);
-        addMessage(botMessage, "bot");
-    }, 500);
+        function getResponse(message) {
+            const lowerCaseMessage = message.toLowerCase();
+            // Advanced bot logic
+            if (lowerCaseMessage.includes('need help')) {
+                return 'Sure! What do you need help with?';
+            }
+            if (lowerCaseMessage.includes('thank you')) {
+                return 'You\'re welcome! If you have more questions, feel free to ask.';
+            }
+            return responses[lowerCaseMessage] || responses['default'];
+        }
 
-    // Clear input
-    document.getElementById("userInput").value = "";
-}
+        function getTimeStamp() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            return `${hours}:${minutes}`;
+        }
 
-function addMessage(message, sender) {
-    var chat = document.getElementById("chat");
-    var messageElement = document.createElement("div");
-    messageElement.classList.add("message", sender);
-    messageElement.textContent = message;
+        function appendMessage(message, sender = 'user') {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', sender);
+            
+            const timestamp = document.createElement('div');
+            timestamp.classList.add('timestamp');
+            timestamp.textContent = getTimeStamp();
+            
+            messageElement.textContent = message;
+            messageElement.appendChild(timestamp);
+            chatBox.appendChild(messageElement);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
 
-    // Add timestamp
-    var timestamp = document.createElement("div");
-    timestamp.classList.add("timestamp");
-    timestamp.textContent = new Date().toLocaleTimeString();
-    messageElement.appendChild(timestamp);
+        sendButton.addEventListener('click', function() {
+            const userMessage = messageInput.value.trim();
+            if (userMessage) {
+                appendMessage(userMessage, 'user');
+                const botResponse = getResponse(userMessage);
+                setTimeout(() => appendMessage(botResponse, 'bot'), 500); // Simulate delay
+                messageInput.value = '';
+            }
+        });
 
-    chat.appendChild(messageElement);
-    chat.scrollTop = chat.scrollHeight;
-}
+        messageInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                sendButton.click();
+            }
+        });
 
-function getBotResponse(input) {
-    input = input.toLowerCase();
-    
-    if (input.includes("hi") || input.includes("hello")) {
-        return "Hello! How can I assist you today?";
-    } else if (input.includes("survey")) {
-        return "Sure! Please answer the following questions:";
-        // Expand this with survey logic
-    } else if (input.includes("how are you")) {
-        return "I'm just a bot, but I'm here to help you!";
-    } else if (input.includes("your name")) {
-        return "I'm your friendly help chatbot.";
-    } else if (input.includes("help")) {
-        return "I can assist with surveys, provide information, and answer basic queries. What do you need help with?";
-    } else {
-        return "I'm not sure how to respond to that. Can you please clarify?";
-    }
-}
-</script>
-
+        closeButton.addEventListener('click', function() {
+            window.location.href = 'home.html';
+        });
+    </script>
 </body>
 </html>
