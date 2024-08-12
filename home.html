@@ -353,14 +353,12 @@
                                 <div id="benchmarking-report">
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-12 hr__line pt-4">
-                                            <div class="d-flex justify-content-center">
-                                                <button class="btn btn-outline-primary btn-sm mx-2"
-                                                    onclick="openCardById('connectivityCard')">
+                                            <div class="custom-button-container">
+                                                <button class="btn btn-outline-primary btn-sm" onclick="openCardById('connectivityCard')">
                                                     Connectivity
                                                 </button>
-                                                <button class="btn btn-outline-primary btn-sm mx-2"
-                                                    onclick="toggleRatingCard('connectivityRatingPopup')">Rate Connectivity</button>
-                                            </div>
+                                                <button class="btn btn-outline-primary btn-sm" onclick="toggleRatingCard('connectivityRatingPopup')">Rate</button>
+                                            </div>     
                                             <div class="rating-card" id="connectivityCard">
                                                 <div class="d-flex justify-content-end align-items-center">
                                                     <button class="custom-btn btn-success mx-1"
@@ -407,15 +405,20 @@
                                         </div>
                                     
                                         <div class="col-lg-6 col-md-6 col-sm-12 hr__line pt-4">
-                                            <div class="d-flex justify-content-center">
-                                                <button class="btn btn-outline-primary btn-sm mx-2"
-                                                    onclick="openCardById('maintenanceCard')">
+                                            <div class="custom-button-container">
+                                                <button class="btn btn-outline-primary btn-sm" onclick="openCardById('maintenanceCard')">
                                                     Maintenance
                                                 </button>
-                                                <button class="btn btn-outline-primary btn-sm mx-2"
-                                                    onclick="toggleRatingCard('maintenanceRatingPopup')">Rate Maintenance</button>
+                                                <button class="btn btn-outline-primary btn-sm"  onclick="toggleRatingCard('maintenanceRatingPopup')">Rate</button>
                                             </div>
                                             <div class="rating-card" id="maintenanceCard">
+                                                <div class="d-flex justify-content-end align-items-center">
+                                                    <button class="custom-btn btn-success mx-1"
+                                                        onclick="showRatingInsideCard('maintenanceCard','positive')">+</button>
+                                                    <span>/</span>
+                                                    <button class="custom-btn btn-danger mx-1"
+                                                        onclick="showRatingInsideCard('maintenanceCard','negative')">-</button>
+                                                </div>
                                                 <ul></ul>
                                             </div>
                                             <div class="d-flex justify-content-between">
@@ -446,7 +449,7 @@
                                                         <button class="rating-btn" onclick="rate('maintenance', 3)">3</button>
                                                         <button class="rating-btn" onclick="rate('maintenance', 4)">4</button>
                                                         <button class="rating-btn" onclick="rate('maintenance', 5)">5</button>
-                                                    </div>
+                                                        </div>
                                                     <textarea id="commentBox-maintenance" placeholder="Add your comment here..."></textarea>
                                                     <button class="btn btn-primary" onclick="saveRating('maintenance')">Save</button>
                                                 </div>
@@ -456,17 +459,22 @@
                                     
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-12 hr__line pt-4">
-                                            <div class="d-flex justify-content-center">
-                                                <button class="btn btn-outline-primary btn-sm mx-2"
-                                                    onclick="openCardById('constructionCard')">
+                                            <div class="custom-button-container">
+                                                <button class="btn btn-outline-primary btn-sm" onclick="openCardById('constructionCard')">
                                                     Construction
                                                 </button>
-                                                <button class="btn btn-outline-primary btn-sm mx-2"
-                                                    onclick="toggleRatingCard('constructionRatingPopup')">Rate Construction</button>
+                                                <button class="btn btn-outline-primary btn-sm" onclick="toggleRatingCard('constructionRatingPopup')">Rate</button>
                                             </div>
+                                           
                                             <div class="rating-card" id="constructionCard">
-                                                <ul>
-                                                </ul>
+                                                <div class="d-flex justify-content-end align-items-center">
+                                                    <button class="custom-btn btn-success mx-1"
+                                                        onclick="showRatingInsideCard('constructionCard','positive')">+</button>
+                                                    <span>/</span>
+                                                    <button class="custom-btn btn-danger mx-1"
+                                                        onclick="showRatingInsideCard('constructionCard','negative')">-</button>
+                                                </div>
+                                                <ul></ul>
                                             </div>
                                             <div class="d-flex justify-content-between">
                                                 <div class="chart-bar" style="width: auto;">
@@ -505,17 +513,21 @@
                                         </div>
                                     
                                         <div class="col-lg-6 col-md-6 col-sm-12 hr__line pt-4">
-                                            <div class="d-flex justify-content-center">
-                                                <button class="btn btn-outline-primary btn-sm mx-2"
-                                                    onclick="openCardById('amenitiesCard')">
+                                            <div class="custom-button-container">
+                                                <button class="btn btn-outline-primary btn-sm"  onclick="openCardById('amenitiesCard')">
                                                     Amenities
                                                 </button>
-                                                <button class="btn btn-outline-primary btn-sm mx-2"
-                                                    onclick="toggleRatingCard('amenitiesRatingPopup')">Rate Amenities</button>
+                                                <button class="btn btn-outline-primary btn-sm" onclick="toggleRatingCard('amenitiesRatingPopup')">Rate</button>
                                             </div>
                                             <div class="rating-card" id="amenitiesCard">
-                                                <ul>
-                                                </ul>
+                                                <div class="d-flex justify-content-end align-items-center">
+                                                    <button class="custom-btn btn-success mx-1"
+                                                        onclick="showRatingInsideCard('amenitiesCard','positive')">+</button>
+                                                    <span>/</span>
+                                                    <button class="custom-btn btn-danger mx-1"
+                                                        onclick="showRatingInsideCard('amenitiesCard','negative')">-</button>
+                                                </div>
+                                                <ul></ul>
                                             </div>
                                             <div class="d-flex justify-content-between">
                                                 <div class="chart-bar" style="width: auto;">
@@ -556,17 +568,21 @@
                                     
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-12 hr__line pt-4">
-                                            <div class="d-flex justify-content-center">
-                                                <button class="btn btn-outline-primary btn-sm mx-2"
-                                                    onclick="openCardById('peopleFriendlinessCard')">
+                                            <div class="custom-button-container">
+                                                <button class="btn btn-outline-primary btn-sm" onclick="openCardById('peopleFriendlinessCard')">
                                                     People Friendliness
                                                 </button>
-                                                <button class="btn btn-outline-primary btn-sm mx-2"
-                                                    onclick="toggleRatingCard('peopleFriendlinessRatingPopup')">Rate People Friendliness</button>
+                                                <button class="btn btn-outline-primary btn-sm" onclick="toggleRatingCard('peopleFriendlinessRatingPopup')">Rate</button>
                                             </div>
                                             <div class="rating-card" id="peopleFriendlinessCard">
-                                                <ul>
-                                                </ul>
+                                                <div class="d-flex justify-content-end align-items-center">
+                                                    <button class="custom-btn btn-success mx-1"
+                                                        onclick="showRatingInsideCard('peopleFriendlinessCard','positive')">+</button>
+                                                    <span>/</span>
+                                                    <button class="custom-btn btn-danger mx-1"
+                                                        onclick="showRatingInsideCard('peopleFriendlinessCard','negative')">-</button>
+                                                </div>
+                                                <ul></ul>
                                             </div>
                                             <div class="d-flex justify-content-between">
                                                 <div class="chart-bar" style="width: auto;">
@@ -604,6 +620,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
                                     
                                 <div class="row" id="overall-report">
                                     <div class="col d-lg-inline-flex">
@@ -662,7 +679,10 @@
                             </div>
 
                         </div>
-
+                        <button class="btn btn-outline-primary chatbot-button" id="openChatbot">
+                            <i class="fas fa-robot"></i> <!-- Font Awesome icon for bot -->
+                        </button>
+                        
                         <div class="container">
 
                             <footer>
@@ -760,13 +780,22 @@
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-primary" data-dismiss="modal"
                                     onclick="onSubmitCompareSociety()">Submit</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 </script>
+                <script>
+                    document.getElementById('openChatbot').addEventListener('click', function() {
+                        window.location.href = 'Chat.html';
+                    });
+                </script>
+                <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
                 <script src="vendor/jquery/jquery.min.js"></script>
                 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
                 <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
