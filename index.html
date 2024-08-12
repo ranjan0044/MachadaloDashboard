@@ -661,29 +661,30 @@
                             </div>
                         </div>
                     </div>
-                    <script src="Newscript.js"></script>
-                    <!-- Bootstrap core JavaScript-->
+                    <script>
+                        document.getElementById('openChatbot').addEventListener('click', function() {
+                            window.location.href = 'Chat.html';
+                        });
+                    </script>
+                    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    
                     <script src="vendor/jquery/jquery.min.js"></script>
                     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-                    <!-- Core plugin JavaScript-->
                     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-                    <!-- Custom scripts for all pages-->
                     <script src="js/Machadalo.min.js"></script>
-
-                    <!-- Page level plugins -->
                     <script src="vendor/chart.js/Chart.min.js"></script>
-
-                    <!-- Page level custom scripts -->
                     <script src="js/demo/chart-area-demo.js"></script>
                     <script src="js/demo/chart-pie-demo.js"></script>
                     <script src="js/demo/chart-bar-demo.js"></script>
                     <script src="js/dropdown.js"></script>
                     <script src="js/demo/AllScript.js"></script>
-
+                    <script src="js/Points.js"></script>
+                    <script src="./js/compareModal.js"></script>
+    
                     <script>
-                        window.location.href = 'home.html'
                         document.getElementById('downloadButton').addEventListener('click', function () {
                             html2canvas(document.body).then(function (canvas) {
                                 var link = document.createElement('a');
@@ -694,6 +695,6 @@
                         });
                     </script>
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-</body>
-
-</html>
+    </body>
+    
+    </html>

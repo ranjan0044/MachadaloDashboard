@@ -162,8 +162,8 @@ const renderCharts = (meanRatings) => {
                     ...commonOptions,
                     title: {
                         display: true,
-                        text: `${category} of ${selectedSociety}`,
-                        fontSize: 14,
+                        text: `${selectedSociety}`,
+                        fontSize: 16,
                         fontColor: '#0000FF',
                     }
                 }
