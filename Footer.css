@@ -220,6 +220,21 @@ transition: all .3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
     font-weight: bold;
     margin-bottom: 5px;
 }
+.custom-button-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between; /* Distributes space between items */
+    align-items: center; /* Centers items vertically within the container */
+}
+
+.custom-button-container .btn:first-child {
+    margin: 0 auto; /* Centers the first button horizontally */
+}
+
+.custom-button-container .btn:last-child {
+    /* No additional styles needed here unless you want specific styling */
+}
+
 
 
 
