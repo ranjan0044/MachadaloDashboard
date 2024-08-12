@@ -60,7 +60,8 @@ const updateQueryParam = (key, value) => {
 }
 
 function populateCitySelector(cities) {
-    createSearchableDropdown('citySelector', 'Search city', cities, function (selectedItem) {
+    const sortedItems = [...cities].sort((a, b) => a.localeCompare(b));
+    createSearchableDropdown('citySelector', 'Search city', sortedItems, function (selectedItem) {
         handleCityChange(selectedItem)
     });
 }
@@ -115,7 +116,8 @@ function handleCityChange(city) {
     while (parentElement.firstChild) {
         parentElement.removeChild(parentElement.firstChild);
     }
-    createSearchableDropdown('societySelector', 'Search society', societies, function (selectedItem) {
+    const sortedItems = [...societies].sort((a, b) => a.localeCompare(b));
+    createSearchableDropdown('societySelector', 'Search society', sortedItems, function (selectedItem) {
         handleSocietyChange(selectedItem)
     });
 }
