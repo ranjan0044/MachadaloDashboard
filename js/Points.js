@@ -105,8 +105,8 @@ const showRatingInsideCard = (id, type = "positive") => {
     const negativePoints = nlpDataForLikeDislike[cardKey[1]] || {};
 
     // Convert points to arrays and sort them
-    const sortedPositivePoints = Object.entries(positivePoints).sort(([, a], [, b]) => b - a);
-    const sortedNegativePoints = Object.entries(negativePoints).sort(([, a], [, b]) => b - a);
+    const sortedPositivePoints = Object.entries(positivePoints).sort(([, a], [, b]) => b - a).slice(0, 4);
+    const sortedNegativePoints = Object.entries(negativePoints).sort(([, a], [, b]) => b - a).slice(0, 4);
 
     // Combine the sorted arrays
     const combinedPoints = [...sortedPositivePoints, ...sortedNegativePoints];
@@ -146,7 +146,7 @@ const showRatingInsideCard = (id, type = "positive") => {
 
         // Adjust text color for readability
         liElement.style.color = 'black';
-        liElement.style.fontSize='12px';
+        liElement.style.fontSize = '12px';
         liElement.style.margin = '0';
         liElement.style.padding = '2px';
         liElement.style.textTransform = 'uppercase'; 
@@ -189,6 +189,7 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
 
 
 

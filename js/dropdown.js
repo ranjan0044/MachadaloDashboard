@@ -136,19 +136,42 @@ function saveComment() {
 //     }
 // }
 
+// Function to toggle the visibility of the rating popup
 function toggleRatingCard(cardId) {
     const popup = document.getElementById(cardId);
     popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
 }
 
+// Function to handle the rating action
 function rate(category, score) {
     console.log(`Rated ${category} with ${score}`);
-    // Add your rating logic here
+    // Store the rating for the category
+    // Example: Use localStorage or send to server
 }
 
+// Function to save the rating and comment
 function saveRating(category) {
     const commentBox = document.getElementById(`commentBox-${category}`);
     console.log(`Saved rating for ${category}: ${commentBox.value}`);
-    // Add your save logic here
+    // Store the comment for the category
+    // Example: Use localStorage or send to server
     toggleRatingCard(`${category}RatingPopup`);
 }
+
+// Add event listeners to all rating buttons
+document.querySelectorAll('.rating-btn').forEach(button => {
+    button.addEventListener('click', (event) => {
+        const category = event.target.dataset.category;
+        const score = parseInt(event.target.dataset.score, 10);
+        rate(category, score);
+    });
+});
+
+// Add event listeners to all save buttons
+document.querySelectorAll('.btn-primary').forEach(button => {
+    button.addEventListener('click', (event) => {
+        const category = event.target.dataset.category;
+        saveRating(category);
+    });
+});
+

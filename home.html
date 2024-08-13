@@ -242,14 +242,14 @@
                                                     <span class="close" onclick="toggleRatingCard('connectivityRatingPopup')">&times;</span>
                                                     <h4>Rate Connectivity</h4>
                                                     <div class="rating-numbers">
-                                                        <button class="rating-btn" onclick="rate('connectivity', 1)">1</button>
-                                                        <button class="rating-btn" onclick="rate('connectivity', 2)">2</button>
-                                                        <button class="rating-btn" onclick="rate('connectivity', 3)">3</button>
-                                                        <button class="rating-btn" onclick="rate('connectivity', 4)">4</button>
-                                                        <button class="rating-btn" onclick="rate('connectivity', 5)">5</button>
+                                                        <button class="rating-btn" data-category="connectivity" data-score="1">1</button>
+                                                        <button class="rating-btn" data-category="connectivity" data-score="2">2</button>
+                                                        <button class="rating-btn" data-category="connectivity" data-score="3">3</button>
+                                                        <button class="rating-btn" data-category="connectivity" data-score="4">4</button>
+                                                        <button class="rating-btn" data-category="connectivity" data-score="5">5</button>
                                                     </div>
                                                     <textarea id="commentBox-connectivity" placeholder="Add your comment here..."></textarea>
-                                                    <button class="btn btn-primary" onclick="saveRating('connectivity')">Save</button>
+                                                    <button class="btn btn-primary" data-category="connectivity" onclick="saveRating('connectivity')">Save</button>
                                                 </div>
                                             </div>
                                         </div>
