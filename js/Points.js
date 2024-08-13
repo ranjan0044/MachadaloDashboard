@@ -90,9 +90,9 @@ const showRatingInsideCard = (id, type = "positive") => {
     // Determine the keys based on the card ID
     const cardKey = id === 'connectivityCard' ? ['connectivityLikes', 'connectivityDislikes']
         : id === 'constructionCard' ? ['constructionLikes', 'constructionDislikes']
-            : id === 'amenitiesCard' ? ['amenitiesLikes', 'amenitiesDislikes']
-                : id === 'maintenanceCard' ? ['maintenanceLikes', 'maintenanceDislikes']
-                    : id === 'peopleFriendlinessCard' ? ['peopleFriendlinessLikes', 'peopleFriendlinessDislikes'] : '';
+        : id === 'amenitiesCard' ? ['amenitiesLikes', 'amenitiesDislikes']
+        : id === 'maintenanceCard' ? ['maintenanceLikes', 'maintenanceDislikes']
+        : id === 'peopleFriendlinessCard' ? ['peopleFriendlinessLikes', 'peopleFriendlinessDislikes'] : '';
 
     if (!cardKey) return;
 
@@ -109,41 +109,33 @@ const showRatingInsideCard = (id, type = "positive") => {
     // Convert object to array and sort by value
     const sortedEntries = Object.entries(likeDisLikePoints).sort(([, a], [, b]) => b - a);
 
-    sortedEntries.forEach(([key, value]) => {
+    sortedEntries.forEach(([key, value], index) => {
         const liElement = document.createElement('li');
-        liElement.textContent = `${key}: ${value}`;
+        liElement.textContent = `${key.toUpperCase()}: ${value}`; // Convert text to uppercase
 
-        const buttonGroup = document.createElement('div');
-        buttonGroup.classList.add('button-group');
+        // Determine color for gradient effect
+        const hue = type === 'positive' ? 115 : 0; // Green for positive, Red for negative
+        // For positive: dark at the top, light at the bottom
+        // For negative: dark at the top, light at the bottom
+        const totalItems = sortedEntries.length;
+        const brightness = type === 'positive' ? 20 + (index * 70 / (totalItems - 1)) 
+                                               : 20 + (index * 70 / (totalItems - 1));
 
-        // Determine icon and color based on type
-        const thumbsUpIcon = type === 'positive' ? 'fas fa-thumbs-up' : 'fas fa-thumbs-up';
-        const thumbsDownIcon = type === 'positive' ? 'fas fa-thumbs-down' : 'fas fa-thumbs-down';
-        
-        const thumbsUpColor = type === 'positive' ? 'green' : 'green';
-        const thumbsDownColor = type === 'positive' ? 'red' : 'red';
+        liElement.style.backgroundColor = `hsl(${hue}, 100%, ${brightness}%)`;
 
-        // Create the thumbs-up button
-        const thumbsUpButton = document.createElement('button');
-        thumbsUpButton.classList.add('toggle-btn');
-        thumbsUpButton.innerHTML = `<i class="${thumbsUpIcon}"></i>`;
-        thumbsUpButton.style.color = thumbsUpColor;
-        thumbsUpButton.onclick = () => toggleColor(thumbsUpButton, thumbsUpColor);
-
-        // Create the thumbs-down button
-        const thumbsDownButton = document.createElement('button');
-        thumbsDownButton.classList.add('toggle-btn');
-        thumbsDownButton.innerHTML = `<i class="${thumbsDownIcon}"></i>`;
-        thumbsDownButton.style.color = thumbsDownColor;
-        thumbsDownButton.onclick = () => toggleColor(thumbsDownButton, thumbsDownColor);
-
-        buttonGroup.appendChild(thumbsUpButton);
-        buttonGroup.appendChild(thumbsDownButton);
-        liElement.appendChild(buttonGroup);
+        // Adjust text color for readability
+        const perceivedBrightness = brightness;
+        liElement.style.color = perceivedBrightness > 50 ? 'black' : 'white';
+        liElement.style.textTransform = 'uppercase'; // Apply uppercase transformation
 
         ulElement.appendChild(liElement);
     });
 };
+
+
+
+
+
 
 
 
