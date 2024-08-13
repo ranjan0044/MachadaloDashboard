@@ -100,37 +100,99 @@ const showRatingInsideCard = (id, type = "positive") => {
     const ulElement = selectedCard.querySelector('ul');
     ulElement.innerHTML = '';
 
-    // Determine which array to use based on the type (positive or negative)
-    const indexNo = type === 'positive' ? 0 : 1;
-    const likeDisLikePoints = nlpDataForLikeDislike[cardKey[indexNo]];
+    // Determine which arrays to use based on the type (positive or negative)
+    const positivePoints = nlpDataForLikeDislike[cardKey[0]] || {};
+    const negativePoints = nlpDataForLikeDislike[cardKey[1]] || {};
 
-    if (!likeDisLikePoints) return;
+    // Convert points to arrays and sort them
+    const sortedPositivePoints = Object.entries(positivePoints).sort(([, a], [, b]) => b - a);
+    const sortedNegativePoints = Object.entries(negativePoints).sort(([, a], [, b]) => b - a);
 
-    // Convert object to array and sort by value
-    const sortedEntries = Object.entries(likeDisLikePoints).sort(([, a], [, b]) => b - a);
+    // Combine the sorted arrays
+    const combinedPoints = [...sortedPositivePoints, ...sortedNegativePoints];
 
-    sortedEntries.forEach(([key, value], index) => {
+    combinedPoints.forEach(([key, value], index) => {
+        const pointType = index < sortedPositivePoints.length ? 'positive' : 'negative';
+        
         const liElement = document.createElement('li');
-        liElement.textContent = `${key.toUpperCase()}: ${value}`; // Convert text to uppercase
+        liElement.textContent = `${key.toUpperCase()}`;
+
+        // Create agree and disagree buttons
+        const agreeButton = document.createElement('button');
+        agreeButton.textContent = 'Agree';
+        agreeButton.className = 'agree-button';
+        agreeButton.onclick = () => handleButtonClick(key, 'agree', id);
+
+        const disagreeButton = document.createElement('button');
+        disagreeButton.textContent = 'Disagree';
+        disagreeButton.className = 'disagree-button';
+        disagreeButton.onclick = () => handleButtonClick(key, 'disagree', id);
+
+        // Container for buttons
+        const buttonContainer = document.createElement('div');
+        buttonContainer.className = 'button-container';
+        buttonContainer.appendChild(agreeButton);
+        buttonContainer.appendChild(disagreeButton);
+
+        // Append button container to the list item
+        liElement.appendChild(buttonContainer);
 
         // Determine color for gradient effect
-        const hue = type === 'positive' ? 115 : 0; // Green for positive, Red for negative
-        // For positive: dark at the top, light at the bottom
-        // For negative: dark at the top, light at the bottom
-        const totalItems = sortedEntries.length;
-        const brightness = type === 'positive' ? 20 + (index * 70 / (totalItems - 1)) 
-                                               : 20 + (index * 70 / (totalItems - 1));
+        const hue = pointType === 'positive' ? 115 : 0; // Green for positive, Red for negative
+        const totalItems = combinedPoints.length;
+        const brightness = 20 + (index * 70 / (totalItems - 1));
 
         liElement.style.backgroundColor = `hsl(${hue}, 100%, ${brightness}%)`;
 
         // Adjust text color for readability
-        const perceivedBrightness = brightness;
-        liElement.style.color = perceivedBrightness > 50 ? 'black' : 'white';
-        liElement.style.textTransform = 'uppercase'; // Apply uppercase transformation
+        liElement.style.color = 'black';
+        liElement.style.fontSize='12px';
+        liElement.style.margin = '0';
+        liElement.style.padding = '2px';
+        liElement.style.textTransform = 'uppercase'; 
 
         ulElement.appendChild(liElement);
     });
-};
+}
+
+// Dummy function for button clicks
+const handleButtonClick = (key, action, id) => {
+    console.log(`Button clicked for ${key} with action ${action} on card ${id}`);
+    // Implement actual functionality here
+}
+
+// Add some CSS to style the buttons
+const style = document.createElement('style');
+style.textContent = `
+    .button-container {
+        display: flex;
+        justify-content: flex-end;
+        gap: 5px;
+        margin-top: 5px;
+    }
+    .agree-button {
+        background-color: #4CAF50; /* Green */
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+    .disagree-button {
+        background-color: #f44336; /* Red */
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+    .agree-button:hover, .disagree-button:hover {
+        opacity: 0.8;
+    }
+`;
+document.head.appendChild(style);
+
+
+
+
 
 
 

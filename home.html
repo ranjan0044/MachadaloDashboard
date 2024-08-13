@@ -201,40 +201,42 @@
                                 <div id="benchmarking-report">
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-12 hr__line pt-4">
+                                            <!-- Custom Button Container removed -->
                                             <div class="custom-button-container">
                                                 <button class="btn btn-outline-primary btn-sm" onclick="openCardById('connectivityCard')">
                                                     Connectivity
                                                 </button>
                                                 <button class="btn btn-outline-primary btn-sm" onclick="toggleRatingCard('connectivityRatingPopup')">Rate</button>
-                                            </div>     
+                                            </div> 
+                                        
+                                            <!-- Rating Card -->
                                             <div class="rating-card" id="connectivityCard">
-                                                <div class="d-flex justify-content-end align-items-center">
-                                                    <button class="custom-btn btn-success mx-1"
-                                                        onclick="showRatingInsideCard('connectivityCard','positive')">+</button>
+                                                <!-- Removed the positive/negative rating buttons -->
+                                                <!-- <div class="d-flex justify-content-end align-items-center">
+                                                    <button class="custom-btn btn-success mx-1" onclick="showRatingInsideCard('connectivityCard','positive')">+</button>
                                                     <span>/</span>
-                                                    <button class="custom-btn btn-danger mx-1"
-                                                        onclick="showRatingInsideCard('connectivityCard','negative')">-</button>
-                                                </div>
+                                                    <button class="custom-btn btn-danger mx-1" onclick="showRatingInsideCard('connectivityCard','negative')">-</button>
+                                                </div> -->
                                                 <ul></ul>
                                             </div>
+                                        
+                                            <!-- Chart and Rank List -->
                                             <div class="d-flex justify-content-between">
                                                 <div class="chart-bar" style="width: auto;">
                                                     <canvas id="connectivityChart"></canvas>
                                                 </div>
                                                 <div class="d-flex flex-column">
+                                                    <!-- Removed the positive/negative buttons for showing rankings -->
                                                     <div class="d-flex justify-content-end align-items-center">
-                                                        <button class="custom-btn btn-success mx-1"
-                                                            onclick="showPositive('connectivityCard')">+</button>
+                                                        <button class="custom-btn btn-success mx-1" onclick="showPositive('connectivityCard')">+</button>
                                                         <span>/</span>
-                                                        <button class="custom-btn btn-danger mx-1"
-                                                            onclick="showNegative('connectivityCard')">-</button>
+                                                        <button class="custom-btn btn-danger mx-1" onclick="showNegative('connectivityCard')">-</button>
                                                     </div>
-                                                    <div class="rank-list mt-2" id="rankList-connectivityCard">
-                                                    </div>
+                                                    <div class="rank-list mt-2" id="rankList-connectivityCard"></div>
                                                 </div>
                                             </div>
-                                    
-                                            <!-- Rating Card for Connectivity -->
+                                        
+                                            <!-- Rating Popup -->
                                             <div class="rating-popup" id="connectivityRatingPopup">
                                                 <div class="rating-popup-content">
                                                     <span class="close" onclick="toggleRatingCard('connectivityRatingPopup')">&times;</span>
@@ -251,6 +253,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        
                                     
                                         <div class="col-lg-6 col-md-6 col-sm-12 hr__line pt-4">
                                             <div class="custom-button-container">
@@ -260,13 +263,13 @@
                                                 <button class="btn btn-outline-primary btn-sm"  onclick="toggleRatingCard('maintenanceRatingPopup')">Rate</button>
                                             </div>
                                             <div class="rating-card" id="maintenanceCard">
-                                                <div class="d-flex justify-content-end align-items-center">
+                                                <!-- <div class="d-flex justify-content-end align-items-center">
                                                     <button class="custom-btn btn-success mx-1"
                                                         onclick="showRatingInsideCard('maintenanceCard','positive')">+</button>
                                                     <span>/</span>
                                                     <button class="custom-btn btn-danger mx-1"
                                                         onclick="showRatingInsideCard('maintenanceCard','negative')">-</button>
-                                                </div>
+                                                </div> -->
                                                 <ul></ul>
                                             </div>
                                             <div class="d-flex justify-content-between">
@@ -315,13 +318,13 @@
                                             </div>
                                            
                                             <div class="rating-card" id="constructionCard">
-                                                <div class="d-flex justify-content-end align-items-center">
+                                                <!-- <div class="d-flex justify-content-end align-items-center">
                                                     <button class="custom-btn btn-success mx-1"
                                                         onclick="showRatingInsideCard('constructionCard','positive')">+</button>
                                                     <span>/</span>
                                                     <button class="custom-btn btn-danger mx-1"
                                                         onclick="showRatingInsideCard('constructionCard','negative')">-</button>
-                                                </div>
+                                                </div> -->
                                                 <ul></ul>
                                             </div>
                                             <div class="d-flex justify-content-between">
@@ -368,13 +371,13 @@
                                                 <button class="btn btn-outline-primary btn-sm" onclick="toggleRatingCard('amenitiesRatingPopup')">Rate</button>
                                             </div>
                                             <div class="rating-card" id="amenitiesCard">
-                                                <div class="d-flex justify-content-end align-items-center">
+                                                <!-- <div class="d-flex justify-content-end align-items-center">
                                                     <button class="custom-btn btn-success mx-1"
                                                         onclick="showRatingInsideCard('amenitiesCard','positive')">+</button>
                                                     <span>/</span>
                                                     <button class="custom-btn btn-danger mx-1"
                                                         onclick="showRatingInsideCard('amenitiesCard','negative')">-</button>
-                                                </div>
+                                                </div> -->
                                                 <ul></ul>
                                             </div>
                                             <div class="d-flex justify-content-between">
@@ -423,13 +426,13 @@
                                                 <button class="btn btn-outline-primary btn-sm" onclick="toggleRatingCard('peopleFriendlinessRatingPopup')">Rate</button>
                                             </div>
                                             <div class="rating-card" id="peopleFriendlinessCard">
-                                                <div class="d-flex justify-content-end align-items-center">
+                                                <!-- <div class="d-flex justify-content-end align-items-center">
                                                     <button class="custom-btn btn-success mx-1"
                                                         onclick="showRatingInsideCard('peopleFriendlinessCard','positive')">+</button>
                                                     <span>/</span>
                                                     <button class="custom-btn btn-danger mx-1"
                                                         onclick="showRatingInsideCard('peopleFriendlinessCard','negative')">-</button>
-                                                </div>
+                                                </div> -->
                                                 <ul></ul>
                                             </div>
                                             <div class="d-flex justify-content-between">
