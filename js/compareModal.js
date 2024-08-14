@@ -100,3 +100,57 @@ const removeSociety = (societyName) => {
     const societyDiv = document.getElementById(`society-${societyName}`);
     societyDiv.remove();
 };
+
+
+function generateRatingButtons() {
+    let buttons = '';
+    for (let i = 1; i <= 5; i++) {
+        buttons += `<button type="button" class="rating-btn" data-value="${i}">${i}</button>`;
+    }
+    return buttons;
+}
+
+// Function to toggle the visibility of a rating card
+function toggleRatingCard(cardId) {
+    const card = document.getElementById(cardId);
+    if (card.style.display === 'block') {
+        card.style.display = 'none';
+    } else {
+        card.style.display = 'block';
+        card.querySelectorAll('.rating-buttons__').forEach(buttonGroup => {
+            buttonGroup.innerHTML = generateRatingButtons();
+        });
+    }
+}
+function closeRatingCard(cardId) {
+    document.getElementById(cardId).style.display = 'none';
+}
+// Event listener for rating button clicks
+document.addEventListener('click', function(event) {
+    if (event.target.classList.contains('rating-btn')) {
+        const value = event.target.getAttribute('data-value');
+        const buttonGroup = event.target.closest('.rating-buttons__');
+        const category = buttonGroup.getAttribute('data-category');
+        buttonGroup.querySelectorAll('.rating-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        event.target.classList.add('active');
+        document.getElementById(category + 'Rating').value = value;
+    }
+});
+
+// Handle form submission
+document.querySelectorAll('#connectivityRatingForm').forEach(form => {
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const ratings = {
+            publicTransport: document.getElementById('publicTransportRating').value,
+            connectivity: document.getElementById('connectivityRating').value,
+            road: document.getElementById('roadRating').value,
+            market: document.getElementById('marketRating').value,
+            school: document.getElementById('schoolRating').value
+        };
+
+        alert(`Ratings submitted:\nPublic Transport: ${ratings.publicTransport}\nConnectivity: ${ratings.connectivity}\nRoad: ${ratings.road}\nMarket: ${ratings.market}\nSchool: ${ratings.school}`);
+    });
+});

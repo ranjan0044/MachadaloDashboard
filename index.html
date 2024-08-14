@@ -13,12 +13,14 @@
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Footer.css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
     <link href="css/Machadalo.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body id="page-top">
@@ -50,23 +52,23 @@
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-            <div class="sidebar-heading">
+            <!-- <div class="sidebar-heading">
                 Interface
-            </div>
+            </div> -->
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Components</span>
                 </a>
 
-            </li>
-            <hr class="sidebar-divider">
+            </li> -->
+            <!-- <hr class="sidebar-divider"> -->
 
             <!-- Heading -->
-            <div class="sidebar-heading">
+            <!-- <div class="sidebar-heading">
                 Addons
             </div>
             <li class="nav-item">
@@ -80,493 +82,355 @@
                     <i class="fas fa-fw fa-users"></i>
                     <span>My Referral</span>
                 </a>
-            </li>
+            </li> -->
 
             <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+            <!-- <hr class="sidebar-divider d-none d-md-block"> -->
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
         </ul>
-        <!-- End of Sidebar -->
-
-        <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-
-            <!-- Main Content -->
             <div id="content">
-
-                <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-1 static-top shadow">
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
-
-                    <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-
+                
                     <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
-
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
-                                            aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
-
-                        <!-- Nav Item - Alerts -->
-                        <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-bell fa-fw"></i>
-                                <!-- Counter - Alerts -->
-                                <span class="badge badge-danger badge-counter">3+</span>
-                            </a>
-                            <!-- Dropdown - Alerts -->
-                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="alertsDropdown">
-                                <h6 class="dropdown-header">
-                                    Alerts Center
-                                </h6>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-primary">
-                                            <i class="fas fa-file-alt text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 12, 2019</div>
-                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                                    </div>
+                
+                        <a class="navbar-brand" href="#">
+                            <img src="img/machadalo.jpg" alt="Logo" style="height: fit-content; width: 100px;">
+                        </a>
+                        <ul class="navbar-nav ml-auto">
+                            <!-- Divider -->
+                            <div class="topbar-divider d-none d-sm-block"></div>
+                            
+                            <!-- Nav Item - User Information -->
+                            <li class="nav-item dropdown no-arrow">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="mr-2 d-none d-lg-inline text-dark small">Admin</span>
+                                    <!-- User Profile Picture -->
+                                    <img class="img-profile rounded-circle" src="img/undraw_profile_1.svg" alt="User Profile">
                                 </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-success">
-                                            <i class="fas fa-donate text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 7, 2019</div>
-                                        290.29 has been deposited into your account!
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-warning">
-                                            <i class="fas fa-exclamation-triangle text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">December 2, 2019</div>
-                                        Spending Alert: We've noticed unusually high spending for your account.
-                                    </div>
-                                </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-                            </div>
-                        </li>
-                        <!-- Nav Item - Messages -->
-                        <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-envelope fa-fw"></i>
-                                <!-- Counter - Messages -->
-                                <span class="badge badge-danger badge-counter">7</span>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="messagesDropdown">
-                                <h6 class="dropdown-header">
-                                    Message Center
-                                </h6>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_1.svg" alt="...">
-                                        <div class="status-indicator bg-success"></div>
-                                    </div>
-                                    <div class="font-weight-bold">
-                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
-                                            problem I've been having.</div>
-                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_2.svg" alt="...">
-                                        <div class="status-indicator"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">I have the photos that you ordered last month, how
-                                            would you like them sent to you?</div>
-                                        <div class="small text-gray-500">Jae Chun · 1d</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_3.svg" alt="...">
-                                        <div class="status-indicator bg-warning"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">Last month's report looks great, I am very happy with
-                                            the progress so far, keep up the good work!</div>
-                                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
-                                            alt="...">
-                                        <div class="status-indicator bg-success"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
-                                            told me that people say this to all dogs, even if they aren't good...</div>
-                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-                            </div>
-                        </li>
-
-                        <div class="topbar-divider d-none d-sm-block"></div>
-
-                        <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Aayush Singh</span>
-                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
-                            </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in "
-                                aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
-                            </div>
-                        </li>
-
-                    </ul>
-
-                </nav>
-                <!-- End of Topbar -->
-
-                <!-- Begin Page Content -->
+                                <!-- Dropdown - User Information -->
+                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                    aria-labelledby="userDropdown">
+                                    <!-- Dropdown Items -->
+                                    <a class="dropdown-item" href="register.html">
+                                        <i class="fas fa-plus fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Create Profile
+                                    </a>
+                                    <a class="dropdown-item" href="update-profile.html">
+                                        <i class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Update Profile
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                    
+                
+                
+                
+       
                 <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <div class="search-dropdown">
-                            <div id="citySelector"></div>
+                    <div class="row d-flex justify-content-center align-items-center ___border">
+                        <div class="col-12 col-md-3 text-center">
+                            <i class="fas fa-fw fa-tachometer-alt text-primary"></i>
+                            <span class="text-primary">Dashboard</span></a>
                         </div>
-                        <div class="search-dropdown">
-                            <div id="societySelector"></div>
+                        <div class="col-12 col-md-3 mb-3">
+                            <div class="search-dropdown w-100">
+                                <label for="citySelector" class="text-primary label_text">Select City</label>
+                                <div id="citySelector" class="p-2 rounded border border-light shadow-sm w-100"></div>
+                            </div>
                         </div>
-                        <a href="#" id="downloadButton"
-                            class="d-none d-sm-inline-block btn btn-sm btn-outline-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        <div class="col-12 col-md-3 mb-3">
+                            <label for="societySelector" class="text-primary label_text">Select Society</label>
+                            <div class="search-dropdown w-100">
+                                <div id="societySelector" class="p-2 rounded border border-light shadow-sm w-100"></div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <div class="d-flex flex-column flex-md-column align-items-center align-items-md-end">
+                                <div class="d-flex flex-row w-100 mb-2">
+                                    <button class="btn btn-outline-primary flex-fill shadow-sm btn-sm"
+                                        onclick="openCampareModal()">Compare Society</button>
+                                    <a href="#" id="downloadButton"
+                                        class="btn btn-outline-primary shadow-sm ml-2 flex-fill btn-sm">
+                                        <i class="fas fa-download"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <!-- Content Row -->
-                    <div class="row">
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <!-- <div class="col-xl-6 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Total Survey</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="totalSurvay">0</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                        </div>
+                </div>
+                <div class="row mb-2">
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h5 class="m-0 text-primary font-weight-bold" id="chat-type-header">Benchmarking Report
+                                </h5>
+                                <div class="dropdown no-arrow">
+                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-dark-400"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                        aria-labelledby="dropdownMenuLink" id="chart-type-dropdown">
+                                        <div class="dropdown-header">Chart Types:</div>
+                                        <a class="dropdown-item" href="#" data-target="all-report">All Chart</a>
+                                        <a class="dropdown-item" href="#" data-target="line-chart">Line Chart</a>
+                                        <a class="dropdown-item" href="#" data-target="benchmarking-report">Benchmarking
+                                            Report</a>
+                                        <a class="dropdown-item" href="#" data-target="overall-report">Overall
+                                            Report</a>
                                     </div>
                                 </div>
                             </div>
-                        </div> -->
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <!-- <div class="col-xl-6 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Total Society</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="socieyCount">0</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <!-- <div class="col-xl-3 col-md-3 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                            <!-- <div class="container"> -->
+                            <!-- Second Row: Pie Chart -->
+                            <div class="container">
+                                <div id="benchmarking-report">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-12 hr__line pt-4">
+                                            <!-- Custom Button Container removed -->
+                                            <div class="custom-button-container">
+                                                <button class="btn btn-outline-primary btn-sm" onclick="openCardById('connectivityCard')">
+                                                    Connectivity
+                                                </button>
+                                                <button class="btn btn-outline-primary btn-sm" onclick="openRatingCard('connectivity', 'Connectivity')">Rate</button>
+                                            </div> 
+                                        
+                                            <!-- Rating Card -->
+                                            <div class="rating-card" id="connectivityCard">
+                                                <ul></ul>
                                             </div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                        
+                                            <!-- Chart and Rank List -->
+                                            <div class="d-flex justify-content-between">
+                                                <div class="chart-bar" style="width: auto;">
+                                                    <canvas id="connectivityChart"></canvas>
                                                 </div>
-                                                <div class="col">
-                                                    <div class="progress progress-sm mr-2">
-                                                        <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
+                                                <div class="d-flex flex-column">
+                                                    <!-- Removed the positive/negative buttons for showing rankings -->
+                                                    <div class="d-flex justify-content-end align-items-center">
+                                                        <button class="custom-btn btn-success mx-1" onclick="showPositive('connectivityCard')">+</button>
+                                                        <span>/</span>
+                                                        <button class="custom-btn btn-danger mx-1" onclick="showNegative('connectivityCard')">-</button>
+                                                    </div>
+                                                    <div class="rank-list mt-2" id="rankList-connectivityCard"></div>
+                                                </div>
+                                            </div>
+                                            <div id="ratingCardTemplate" style="display: none;">
+                                                <div class="rating-popup" id="{cardId}">
+                                                    <div class="rating-popup-content">
+                                                        <span class="close" onclick="toggleRatingCard('{cardId}')">&times;</span>
+                                                        <h4>Rate {categoryName}</h4>
+                                                        <form id="{categoryId}RatingForm">
+                                                            <!-- Subcategories will be inserted dynamically -->
+                                                        </form>
+                                                        <textarea id="commentBox-{categoryId}" placeholder="Add your comment here..."></textarea>
+                                                        <button class="btn btn-primary" data-category="{categoryId}" onclick="saveRating('{categoryId}')">Save</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>    
+                                        <div class="col-lg-6 col-md-6 col-sm-12 hr__line pt-4">
+                                            <div class="custom-button-container">
+                                                <button class="btn btn-outline-primary btn-sm" onclick="openCardById('maintenanceCard')">
+                                                    Maintenance
+                                                </button>
+                                                <button class="btn btn-outline-primary btn-sm" onclick="openRatingCard('maintenance', 'Maintenance')">Rate</button>
+                                            </div>
+                                            <div class="rating-card" id="maintenanceCard">
+                                                <ul></ul>
+                                            </div>
+                                            <div class="d-flex justify-content-between">
+                                                <div class="chart-bar" style="width: auto;">
+                                                    <canvas id="maintenanceChart"></canvas>
+                                                </div>
+                                                <div class="d-flex flex-column">
+                                                    <div class="d-flex justify-content-end align-items-center">
+                                                        <button class="custom-btn btn-success mx-1"
+                                                            onclick="showPositive('maintenanceCard')">+</button>
+                                                        <span>/</span>
+                                                        <button class="custom-btn btn-danger mx-1"
+                                                            onclick="showNegative('maintenanceCard')">-</button>
+                                                    </div>
+                                                    <div class="rank-list mt-2" id="rankList-maintenanceCard">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    
+                                            <!-- Rating Card for Maintenance -->
+                                            <div id="ratingCardTemplate" style="display: none;">
+                                                <div class="rating-popup" id="{cardId}">
+                                                    <div class="rating-popup-content">
+                                                        <span class="close" onclick="toggleRatingCard('{cardId}')">&times;</span>
+                                                        <h4>Rate {categoryName}</h4>
+                                                        <form id="{categoryId}RatingForm">
+                                                            <!-- Subcategories will be inserted dynamically -->
+                                                        </form>
+                                                        <textarea id="commentBox-{categoryId}" placeholder="Add your comment here..."></textarea>
+                                                        <button class="btn btn-primary" data-category="{categoryId}" onclick="saveRating('{categoryId}')">Save</button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div> -->
-
-                        <!-- Pending Requests Card Example -->
-                        <!-- <div class="col-xl-3 col-md-3 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Pending Requests</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card shadow mb-4">
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h4 class="m-0 font-weight-bold text-primary">Benchmarking Report</h4>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Chart Types:</div>
-                                            <a class="dropdown-item" href="#">Line Chart</a>
-                                            <a class="dropdown-item" href="#">Benchmarking Report</a>
-                                            <a class="dropdown-item" href="#">Overall Report</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <h6 class="text-primary text-center hover-tooltip">
-                                            Connectivity Graph
-                                            <span class="tooltip-text">
-                                                <ul>
-                                                    <li>Public transport: Bus Stand, Railway Station, Sharing Ricksaw
-                                                    </li>
-                                                    <li>Autos and Cabs easily available: Ola, Uber, Rapido</li>
-                                                    <li>Wide roads</li>
-                                                    <li>Manageable traffic</li>
-                                                    <li>Market area</li>
-                                                    <li>Enough parking space</li>
-                                                    <li>Delivery App: Blinkit, Zepto, Swiggy Instamart</li>
-                                                    <li>School</li>
-                                                    <li>Mall & Restaurant</li>
-                                                    <li>No water logging on roads</li>
-                                                </ul>
-                                            </span>
-                                        </h6>
-                                        <div class="chart-bar">
-                                            <canvas id="connectivityChart"></canvas>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <h6 class="text-primary text-center hover-tooltip">
-                                            Maintenance Graph
-                                            <span class="tooltip-text">
-                                                <ul>
-                                                    <li>Water supply</li>
-                                                    <li>Power backup available ( Generators / Inverters )</li>
-                                                    <li>Power cuts</li>
-                                                    <li>Garbage collection outside the Society</li>
-                                                    <li>Good hygiene measures, Cleanliness </li>
-                                                    <li>Maintenance charges</li>
-                                                    <li>Painting and waterproofing</li>
-                                                    <li>Elevator maintenance </li>
-                                                    <li>Drainage issue</li>
-                                                    <li>Basement parking has light issues, drainage issue </li>
-                                                    <li>Pesticides sprinkle timely?</li>
-                                                </ul>
-                                            </span>
-                                        </h6>
-                                        <div class="chart-bar">
-                                            <canvas id="maintenanceChart"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <h6 class="text-primary text-center hover-tooltip">
-                                            Construction Graph
-                                            <span class="tooltip-text">
-                                                <ul>
-                                                    <li>Weak walls and pillars.</li>
-                                                    <li>Poor quality plaster and fitting</li>
-                                                    <li>Seepage issues</li>
-                                                    <li>Conjusted buildings</li>
-                                                    <li>Balcony</li>
-                                                    <li>Building strength for Natural Disasters (Earthquakes, Floods)
-                                                    </li>
-                                                    <li>Safety feaures at Entrance and Exit gate</li>
-                                                    <li>Clear Emergency exits, Fire safety features</li>
-                                                </ul>
-                                            </span>
-                                        </h6>
-                                        <div class="chart-bar">
-                                            <canvas id="constructionChart"></canvas>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <h6 class="text-primary text-center hover-tooltip">
-                                            Amenities Graph
-                                            <span class="tooltip-text">
-                                                <ul>
-                                                    <li>Lot of open space</li>
-                                                    <li>Nice park and kids playarea</li>
-                                                    <li>Spacious gym</li>
-                                                    <li>Big lift</li>
-                                                    <li>Clubhouse</li>
-                                                    <li>Functioning pool</li>
-                                                    <li>Well lit & safe at night</li>
-                                                    <li>Swimming pools</li>
-                                                </ul>
-                                            </span>
-                                        </h6>
-                                        <div class="chart-bar">
-                                            <canvas id="amenitiesChart"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <h6 class="text-primary text-center hover-tooltip">
-                                            People Friendliness Graph
-                                            <span class="tooltip-text">
-                                                <ul>
-                                                    <li>Good celebration of festivals</li>
-                                                    <li>Frequent cultural events</li>
-                                                    <li>Understanding and good landlords</li>
-                                                    <li>Educated & decent residents</li>
-                                                    <li>Pets friendly</li>
-                                                    <li>Residents pay maintenence on time</li>
-                                                    <li>Friendly environment</li>
-                                                </ul>
-                                            </span>
-                                        </h6>
-                                        <div class="chart-bar">
-                                            <canvas id="peopleFriendlinessChart"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- <div class="container"> -->
-                                <!-- Second Row: Pie Chart -->
-                                <div class="container">
                                     <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-12 hr__line pt-4">
+                                            <div class="custom-button-container">
+                                                <button class="btn btn-outline-primary btn-sm" onclick="openCardById('constructionCard')">
+                                                    Construction
+                                                </button>
+                                                <button class="btn btn-outline-primary btn-sm" onclick="openRatingCard('construction', 'Construction')">Rate</button>
+                                            </div>
+                                           
+                                            <div class="rating-card" id="constructionCard">
+                                                <ul></ul>
+                                            </div>
+                                            <div class="d-flex justify-content-between">
+                                                <div class="chart-bar" style="width: auto;">
+                                                    <canvas id="constructionChart"></canvas>
+                                                </div>
+                                                <div class="d-flex flex-column">
+                                                    <div class="d-flex justify-content-end align-items-center">
+                                                        <button class="custom-btn btn-success mx-1"
+                                                            onclick="showPositive('constructionCard')">+</button>
+                                                        <span>/</span>
+                                                        <button class="custom-btn btn-danger mx-1"
+                                                            onclick="showNegative('constructionCard')">-</button>
+                                                    </div>
+                                                    <div class="rank-list mt-2" id="rankList-constructionCard">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    
+                                            <!-- Rating Card for Construction -->
+                                            <div id="ratingCardTemplate" style="display: none;">
+                                                <div class="rating-popup" id="{cardId}">
+                                                    <div class="rating-popup-content">
+                                                        <span class="close" onclick="toggleRatingCard('{cardId}')">&times;</span>
+                                                        <h4>Rate {categoryName}</h4>
+                                                        <form id="{categoryId}RatingForm">
+                                                            <!-- Subcategories will be inserted dynamically -->
+                                                        </form>
+                                                        <textarea id="commentBox-{categoryId}" placeholder="Add your comment here..."></textarea>
+                                                        <button class="btn btn-primary" data-category="{categoryId}" onclick="saveRating('{categoryId}')">Save</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12 hr__line pt-4">
+                                            <div class="custom-button-container">
+                                                <button class="btn btn-outline-primary btn-sm"  onclick="openCardById('amenitiesCard')">
+                                                    Amenities
+                                                </button>
+                                                <button class="btn btn-outline-primary btn-sm" onclick="openRatingCard('amenities', 'Amenities')">Rate</button>                            
+                                            </div>
+                                            <div class="rating-card" id="amenitiesCard">
+                                                <ul></ul>
+                                            </div>
+                                            <div class="d-flex justify-content-between">
+                                                <div class="chart-bar" style="width: auto;">
+                                                    <canvas id="amenitiesChart"></canvas>
+                                                </div>
+                                                <div class="d-flex flex-column">
+                                                    <div class="d-flex justify-content-end align-items-center">
+                                                        <button class="custom-btn btn-success mx-1"
+                                                            onclick="showPositive('amenitiesCard')">+</button>
+                                                        <span>/</span>
+                                                        <button class="custom-btn btn-danger mx-1"
+                                                            onclick="showNegative('amenitiesCard')">-</button>
+                                                    </div>
+                                                    <div class="rank-list mt-2" id="rankList-amenitiesCard">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    
+                                            <!-- Rating Card for Amenities -->
+                                            <div id="ratingCardTemplate" style="display: none;">
+                                                <div class="rating-popup" id="{cardId}">
+                                                    <div class="rating-popup-content">
+                                                        <span class="close" onclick="toggleRatingCard('{cardId}')">&times;</span>
+                                                        <h4>Rate {categoryName}</h4>
+                                                        <form id="{categoryId}RatingForm">
+                                                            <!-- Subcategories will be inserted dynamically -->
+                                                        </form>
+                                                        <textarea id="commentBox-{categoryId}" placeholder="Add your comment here..."></textarea>
+                                                        <button class="btn btn-primary" data-category="{categoryId}" onclick="saveRating('{categoryId}')">Save</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12 hr__line pt-4">
+                                            <div class="custom-button-container">
+                                                <button class="btn btn-outline-primary btn-sm"  onclick="openCardById('peopleFriendlinessCard')">
+                                                    People Friendliness
+                                                </button>
+                                                <button class="btn btn-outline-primary btn-sm" onclick="openRatingCard('peopleFriendliness', 'peopleFriendliness')">Rate</button>
+                                            </div>
+                                            <div class="rating-card" id="peopleFriendlinessCard">
+                                                <ul></ul>
+                                            </div>
+                                            <div class="d-flex justify-content-between">
+                                                <div class="chart-bar" style="width: auto;">
+                                                    <canvas id="peopleFriendlinessChart"></canvas>
+                                                </div>
+                                                <div class="d-flex flex-column">
+                                                    <div class="d-flex justify-content-end align-items-center">
+                                                        <button class="custom-btn btn-success mx-1"
+                                                            onclick="showPositive('peopleFriendlinessCard')">+</button>
+                                                        <span>/</span>
+                                                        <button class="custom-btn btn-danger mx-1"
+                                                            onclick="showNegative('peopleFriendlinessCard')">-</button>
+                                                    </div>
+                                                    <div class="rank-list mt-2" id="rankList-peopleFriendlinessCard">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    
+                                            <!-- Rating Card for Amenities -->
+                                            <div id="ratingCardTemplate" style="display: none;">
+                                                <div class="rating-popup" id="{cardId}">
+                                                    <div class="rating-popup-content">
+                                                        <span class="close" onclick="toggleRatingCard('{cardId}')">&times;</span>
+                                                        <h4>Rate {categoryName}</h4>
+                                                        <form id="{categoryId}RatingForm">
+                                                            <!-- Subcategories will be inserted dynamically -->
+                                                        </form>
+                                                        <textarea id="commentBox-{categoryId}" placeholder="Add your comment here..."></textarea>
+                                                        <button class="btn btn-primary" data-category="{categoryId}" onclick="saveRating('{categoryId}')">Save</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <!-- </div> -->
+                                </div>
+                                    
+                                <div class="row" id="overall-report">
+                                    <div class="col d-lg-inline-flex">
                                         <div class="col-lg-8">
                                             <div class="card shadow mb-4">
-                                                <!-- Card Header - Dropdown -->
-                                                <div
-                                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                                    <h4 class="m-0 font-weight-bold text-primary">Overall Rating</h4>
-                                                    <div class="dropdown no-arrow">
-                                                        <a class="dropdown-toggle" href="#" role="button"
-                                                            id="dropdownMenuLink" data-toggle="dropdown"
-                                                            aria-haspopup="true" aria-expanded="false">
-                                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <!-- Card Body -->
                                                 <div class="card-body">
-                                                    <div class="chart-pie">
+                                                    <div class="chart-pie" id="pie-chart-container">
                                                         <canvas id="myPieChart"></canvas>
                                                     </div>
 
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 mb-4">
-
-                                            <!-- Project Card Example -->
+                                        <div class="col-lg-4">
                                             <div class="card shadow mb-4" id="societyCityPanIndiaProgress">
                                                 <div class="card-header py-3">
                                                     <h4 class="m-0 font-weight-bold text-primary">
@@ -578,123 +442,171 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- First Row: Area Chart -->
-                                    <div class="row">
-                                        <div class="col xl-12 lg-12">
-                                            <div class="card shadow mb-8">
-                                                <!-- Card Header - Dropdown -->
-                                                <div
-                                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                                    <h4 class="m-0 font-weight-bold text-primary">Line Chart</h4>
-                                                </div>
-                                                <!-- Card Body -->
-                                                <div class="card-body">
-                                                    <div class="chart-area chart-container">
-                                                        <canvas id="myAreaChart"></canvas>
-                                                    </div>
+                                </div>
+                                <div class="row" id="line-chart">
+                                    <div class="col xl-12 lg-12">
+                                        <div class="card shadow mb-8">
+                                            <div class="card-body">
+                                                <div class="chart-area chart-container" id="line-chart-container">
+                                                    <canvas id="myAreaChart"></canvas>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- </div> -->
+                            </div>
+                            <!-- </div> -->
 
-                                <div class="row">
-                                    <div class="container mt-2">
-                                        <div class="table-reader">
-                                            <table class="table table-striped">
-                                                <thead class="thead-fixed bg-primary">
-                                                    <tr>
-                                                        <th scope="col">Like</th>
-                                                        <th scope="col">Dislike</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="dynamic-table-body">
-                                                    <!-- Dynamic content will be inserted here -->
-                                                </tbody>
-                                            </table>
+                            <div class="row" style="display: none;">
+                                <div class="container mt-2">
+                                    <div class="table-reader">
+                                        <table class="table table-striped">
+                                            <thead class="thead-fixed bg-primary">
+                                                <tr>
+                                                    <th scope="col">Positive(+)</th>
+                                                    <th scope="col">Negative(-)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="dynamic-table-body">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <button class="btn btn-outline-primary chatbot-button" id="openChatbot">
+                            <i class="fas fa-robot"></i> <!-- Font Awesome icon for bot -->
+                        </button>
+                        
+                        <div class="container">
+
+                            <footer>
+                                <section>
+                                    <div id="containerFooter">
+                                        <div id="webFooter">
+                                            <h5>Contact</h5>
+                                            <p>Vaibhav Ahlawat</p>
+                                            <p>sales@machadalo.com</p>
+                                            <p>9910027018</p>
+                                        </div>
+                                        <div id="webFooter">
+                                            <h5>partners </h5>
+                                            <p>Burger</p>
+                                            <p>Shindler</p>
+                                            <p>Asianpaints</p>
+                                            <p>Dulux</p>
+                                        </div>
+                                        <div id="webFooter">
+                                            <h5>Services</h5>
+                                            <p>Painting</p>
+                                            <p>EV</p>
+                                            <p>Elevator</p>
+                                            <p>Solar</p>
+                                        </div>
+                                        <div id="webFooter">
+                                            <h5>Follow_Us</h5>
+                                            <p><i class="fab fa-facebook"></i> Facebook</p>
+                                            <p><i class="fab fa-instagram"></i> Instagram</p>
+                                            <p><i class="fab fa-linkedin"></i> LinkedIn</p>
                                         </div>
                                     </div>
-                                </div>
-
-                            </div>
-                            <!-- End of Main Content -->
-
-                            <!-- Footer -->
-                            <footer class="sticky-footer bg-white">
-                                <div class="container my-auto">
-                                    <div class="copyright text-center my-auto">
-                                        <span>Copyright &copy; Your Website 2024</span>
+                                    <div id="credit">
+                                        <p>Vijaikirti Technologies Pvt Ltd, 91 Springboard, 1st Floor, Plot No. D,107,
+                                            Vyapar Marg, D block, Sector-2, Noida, Uttar Pradesh 201301</p>
                                     </div>
-                                </div>
+                                    <div id="credit"> © VijayKirti Technology </a> &nbsp&nbsp&nbsp | &nbsp&nbsp&nbsp <a
+                                            href="https://www.Machadalo.com/" target="_blank"> Machadalo </a></div>
+
+                                </section>
                             </footer>
-                            <!-- End of Footer -->
-
                         </div>
-                        <!-- End of Content Wrapper -->
+                <a class="scroll-to-top rounded" href="#page-top">
+                    <i class="fas fa-angle-up"></i>
+                </a>
 
-                    </div>
-                    <!-- End of Page Wrapper -->
-
-                    <!-- Scroll to Top Button-->
-                    <a class="scroll-to-top rounded" href="#page-top">
-                        <i class="fas fa-angle-up"></i>
-                    </a>
-
-                    <!-- Logout Modal-->
-                    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">×</span>
-                                    </button>
+                <!-- Logout Modal-->
+                <div class="modal fade" id="compareModal" tabindex="-1" aria-labelledby="compareModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="compareModalLabel">Compare Society</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Modal content goes here -->
+                                <div class="mt-sm-0 ml-0 ml-sm-3 mr-2 search-dropdown">
+                                    <div id="compareSocietySelector"></div>
+                                    <label class="text-right text-primary">Select Society</label>
                                 </div>
-                                <div class="modal-body">Select "Logout" below if you are ready to end your current
-                                    session.</div>
-                                <div class="modal-footer">
-                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                    <a class="btn btn-primary" href="login.html">Logout</a>
+                                <div id="selectedSocietyForCompare">
                                 </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                    onclick="onSubmitCompareSociety()">Submit</button>
                             </div>
                         </div>
                     </div>
-                    <script>
-                        document.getElementById('openChatbot').addEventListener('click', function() {
-                            window.location.href = 'Chat.html';
+                </div>
+                <script>
+                    document.getElementById('openChatbot').addEventListener('click', function() {
+                        window.location.href = 'Chat.html';
+                    });
+                </script>
+                <script>
+                    document.getElementById('openChatbot').addEventListener('click', function() {
+                        window.location.href = 'Chat.html';
+                    });
+                </script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+                <script src="vendor/jquery/jquery.min.js"></script>
+                <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+                <script src="js/Machadalo.min.js"></script>
+                <script src="vendor/chart.js/Chart.min.js"></script>
+                <script src="js/demo/chart-area-demo.js"></script>
+                <script src="js/demo/chart-pie-demo.js"></script>
+                <script src="js/demo/chart-bar-demo.js"></script>
+                <script src="js/dropdown.js"></script>
+                <script src="js/demo/AllScript.js"></script>
+                <script src="js/Points.js"></script>
+                <script src="./js/compareModal.js"></script>
+
+                <script>
+                    document.getElementById('downloadButton').addEventListener('click', function () {
+                        html2canvas(document.body).then(function (canvas) {
+                            var link = document.createElement('a');
+                            link.href = canvas.toDataURL('image/png');
+                            link.download = [`${selectedSociety}_${selectedCity}_Pan India_report`];
+                            link.click();
                         });
-                    </script>
-                    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
-    
-                    <script src="vendor/jquery/jquery.min.js"></script>
-                    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-                    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-                    <script src="js/Machadalo.min.js"></script>
-                    <script src="vendor/chart.js/Chart.min.js"></script>
-                    <script src="js/demo/chart-area-demo.js"></script>
-                    <script src="js/demo/chart-pie-demo.js"></script>
-                    <script src="js/demo/chart-bar-demo.js"></script>
-                    <script src="js/dropdown.js"></script>
-                    <script src="js/demo/AllScript.js"></script>
-                    <script src="js/Points.js"></script>
-                    <script src="./js/compareModal.js"></script>
-    
-                    <script>
-                        document.getElementById('downloadButton').addEventListener('click', function () {
-                            html2canvas(document.body).then(function (canvas) {
-                                var link = document.createElement('a');
-                                link.href = canvas.toDataURL('image/png');
-                                link.download = [`${selectedSociety}_${selectedCity}_Pan India_report`];
-                                link.click();
-                            });
+                    });
+                </script>
+                <script>
+                    // Custom script to handle dropdown functionality
+                    $(document).ready(function () {
+                        // Ensure the dropdown works correctly
+                        $('.dropdown-toggle').on('click', function () {
+                            $(this).next('.dropdown-menu').toggleClass('show');
                         });
-                    </script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    </body>
-    
-    </html>
+                
+                        // Optional: Close dropdown when clicking outside
+                        $(document).click(function (event) {
+                            if (!$(event.target).closest('.dropdown-toggle').length) {
+                                $('.dropdown-menu').removeClass('show');
+                            }
+                        });
+                    });
+                </script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</body>
+
+</html>

@@ -206,17 +206,11 @@
                                                 <button class="btn btn-outline-primary btn-sm" onclick="openCardById('connectivityCard')">
                                                     Connectivity
                                                 </button>
-                                                <button class="btn btn-outline-primary btn-sm" onclick="toggleRatingCard('connectivityRatingPopup')">Rate</button>
+                                                <button class="btn btn-outline-primary btn-sm" onclick="openRatingCard('connectivity', 'Connectivity')">Rate</button>
                                             </div> 
                                         
                                             <!-- Rating Card -->
                                             <div class="rating-card" id="connectivityCard">
-                                                <!-- Removed the positive/negative rating buttons -->
-                                                <!-- <div class="d-flex justify-content-end align-items-center">
-                                                    <button class="custom-btn btn-success mx-1" onclick="showRatingInsideCard('connectivityCard','positive')">+</button>
-                                                    <span>/</span>
-                                                    <button class="custom-btn btn-danger mx-1" onclick="showRatingInsideCard('connectivityCard','negative')">-</button>
-                                                </div> -->
                                                 <ul></ul>
                                             </div>
                                         
@@ -235,41 +229,28 @@
                                                     <div class="rank-list mt-2" id="rankList-connectivityCard"></div>
                                                 </div>
                                             </div>
-                                        
-                                            <!-- Rating Popup -->
-                                            <div class="rating-popup" id="connectivityRatingPopup">
-                                                <div class="rating-popup-content">
-                                                    <span class="close" onclick="toggleRatingCard('connectivityRatingPopup')">&times;</span>
-                                                    <h4>Rate Connectivity</h4>
-                                                    <div class="rating-numbers">
-                                                        <button class="rating-btn" data-category="connectivity" data-score="1">1</button>
-                                                        <button class="rating-btn" data-category="connectivity" data-score="2">2</button>
-                                                        <button class="rating-btn" data-category="connectivity" data-score="3">3</button>
-                                                        <button class="rating-btn" data-category="connectivity" data-score="4">4</button>
-                                                        <button class="rating-btn" data-category="connectivity" data-score="5">5</button>
+                                            <div id="ratingCardTemplate" style="display: none;">
+                                                <div class="rating-popup" id="{cardId}">
+                                                    <div class="rating-popup-content">
+                                                        <span class="close" onclick="toggleRatingCard('{cardId}')">&times;</span>
+                                                        <h4>Rate {categoryName}</h4>
+                                                        <form id="{categoryId}RatingForm">
+                                                            <!-- Subcategories will be inserted dynamically -->
+                                                        </form>
+                                                        <textarea id="commentBox-{categoryId}" placeholder="Add your comment here..."></textarea>
+                                                        <button class="btn btn-primary" data-category="{categoryId}" onclick="saveRating('{categoryId}')">Save</button>
                                                     </div>
-                                                    <textarea id="commentBox-connectivity" placeholder="Add your comment here..."></textarea>
-                                                    <button class="btn btn-primary" data-category="connectivity" onclick="saveRating('connectivity')">Save</button>
                                                 </div>
                                             </div>
-                                        </div>
-                                        
-                                    
+                                        </div>    
                                         <div class="col-lg-6 col-md-6 col-sm-12 hr__line pt-4">
                                             <div class="custom-button-container">
                                                 <button class="btn btn-outline-primary btn-sm" onclick="openCardById('maintenanceCard')">
                                                     Maintenance
                                                 </button>
-                                                <button class="btn btn-outline-primary btn-sm"  onclick="toggleRatingCard('maintenanceRatingPopup')">Rate</button>
+                                                <button class="btn btn-outline-primary btn-sm" onclick="openRatingCard('maintenance', 'Maintenance')">Rate</button>
                                             </div>
                                             <div class="rating-card" id="maintenanceCard">
-                                                <!-- <div class="d-flex justify-content-end align-items-center">
-                                                    <button class="custom-btn btn-success mx-1"
-                                                        onclick="showRatingInsideCard('maintenanceCard','positive')">+</button>
-                                                    <span>/</span>
-                                                    <button class="custom-btn btn-danger mx-1"
-                                                        onclick="showRatingInsideCard('maintenanceCard','negative')">-</button>
-                                                </div> -->
                                                 <ul></ul>
                                             </div>
                                             <div class="d-flex justify-content-between">
@@ -290,41 +271,31 @@
                                             </div>
                                     
                                             <!-- Rating Card for Maintenance -->
-                                            <div class="rating-popup" id="maintenanceRatingPopup">
-                                                <div class="rating-popup-content">
-                                                    <span class="close" onclick="toggleRatingCard('maintenanceRatingPopup')">&times;</span>
-                                                    <h4>Rate Maintenance</h4>
-                                                    <div class="rating-numbers">
-                                                        <button class="rating-btn" onclick="rate('maintenance', 1)">1</button>
-                                                        <button class="rating-btn" onclick="rate('maintenance', 2)">2</button>
-                                                        <button class="rating-btn" onclick="rate('maintenance', 3)">3</button>
-                                                        <button class="rating-btn" onclick="rate('maintenance', 4)">4</button>
-                                                        <button class="rating-btn" onclick="rate('maintenance', 5)">5</button>
-                                                        </div>
-                                                    <textarea id="commentBox-maintenance" placeholder="Add your comment here..."></textarea>
-                                                    <button class="btn btn-primary" onclick="saveRating('maintenance')">Save</button>
+                                            <div id="ratingCardTemplate" style="display: none;">
+                                                <div class="rating-popup" id="{cardId}">
+                                                    <div class="rating-popup-content">
+                                                        <span class="close" onclick="toggleRatingCard('{cardId}')">&times;</span>
+                                                        <h4>Rate {categoryName}</h4>
+                                                        <form id="{categoryId}RatingForm">
+                                                            <!-- Subcategories will be inserted dynamically -->
+                                                        </form>
+                                                        <textarea id="commentBox-{categoryId}" placeholder="Add your comment here..."></textarea>
+                                                        <button class="btn btn-primary" data-category="{categoryId}" onclick="saveRating('{categoryId}')">Save</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-12 hr__line pt-4">
                                             <div class="custom-button-container">
                                                 <button class="btn btn-outline-primary btn-sm" onclick="openCardById('constructionCard')">
                                                     Construction
                                                 </button>
-                                                <button class="btn btn-outline-primary btn-sm" onclick="toggleRatingCard('constructionRatingPopup')">Rate</button>
+                                                <button class="btn btn-outline-primary btn-sm" onclick="openRatingCard('construction', 'Construction')">Rate</button>
                                             </div>
                                            
                                             <div class="rating-card" id="constructionCard">
-                                                <!-- <div class="d-flex justify-content-end align-items-center">
-                                                    <button class="custom-btn btn-success mx-1"
-                                                        onclick="showRatingInsideCard('constructionCard','positive')">+</button>
-                                                    <span>/</span>
-                                                    <button class="custom-btn btn-danger mx-1"
-                                                        onclick="showRatingInsideCard('constructionCard','negative')">-</button>
-                                                </div> -->
                                                 <ul></ul>
                                             </div>
                                             <div class="d-flex justify-content-between">
@@ -345,39 +316,28 @@
                                             </div>
                                     
                                             <!-- Rating Card for Construction -->
-                                            <div class="rating-popup" id="constructionRatingPopup">
-                                                <div class="rating-popup-content">
-                                                    <span class="close" onclick="toggleRatingCard('constructionRatingPopup')">&times;</span>
-                                                    <h4>Rate Construction</h4>
-                                                    <div class="rating-numbers">
-                                                        <button class="rating-btn" onclick="rate('construction', 1)">1</button>
-                                                        <button class="rating-btn" onclick="rate('construction', 2)">2</button>
-                                                        <button class="rating-btn" onclick="rate('construction', 3)">3</button>
-                                                        <button class="rating-btn" onclick="rate('construction', 4)">4</button>
-                                                        <button class="rating-btn" onclick="rate('construction', 5)">5</button>
+                                            <div id="ratingCardTemplate" style="display: none;">
+                                                <div class="rating-popup" id="{cardId}">
+                                                    <div class="rating-popup-content">
+                                                        <span class="close" onclick="toggleRatingCard('{cardId}')">&times;</span>
+                                                        <h4>Rate {categoryName}</h4>
+                                                        <form id="{categoryId}RatingForm">
+                                                            <!-- Subcategories will be inserted dynamically -->
+                                                        </form>
+                                                        <textarea id="commentBox-{categoryId}" placeholder="Add your comment here..."></textarea>
+                                                        <button class="btn btn-primary" data-category="{categoryId}" onclick="saveRating('{categoryId}')">Save</button>
                                                     </div>
-                                                    <textarea id="commentBox-construction"
-                                                        placeholder="Add your comment here..."></textarea>
-                                                    <button class="btn btn-primary" onclick="saveRating('construction')">Save</button>
                                                 </div>
                                             </div>
                                         </div>
-                                    
                                         <div class="col-lg-6 col-md-6 col-sm-12 hr__line pt-4">
                                             <div class="custom-button-container">
                                                 <button class="btn btn-outline-primary btn-sm"  onclick="openCardById('amenitiesCard')">
                                                     Amenities
                                                 </button>
-                                                <button class="btn btn-outline-primary btn-sm" onclick="toggleRatingCard('amenitiesRatingPopup')">Rate</button>
+                                                <button class="btn btn-outline-primary btn-sm" onclick="openRatingCard('amenities', 'Amenities')">Rate</button>                            
                                             </div>
                                             <div class="rating-card" id="amenitiesCard">
-                                                <!-- <div class="d-flex justify-content-end align-items-center">
-                                                    <button class="custom-btn btn-success mx-1"
-                                                        onclick="showRatingInsideCard('amenitiesCard','positive')">+</button>
-                                                    <span>/</span>
-                                                    <button class="custom-btn btn-danger mx-1"
-                                                        onclick="showRatingInsideCard('amenitiesCard','negative')">-</button>
-                                                </div> -->
                                                 <ul></ul>
                                             </div>
                                             <div class="d-flex justify-content-between">
@@ -398,41 +358,31 @@
                                             </div>
                                     
                                             <!-- Rating Card for Amenities -->
-                                            <div class="rating-popup" id="amenitiesRatingPopup">
-                                                <div class="rating-popup-content">
-                                                    <span class="close" onclick="toggleRatingCard('amenitiesRatingPopup')">&times;</span>
-                                                    <h4>Rate Amenities</h4>
-                                                    <div class="rating-numbers">
-                                                        <button class="rating-btn" onclick="rate('amenities', 1)">1</button>
-                                                        <button class="rating-btn" onclick="rate('amenities', 2)">2</button>
-                                                        <button class="rating-btn" onclick="rate('amenities', 3)">3</button>
-                                                        <button class="rating-btn" onclick="rate('amenities', 4)">4</button>
-                                                        <button class="rating-btn" onclick="rate('amenities', 5)">5</button>
+                                            <div id="ratingCardTemplate" style="display: none;">
+                                                <div class="rating-popup" id="{cardId}">
+                                                    <div class="rating-popup-content">
+                                                        <span class="close" onclick="toggleRatingCard('{cardId}')">&times;</span>
+                                                        <h4>Rate {categoryName}</h4>
+                                                        <form id="{categoryId}RatingForm">
+                                                            <!-- Subcategories will be inserted dynamically -->
+                                                        </form>
+                                                        <textarea id="commentBox-{categoryId}" placeholder="Add your comment here..."></textarea>
+                                                        <button class="btn btn-primary" data-category="{categoryId}" onclick="saveRating('{categoryId}')">Save</button>
                                                     </div>
-                                                    <textarea id="commentBox-amenities"
-                                                        placeholder="Add your comment here..."></textarea>
-                                                    <button class="btn btn-primary" onclick="saveRating('amenities')">Save</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     
-                                    <div class="row">
+                                    <!-- <div class="row"> -->
                                         <div class="col-lg-6 col-md-6 col-sm-12 hr__line pt-4">
                                             <div class="custom-button-container">
-                                                <button class="btn btn-outline-primary btn-sm" onclick="openCardById('peopleFriendlinessCard')">
+                                                <button class="btn btn-outline-primary btn-sm"  onclick="openCardById('peopleFriendlinessCard')">
                                                     People Friendliness
                                                 </button>
-                                                <button class="btn btn-outline-primary btn-sm" onclick="toggleRatingCard('peopleFriendlinessRatingPopup')">Rate</button>
+                                                <button class="btn btn-outline-primary btn-sm" onclick="openRatingCard('peopleFriendliness', 'peopleFriendliness')">Rate</button>
                                             </div>
                                             <div class="rating-card" id="peopleFriendlinessCard">
-                                                <!-- <div class="d-flex justify-content-end align-items-center">
-                                                    <button class="custom-btn btn-success mx-1"
-                                                        onclick="showRatingInsideCard('peopleFriendlinessCard','positive')">+</button>
-                                                    <span>/</span>
-                                                    <button class="custom-btn btn-danger mx-1"
-                                                        onclick="showRatingInsideCard('peopleFriendlinessCard','negative')">-</button>
-                                                </div> -->
                                                 <ul></ul>
                                             </div>
                                             <div class="d-flex justify-content-between">
@@ -452,25 +402,22 @@
                                                 </div>
                                             </div>
                                     
-                                            <!-- Rating Card for People Friendliness -->
-                                            <div class="rating-popup" id="peopleFriendlinessRatingPopup">
-                                                <div class="rating-popup-content">
-                                                    <span class="close" onclick="toggleRatingCard('peopleFriendlinessRatingPopup')">&times;</span>
-                                                    <h4>Rate People Friendliness</h4>
-                                                    <div class="rating-numbers">
-                                                        <button class="rating-btn" onclick="rate('peopleFriendliness', 1)">1</button>
-                                                        <button class="rating-btn" onclick="rate('peopleFriendliness', 2)">2</button>
-                                                        <button class="rating-btn" onclick="rate('peopleFriendliness', 3)">3</button>
-                                                        <button class="rating-btn" onclick="rate('peopleFriendliness', 4)">4</button>
-                                                        <button class="rating-btn" onclick="rate('peopleFriendliness', 5)">5</button>
+                                            <!-- Rating Card for Amenities -->
+                                            <div id="ratingCardTemplate" style="display: none;">
+                                                <div class="rating-popup" id="{cardId}">
+                                                    <div class="rating-popup-content">
+                                                        <span class="close" onclick="toggleRatingCard('{cardId}')">&times;</span>
+                                                        <h4>Rate {categoryName}</h4>
+                                                        <form id="{categoryId}RatingForm">
+                                                            <!-- Subcategories will be inserted dynamically -->
+                                                        </form>
+                                                        <textarea id="commentBox-{categoryId}" placeholder="Add your comment here..."></textarea>
+                                                        <button class="btn btn-primary" data-category="{categoryId}" onclick="saveRating('{categoryId}')">Save</button>
                                                     </div>
-                                                    <textarea id="commentBox-peopleFriendliness"
-                                                        placeholder="Add your comment here..."></textarea>
-                                                    <button class="btn btn-primary" onclick="saveRating('peopleFriendliness')">Save</button>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    <!-- </div> -->
                                 </div>
                                     
                                 <div class="row" id="overall-report">

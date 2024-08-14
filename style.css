@@ -444,3 +444,89 @@ textarea {
   right: 20px;
   z-index: 9999;
 }
+
+/* Rating Card Container */
+.rating-card__ {
+  display: none; /* Hide the card by default */
+  position: fixed; /* Keep the card fixed in place */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust to center the card */
+  z-index: 1050; /* Ensure it sits on top of other content */
+  width: 90%; /* Full width of the viewport minus margins */
+  max-width: 500px; /* Maximum width for better responsiveness */
+  background-color: #fff; /* Background color of the card */
+  border: 1px solid #ddd; /* Border for definition */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px; /* Padding inside the card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  overflow-y: auto; /* Scroll if content overflows */
+}
+
+/* Rating Buttons */
+.rating-buttons__ {
+  display: flex; /* Flexbox for horizontal alignment */
+  gap: 0.5rem; /* Space between buttons */
+  justify-content: center; /* Center the buttons horizontally */
+  margin-bottom: 15px; /* Margin below the buttons */
+}
+
+.rating-buttons__ button {
+  border-radius: 50%; /* Circular buttons */
+  width: 2rem; /* Button width */
+  height: 2rem; /* Button height */
+  font-size: 1rem; /* Font size inside buttons */
+  border: 1px solid #ddd; /* Light border */
+  background-color: #f8f9fa; /* Light background color */
+  color: #333; /* Text color */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+.rating-buttons__ button.active {
+  background-color: #007bff; /* Highlighted button color */
+  color: #fff; /* White text */
+}
+.close-btn___,.close {
+  position: absolute; /* Position relative to the card */
+  top: 3rem; /* Distance from the top */
+  right: 1rem; /* Distance from the right */
+  cursor: pointer; /* Pointer cursor */
+  background: none; /* No background */
+  border: none; /* No border */
+  font-size: 1.5rem; /* Font size for the close icon */
+  color: #000; /* Default text color */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.close-btn___:hover,.close:hover {
+  color: #007bff; /* Color change on hover */
+}
+
+/* Comment Box */
+textarea {
+  width: calc(100% - 20px); /* Full width minus padding */
+  height: 100px; /* Fixed height for the comment box */
+  padding: 10px; /* Padding inside textarea */
+  margin-bottom: 10px; /* Margin below the textarea */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 4px; /* Slightly rounded corners */
+  resize: vertical; /* Allow vertical resizing */
+  font-size: 1rem; /* Font size for the textarea */
+}
+
+/* Save Button */
+.btn-primary {
+  background-color: #007bff; /* Primary button color */
+  border: none; /* No border */
+  color: #fff; /* White text */
+  padding: 10px 20px; /* Padding inside the button */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 1rem; /* Font size */
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
