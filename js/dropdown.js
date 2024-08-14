@@ -136,19 +136,98 @@ function saveComment() {
 //     }
 // }
 
+/// Define subcategories for each category
+const subcategories = {
+    connectivity: ['Public Transport', 'Market', 'Connectivity', 'School', 'Road', 'Restaurant', 'Mall'],
+    maintenance: ['Water Supply', 'Maintenance', 'Hygiene', 'Power Backup', 'Electricity', 'Garbage Collection', 'Painting'],
+    construction: ['Construction Quality', 'Plaster', 'Leakage', 'Balcony'],
+    amenities: ['Gym', 'Security', 'Parking', 'Amenities', 'Club House', 'Garden', 'Play Area'],
+    peopleFriendliness: ['Neighbours', 'Pets Friendly', 'Festivals']
+};
+
+// Function to generate and display a rating card dynamically
+function generateRatingCard(categoryId, categoryName) {
+    const template = document.getElementById('ratingCardTemplate');
+    const clone = template.innerHTML
+        .replace(/{cardId}/g, `${categoryId}RatingPopup`)
+        .replace(/{categoryId}/g, categoryId)
+        .replace(/{categoryName}/g, categoryName);
+
+    const div = document.createElement('div');
+    div.innerHTML = clone;
+    document.body.appendChild(div);
+
+    const form = div.querySelector(`#${categoryId}RatingForm`);
+    const categorySubcategories = subcategories[categoryId] || [];
+
+    // Add subcategory rating buttons to the form
+    categorySubcategories.forEach(subcategory => {
+        const formGroup = document.createElement('div');
+        formGroup.className = 'form-group';
+        const label = document.createElement('label');
+        label.textContent = subcategory + ':';
+        formGroup.appendChild(label);
+
+        const ratingButtons = document.createElement('div');
+        ratingButtons.className = 'rating-buttons__';
+        ratingButtons.dataset.category = subcategory.toLowerCase().replace(/\s+/g, '');
+        
+        for (let i = 1; i <= 5; i++) {
+            const button = document.createElement('button');
+            button.className = 'rating-btn';
+            button.textContent = i;
+            button.dataset.category = subcategory.toLowerCase().replace(/\s+/g, '');
+            button.dataset.score = i;
+            button.onclick = () => rate(subcategory.toLowerCase().replace(/\s+/g, ''), i);
+            ratingButtons.appendChild(button);
+        }
+        
+        formGroup.appendChild(ratingButtons);
+        form.appendChild(formGroup);
+    });
+}
+
+// Function to handle the rating action
+function rate(subcategory, score) {
+    console.log(`Rated ${subcategory} with ${score}`);
+    // Store the rating for the subcategory
+    // Example: Use localStorage or send to server
+}
+
+// Function to save the rating and comment
+function saveRating(category) {
+    const commentBox = document.getElementById(`commentBox-${category}`);
+    console.log(`Saved rating for ${category}: ${commentBox.value}`);
+    // Store the comment for the category
+    // Example: Use localStorage or send to server
+    toggleRatingCard(`${category}RatingPopup`);
+}
+
+// Function to toggle the visibility of a rating card
 function toggleRatingCard(cardId) {
     const popup = document.getElementById(cardId);
     popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
 }
 
-function rate(category, score) {
-    console.log(`Rated ${category} with ${score}`);
-    // Add your rating logic here
+// Example usage
+function openRatingCard(categoryId, categoryName) {
+    generateRatingCard(categoryId, categoryName);
+    toggleRatingCard(`${categoryId}RatingPopup`);
 }
 
-function saveRating(category) {
-    const commentBox = document.getElementById(`commentBox-${category}`);
-    console.log(`Saved rating for ${category}: ${commentBox.value}`);
-    // Add your save logic here
-    toggleRatingCard(`${category}RatingPopup`);
-}
+// Add event listeners to all rating buttons
+document.querySelectorAll('.rating-btn').forEach(button => {
+    button.addEventListener('click', (event) => {
+        const category = event.target.dataset.category;
+        const score = parseInt(event.target.dataset.score, 10);
+        rate(category, score);
+    });
+});
+
+// Add event listeners to all save buttons
+document.querySelectorAll('.btn-primary').forEach(button => {
+    button.addEventListener('click', (event) => {
+        const category = event.target.dataset.category;
+        saveRating(category);
+    });
+});

@@ -90,9 +90,9 @@ const showRatingInsideCard = (id, type = "positive") => {
     // Determine the keys based on the card ID
     const cardKey = id === 'connectivityCard' ? ['connectivityLikes', 'connectivityDislikes']
         : id === 'constructionCard' ? ['constructionLikes', 'constructionDislikes']
-            : id === 'amenitiesCard' ? ['amenitiesLikes', 'amenitiesDislikes']
-                : id === 'maintenanceCard' ? ['maintenanceLikes', 'maintenanceDislikes']
-                    : id === 'peopleFriendlinessCard' ? ['peopleFriendlinessLikes', 'peopleFriendlinessDislikes'] : '';
+        : id === 'amenitiesCard' ? ['amenitiesLikes', 'amenitiesDislikes']
+        : id === 'maintenanceCard' ? ['maintenanceLikes', 'maintenanceDislikes']
+        : id === 'peopleFriendlinessCard' ? ['peopleFriendlinessLikes', 'peopleFriendlinessDislikes'] : '';
 
     if (!cardKey) return;
 
@@ -100,50 +100,105 @@ const showRatingInsideCard = (id, type = "positive") => {
     const ulElement = selectedCard.querySelector('ul');
     ulElement.innerHTML = '';
 
-    // Determine which array to use based on the type (positive or negative)
-    const indexNo = type === 'positive' ? 0 : 1;
-    const likeDisLikePoints = nlpDataForLikeDislike[cardKey[indexNo]];
+    // Determine which arrays to use based on the type (positive or negative)
+    const positivePoints = nlpDataForLikeDislike[cardKey[0]] || {};
+    const negativePoints = nlpDataForLikeDislike[cardKey[1]] || {};
 
-    if (!likeDisLikePoints) return;
+    // Convert points to arrays and sort them
+    const sortedPositivePoints = Object.entries(positivePoints).sort(([, a], [, b]) => b - a).slice(0, 4);
+    const sortedNegativePoints = Object.entries(negativePoints).sort(([, a], [, b]) => b - a).slice(0, 4);
 
-    // Convert object to array and sort by value
-    const sortedEntries = Object.entries(likeDisLikePoints).sort(([, a], [, b]) => b - a);
+    // Combine the sorted arrays
+    const combinedPoints = [...sortedPositivePoints, ...sortedNegativePoints];
 
-    sortedEntries.forEach(([key, value]) => {
-        const liElement = document.createElement('li');
-        liElement.textContent = `${key}: ${value}`;
-
-        const buttonGroup = document.createElement('div');
-        buttonGroup.classList.add('button-group');
-
-        // Determine icon and color based on type
-        const thumbsUpIcon = type === 'positive' ? 'fas fa-thumbs-up' : 'fas fa-thumbs-up';
-        const thumbsDownIcon = type === 'positive' ? 'fas fa-thumbs-down' : 'fas fa-thumbs-down';
+    combinedPoints.forEach(([key, value], index) => {
+        const pointType = index < sortedPositivePoints.length ? 'positive' : 'negative';
         
-        const thumbsUpColor = type === 'positive' ? 'green' : 'green';
-        const thumbsDownColor = type === 'positive' ? 'red' : 'red';
+        const liElement = document.createElement('li');
+        liElement.textContent = `${key.toUpperCase()}`;
 
-        // Create the thumbs-up button
-        const thumbsUpButton = document.createElement('button');
-        thumbsUpButton.classList.add('toggle-btn');
-        thumbsUpButton.innerHTML = `<i class="${thumbsUpIcon}"></i>`;
-        thumbsUpButton.style.color = thumbsUpColor;
-        thumbsUpButton.onclick = () => toggleColor(thumbsUpButton, thumbsUpColor);
+        // Create agree and disagree buttons
+        const agreeButton = document.createElement('button');
+        agreeButton.textContent = 'Agree';
+        agreeButton.className = 'agree-button';
+        agreeButton.onclick = () => handleButtonClick(key, 'agree', id);
 
-        // Create the thumbs-down button
-        const thumbsDownButton = document.createElement('button');
-        thumbsDownButton.classList.add('toggle-btn');
-        thumbsDownButton.innerHTML = `<i class="${thumbsDownIcon}"></i>`;
-        thumbsDownButton.style.color = thumbsDownColor;
-        thumbsDownButton.onclick = () => toggleColor(thumbsDownButton, thumbsDownColor);
+        const disagreeButton = document.createElement('button');
+        disagreeButton.textContent = 'Disagree';
+        disagreeButton.className = 'disagree-button';
+        disagreeButton.onclick = () => handleButtonClick(key, 'disagree', id);
 
-        buttonGroup.appendChild(thumbsUpButton);
-        buttonGroup.appendChild(thumbsDownButton);
-        liElement.appendChild(buttonGroup);
+        // Container for buttons
+        const buttonContainer = document.createElement('div');
+        buttonContainer.className = 'button-container';
+        buttonContainer.appendChild(agreeButton);
+        buttonContainer.appendChild(disagreeButton);
+
+        // Append button container to the list item
+        liElement.appendChild(buttonContainer);
+
+        // Determine color for gradient effect
+        const hue = pointType === 'positive' ? 115 : 0; // Green for positive, Red for negative
+        const totalItems = combinedPoints.length;
+        const brightness = 20 + (index * 70 / (totalItems - 1));
+
+        liElement.style.backgroundColor = `hsl(${hue}, 100%, ${brightness}%)`;
+
+        // Adjust text color for readability
+        liElement.style.color = 'black';
+        liElement.style.fontSize = '12px';
+        liElement.style.margin = '0';
+        liElement.style.padding = '2px';
+        liElement.style.textTransform = 'uppercase'; 
 
         ulElement.appendChild(liElement);
     });
-};
+}
+
+// Dummy function for button clicks
+const handleButtonClick = (key, action, id) => {
+    console.log(`Button clicked for ${key} with action ${action} on card ${id}`);
+    // Implement actual functionality here
+}
+
+// Add some CSS to style the buttons
+const style = document.createElement('style');
+style.textContent = `
+    .button-container {
+        display: flex;
+        justify-content: flex-end;
+        gap: 5px;
+        margin-top: 5px;
+    }
+    .agree-button {
+        background-color: #4CAF50; /* Green */
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+    .disagree-button {
+        background-color: #f44336; /* Red */
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+    .agree-button:hover, .disagree-button:hover {
+        opacity: 0.8;
+    }
+`;
+document.head.appendChild(style);
+
+
+
+
+
+
+
+
+
+
 
 
 
