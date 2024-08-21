@@ -130,6 +130,22 @@
     .copyright {
         background: #2c2929;
     }
+    .emoji-container {
+            display: flex;
+            justify-content: center; /* Center emojis horizontally */
+            align-items: center; /* Center emojis vertically */
+            gap: 10px; /* Space between emojis */
+        }
+
+        .emoji {
+            font-size: 30px; /* Adjust size as needed */
+            cursor: pointer; /* Optional: change cursor to pointer */
+        }
+
+        .emoji:hover {
+            transform: scale(1.2); /* Optional: slightly enlarge emoji on hover */
+            transition: transform 0.3s;
+        }
     </style>
     
 
@@ -167,6 +183,12 @@
                         <i class="fa fa-bars"></i>
                     </button>
                         <ul class="navbar-nav ml-auto">
+                            <!-- <a class="navbar-brand" href="#">
+                                <img src="img/machadalo.jpg" alt="Logo" style="height: fit-content; width: 100px;">
+                            </a> -->
+                            <li class="nav-item dropdown no-arrow">
+                                <a  class="nav-link dropdown-toggle text-light" href="About.html">About Survey</a>
+                            </li>
                             <div class="topbar-divider d-none d-sm-block"></div>
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
@@ -213,33 +235,43 @@
                         <div class="col-12 col-md-3">
                             <div class="d-flex flex-column flex-md-column align-items-center align-items-md-end">
                                 <div class="d-flex flex-row w-100 mb-2">
-                                    <button class="btn btn-outline-primary flex-fill shadow-sm btn-sm"
+                                    <button class="btn btn-outline-dark flex-fill shadow-sm btn-sm"
                                         onclick="openCampareModal()">Compare Society</button>
                                     <a href="#" id="downloadButton"
-                                        class="btn btn-outline-primary shadow-sm ml-2 flex-fill btn-sm">
+                                        class="btn btn-outline-dark shadow-sm ml-2 flex-fill btn-sm">
                                         <i class="fas fa-download"></i>
                                     </a>
                                 </div>
                             </div>
                         </div>
                        </div>
-                        
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <div class="col">
+                        <div class="emoji-container mb-2">
+                            <span class="emoji" onclick="updateEmoji(1)">😞</span>
+                            <span class="emoji" onclick="updateEmoji(2)">😟</span>
+                            <span class="emoji" onclick="updateEmoji(3)">😐</span>
+                            <span class="emoji" onclick="updateEmoji(4)">😊</span>
+                            <span class="emoji" onclick="updateEmoji(5)">😁</span>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="container">
                         <div class="row text-center">
                           <div class="col-md-3 col-6 mb-2">
-                            <button class="btn btn-outline-secondary w-100">All Chart</button>
+                            <button class="btn btn-outline-dark w-100">All Chart</button>
                           </div>
                           <div class="col-md-3 col-6 mb-2">
-                            <button class="btn btn-outline-secondary w-100">Benchmarking</button>
+                            <button class="btn btn-outline-dark w-100">Benchmarking</button>
                           </div>
                           <div class="col-md-3 col-6 mb-2">
-                            <button class="btn btn-outline-secondary w-100">Line Chart</button>
+                            <button class="btn btn-outline-dark w-100">Line Chart</button>
                           </div>
                           <div class="col-md-3 col-6 mb-2">
-                            <button class="btn btn-outline-secondary w-100">Overall Report</button>
+                            <button class="btn btn-outline-dark w-100">Overall Report</button>
                           </div>
                         </div>
                       </div>
