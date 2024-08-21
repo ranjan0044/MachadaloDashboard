@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Machadalo - Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="Footer.css"> -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link href="css/Machadalo.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    #containerFooter {
+        text-align: center;
+        width: 100%;
+        background-color: #fff;
+        color: #0000ff;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        text-transform: uppercase;
+        font-size: 12px;
+        padding: 5px 200px;
+        box-sizing: border-box;
+    }
+    
+    #containerFooter h5:hover, #containerFooter p:hover {
+        color:  #0ae993;
+        cursor: pointer;
+    }
+    
+    #webFooter {
+        padding-top: 20px;
+        font-size: 12px;
+    }
+    
+    #credit {
+        width: 100%;
+        margin: auto;
+        padding: 10px 0;
+        text-align: center;
+        background-color: #fff;
+        color: #0000ff;
+        font-size: 11px;
+        letter-spacing: 0.6px;
+    }
+    
+    #credit a {
+        color: #0000ff;
+        text-decoration: none;
+        position: relative;
+    }
+    
+    #credit a::after {
+        content: "";
+        background: #0000ff;
+        mix-blend-mode: exclusion;
+        width: calc(100% + 18px);
+        height: 0;
+        position: absolute;
+        bottom: -4px;
+        left: -10px;
+        transition: all 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    }
+    
+    #credit a:hover::after {
+        height: calc(100% + 8px);
+    }
+    
+    /* ----------------------------- MEDIA QUERY --------------------------- */
+    
+    @media(max-width: 1350px) {
+        #containerFooter {
+            padding: 5px 180px;
+        }
+    }
+    
+    @media(max-width: 1166px) {
+        #containerFooter {
+            padding: 10px 80px;
+        }
+    }
+    
+    @media(max-width: 950px) {
+        #containerFooter {
+            padding: 10px 40px;
+        }
+    }
+    
+    @media(max-width: 850px) {
+        #containerFooter {
+            font-size: 12px;
+        }
+    
+        #webFooter {
+            font-size: 10px;
+        }
+    }
+    
+    @media(max-width: 750px) {
+        #containerFooter {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 10px 50px;
+        }
+    
+        #webFooter {
+            padding: 15px 0px;
+        }
+    }
+    
+    @media(max-width: 540px) {
+        #containerFooter {
+            padding: 0 20px;
+        }
+    }
+    
+    .copyright {
+        background: #2c2929;
+    }
+    </style>
+    
+
+<body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">Machadalo</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+            <hr class="sidebar-divider">
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+        </ul>
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <nav class="navbar navbar-expand navbar-info bg-info topbar mb-1 static-top shadow">
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                        <ul class="navbar-nav ml-auto">
+                            <div class="topbar-divider d-none d-sm-block"></div>
+                            <li class="nav-item dropdown no-arrow">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="mr-2 d-none d-lg-inline text-dark small">Admin</span>
+                                    <img class="img-profile rounded-circle" src="img/undraw_profile_1.svg" alt="User Profile">
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                    aria-labelledby="userDropdown">
+                                    <a class="dropdown-item" href="register.html">
+                                        <i class="fas fa-plus fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Create Profile
+                                    </a>
+                                    <a class="dropdown-item" href="update-profile.html">
+                                        <i class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Update Profile
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                  <div class="heading">
+                      <h4 class="text-center font-weight-bold" style="color: black;">Check best Society Rating</h4>
+                  </div> <div class="container">       
+                   <div class="row d-flex justify-content-center align-items-center ___border">
+                        <div class="col-12 col-md-3 mb-3">
+                            <div class="search-dropdown w-100">
+                                <label for="citySelector" class="text-dark label_text">Select City</label>
+                                <div id="citySelector" class="p-2 rounded border border-light shadow-sm w-100"></div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-3 mb-3">
+                            <div class="search-dropdown w-100">
+                                <label for="citySelector" class="text-dark label_text">Select Pincode</label>
+                                <div id="citySelector" class="p-2 rounded border border-light shadow-sm w-100"></div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-3 mb-3">
+                            <label for="societySelector" class="text-dark label_text">Select Society</label>
+                            <div class="search-dropdown w-100">
+                                <div id="societySelector" class="p-2 rounded border border-light shadow-sm w-100"></div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <div class="d-flex flex-column flex-md-column align-items-center align-items-md-end">
+                                <div class="d-flex flex-row w-100 mb-2">
+                                    <button class="btn btn-outline-primary flex-fill shadow-sm btn-sm"
+                                        onclick="openCampareModal()">Compare Society</button>
+                                    <a href="#" id="downloadButton"
+                                        class="btn btn-outline-primary shadow-sm ml-2 flex-fill btn-sm">
+                                        <i class="fas fa-download"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                       </div>
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="container">
+                        <div class="row text-center">
+                          <div class="col-md-3 col-6 mb-2">
+                            <button class="btn btn-outline-secondary w-100">All Chart</button>
+                          </div>
+                          <div class="col-md-3 col-6 mb-2">
+                            <button class="btn btn-outline-secondary w-100">Benchmarking</button>
+                          </div>
+                          <div class="col-md-3 col-6 mb-2">
+                            <button class="btn btn-outline-secondary w-100">Line Chart</button>
+                          </div>
+                          <div class="col-md-3 col-6 mb-2">
+                            <button class="btn btn-outline-secondary w-100">Overall Report</button>
+                          </div>
+                        </div>
+                      </div>
+                      
+                </div>
+                <a class="scroll-to-top rounded" href="#page-top">
+                    <i class="fas fa-angle-up"></i>
+                </a>
+
+                <!-- Logout Modal-->
+                <div class="modal fade" id="compareModal" tabindex="-1" aria-labelledby="compareModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="compareModalLabel">Compare Society</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Modal content goes here -->
+                                <div class="mt-sm-0 ml-0 ml-sm-3 mr-2 search-dropdown">
+                                    <div id="compareSocietySelector"></div>
+                                    <label class="text-right text-dark">Select Society</label>
+                                </div>
+                                <div id="selectedSocietyForCompare">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                    onclick="onSubmitCompareSociety()">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <footer>
+                    <section>
+                        <div id="containerFooter"  class="bg-gradient-info">
+                            <div id="webFooter">
+                                <h5 class="text-white" style="font-size: 14px;">Contact</h5>
+                                <p class="text-white" style="font-size: 10px;">Vaibhav Ahlawat</p>
+                                <p class="text-white" style="font-size: 10px;">sales@machadalo.com</p>
+                                <p class="text-white" style="font-size: 10px;">9910027018</p>
+                            </div>
+                            <div id="webFooter">
+                                <h5 class="text-white" style="font-size: 14px;">Follow_Us</h5>
+                                <p class="text-white" style="font-size: 10px;"><i class="fab fa-facebook"></i> Facebook</p>
+                                <p class="text-white" style="font-size: 10px;"><i class="fab fa-instagram"></i> Instagram</p>
+                                <p class="text-white" style="font-size: 10px;"><i class="fab fa-linkedin"></i> LinkedIn</p>
+                            </div>
+                            <div id="webFooter">
+                                <h5 class="text-white" style="font-size: 14px;">partners </h5>
+                                <p class="text-white" style="font-size: 10px;">Burger</p>
+                                <p class="text-white" style="font-size: 10px;">Shindler</p>
+                                <p class="text-white" style="font-size: 10px;">Asianpaints</p>
+                                <p class="text-white" style="font-size: 10px;">Dulux</p>
+                            </div>
+                            <div id="webFooter">
+                                <h5 class="text-white" style="font-size: 14px;">Services</h5>
+                                <p class="text-white" style="font-size: 10px;">Painting</p>
+                                <p class="text-white" style="font-size: 10px;">EV</p>
+                                <p class="text-white" style="font-size: 10px;">Elevator</p>
+                                <p class="text-white" style="font-size: 10px;">Solar</p>
+                            </div>
+                        </div>
+                        <div id="credit" class="bg-gradient-info">
+                            <p class="text-white">Vijaikirti Technologies Pvt Ltd, 91 Springboard, 1st Floor, Plot No. D,107,
+                                Vyapar Marg, D block, Sector-2, Noida, Uttar Pradesh 201301</p>
+                        </div>
+                        <div id="credit" class="bg-gradient-info text-white"> © VijayKirti Technology </a> &nbsp&nbsp&nbsp | &nbsp&nbsp&nbsp <a class="text-white"
+                                href="https://www.Machadalo.com/" target="_blank"> Machadalo </a></div>
+
+                    </section>
+                </footer>
+                <!-- <script>
+                    document.getElementById('openChatbot').addEventListener('click', function() {
+                        window.location.href = 'Chat.html';
+                    });
+                </script> -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+                <script src="vendor/jquery/jquery.min.js"></script>
+                <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+                <script src="js/Machadalo.min.js"></script>
+                <script src="vendor/chart.js/Chart.min.js"></script>
+                <script src="js/demo/chart-area-demo.js"></script>
+                <script src="js/demo/chart-pie-demo.js"></script>
+                <script src="js/demo/chart-bar-demo.js"></script>
+                <script src="js/dropdown.js"></script>
+                <script src="js/demo/AllScript.js"></script>
+                <script src="js/Points.js"></script>
+                <script src="./js/compareModal.js"></script>
+
+                <script>
+                    document.getElementById('downloadButton').addEventListener('click', function () {
+                        html2canvas(document.body).then(function (canvas) {
+                            var link = document.createElement('a');
+                            link.href = canvas.toDataURL('image/png');
+                            link.download = [`${selectedSociety}_${selectedCity}_Pan India_report`];
+                            link.click();
+                        });
+                    });
+                </script>
+                <script>
+                    // Custom script to handle dropdown functionality
+                    $(document).ready(function () {
+                        // Ensure the dropdown works correctly
+                        $('.dropdown-toggle').on('click', function () {
+                            $(this).next('.dropdown-menu').toggleClass('show');
+                        });
+                
+                        // Optional: Close dropdown when clicking outside
+                        $(document).click(function (event) {
+                            if (!$(event.target).closest('.dropdown-toggle').length) {
+                                $('.dropdown-menu').removeClass('show');
+                            }
+                        });
+                    });
+                </script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</body>
+
+</html>
