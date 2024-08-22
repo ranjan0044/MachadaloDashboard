@@ -51,7 +51,7 @@ Chart.plugins.register({
 
 var commonOptions = {
     maintainAspectRatio: false,
-    responsive: true, 
+    responsive: true,
     layout: {
         padding: {
             left: 10,
@@ -143,6 +143,15 @@ const renderCharts = (meanRatings) => {
             // Update existing chart data
             charts[index].data.datasets[0].data = data;
             charts[index].data.labels = [selectedSociety, selectedCity, "Pan India"];
+            charts[index].options = {
+                ...commonOptions,
+                title: {
+                    display: true,
+                    text: `${selectedSociety}`,
+                    fontSize: 16,
+                    fontColor: '#0000FF',
+                }
+            };
             charts[index].update();
         } else {
             // Create new chart instance
@@ -153,7 +162,7 @@ const renderCharts = (meanRatings) => {
                     datasets: [{
                         label: `${category} Ratings`,
                         data: data,
-                        backgroundColor: ["#0000FF", "#0000FF", "#0000FF","#0000FF"],
+                        backgroundColor: ["#0000FF", "#0000FF", "#0000FF", "#0000FF"],
                         borderColor: ["#36b9cc", "#36b9cc", "#36b9cc", "#36b9cc"],
                         borderWidth: 1
                     }]
