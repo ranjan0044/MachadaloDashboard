@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Survey</title>
+    <link rel="stylesheet" href="CSS/About.css" >
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Footer.css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link href="css/Machadalo.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    .chatbot-button {
+          position: fixed;
+          bottom: 80px;
+          right: 20px;
+          z-index: 9999;
+         }
+</style>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Machadalo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="About.html">About Survey</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Service.html">Service</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div id="survey-details" class="card">
+            <div class="card-body">
+                <h5 class="card-title" id="survey-title">Survey Title</h5>
+                <p class="card-text" id="survey-description">Survey Description</p>
+                <ul id="survey-objectives" class="list-group">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-outline-dark chatbot-button mb-5" id="openChatbot">
+        <i class="fas fa-robot"></i> 
+    </button>
+    <button class="btn btn-outline-dark chatbot-button" id="openChatbot">
+      <li class="list-unstyled" onclick="window.location.href='ok.html'">Check Society</li>
+    </button>
+    <script>
+        document.getElementById('openChatbot').addEventListener('click', function() {
+            window.location.href = 'Chat.html';
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/demo/About.js"></script>
+</body>
+</html>

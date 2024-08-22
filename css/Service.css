@@ -1,0 +1,47 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+}
+
+header {
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+}
+
+h1, h2, h3 {
+    color: #333;
+    font-weight: bold;
+}
+
+.service-card {
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.sample-package {
+    display: block;
+    padding: 20px;
+    background-color: #6e8efb;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.sample-package:hover {
+    background-color: #a777e3;
+}
+
+footer {
+    background-color: #333;
+}
+
+footer p {
+    margin: 0;
+}
