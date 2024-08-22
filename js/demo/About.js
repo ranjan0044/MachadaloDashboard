@@ -11,7 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 objectives: [
                     "Assess user satisfaction with NLI.",
                     "Identify areas for improvement in NLI",
-                    "Can Compare with another Society"
+                    "Can Compare with another Society",
+                    "Can Finds where my society stands",
+                    
 
                 ]
             },

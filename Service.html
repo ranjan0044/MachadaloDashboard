@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Platform-Based Services</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/Service.css">
+    <link rel="stylesheet" href="css/About.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="bg-info">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand ml-4" href="#">Machadalo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="About.html">About Survey</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Service.html">Service</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <section id="services" class="container py-5">
+        <div class="row text-center">
+            <h1 class="mb-5">Our Services</h1>
+            <!-- Service Cards -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card p-4 rounded">
+                    <h5>Painting</h5>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card p-4 rounded">
+                    <h5>Elevator</h5>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card p-4 rounded">
+                    <h5>Security & Housekeeping</h5>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card p-4 rounded">
+                    <h5>Pest Control & Sanitization</h5>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card p-4 rounded">
+                    <h5>Technical Services (Maintenance)</h5>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card p-4 rounded">
+                    <h5>Solar Energy Services</h5>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card p-4 rounded">
+                    <h5>Broadband Society Management Solutions</h5>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card p-4 rounded">
+                    <h5>Premise Permissions (Fresh farm produce, Stalls)</h5>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card p-4 rounded">
+                    <h5>K12 Education</h5>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card p-4 rounded">
+                    <h5>Professional Courses</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="lead-generation" class="bg-light py-5">
+        <div class="container text-center">
+            <h2>B2B Lead Generation & Management</h2>
+            <p>Sectors Covered for Residential Societies, Office, Hotels, Hospitals, Schools, etc:</p>
+            <ul class="list-unstyled">
+                <li>| Repainting  | Waterproofing | Elevator |</li>
+                
+            </ul>
+        </div>
+    </section>
+
+    <section id="sample-distribution" class="container py-5">
+        <div class="row text-center">
+            <h2>Online and Offline Sample Distribution</h2>
+            <p class="lead">Using MCA Channel</p>
+            <div class="col-md-6 mb-4">
+                <a href="#" class="sample-package">FMCG Products</a>
+            </div>
+            <div class="col-md-6 mb-4">
+                <a href="#" class="sample-package">Discount Coupons & Offers</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="survey-feedback" class="bg-light py-5">
+        <div class="container text-center">
+            <h2>Survey & Feedback</h2>
+            <p>Using MCA Channel</p>
+            <ul class="list-unstyled">
+                <div class="row text-center">
+                    <div class="col-md-6 mb-4">
+                        <a href="#" id="b2b-surveys" class="sample-package">B2B surveys</a>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <a href="#" id="b2c-surveys" class="sample-package">B2C surveys</a>
+                        <ul id="b2c-sub-items" class="hidden">
+                            <li>NLI Survey</li>
+                            <li>Housing Survey</li>
+                        </ul>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </section>
+
+    <footer class="text-center py-4 bg-dark text-white">
+        <p>&copy; 2024 Our Platform-Based Services</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/demo/About.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const b2cLink = document.getElementById('b2c-surveys');
+            const b2cSubItems = document.getElementById('b2c-sub-items');
+
+            b2cLink.addEventListener('click', function (event) {
+                event.preventDefault();
+                if (b2cSubItems.classList.contains('hidden')) {
+                    b2cSubItems.classList.remove('hidden');
+                } else {
+                    b2cSubItems.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
