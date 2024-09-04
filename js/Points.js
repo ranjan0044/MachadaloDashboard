@@ -71,7 +71,7 @@ function showPositive(id) {
     rankList.innerHTML = '';
     for (let i = Object.keys(sortedLikes).length - 1; i >= 0; i--) {
         let listItem = document.createElement('li');
-        listItem.textContent = Object.keys(sortedLikes)[i] + "  " + sortedLikes[Object.keys(sortedLikes)[i]];
+        listItem.textContent = Object.keys(sortedLikes)[i];
         let hue = 115;
         let brightness = 30 + (5 - i) * 15; // Adjust values for gradient effect
         listItem.style.backgroundColor = 'hsl(' + hue + ', 100%, ' + brightness + '%)';
