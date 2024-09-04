@@ -128,7 +128,7 @@ function handleSocietyChange(society) {
 
     updateQueryParam('society', society);
     selectedSociety = society;
-    
+
     // Update header with selected society
     let headerElement = document.getElementById('chat-type-header');
     if (headerElement) {
@@ -300,78 +300,106 @@ const rederProgressBar = () => {
 const renderTable = (data) => {
     const tableBody = document.getElementById('dynamic-table-body');
     tableBody.innerHTML = '';
+    const categories = [
+        { likes: 'Connectivity Likes', dislikes: 'Connectivity Dislikes', key: 'connectivity' },
+        { likes: 'Maintenance Likes', dislikes: 'Maintenance Dislikes', key: 'maintenance' },
+        { likes: 'Construction Likes', dislikes: 'Construction Dislikes', key: 'construction' },
+        { likes: 'Amenities Likes', dislikes: 'Amenities Dislikes', key: 'amenities' },
+        { likes: 'People Friendliness Likes', dislikes: 'People Friendliness Dislikes', key: 'peopleFriendliness' },
+    ];
     data?.forEach(item => {
-        const {
-            'Connectivity Likes': connectivityLike, 'Connectivity Dislikes': connectivityDislikes,
-            "Maintenance Likes": maintenanceLikes, "Maintenance Dislikes": maintenanceDislikes,
-            "Construction Likes": constructionLikes, "Construction Dislikes": constructionDislikes,
-            "Amenities Likes": amenitiesLikes, "Amenities Dislikes": amenitiesDislikes,
-            "People Friendliness Likes": peopleFriendlinessLikes, "People Friendliness Dislikes": peopleFriendlinessDislikes,
-        } = item;
-        if (connectivityLike) {
-            connectivityLike.split(',')?.map(like => like?.trim())?.forEach(like => {
-                nlpDataForLikeDislike.connectivityLikes[like] = (nlpDataForLikeDislike.connectivityLikes[like] || 0) + 1;
-            });
-        }
-        if (connectivityDislikes) {
-            connectivityDislikes.split(',').map(dislike => dislike.trim()).forEach(dislike => {
-                nlpDataForLikeDislike.connectivityDislikes[dislike] = (nlpDataForLikeDislike.connectivityDislikes[dislike] || 0) + 1;
-            });
-        }
+        categories.forEach(category => {
+            const { likes, dislikes, key } = category;
 
+            // Handle Likes
+            if (item[likes]) {
+                item[likes].split(',').map(like => like.trim()).forEach(like => {
+                    nlpDataForLikeDislike[`${key}Likes`][like] = (nlpDataForLikeDislike[`${key}Likes`][like] || 0) + 1;
+                });
+            }
 
-        if (maintenanceLikes) {
-            maintenanceLikes.split(',')?.map(like => like?.trim())?.forEach(like => {
-                nlpDataForLikeDislike.maintenanceLikes[like] = (nlpDataForLikeDislike.maintenanceLikes[like] || 0) + 1;
-            });
-        }
-        if (maintenanceDislikes) {
-            maintenanceDislikes.split(',').map(dislike => dislike.trim()).forEach(dislike => {
-                nlpDataForLikeDislike.maintenanceDislikes[dislike] = (nlpDataForLikeDislike.maintenanceDislikes[dislike] || 0) + 1;
-            });
-        }
-
-        if (constructionLikes) {
-            constructionLikes.split(',')?.map(like => like?.trim())?.forEach(like => {
-                nlpDataForLikeDislike.constructionLikes[like] = (nlpDataForLikeDislike.constructionLikes[like] || 0) + 1;
-            });
-        }
-        if (constructionDislikes) {
-            constructionDislikes.split(',').map(dislike => dislike.trim()).forEach(dislike => {
-                nlpDataForLikeDislike.constructionDislikes[dislike] = (nlpDataForLikeDislike.constructionDislikes[dislike] || 0) + 1;
-            });
-        }
-        if (amenitiesLikes) {
-            amenitiesLikes.split(',')?.map(like => like?.trim())?.forEach(like => {
-                nlpDataForLikeDislike.amenitiesLikes[like] = (nlpDataForLikeDislike.amenitiesLikes[like] || 0) + 1;
-            });
-        }
-        if (amenitiesDislikes) {
-            amenitiesDislikes.split(',').map(dislike => dislike.trim()).forEach(dislike => {
-                nlpDataForLikeDislike.amenitiesDislikes[dislike] = (nlpDataForLikeDislike.amenitiesDislikes[dislike] || 0) + 1;
-            });
-        }
-
-        if (peopleFriendlinessLikes) {
-            peopleFriendlinessLikes.split(',')?.map(like => like?.trim())?.forEach(like => {
-                nlpDataForLikeDislike.peopleFriendlinessLikes[like] = (nlpDataForLikeDislike.peopleFriendlinessLikes[like] || 0) + 1;
-            });
-        }
-        if (peopleFriendlinessDislikes) {
-            peopleFriendlinessDislikes.split(',').map(dislike => dislike.trim()).forEach(dislike => {
-                nlpDataForLikeDislike.peopleFriendlinessDislikes[dislike] = (nlpDataForLikeDislike.peopleFriendlinessDislikes[dislike] || 0) + 1;
-            });
-        }
-
-        const row = document.createElement('tr');
-        const likeCell = document.createElement('td');
-        likeCell.textContent = item['Like Detailed Comments'] || '';
-        row.appendChild(likeCell);
-        const dislikeCell = document.createElement('td');
-        dislikeCell.textContent = item['Dislike Detailed Comments'] || '';
-        row.appendChild(dislikeCell);
-        tableBody.appendChild(row);
+            if (item[dislikes]) {
+                item[dislikes].split(',').map(dislike => dislike.trim()).forEach(dislike => {
+                    nlpDataForLikeDislike[`${key}Dislikes`][dislike] = (nlpDataForLikeDislike[`${key}Dislikes`][dislike] || 0) + 1;
+                });
+            }
+            compareAndFilter(nlpDataForLikeDislike[`${key}Likes`], nlpDataForLikeDislike[`${key}Dislikes`]);
+        });
     });
+    
+    // data?.forEach(item => {
+    //     const {
+    //         'Connectivity Likes': connectivityLike, 'Connectivity Dislikes': connectivityDislikes,
+    //         "Maintenance Likes": maintenanceLikes, "Maintenance Dislikes": maintenanceDislikes,
+    //         "Construction Likes": constructionLikes, "Construction Dislikes": constructionDislikes,
+    //         "Amenities Likes": amenitiesLikes, "Amenities Dislikes": amenitiesDislikes,
+    //         "People Friendliness Likes": peopleFriendlinessLikes, "People Friendliness Dislikes": peopleFriendlinessDislikes,
+    //     } = item;
+    //     if (connectivityLike) {
+    //         connectivityLike.split(',')?.map(like => like?.trim())?.forEach(like => {
+    //             nlpDataForLikeDislike.connectivityLikes[like] = (nlpDataForLikeDislike.connectivityLikes[like] || 0) + 1;
+    //         });
+    //     }
+    //     if (connectivityDislikes) {
+    //         connectivityDislikes.split(',').map(dislike => dislike.trim()).forEach(dislike => {
+    //             nlpDataForLikeDislike.connectivityDislikes[dislike] = (nlpDataForLikeDislike.connectivityDislikes[dislike] || 0) + 1;
+    //         });
+    //     }
+
+
+    //     if (maintenanceLikes) {
+    //         maintenanceLikes.split(',')?.map(like => like?.trim())?.forEach(like => {
+    //             nlpDataForLikeDislike.maintenanceLikes[like] = (nlpDataForLikeDislike.maintenanceLikes[like] || 0) + 1;
+    //         });
+    //     }
+    //     if (maintenanceDislikes) {
+    //         maintenanceDislikes.split(',').map(dislike => dislike.trim()).forEach(dislike => {
+    //             nlpDataForLikeDislike.maintenanceDislikes[dislike] = (nlpDataForLikeDislike.maintenanceDislikes[dislike] || 0) + 1;
+    //         });
+    //     }
+
+    //     if (constructionLikes) {
+    //         constructionLikes.split(',')?.map(like => like?.trim())?.forEach(like => {
+    //             nlpDataForLikeDislike.constructionLikes[like] = (nlpDataForLikeDislike.constructionLikes[like] || 0) + 1;
+    //         });
+    //     }
+    //     if (constructionDislikes) {
+    //         constructionDislikes.split(',').map(dislike => dislike.trim()).forEach(dislike => {
+    //             nlpDataForLikeDislike.constructionDislikes[dislike] = (nlpDataForLikeDislike.constructionDislikes[dislike] || 0) + 1;
+    //         });
+    //     }
+    //     if (amenitiesLikes) {
+    //         amenitiesLikes.split(',')?.map(like => like?.trim())?.forEach(like => {
+    //             nlpDataForLikeDislike.amenitiesLikes[like] = (nlpDataForLikeDislike.amenitiesLikes[like] || 0) + 1;
+    //         });
+    //     }
+    //     if (amenitiesDislikes) {
+    //         amenitiesDislikes.split(',').map(dislike => dislike.trim()).forEach(dislike => {
+    //             nlpDataForLikeDislike.amenitiesDislikes[dislike] = (nlpDataForLikeDislike.amenitiesDislikes[dislike] || 0) + 1;
+    //         });
+    //     }
+
+    //     if (peopleFriendlinessLikes) {
+    //         peopleFriendlinessLikes.split(',')?.map(like => like?.trim())?.forEach(like => {
+    //             nlpDataForLikeDislike.peopleFriendlinessLikes[like] = (nlpDataForLikeDislike.peopleFriendlinessLikes[like] || 0) + 1;
+    //         });
+    //     }
+    //     if (peopleFriendlinessDislikes) {
+    //         peopleFriendlinessDislikes.split(',').map(dislike => dislike.trim()).forEach(dislike => {
+    //             nlpDataForLikeDislike.peopleFriendlinessDislikes[dislike] = (nlpDataForLikeDislike.peopleFriendlinessDislikes[dislike] || 0) + 1;
+    //         });
+    //     }
+    // console.log(nlpDataForLikeDislike,"nlpDataForLikeDislike")
+
+    //     const row = document.createElement('tr');
+    //     const likeCell = document.createElement('td');
+    //     likeCell.textContent = item['Like Detailed Comments'] || '';
+    //     row.appendChild(likeCell);
+    //     const dislikeCell = document.createElement('td');
+    //     dislikeCell.textContent = item['Dislike Detailed Comments'] || '';
+    //     row.appendChild(dislikeCell);
+    //     tableBody.appendChild(row);
+    // });
 
     cardIdsOfCharts.map((item) => {
         showPositive(item);
@@ -390,7 +418,7 @@ const handleDropdownItemClick = (event) => {
         } else if (chartContainer && type.id !== target) {
             chartContainer.style.display = 'none';
         } else {
-            if (chartContainer){
+            if (chartContainer) {
                 chartContainer.style.display = 'block';
             }
             let header = document.getElementById('chat-type-header');

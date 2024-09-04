@@ -33,6 +33,25 @@ const openBoxInCard = () => {
         pointsForm.style.display = 'block';
     }
 }
+function compareAndFilter(likes, dislikes) {
+    Object.keys(likes).forEach((key) => {
+        if (dislikes[key] !== undefined) {
+            const difference = likes[key] - dislikes[key];
+
+            if (difference > 0) {
+                likes[key] = difference;
+                delete dislikes[key];
+            } else if (difference < 0) {
+                dislikes[key] = Math.abs(difference);
+                delete likes[key];
+            } else {
+                delete likes[key];
+                delete dislikes[key];
+            }
+        }
+    });
+}
+
 
 function showPositive(id) {
     let cardKey = id === 'connectivityCard' ? 'connectivityLikes' : id === 'constructionCard' ? 'constructionLikes' : id === 'amenitiesCard' ? 'amenitiesLikes' : id === 'maintenanceCard' ? 'maintenanceLikes' : id === 'peopleFriendlinessCard' ? 'peopleFriendlinessLikes' : '';
@@ -52,7 +71,7 @@ function showPositive(id) {
     rankList.innerHTML = '';
     for (let i = Object.keys(sortedLikes).length - 1; i >= 0; i--) {
         let listItem = document.createElement('li');
-        listItem.textContent = Object.keys(sortedLikes)[i];
+        listItem.textContent = Object.keys(sortedLikes)[i] + "  " + sortedLikes[Object.keys(sortedLikes)[i]];
         let hue = 115;
         let brightness = 30 + (5 - i) * 15; // Adjust values for gradient effect
         listItem.style.backgroundColor = 'hsl(' + hue + ', 100%, ' + brightness + '%)';
@@ -90,9 +109,9 @@ const showRatingInsideCard = (id, type = "positive") => {
     // Determine the keys based on the card ID
     const cardKey = id === 'connectivityCard' ? ['connectivityLikes', 'connectivityDislikes']
         : id === 'constructionCard' ? ['constructionLikes', 'constructionDislikes']
-        : id === 'amenitiesCard' ? ['amenitiesLikes', 'amenitiesDislikes']
-        : id === 'maintenanceCard' ? ['maintenanceLikes', 'maintenanceDislikes']
-        : id === 'peopleFriendlinessCard' ? ['peopleFriendlinessLikes', 'peopleFriendlinessDislikes'] : '';
+            : id === 'amenitiesCard' ? ['amenitiesLikes', 'amenitiesDislikes']
+                : id === 'maintenanceCard' ? ['maintenanceLikes', 'maintenanceDislikes']
+                    : id === 'peopleFriendlinessCard' ? ['peopleFriendlinessLikes', 'peopleFriendlinessDislikes'] : '';
 
     if (!cardKey) return;
 
@@ -113,7 +132,7 @@ const showRatingInsideCard = (id, type = "positive") => {
 
     combinedPoints.forEach(([key, value], index) => {
         const pointType = index < sortedPositivePoints.length ? 'positive' : 'negative';
-        
+
         const liElement = document.createElement('li');
         liElement.textContent = `${key.toUpperCase()}`;
 
@@ -149,7 +168,7 @@ const showRatingInsideCard = (id, type = "positive") => {
         liElement.style.fontSize = '12px';
         liElement.style.margin = '0';
         liElement.style.padding = '2px';
-        liElement.style.textTransform = 'uppercase'; 
+        liElement.style.textTransform = 'uppercase';
 
         ulElement.appendChild(liElement);
     });
