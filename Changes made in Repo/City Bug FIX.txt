@@ -1,0 +1,82 @@
+Bug Type Discription :
+1. First select city and society 
+2. go to compare model 
+3. select societs to compare 
+4. check the comparison 
+5 change the city -------> go to compare model you will finds the privious city data does not shows in input still the previous city societies are selected in alert ----> thats the representation error no prob   ---> if we try to compare the data then it compare city wise comparision .....
+
+
+changes made on code are :  
+1. in compare model.js --> Function to Clear Previously Selected Societies
+
+const clearSelectedSocieties = () => {
+    // Clear the compareSocietyValues object.
+    for (const society in compareSocietyValues) {
+        delete compareSocietyValues[society];
+    }
+
+    // Remove society elements from the DOM.
+    const container = document.getElementById('selectedSocietyForCompare');
+    if (container) {
+        container.innerHTML = ''; // This removes all child elements.
+    }
+};
+
+
+2. Handling City Change
+
+function handleCityChange(city) {
+    // Update query parameters and selected city.
+    updateQueryParam('city', city);
+    selectedCity = city;
+    societies = uniqueSocietiesByCity[city];
+
+    // Clear previously selected societies.
+    clearSelectedSocieties();
+
+    // Update UI for selected city.
+    let citySelectorContainer = document.getElementById('citySelectorContainer');
+    if (citySelectorContainer) {
+        citySelectorContainer.textContent = `Selected City: ${city}`;
+    }
+
+    // Clear previous society selector options.
+    let parentElement = document.getElementById("societySelector");
+    while (parentElement.firstChild) {
+        parentElement.removeChild(parentElement.firstChild);
+    }
+
+    // Populate society selector with societies relevant to the new city.
+    const sortedItems = [...societies].sort((a, b) => a.localeCompare(b));
+    createSearchableDropdown('societySelector', 'Search society', sortedItems, function (selectedItem) {
+        handleSocietyChange(selectedItem);
+    });
+}
+
+
+
+
+3. Updated onSubmitCompareSociety
+
+const onSubmitCompareSociety = () => {
+    let currentSocietyValues = {};
+    for (const key in meanRatings) {
+        currentSocietyValues[key] = meanRatings[key].society.toFixed(1) || '';
+    }
+
+    // Ensure that only the currently selected society's data is processed.
+    compareSocietyValues[selectedSociety] = currentSocietyValues;
+
+    // Update the comparison charts and pie charts.
+    compareSocietyCharts(compareSocietyValues);
+    comparePieChartSocieties(compareSocietyValues);
+
+    // Hide rank lists for charts with associated IDs.
+    cardIdsOfCharts?.forEach(id => {
+        hideRankList(id);
+    });
+}
+
+
+
+

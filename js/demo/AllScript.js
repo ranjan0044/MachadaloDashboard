@@ -104,23 +104,64 @@ const filterUniqueSocietiesByCity = () => {
     getDataUsingQueryParams();
 }
 
+// function handleCityChange(city) {
+//     updateQueryParam('city', city);
+//     selectedCity = city
+//     societies = uniqueSocietiesByCity[city];
+//     let citySelectorContainer = document.getElementById('citySelectorContainer');
+//     if (citySelectorContainer) {
+//         citySelectorContainer.textContent = `Selected City: ${city}`;
+//     }
+//     let parentElement = document.getElementById("societySelector");
+//     while (parentElement.firstChild) {
+//         parentElement.removeChild(parentElement.firstChild);
+//     }
+//     const sortedItems = [...societies].sort((a, b) => a.localeCompare(b));
+//     createSearchableDropdown('societySelector', 'Search society', sortedItems, function (selectedItem) {
+//         handleSocietyChange(selectedItem)
+//     });
+// }
 function handleCityChange(city) {
+    // Update query parameters and selected city.
     updateQueryParam('city', city);
-    selectedCity = city
+    selectedCity = city;
     societies = uniqueSocietiesByCity[city];
+
+    // Clear previously selected societies.
+    clearSelectedSocieties();
+
+    // Update UI for selected city.
     let citySelectorContainer = document.getElementById('citySelectorContainer');
     if (citySelectorContainer) {
         citySelectorContainer.textContent = `Selected City: ${city}`;
     }
+
     let parentElement = document.getElementById("societySelector");
     while (parentElement.firstChild) {
         parentElement.removeChild(parentElement.firstChild);
     }
+
+    // Populate society selector with societies relevant to the new city.
     const sortedItems = [...societies].sort((a, b) => a.localeCompare(b));
     createSearchableDropdown('societySelector', 'Search society', sortedItems, function (selectedItem) {
-        handleSocietyChange(selectedItem)
+        handleSocietyChange(selectedItem);
     });
 }
+
+
+const clearSelectedSocieties = () => {
+    // Clear the compareSocietyValues object.
+    for (const society in compareSocietyValues) {
+        delete compareSocietyValues[society];
+    }
+
+    // Remove society elements from the DOM.
+    const container = document.getElementById('selectedSocietyForCompare');
+    if (container) {
+        container.innerHTML = ''; // This removes all child elements.
+    }
+};
+
 
 function handleSocietyChange(society) {
     updateQueryParam('society', society);

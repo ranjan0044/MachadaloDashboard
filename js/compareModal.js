@@ -63,17 +63,24 @@ const handleSelectCompareSociety = (selectedItem, index) => {
 }
 
 const onSubmitCompareSociety = () => {
-    let currentSocietyValues = {}
+    let currentSocietyValues = {};
     for (const key in meanRatings) {
         currentSocietyValues[key] = meanRatings[key].society.toFixed(1) || '';
     }
+
+    // Ensure that only the currently selected society's data is processed.
     compareSocietyValues[selectedSociety] = currentSocietyValues;
+
+    // Update the comparison charts and pie charts.
     compareSocietyCharts(compareSocietyValues);
-    comparePieChartSocieties(compareSocietyValues)
-    cardIdsOfCharts?.forEach(id=>{
-        hideRankList(id)
-    })
+    comparePieChartSocieties(compareSocietyValues);
+
+    // Hide rank lists for charts with associated IDs.
+    cardIdsOfCharts?.forEach(id => {
+        hideRankList(id);
+    });
 }
+
 const addSocietyToDOM = (societyName) => {
     const container = document.getElementById('selectedSocietyForCompare');
     const societyDiv = document.createElement('div');
